@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -5,49 +6,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RailLog Korea 2025 展商資訊</title>
   <style>
+    :root {
+      --primary: #003366;
+      --accent: #007acc;
+      --bg-light: #f8fafc;
+      --bg-white: #ffffff;
+      --text-dark: #1f2937;
+      --border-color: #e2e8f0;
+    }
+
     body {
-      font-family: "Segoe UI", sans-serif;
+      font-family: "Segoe UI", "Noto Sans TC", sans-serif;
+      background: var(--bg-light);
       margin: 0;
       padding: 0;
-      background: #f5f7fa;
-      color: #333;
+      color: var(--text-dark);
     }
+
     header {
-      background: #003366;
+      background: var(--primary);
       color: white;
-      padding: 1.5em;
+      padding: 2rem 1rem;
       text-align: center;
-      font-size: 1.8em;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
+
     main {
-      padding: 2em;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
     }
-    .exhibitor-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    .exhibitor-table th, .exhibitor-table td {
-      border: 1px solid #ddd;
-      padding: 0.75em;
-      text-align: left;
-    }
-    .exhibitor-table th {
-      background: #005288;
-      color: white;
-    }
-    .exhibitor-table tr:nth-child(even) {
-      background: #f1f1f1;
-    }
+
     .image-container {
       text-align: center;
-      margin-bottom: 2em;
+      margin-bottom: 2rem;
     }
+
     .image-container img {
       max-width: 100%;
       height: auto;
-      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .exhibitor-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 10px;
+      background: var(--bg-white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+
+    .exhibitor-table th, .exhibitor-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .exhibitor-table th {
+      background: var(--accent);
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 0.9rem;
+    }
+
+    .exhibitor-table tr:hover {
+      background-color: #e6f7ff;
+      transition: background-color 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .exhibitor-table thead {
+        display: none;
+      }
+      .exhibitor-table, .exhibitor-table tbody, .exhibitor-table tr, .exhibitor-table td {
+        display: block;
+        width: 100%;
+      }
+      .exhibitor-table tr {
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        border-radius: 8px;
+        overflow: hidden;
+        background: white;
+      }
+      .exhibitor-table td {
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid #f0f0f0;
+        position: relative;
+      }
+      .exhibitor-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1rem;
+        top: 0.75rem;
+        font-weight: bold;
+        color: #555;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+      }
     }
   </style>
 </head>
@@ -71,6 +132,7 @@
         </tr>
       </thead>
       <tbody>
+        <!-- JavaScript 動態載入 -->
       </tbody>
     </table>
   </main>
@@ -925,16 +987,17 @@
     "公司規模": "小型"
   }
 ];
+
     const tbody = document.querySelector(".exhibitor-table tbody");
     data.forEach(row => {
       const tr = document.createElement("tr");
       tr.innerHTML = `
-        <td>${row["攤位號"]}</td>
-        <td>${row["公司"]}</td>
-        <td>${row["國家"]}</td>
-        <td>${row["主要產品"]}</td>
-        <td>${row["主要客戶"]}</td>
-        <td>${row["公司規模"]}</td>
+        <td data-label="攤位號">${row["攤位號"]}</td>
+        <td data-label="公司名稱">${row["公司"]}</td>
+        <td data-label="國家">${row["國家"]}</td>
+        <td data-label="主要產品">${row["主要產品"]}</td>
+        <td data-label="主要客戶">${row["主要客戶"]}</td>
+        <td data-label="公司規模">${row["公司規模"]}</td>
       `;
       tbody.appendChild(tr);
     });
