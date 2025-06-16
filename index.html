@@ -3,420 +3,484 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RailLog Korea 2025 - 韓國國際鐵路及物流技術展覽會</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Microsoft JhengHei', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px 0;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-            border-radius: 0 0 20px 20px;
-        }
-        
-        .header h1 {
-            text-align: center;
-            color: #2c3e50;
-            font-size: 28px;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .header p {
-            text-align: center;
-            color: #7f8c8d;
-            font-size: 16px;
-        }
-        
-        .info-card {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
-        }
-        
-        .info-card h2 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
-        }
-        
-        .exhibition-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .booth-section {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
-        }
-        
-        .booth-section h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            text-align: center;
-            font-size: 18px;
-            background: linear-gradient(45deg, #3498db, #2ecc71);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .booth-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 10px;
-        }
-        
-        .booth-item {
-            background: #f8f9fa;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-            padding: 15px 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .booth-item:hover {
-            background: #3498db;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
-        }
-        
-        .booth-item.active {
-            background: #2ecc71;
-            color: white;
-            transform: scale(1.05);
-        }
-        
-        .booth-number {
-            font-weight: bold;
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-        
-        .company-name {
-            font-size: 12px;
-            opacity: 0.8;
-        }
-        
-        .dropdown {
-            display: none;
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 15px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
-            border-left: 4px solid #3498db;
-        }
-        
-        .dropdown.show {
-            display: block;
-            animation: slideDown 0.3s ease;
-        }
-        
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .dropdown h4 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-        
-        .dropdown-content {
-            color: #555;
-            line-height: 1.8;
-        }
-        
-        .contact-info {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
-        }
-        
-        .contact-info strong {
-            color: #2c3e50;
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .search-container {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-        }
-        
-        .search-box {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
-        }
-        
-        .search-box:focus {
-            outline: none;
-            border-color: #3498db;
-            box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
-        }
-        
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 24px;
-            }
-            
-            .booth-list {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .exhibition-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .info-card {
-                padding: 20px 15px;
-            }
-        }
-        
-        .footer {
-            background: rgba(44, 62, 80, 0.9);
-            color: white;
-            text-align: center;
-            padding: 30px 0;
-            margin-top: 50px;
-            border-radius: 20px 20px 0 0;
-        }
-        
-        .highlight {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 5px;
-            padding: 10px;
-            margin: 10px 0;
-        }
-    </style>
+    <title>RailLog Korea 2025 - 互動式展覽攤位地圖</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>🚄 RailLog Korea 2025</h1>
-            <p>第12屆韓國國際鐵路及物流技術展覽會</p>
-            <p>📅 2025年6月18日-21日 | 📍 韓國釜山BEXCO會展中心</p>
-        </header>
+    <div class="app-container">
+        <!-- Hero Section with Exhibition Image -->
+        <section class="hero-section">
+            <div class="hero-background">
+                <img src="RailLogKorea2025.webp.1024.jpg" alt="RailLog Korea 2025 Exhibition" class="hero-image">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title">RailLog Korea 2025</h1>
+                <p class="hero-subtitle">Next-Generation Interactive Exhibition Map</p>
+                <div class="hero-particles"></div>
+            </div>
+        </section>
 
-        <div class="info-card">
-            <h2>📋 展覽會資訊</h2>
-            <div class="highlight">
-                <strong>🎯 展覽主題：</strong>亞洲領先的鐵路與物流技術貿易展<br>
-                <strong>🏢 展覽規模：</strong>17,000平方公尺展出面積<br>
-                <strong>🌏 參展範圍：</strong>來自20多個國家的160多家企業<br>
-                <strong>👥 預期觀眾：</strong>超過20,000名專業觀眾
+        <!-- Navigation Controls -->
+        <div class="control-panel glass-panel">
+            <div class="search-section">
+                <div class="search-container">
+                    <div class="search-input-wrapper">
+                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="21 21l-4.35-4.35"></path>
+                        </svg>
+                        <input type="text" id="searchInput" class="search-input" placeholder="搜尋攤位號或公司名稱...">
+                        <button id="clearSearch" class="clear-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <span class="filter-label">展區篩選</span>
+                <div class="filter-grid">
+                    <button class="filter-chip active" data-zone="all">
+                        <span class="chip-text">全部</span>
+                        <span class="chip-count">106</span>
+                    </button>
+                    <button class="filter-chip" data-zone="A">
+                        <span class="chip-text">A區</span>
+                        <span class="chip-count">4</span>
+                    </button>
+                    <button class="filter-chip" data-zone="B">
+                        <span class="chip-text">B區</span>
+                        <span class="chip-count">12</span>
+                    </button>
+                    <button class="filter-chip" data-zone="C">
+                        <span class="chip-text">C區</span>
+                        <span class="chip-count">23</span>
+                    </button>
+                    <button class="filter-chip" data-zone="D">
+                        <span class="chip-text">D區</span>
+                        <span class="chip-count">27</span>
+                    </button>
+                    <button class="filter-chip" data-zone="E">
+                        <span class="chip-text">E區</span>
+                        <span class="chip-count">20</span>
+                    </button>
+                    <button class="filter-chip" data-zone="F">
+                        <span class="chip-text">F區</span>
+                        <span class="chip-count">15</span>
+                    </button>
+                    <button class="filter-chip" data-zone="G">
+                        <span class="chip-text">G區</span>
+                        <span class="chip-count">9</span>
+                    </button>
+                </div>
             </div>
         </div>
 
-        <div class="search-container">
-            <input type="text" class="search-box" id="searchBox" placeholder="🔍 搜尋展商名稱或展位號碼...">
-        </div>
+        <!-- Main Application Layout -->
+        <div class="app-layout">
+            <!-- Interactive Map Panel -->
+            <div class="map-panel glass-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">
+                        <svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <path d="M21 15l-3.086-3.086a2 2 0 00-2.828 0L6 21"></path>
+                        </svg>
+                        Interactive Exhibition Map
+                    </h2>
+                    <div class="map-stats">
+                        <span class="stat-item">
+                            <span class="stat-number" id="totalBooths">106</span>
+                            <span class="stat-label">總攤位</span>
+                        </span>
+                        <span class="stat-item">
+                            <span class="stat-number" id="visibleBooths">106</span>
+                            <span class="stat-label">可見攤位</span>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <svg id="exhibitionMap" viewBox="0 0 1000 600" class="exhibition-svg">
+                        <!-- 背景定義 -->
+                        <defs>
+                            <pattern id="gridPattern" width="50" height="50" patternUnits="userSpaceOnUse">
+                                <rect width="50" height="50" fill="transparent"/>
+                                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(100, 255, 255, 0.1)" stroke-width="1"/>
+                            </pattern>
+                            <linearGradient id="mapBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:rgba(15, 23, 42, 0.95);stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:rgba(30, 41, 59, 0.95);stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:rgba(51, 65, 85, 0.95);stop-opacity:1" />
+                            </linearGradient>
+                            <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                            <filter id="boothShadow" x="-20%" y="-20%" width="140%" height="140%">
+                                <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="rgba(0, 0, 0, 0.3)"/>
+                            </filter>
+                        </defs>
+                        
+                        <!-- 地圖背景 -->
+                        <rect width="1000" height="600" fill="url(#mapBg)" stroke="rgba(100, 255, 255, 0.3)" stroke-width="2" rx="16"/>
+                        <rect width="1000" height="600" fill="url(#gridPattern)" opacity="0.4"/>
+                        
+                        <!-- Zone A -->
+                        <g class="zone" data-zone="A">
+                            <text x="50" y="35" class="zone-label">A 區域</text>
+                            <rect id="A04" x="20" y="50" width="60" height="40" class="booth" data-booth="A04" filter="url(#boothShadow)" rx="6"/>
+                            <text x="50" y="72" class="booth-label">A04</text>
+                            <rect id="A05" x="90" y="50" width="60" height="40" class="booth" data-booth="A05" filter="url(#boothShadow)" rx="6"/>
+                            <text x="120" y="72" class="booth-label">A05</text>
+                            <rect id="A06" x="160" y="50" width="60" height="40" class="booth" data-booth="A06" filter="url(#boothShadow)" rx="6"/>
+                            <text x="190" y="72" class="booth-label">A06</text>
+                            <rect id="A07" x="230" y="50" width="60" height="40" class="booth" data-booth="A07" filter="url(#boothShadow)" rx="6"/>
+                            <text x="260" y="72" class="booth-label">A07</text>
+                        </g>
 
-        <div class="exhibition-grid" id="exhibitionGrid">
-            <!-- JavaScript will populate this -->
+                        <!-- Zone B -->
+                        <g class="zone" data-zone="B">
+                            <text x="50" y="135" class="zone-label">B 區域</text>
+                            <rect id="B01" x="20" y="150" width="45" height="35" class="booth" data-booth="B01" filter="url(#boothShadow)" rx="4"/>
+                            <text x="42" y="169" class="booth-label">B01</text>
+                            <rect id="B02" x="75" y="150" width="45" height="35" class="booth" data-booth="B02" filter="url(#boothShadow)" rx="4"/>
+                            <text x="97" y="169" class="booth-label">B02</text>
+                            <rect id="B03" x="130" y="150" width="45" height="35" class="booth" data-booth="B03" filter="url(#boothShadow)" rx="4"/>
+                            <text x="152" y="169" class="booth-label">B03</text>
+                            <rect id="B04" x="185" y="150" width="45" height="35" class="booth" data-booth="B04" filter="url(#boothShadow)" rx="4"/>
+                            <text x="207" y="169" class="booth-label">B04</text>
+                            <rect id="B05" x="240" y="150" width="45" height="35" class="booth" data-booth="B05" filter="url(#boothShadow)" rx="4"/>
+                            <text x="262" y="169" class="booth-label">B05</text>
+                            <rect id="B06" x="295" y="150" width="45" height="35" class="booth" data-booth="B06" filter="url(#boothShadow)" rx="4"/>
+                            <text x="317" y="169" class="booth-label">B06</text>
+                            
+                            <rect id="B07" x="20" y="195" width="45" height="35" class="booth" data-booth="B07" filter="url(#boothShadow)" rx="4"/>
+                            <text x="42" y="214" class="booth-label">B07</text>
+                            <rect id="B08" x="75" y="195" width="45" height="35" class="booth" data-booth="B08" filter="url(#boothShadow)" rx="4"/>
+                            <text x="97" y="214" class="booth-label">B08</text>
+                            <rect id="B09" x="130" y="195" width="45" height="35" class="booth" data-booth="B09" filter="url(#boothShadow)" rx="4"/>
+                            <text x="152" y="214" class="booth-label">B09</text>
+                            <rect id="B10" x="185" y="195" width="45" height="35" class="booth" data-booth="B10" filter="url(#boothShadow)" rx="4"/>
+                            <text x="207" y="214" class="booth-label">B10</text>
+                            <rect id="B11" x="240" y="195" width="45" height="35" class="booth" data-booth="B11" filter="url(#boothShadow)" rx="4"/>
+                            <text x="262" y="214" class="booth-label">B11</text>
+                            <rect id="B12" x="295" y="195" width="45" height="35" class="booth" data-booth="B12" filter="url(#boothShadow)" rx="4"/>
+                            <text x="317" y="214" class="booth-label">B12</text>
+                        </g>
+
+                        <!-- Zone C -->
+                        <g class="zone" data-zone="C">
+                            <text x="480" y="35" class="zone-label">C 區域</text>
+                            <!-- Row 1 -->
+                            <rect id="C01" x="380" y="50" width="35" height="30" class="booth" data-booth="C01" filter="url(#boothShadow)" rx="3"/>
+                            <text x="397" y="67" class="booth-label">C01</text>
+                            <rect id="C02" x="420" y="50" width="35" height="30" class="booth" data-booth="C02" filter="url(#boothShadow)" rx="3"/>
+                            <text x="437" y="67" class="booth-label">C02</text>
+                            <rect id="C03" x="460" y="50" width="35" height="30" class="booth" data-booth="C03" filter="url(#boothShadow)" rx="3"/>
+                            <text x="477" y="67" class="booth-label">C03</text>
+                            <rect id="C04" x="500" y="50" width="35" height="30" class="booth" data-booth="C04" filter="url(#boothShadow)" rx="3"/>
+                            <text x="517" y="67" class="booth-label">C04</text>
+                            <rect id="C05" x="540" y="50" width="35" height="30" class="booth" data-booth="C05" filter="url(#boothShadow)" rx="3"/>
+                            <text x="557" y="67" class="booth-label">C05</text>
+                            <rect id="C06" x="580" y="50" width="35" height="30" class="booth" data-booth="C06" filter="url(#boothShadow)" rx="3"/>
+                            <text x="597" y="67" class="booth-label">C06</text>
+                            
+                            <!-- Row 2 -->
+                            <rect id="C07" x="380" y="90" width="35" height="30" class="booth" data-booth="C07" filter="url(#boothShadow)" rx="3"/>
+                            <text x="397" y="107" class="booth-label">C07</text>
+                            <rect id="C08" x="420" y="90" width="35" height="30" class="booth" data-booth="C08" filter="url(#boothShadow)" rx="3"/>
+                            <text x="437" y="107" class="booth-label">C08</text>
+                            <rect id="C09" x="460" y="90" width="35" height="30" class="booth" data-booth="C09" filter="url(#boothShadow)" rx="3"/>
+                            <text x="477" y="107" class="booth-label">C09</text>
+                            <rect id="C10" x="500" y="90" width="35" height="30" class="booth" data-booth="C10" filter="url(#boothShadow)" rx="3"/>
+                            <text x="517" y="107" class="booth-label">C10</text>
+                            <rect id="C11" x="540" y="90" width="35" height="30" class="booth" data-booth="C11" filter="url(#boothShadow)" rx="3"/>
+                            <text x="557" y="107" class="booth-label">C11</text>
+                            <rect id="C12" x="580" y="90" width="35" height="30" class="booth" data-booth="C12" filter="url(#boothShadow)" rx="3"/>
+                            <text x="597" y="107" class="booth-label">C12</text>
+                            
+                            <!-- Row 3 -->
+                            <rect id="C13" x="380" y="130" width="35" height="30" class="booth" data-booth="C13" filter="url(#boothShadow)" rx="3"/>
+                            <text x="397" y="147" class="booth-label">C13</text>
+                            <rect id="C14" x="420" y="130" width="35" height="30" class="booth" data-booth="C14" filter="url(#boothShadow)" rx="3"/>
+                            <text x="437" y="147" class="booth-label">C14</text>
+                            <rect id="C15" x="460" y="130" width="35" height="30" class="booth" data-booth="C15" filter="url(#boothShadow)" rx="3"/>
+                            <text x="477" y="147" class="booth-label">C15</text>
+                            <rect id="C16" x="500" y="130" width="35" height="30" class="booth" data-booth="C16" filter="url(#boothShadow)" rx="3"/>
+                            <text x="517" y="147" class="booth-label">C16</text>
+                            <rect id="C17" x="540" y="130" width="35" height="30" class="booth" data-booth="C17" filter="url(#boothShadow)" rx="3"/>
+                            <text x="557" y="147" class="booth-label">C17</text>
+                            <rect id="C18" x="580" y="130" width="35" height="30" class="booth" data-booth="C18" filter="url(#boothShadow)" rx="3"/>
+                            <text x="597" y="147" class="booth-label">C18</text>
+                            
+                            <!-- Row 4 -->
+                            <rect id="C19" x="380" y="170" width="35" height="30" class="booth" data-booth="C19" filter="url(#boothShadow)" rx="3"/>
+                            <text x="397" y="187" class="booth-label">C19</text>
+                            <rect id="C20" x="420" y="170" width="35" height="30" class="booth" data-booth="C20" filter="url(#boothShadow)" rx="3"/>
+                            <text x="437" y="187" class="booth-label">C20</text>
+                            <rect id="C21" x="460" y="170" width="35" height="30" class="booth" data-booth="C21" filter="url(#boothShadow)" rx="3"/>
+                            <text x="477" y="187" class="booth-label">C21</text>
+                            <rect id="C22" x="500" y="170" width="35" height="30" class="booth" data-booth="C22" filter="url(#boothShadow)" rx="3"/>
+                            <text x="517" y="187" class="booth-label">C22</text>
+                            <rect id="C23" x="540" y="170" width="35" height="30" class="booth" data-booth="C23" filter="url(#boothShadow)" rx="3"/>
+                            <text x="557" y="187" class="booth-label">C23</text>
+                        </g>
+
+                        <!-- Zone D -->
+                        <g class="zone" data-zone="D">
+                            <text x="730" y="35" class="zone-label">D 區域</text>
+                            <!-- Column 1 -->
+                            <rect id="D04" x="650" y="50" width="35" height="30" class="booth" data-booth="D04" filter="url(#boothShadow)" rx="3"/>
+                            <text x="667" y="67" class="booth-label">D04</text>
+                            <rect id="D06" x="650" y="90" width="35" height="30" class="booth" data-booth="D06" filter="url(#boothShadow)" rx="3"/>
+                            <text x="667" y="107" class="booth-label">D06</text>
+                            <rect id="D08" x="650" y="130" width="35" height="30" class="booth" data-booth="D08" filter="url(#boothShadow)" rx="3"/>
+                            <text x="667" y="147" class="booth-label">D08</text>
+                            <rect id="D09" x="650" y="170" width="35" height="30" class="booth" data-booth="D09" filter="url(#boothShadow)" rx="3"/>
+                            <text x="667" y="187" class="booth-label">D09</text>
+                            <rect id="D10" x="650" y="210" width="35" height="30" class="booth" data-booth="D10" filter="url(#boothShadow)" rx="3"/>
+                            <text x="667" y="227" class="booth-label">D10</text>
+                            
+                            <!-- Column 2 -->
+                            <rect id="D11" x="690" y="50" width="35" height="30" class="booth" data-booth="D11" filter="url(#boothShadow)" rx="3"/>
+                            <text x="707" y="67" class="booth-label">D11</text>
+                            <rect id="D12" x="690" y="90" width="35" height="30" class="booth" data-booth="D12" filter="url(#boothShadow)" rx="3"/>
+                            <text x="707" y="107" class="booth-label">D12</text>
+                            <rect id="D13" x="690" y="130" width="35" height="30" class="booth" data-booth="D13" filter="url(#boothShadow)" rx="3"/>
+                            <text x="707" y="147" class="booth-label">D13</text>
+                            <rect id="D14" x="690" y="170" width="35" height="30" class="booth" data-booth="D14" filter="url(#boothShadow)" rx="3"/>
+                            <text x="707" y="187" class="booth-label">D14</text>
+                            <rect id="D15" x="690" y="210" width="35" height="30" class="booth" data-booth="D15" filter="url(#boothShadow)" rx="3"/>
+                            <text x="707" y="227" class="booth-label">D15</text>
+                            
+                            <!-- Column 3 -->
+                            <rect id="D16" x="730" y="50" width="35" height="30" class="booth" data-booth="D16" filter="url(#boothShadow)" rx="3"/>
+                            <text x="747" y="67" class="booth-label">D16</text>
+                            <rect id="D17" x="730" y="90" width="35" height="30" class="booth" data-booth="D17" filter="url(#boothShadow)" rx="3"/>
+                            <text x="747" y="107" class="booth-label">D17</text>
+                            <rect id="D18" x="730" y="130" width="35" height="30" class="booth" data-booth="D18" filter="url(#boothShadow)" rx="3"/>
+                            <text x="747" y="147" class="booth-label">D18</text>
+                            <rect id="D19" x="730" y="170" width="35" height="30" class="booth" data-booth="D19" filter="url(#boothShadow)" rx="3"/>
+                            <text x="747" y="187" class="booth-label">D19</text>
+                            <rect id="D20" x="730" y="210" width="35" height="30" class="booth" data-booth="D20" filter="url(#boothShadow)" rx="3"/>
+                            <text x="747" y="227" class="booth-label">D20</text>
+                            
+                            <!-- Column 4 -->
+                            <rect id="D21" x="770" y="50" width="35" height="30" class="booth" data-booth="D21" filter="url(#boothShadow)" rx="3"/>
+                            <text x="787" y="67" class="booth-label">D21</text>
+                            <rect id="D22" x="770" y="90" width="35" height="30" class="booth" data-booth="D22" filter="url(#boothShadow)" rx="3"/>
+                            <text x="787" y="107" class="booth-label">D22</text>
+                            <rect id="D23" x="770" y="130" width="35" height="30" class="booth" data-booth="D23" filter="url(#boothShadow)" rx="3"/>
+                            <text x="787" y="147" class="booth-label">D23</text>
+                            <rect id="D24" x="770" y="170" width="35" height="30" class="booth" data-booth="D24" filter="url(#boothShadow)" rx="3"/>
+                            <text x="787" y="187" class="booth-label">D24</text>
+                            <rect id="D25" x="770" y="210" width="35" height="30" class="booth" data-booth="D25" filter="url(#boothShadow)" rx="3"/>
+                            <text x="787" y="227" class="booth-label">D25</text>
+                            
+                            <!-- Column 5 -->
+                            <rect id="D26" x="810" y="50" width="35" height="30" class="booth" data-booth="D26" filter="url(#boothShadow)" rx="3"/>
+                            <text x="827" y="67" class="booth-label">D26</text>
+                            <rect id="D27" x="810" y="90" width="35" height="30" class="booth" data-booth="D27" filter="url(#boothShadow)" rx="3"/>
+                            <text x="827" y="107" class="booth-label">D27</text>
+                            <rect id="D28" x="810" y="130" width="35" height="30" class="booth" data-booth="D28" filter="url(#boothShadow)" rx="3"/>
+                            <text x="827" y="147" class="booth-label">D28</text>
+                            <rect id="D29" x="810" y="170" width="35" height="30" class="booth" data-booth="D29" filter="url(#boothShadow)" rx="3"/>
+                            <text x="827" y="187" class="booth-label">D29</text>
+                            <rect id="D30" x="810" y="210" width="35" height="30" class="booth" data-booth="D30" filter="url(#boothShadow)" rx="3"/>
+                            <text x="827" y="227" class="booth-label">D30</text>
+                        </g>
+
+                        <!-- Zone E -->
+                        <g class="zone" data-zone="E">
+                            <text x="150" y="305" class="zone-label">E 區域</text>
+                            <rect id="E04" x="20" y="320" width="40" height="35" class="booth" data-booth="E04" filter="url(#boothShadow)" rx="4"/>
+                            <text x="40" y="339" class="booth-label">E04</text>
+                            <rect id="E05" x="70" y="320" width="40" height="35" class="booth" data-booth="E05" filter="url(#boothShadow)" rx="4"/>
+                            <text x="90" y="339" class="booth-label">E05</text>
+                            <rect id="E08" x="120" y="320" width="40" height="35" class="booth" data-booth="E08" filter="url(#boothShadow)" rx="4"/>
+                            <text x="140" y="339" class="booth-label">E08</text>
+                            <rect id="E09" x="170" y="320" width="40" height="35" class="booth" data-booth="E09" filter="url(#boothShadow)" rx="4"/>
+                            <text x="190" y="339" class="booth-label">E09</text>
+                            <rect id="E10" x="220" y="320" width="40" height="35" class="booth" data-booth="E10" filter="url(#boothShadow)" rx="4"/>
+                            <text x="240" y="339" class="booth-label">E10</text>
+                            
+                            <rect id="E11" x="20" y="365" width="40" height="35" class="booth" data-booth="E11" filter="url(#boothShadow)" rx="4"/>
+                            <text x="40" y="384" class="booth-label">E11</text>
+                            <rect id="E12" x="70" y="365" width="40" height="35" class="booth" data-booth="E12" filter="url(#boothShadow)" rx="4"/>
+                            <text x="90" y="384" class="booth-label">E12</text>
+                            <rect id="E13" x="120" y="365" width="40" height="35" class="booth" data-booth="E13" filter="url(#boothShadow)" rx="4"/>
+                            <text x="140" y="384" class="booth-label">E13</text>
+                            <rect id="E14" x="170" y="365" width="40" height="35" class="booth" data-booth="E14" filter="url(#boothShadow)" rx="4"/>
+                            <text x="190" y="384" class="booth-label">E14</text>
+                            <rect id="E15" x="220" y="365" width="40" height="35" class="booth" data-booth="E15" filter="url(#boothShadow)" rx="4"/>
+                            <text x="240" y="384" class="booth-label">E15</text>
+                            
+                            <rect id="E16" x="20" y="410" width="40" height="35" class="booth" data-booth="E16" filter="url(#boothShadow)" rx="4"/>
+                            <text x="40" y="429" class="booth-label">E16</text>
+                            <rect id="E17" x="70" y="410" width="40" height="35" class="booth" data-booth="E17" filter="url(#boothShadow)" rx="4"/>
+                            <text x="90" y="429" class="booth-label">E17</text>
+                            <rect id="E18" x="120" y="410" width="40" height="35" class="booth" data-booth="E18" filter="url(#boothShadow)" rx="4"/>
+                            <text x="140" y="429" class="booth-label">E18</text>
+                            <rect id="E19" x="170" y="410" width="40" height="35" class="booth" data-booth="E19" filter="url(#boothShadow)" rx="4"/>
+                            <text x="190" y="429" class="booth-label">E19</text>
+                            <rect id="E20" x="220" y="410" width="40" height="35" class="booth" data-booth="E20" filter="url(#boothShadow)" rx="4"/>
+                            <text x="240" y="429" class="booth-label">E20</text>
+                            
+                            <rect id="E21" x="20" y="455" width="40" height="35" class="booth" data-booth="E21" filter="url(#boothShadow)" rx="4"/>
+                            <text x="40" y="474" class="booth-label">E21</text>
+                            <rect id="E22" x="70" y="455" width="40" height="35" class="booth" data-booth="E22" filter="url(#boothShadow)" rx="4"/>
+                            <text x="90" y="474" class="booth-label">E22</text>
+                            <rect id="E23" x="120" y="455" width="40" height="35" class="booth" data-booth="E23" filter="url(#boothShadow)" rx="4"/>
+                            <text x="140" y="474" class="booth-label">E23</text>
+                        </g>
+
+                        <!-- Zone F -->
+                        <g class="zone" data-zone="F">
+                            <text x="460" y="305" class="zone-label">F 區域</text>
+                            <rect id="F01" x="340" y="320" width="40" height="35" class="booth" data-booth="F01" filter="url(#boothShadow)" rx="4"/>
+                            <text x="360" y="339" class="booth-label">F01</text>
+                            <rect id="F02" x="390" y="320" width="40" height="35" class="booth" data-booth="F02" filter="url(#boothShadow)" rx="4"/>
+                            <text x="410" y="339" class="booth-label">F02</text>
+                            <rect id="F03" x="440" y="320" width="40" height="35" class="booth" data-booth="F03" filter="url(#boothShadow)" rx="4"/>
+                            <text x="460" y="339" class="booth-label">F03</text>
+                            <rect id="F04" x="490" y="320" width="40" height="35" class="booth" data-booth="F04" filter="url(#boothShadow)" rx="4"/>
+                            <text x="510" y="339" class="booth-label">F04</text>
+                            <rect id="F05" x="540" y="320" width="40" height="35" class="booth" data-booth="F05" filter="url(#boothShadow)" rx="4"/>
+                            <text x="560" y="339" class="booth-label">F05</text>
+                            
+                            <rect id="F06" x="340" y="365" width="40" height="35" class="booth" data-booth="F06" filter="url(#boothShadow)" rx="4"/>
+                            <text x="360" y="384" class="booth-label">F06</text>
+                            <rect id="F07" x="390" y="365" width="40" height="35" class="booth" data-booth="F07" filter="url(#boothShadow)" rx="4"/>
+                            <text x="410" y="384" class="booth-label">F07</text>
+                            <rect id="F08" x="440" y="365" width="40" height="35" class="booth" data-booth="F08" filter="url(#boothShadow)" rx="4"/>
+                            <text x="460" y="384" class="booth-label">F08</text>
+                            <rect id="F09" x="490" y="365" width="40" height="35" class="booth" data-booth="F09" filter="url(#boothShadow)" rx="4"/>
+                            <text x="510" y="384" class="booth-label">F09</text>
+                            <rect id="F10" x="540" y="365" width="40" height="35" class="booth" data-booth="F10" filter="url(#boothShadow)" rx="4"/>
+                            <text x="560" y="384" class="booth-label">F10</text>
+                            
+                            <rect id="F11" x="340" y="410" width="40" height="35" class="booth" data-booth="F11" filter="url(#boothShadow)" rx="4"/>
+                            <text x="360" y="429" class="booth-label">F11</text>
+                            <rect id="F12" x="390" y="410" width="40" height="35" class="booth" data-booth="F12" filter="url(#boothShadow)" rx="4"/>
+                            <text x="410" y="429" class="booth-label">F12</text>
+                            <rect id="F13" x="440" y="410" width="40" height="35" class="booth" data-booth="F13" filter="url(#boothShadow)" rx="4"/>
+                            <text x="460" y="429" class="booth-label">F13</text>
+                            <rect id="F14" x="490" y="410" width="40" height="35" class="booth" data-booth="F14" filter="url(#boothShadow)" rx="4"/>
+                            <text x="510" y="429" class="booth-label">F14</text>
+                            <rect id="F15" x="540" y="410" width="40" height="35" class="booth" data-booth="F15" filter="url(#boothShadow)" rx="4"/>
+                            <text x="560" y="429" class="booth-label">F15</text>
+                        </g>
+
+                        <!-- Zone G -->
+                        <g class="zone" data-zone="G">
+                            <text x="730" y="305" class="zone-label">G 區域</text>
+                            <rect id="G01" x="650" y="320" width="50" height="40" class="booth" data-booth="G01" filter="url(#boothShadow)" rx="6"/>
+                            <text x="675" y="342" class="booth-label">G01</text>
+                            <rect id="G02" x="710" y="320" width="50" height="40" class="booth" data-booth="G02" filter="url(#boothShadow)" rx="6"/>
+                            <text x="735" y="342" class="booth-label">G02</text>
+                            <rect id="G03" x="770" y="320" width="50" height="40" class="booth" data-booth="G03" filter="url(#boothShadow)" rx="6"/>
+                            <text x="795" y="342" class="booth-label">G03</text>
+                            
+                            <rect id="G04" x="650" y="370" width="50" height="40" class="booth" data-booth="G04" filter="url(#boothShadow)" rx="6"/>
+                            <text x="675" y="392" class="booth-label">G04</text>
+                            <rect id="G05" x="710" y="370" width="50" height="40" class="booth" data-booth="G05" filter="url(#boothShadow)" rx="6"/>
+                            <text x="735" y="392" class="booth-label">G05</text>
+                            <rect id="G06" x="770" y="370" width="50" height="40" class="booth" data-booth="G06" filter="url(#boothShadow)" rx="6"/>
+                            <text x="795" y="392" class="booth-label">G06</text>
+                            
+                            <rect id="G07" x="650" y="420" width="50" height="40" class="booth" data-booth="G07" filter="url(#boothShadow)" rx="6"/>
+                            <text x="675" y="442" class="booth-label">G07</text>
+                            <rect id="G09" x="710" y="420" width="50" height="40" class="booth" data-booth="G09" filter="url(#boothShadow)" rx="6"/>
+                            <text x="735" y="442" class="booth-label">G09</text>
+                            <rect id="G10" x="770" y="420" width="50" height="40" class="booth" data-booth="G10" filter="url(#boothShadow)" rx="6"/>
+                            <text x="795" y="442" class="booth-label">G10</text>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Information Display Panel -->
+            <div class="info-panel glass-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">
+                        <svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        Exhibitor Information
+                    </h2>
+                </div>
+                
+                <div class="panel-content">
+                    <div id="infoContent">
+                        <div class="info-placeholder">
+                            <div class="placeholder-animation">
+                                <div class="animated-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>點擊攤位查看詳細資訊</h3>
+                            <p>選擇地圖上的任意攤位，或使用搜尋功能來探索參展商資訊。</p>
+                            <div class="feature-highlights">
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <path d="21 21l-4.35-4.35"></path>
+                                    </svg>
+                                    <span>智能搜尋</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                        <path d="M21 15l-3.086-3.086a2 2 0 00-2.828 0L6 21"></path>
+                                    </svg>
+                                    <span>區域篩選</span>
+                                </div>
+                                <div class="feature-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M9 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-4m-4 0V9a2 2 0 0 1 4 0v2m-4 0h4"></path>
+                                    </svg>
+                                    <span>即時資訊</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 RailLog Korea. 本網站提供展覽會參展商資訊查詢服務</p>
-            <p>🌐 官方網站: <a href="https://raillog-korea.kr.messefrankfurt.com/busan/en.html" style="color: #3498db;">raillog-korea.kr</a></p>
+    <!-- Search Results Overlay -->
+    <div id="searchResults" class="search-results-overlay">
+        <div class="search-results-content glass-panel">
+            <div class="search-results-header">
+                <h3>搜尋結果</h3>
+                <button id="closeSearchResults" class="close-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div id="searchResultsList" class="search-results-list"></div>
         </div>
-    </footer>
+    </div>
 
-    <script>
-        // Exhibitor data
-        const exhibitors = {
-            'A01': {name: 'Hyundai-Rotem Company', description: '現代樂鐵是韓國領先的鐵路車輛製造商，專業生產高速列車、地鐵車輛和有軌電車。', contact: 'info@hyundai-rotem.co.kr', website: 'www.hyundai-rotem.co.kr'},
-            'B01': {name: 'Mahani Electric Co.,Ltd', description: '專業電氣設備製造商，提供鐵路電氣系統解決方案。', contact: 'info@mahani.com', website: 'www.mahani.com'},
-            'B02': {name: 'DAEWON KANG UP,.CO.', description: '鐵路基礎設施和鋼結構專業製造商。', contact: 'info@daewon.com', website: 'www.daewon.com'},
-            'B03': {name: 'KOBA CO.,Ltd.', description: '鐵路零組件和系統集成服務供應商。', contact: 'info@koba.co.kr', website: 'www.koba.co.kr'},
-            'B04': {name: 'TUV Rheinland Korea Ltd.', description: '德國萊因TÜV認證機構韓國分公司，提供鐵路產品認證服務。', contact: 'info@tuv.com', website: 'www.tuv.com'},
-            'B05': {name: 'KNORR-BREMSE', description: '全球領先的鐵路和商用車輛制動系統製造商。', contact: 'info@knorr-bremse.com', website: 'www.knorr-bremse.com'},
-            'B06': {name: 'STAUBLI', description: '瑞士史陶比爾，專業生產工業連接器和自動化解決方案。', contact: 'info@staubli.com', website: 'www.staubli.com'},
-            'B07': {name: 'CSINTech', description: '鐵路信號和通信技術專業公司。', contact: 'info@csintech.com', website: 'www.csintech.com'},
-            'B08': {name: 'ILME KOREA', description: '意大利ILME韓國分公司，專業電氣連接器製造商。', contact: 'info@ilme.co.kr', website: 'www.ilme.com'},
-            'C01': {name: 'Eastern R&E Co., Ltd.', description: '東方研發公司，專注於鐵路技術研發和工程服務。', contact: 'info@eastern-re.com', website: 'www.eastern-re.com'},
-            'C02': {name: 'Roxtec Korea', description: '瑞典樂仕德韓國分公司，電纜和管道密封解決方案專家。', contact: 'info@roxtec.co.kr', website: 'www.roxtec.com'},
-            'C03': {name: 'JKTECH GLOBAL', description: '全球技術解決方案提供商，專注於鐵路自動化系統。', contact: 'info@jktech.com', website: 'www.jktech.com'},
-            'C04': {name: 'K2 KOREA CO.,LTD', description: 'K2韓國公司，鐵路設備和系統供應商。', contact: 'info@k2korea.com', website: 'www.k2korea.com'},
-            'C05': {name: 'YOUNGIN AT', description: '永仁AT公司，鐵路自動化技術專業廠商。', contact: 'info@youngin-at.com', website: 'www.youngin-at.com'},
-            'C06': {name: 'Hankuk Carbon', description: '韓國碳素公司，專業生產碳纖維材料和複合材料。', contact: 'info@hankuk-carbon.com', website: 'www.hankuk-carbon.com'},
-            'C07': {name: 'SHH Co.,Ltd.', description: 'SHH公司，鐵路系統工程和維護服務提供商。', contact: 'info@shh.co.kr', website: 'www.shh.co.kr'},
-            'C08': {name: 'GAE POONG ELECTRONICS CO., LTD', description: '開豐電子公司，專業電子設備和控制系統製造商。', contact: 'info@gaepoong.com', website: 'www.gaepoong.com'},
-            'C09': {name: 'ASIATECH Co., Ltd.', description: '亞洲技術公司，提供鐵路技術解決方案和諮詢服務。', contact: 'info@asiatech.co.kr', website: 'www.asiatech.co.kr'},
-            'C10': {name: 'KUMSAN M&E Co., LTD', description: '金山機電公司，專業機械和電氣工程服務。', contact: 'info@kumsan.com', website: 'www.kumsan.com'},
-            'C11': {name: 'Sampyo Railway Co., LTD.', description: '三表鐵路公司，鐵路建設和基礎設施專業承包商。', contact: 'info@sampyo.com', website: 'www.sampyo.com'},
-            'C12': {name: 'DAEYANG ELECTRIC CO.,LTD.', description: '大洋電氣公司，電氣設備和電力系統製造商。', contact: 'info@daeyang.com', website: 'www.daeyang.com'},
-            'C13': {name: 'Taemyung Industrial Co.,Ltd', description: '太明工業公司，工業設備和機械製造商。', contact: 'info@taemyung.com', website: 'www.taemyung.com'},
-            'C14': {name: 'Schaltbau', description: '德國夏爾特寶公司，專業電氣開關和連接器製造商。', contact: 'info@schaltbau.com', website: 'www.schaltbau.com'},
-            'C15': {name: 'Cincon', description: '群勝電子，電源轉換器和電源模組專業製造商。', contact: 'info@cincon.com', website: 'www.cincon.com'},
-            'C16': {name: 'RECOM', description: 'RECOM電源公司，DC/DC轉換器和電源模組製造商。', contact: 'info@recom-power.com', website: 'www.recom-power.com'},
-            'C17': {name: 'Moxa', description: '四零四科技Moxa，工業網路和自動化解決方案領導廠商。', contact: 'info@moxa.com', website: 'www.moxa.com'},
-            'D01': {name: 'Vickham Engineering', description: '威克漢工程公司，專業工程諮詢和設計服務。', contact: 'info@vickham.com', website: 'www.vickham.com'},
-            'D02': {name: 'EMCTECH , Inc.', description: 'EMC技術公司，電磁兼容性測試和認證服務。', contact: 'info@emctech.com', website: 'www.emctech.com'},
-            'D03': {name: 'VIBLOCK CO.,LTD', description: 'VIBLOCK公司，振動控制和隔離技術專家。', contact: 'info@viblock.com', website: 'www.viblock.com'},
-            'D04': {name: 'Sejong Geotech CO., LTD.', description: '世宗地質技術公司，地質工程和勘探服務。', contact: 'info@sejong-geo.com', website: 'www.sejong-geo.com'},
-            'D05': {name: 'NAWOO Ltd.', description: '나우공사，建築和工程服務公司。', contact: 'info@nawoo.com', website: 'www.nawoo.com'},
-            'D06': {name: 'Young Joong IND Co.,Ltd', description: '영중산업，工業設備和機械製造。', contact: 'info@youngjoong.com', website: 'www.youngjoong.com'},
-            'D07': {name: 'O-Sung Electric Machinery Co., Ltd.', description: '오성전기기계，電氣機械設備製造商。', contact: 'info@osung.com', website: 'www.osung.com'},
-            'D08': {name: 'Sean Inc', description: 'Sean公司，技術解決方案和工程服務。', contact: 'info@sean.co.kr', website: 'www.sean.co.kr'},
-            'D09': {name: 'ANTS Co., LTD.', description: 'ANTS公司，先進技術和系統集成。', contact: 'info@ants.co.kr', website: 'www.ants.co.kr'},
-            'D10': {name: 'CEL-BIO LUBE', description: 'CEL-BIO潤滑油公司，專業潤滑油和化學品。', contact: 'info@cel-bio.com', website: 'www.cel-bio.com'},
-            'D11': {name: 'Zeecom', description: 'Zeecom通信公司，通信設備和解決方案。', contact: 'info@zeecom.co.kr', website: 'www.zeecom.co.kr'},
-            'D12': {name: 'Korea Railroad Research Institute', description: '韓國鐵道技術研究院，鐵路技術研發和測試機構。', contact: 'info@krri.re.kr', website: 'www.krri.re.kr'},
-            'D13': {name: 'ELTHUS T&L', description: 'ELTHUS運輸物流公司，物流和運輸解決方案。', contact: 'info@elthus.com', website: 'www.elthus.com'},
-            'D14': {name: 'JJ TEC Co. Ltd.', description: 'JJ TEC公司，技術工程和諮詢服務。', contact: 'info@jjtec.co.kr', website: 'www.jjtec.co.kr'},
-            'D15': {name: 'RailLog Korea', description: 'RailLog Korea展覽主辦方展位。', contact: 'info@raillog-korea.com', website: 'www.raillog-korea.com'},
-            'D16': {name: 'YEONMUTECH', description: '연무기술，專業技術服務和工程。', contact: 'info@yeonmu.com', website: 'www.yeonmu.com'},
-            'D17': {name: 'RER - RĪGAS ELEKTROMAŠĪNBŪVES RŪPNĪCA', description: '拉脫維亞里加電氣機械廠，電氣設備製造商。', contact: 'info@rer.lv', website: 'www.rer.lv'},
-            'D18': {name: 'Messe Berlin - Innotrans', description: '柏林國際軌道交通技術展覽會，全球最大的鐵路技術展。', contact: 'info@messe-berlin.com', website: 'www.innotrans.com'},
-            'D19': {name: 'CHUNHO CO., LTD.', description: '천호공사，建設和工程服務公司。', contact: 'info@chunho.co.kr', website: 'www.chunho.co.kr'},
-            'D20': {name: 'Zhejiang Tongshi', description: '浙江同仕公司，中國鐵路設備製造商。', contact: 'info@tongshi.com', website: 'www.tongshi.com'},
-            'D21': {name: 'JST Transformers', description: 'JST變壓器公司，電力變壓器製造商。', contact: 'info@jst-transformers.com', website: 'www.jst-transformers.com'},
-            'D22': {name: 'RAILROAD INDUSTRY', description: '鐵路產業媒體和資訊服務。', contact: 'info@railroad-industry.com', website: 'www.railroad-industry.com'},
-            'E01': {name: 'DNV Business Assurance Korea', description: 'DNV韓國商業保證公司，認證和風險管理服務。', contact: 'info@dnv.co.kr', website: 'www.dnv.com'},
-            'E02': {name: 'TÜV SÜD Korea Ltd.', description: 'TÜV南德韓國公司，技術檢驗和認證服務。', contact: 'info@tuvsud.co.kr', website: 'www.tuvsud.com'},
-            'E03': {name: 'ELECTRONIC&HUMAN TECHNOLOGY', description: '電子人體技術公司，人機介面和控制系統。', contact: 'info@eht.co.kr', website: 'www.eht.co.kr'},
-            'E04': {name: 'PROTECH', description: 'PROTECH公司，保護技術和安全系統。', contact: 'info@protech.co.kr', website: 'www.protech.co.kr'},
-            'E05': {name: 'WAINKOREA.', description: 'WAINKOREA公司，技術貿易和服務。', contact: 'info@wainkorea.com', website: 'www.wainkorea.com'},
-            'E06': {name: 'joongAng Development and Marketing', description: '중앙개발마케팅，開發和市場營銷服務。', contact: 'info@joongang.co.kr', website: 'www.joongang.co.kr'},
-            'E07': {name: 'JKA CORPORATION', description: 'JKA公司，企業解決方案和諮詢服務。', contact: 'info@jka.co.kr', website: 'www.jka.co.kr'},
-            'E08': {name: 'MIRAERO', description: 'MIRAERO航空技術公司，航空和交通技術。', contact: 'info@miraero.com', website: 'www.miraero.com'},
-            'E09': {name: 'KORSIA', description: '韓國鐵道車輛產業協會，行業協會組織。', contact: 'info@korsia.or.kr', website: 'www.korsia.or.kr'},
-            'E10': {name: 'KATEM Co.,Ltd.', description: 'KATEM公司，先進技術和工程管理。', contact: 'info@katem.co.kr', website: 'www.katem.co.kr'},
-            'E11': {name: 'SR', description: 'SR韓國高速鐵道株式會社，高速鐵路營運公司。', contact: 'info@sr.co.kr', website: 'www.sr.co.kr'},
-            'E12': {name: 'Zeleros hyperloop', description: '西班牙Zeleros超級高鐵公司，新一代交通技術。', contact: 'info@zeleros.com', website: 'www.zeleros.com'},
-            'E13': {name: 'CRRC', description: '中國中車，全球最大的軌道交通設備製造商。', contact: 'info@crrcgc.cc', website: 'www.crrcgc.cc'},
-            'E14': {name: 'RailLog Korea', description: 'RailLog Korea展覽服務展位。', contact: 'info@raillog-korea.com', website: 'www.raillog-korea.com'},
-            'E15': {name: 'RailLog Korea', description: 'RailLog Korea資訊服務展位。', contact: 'info@raillog-korea.com', website: 'www.raillog-korea.com'},
-            'E16': {name: 'RailLog Korea', description: 'RailLog Korea媒體服務展位。', contact: 'info@raillog-korea.com', website: 'www.raillog-korea.com'},
-            'E17': {name: 'RailLog Korea', description: 'RailLog Korea合作夥伴展位。', contact: 'info@raillog-korea.com', website: 'www.raillog-korea.com'},
-            'E18': {name: 'Business Bar', description: '商務酒吧，會議和網路交流場所。', contact: 'info@business-bar.com', website: 'www.business-bar.com'},
-            'F01': {name: 'JSCel Ltd.', description: 'JSCel公司，專業技術和製造服務。', contact: 'info@jscel.com', website: 'www.jscel.com'},
-            'F02': {name: 'BROSPOWER Co., Ltd.', description: 'BROSPOWER公司，電力和能源解決方案。', contact: 'info@brospower.com', website: 'www.brospower.com'},
-            'F03': {name: 'LEEKUN INDUSTRIAL SYSTEMS CO., LTD', description: '이건산업시스템，工業系統和自動化。', contact: 'info@leekun.co.kr', website: 'www.leekun.co.kr'},
-            'F04': {name: 'KUM CHUN SYSTEM', description: '금천시스템，系統集成和技術服務。', contact: 'info@kumchun.com', website: 'www.kumchun.com'},
-            'F05': {name: 'DONGIL R&C', description: '동일R&C，研發和諮詢服務公司。', contact: 'info@dongil-rc.com', website: 'www.dongil-rc.com'},
-            'F06': {name: 'DOIT Co., LTD. , Pavemetrics Systems Inc.', description: 'DOIT公司和Pavemetrics系統，道路和軌道檢測技術。', contact: 'info@doit.co.kr', website: 'www.doit.co.kr'},
-            'F07': {name: 'AHWON CORP.CO.,LTD', description: '아원코퍼레이션，企業解決方案和服務。', contact: 'info@ahwon.co.kr', website: 'www.ahwon.co.kr'},
-            'F08': {name: 'VASTEK', description: 'VASTEK公司，先進技術和系統開發。', contact: 'info@vastek.co.kr', website: 'www.vastek.co.kr'},
-            'F09': {name: 'BP Intelligent Mechanics', description: 'BP智能機械公司，智能製造和自動化。', contact: 'info@bp-im.com', website: 'www.bp-im.com'},
-            'F10': {name: 'Suresofttech', description: 'Suresofttech公司，軟體技術和解決方案。', contact: 'info@suresofttech.com', website: 'www.suresofttech.com'},
-            'F11': {name: 'Thomas Co., Ltd.', description: '토마스，專業技術和工程服務。', contact: 'info@thomas.co.kr', website: 'www.thomas.co.kr'},
-            'F12': {name: 'Thomas Co., Ltd.', description: '토마스，技術展示和服務展位。', contact: 'info@thomas.co.kr', website: 'www.thomas.co.kr'},
-            'F13': {name: 'Daesung technology tec', description: '대성기술，技術開發和工程服務。', contact: 'info@daesung-tech.com', website: 'www.daesung-tech.com'},
-            'F14': {name: 'Korea Railroad Research Institute', description: '韓國鐵道技術研究院技術展示區。', contact: 'info@krri.re.kr', website: 'www.krri.re.kr'},
-            'F15': {name: 'IOMTEK Inc.', description: 'IOMTEK公司，物聯網和智能技術。', contact: 'info@iomtek.com', website: 'www.iomtek.com'},
-            'F16': {name: 'Dashin Information&COmmunications Co.,Ltd', description: '다신정보통신，資訊通信技術服務。', contact: 'info@dashin.co.kr', website: 'www.dashin.co.kr'},
-            'F17': {name: 'SOLT Co., Ltd.', description: 'SOLT公司，解決方案和技術服務。', contact: 'info@solt.co.kr', website: 'www.solt.co.kr'},
-            'F18': {name: 'ANEST IWATA KOREA Corporation', description: '阿耐思特岩田韓國公司，壓縮機和塗裝設備。', contact: 'info@anest-iwata.co.kr', website: 'www.anest-iwata.com'},
-            'F19': {name: 'BIZPEER CO., LTD', description: 'BIZPEER公司，商業解決方案和服務。', contact: 'info@bizpeer.co.kr', website: 'www.bizpeer.co.kr'},
-            'F20': {name: 'SR', description: 'SR韓國高速鐵道展示區。', contact: 'info@sr.co.kr', website: 'www.sr.co.kr'},
-            'F21': {name: 'TILC CO.,LTD.', description: 'TILC公司，技術創新和物流解決方案。', contact: 'info@tilc.co.kr', website: 'www.tilc.co.kr'},
-            'G01': {name: 'WOOJIN Industrial Systems Co.,Ltd', description: '우진산업시스템，韓國知名的軌道交通系統製造商。', contact: 'info@woojin.co.kr', website: 'www.woojin.co.kr'},
-            'G02': {name: 'The Korea Railway Association', description: '韓國鐵道協會，鐵路行業組織和服務機構。', contact: 'info@korass.or.kr', website: 'www.korass.or.kr'},
-            'G03': {name: 'YUJIN MACHINERY LTD.', description: '유진기계，機械設備製造和工程服務。', contact: 'info@yujin.co.kr', website: 'www.yujin.co.kr'},
-            'G04': {name: 'Busan Transportation Corporation', description: '釜山交通公社，釜山地鐵營運機構。', contact: 'info@humetro.busan.kr', website: 'www.humetro.busan.kr'},
-            'G05': {name: 'KORAIL', description: '韓國鐵道公社，韓國國家鐵路營運公司。', contact: 'info@korail.com', website: 'www.korail.com'},
-            'G06': {name: 'Korea National Railway', description: '韓國國家鐵道，鐵路基礎設施管理機構。', contact: 'info@kr.or.kr', website: 'www.kr.or.kr'},
-            'G07': {name: 'DAWONSYS', description: '다원시스템，鐵路電氣和控制系統專業製造商。', contact: 'info@dawonsys.com', website: 'www.dawonsys.com'},
-            'H01': {name: 'Open Seminar', description: '開放研討會，技術交流和學術會議場所。', contact: 'info@raillog-korea.com', website: 'www.raillog-korea.com'},
-            'H02': {name: 'Railway News', description: '鐵路新聞媒體中心和資訊服務。', contact: 'info@railway-news.com', website: 'www.railway-news.com'},
-            'H14': {name: 'Cafeteria', description: '餐廳區域，提供餐飲服務。', contact: 'info@bexco.co.kr', website: 'www.bexco.co.kr'},
-            'H15': {name: 'Busan Metropolitan City', description: '釜山廣域市政府展示區。', contact: 'info@busan.go.kr', website: 'www.busan.go.kr'},
-            'H16': {name: 'Job Fair', description: '就業博覽會，人才招聘和就業服務。', contact: 'info@raillog-korea.com', website: 'www.raillog-korea.com'}
-        };
-
-        // Create booth sections
-        function createBoothSections() {
-            const grid = document.getElementById('exhibitionGrid');
-            const sections = {
-                'A區 (主要製造商)': ['A01'],
-                'B區 (電氣設備)': ['B01', 'B02', 'B03', 'B04', 'B05', 'B06', 'B07', 'B08'],
-                'C區 (零組件供應商)': ['C01', 'C02', 'C03', 'C04', 'C05', 'C06', 'C07', 'C08', 'C09', 'C10', 'C11', 'C12', 'C13', 'C14', 'C15', 'C16', 'C17'],
-                'D區 (工程服務)': ['D01', 'D02', 'D03', 'D04', 'D05', 'D06', 'D07', 'D08', 'D09', 'D10', 'D11', 'D12', 'D13', 'D14', 'D15', 'D16', 'D17', 'D18', 'D19', 'D20', 'D21', 'D22'],
-                'E區 (認證與新技術)': ['E01', 'E02', 'E03', 'E04', 'E05', 'E06', 'E07', 'E08', 'E09', 'E10', 'E11', 'E12', 'E13', 'E14', 'E15', 'E16', 'E17', 'E18'],
-                'F區 (系統整合)': ['F01', 'F02', 'F03', 'F04', 'F05', 'F06', 'F07', 'F08', 'F09', 'F10', 'F11', 'F12', 'F13', 'F14', 'F15', 'F16', 'F17', 'F18', 'F19', 'F20', 'F21'],
-                'G區 (政府機構)': ['G01', 'G02', 'G03', 'G04', 'G05', 'G06', 'G07'],
-                'H區 (服務設施)': ['H01', 'H02', 'H14', 'H15', 'H16']
-            };
-
-            Object.entries(sections).forEach(([sectionName, booths]) => {
-                const section = document.createElement('div');
-                section.className = 'booth-section';
-                section.innerHTML = `
-                    <h3>${sectionName}</h3>
-                    <div class="booth-list">
-                        ${booths.map(booth => `
-                            <div class="booth-item" data-booth="${booth}" onclick="toggleDropdown('${booth}')">
-                                <div class="booth-number">${booth}</div>
-                                <div class="company-name">${exhibitors[booth]?.name || '展位資訊'}</div>
-                            </div>
-                        `).join('')}
-                    </div>
-                    <div id="dropdown-${sectionName.charAt(0)}" class="dropdown"></div>
-                `;
-                grid.appendChild(section);
-            });
-        }
-
-        // Toggle dropdown
-        function toggleDropdown(boothNumber) {
-            // Close all other dropdowns
-            document.querySelectorAll('.dropdown').forEach(dropdown => {
-                dropdown.classList.remove('show');
-            });
-            
-            // Remove
+    <script src="app.js"></script>
+</body>
+</html>
