@@ -1,951 +1,184 @@
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raillog Korea 2025 - 參展廠商互動式指南</title>
-    
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- DataTables CSS -->
-    <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary-color: #1a237e;
-            --secondary-color: #3f51b5;
-            --accent-color: #ff6b35;
-            --success-color: #4caf50;
-            --warning-color: #ff9800;
-            --danger-color: #f44336;
-            --info-color: #2196f3;
-            --light-color: #f8f9fa;
-            --dark-color: #212529;
-            --gradient-primary: linear-gradient(135deg, #1a237e 0%, #3f51b5 100%);
-            --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff8a65 100%);
-            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
-            --shadow-lg: 0 8px 24px rgba(0,0,0,0.2);
-        }
-        
-        * {
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Noto Sans TC', 'Microsoft JhengHei', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-md);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.4rem;
-            color: var(--primary-color) !important;
-        }
-        
-        .navbar-brand i {
-            color: var(--accent-color);
-            margin-right: 8px;
-        }
-        
-        .main-content {
-            margin-top: 80px;
-            padding: 2rem 0;
-        }
-        
-        .hero-section {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 4rem 0;
-            margin-bottom: 3rem;
-            border-radius: 0 0 50px 50px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.1)"><polygon points="0,100 1000,0 1000,100"/></svg>');
-            background-size: cover;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-        }
-        
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .hero-subtitle {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-        
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-        
-        .stat-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-secondary);
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .stat-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-label {
-            color: #666;
-            font-weight: 500;
-        }
-        
-        .filter-section {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .filter-title {
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-        
-        .filter-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .filter-group h6 {
-            color: var(--dark-color);
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            font-size: 1rem;
-        }
-        
-        .filter-btn {
-            margin: 0.25rem;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            background: var(--light-color);
-            color: var(--dark-color);
-        }
-        
-        .filter-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .filter-btn.active {
-            background: var(--gradient-primary);
-            color: white;
-            border-color: var(--primary-color);
-        }
-        
-        .table-container {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: var(--shadow-md);
-            margin-bottom: 3rem;
-        }
-        
-        .table-title {
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-        
-        .table {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .table thead th {
-            background: var(--gradient-primary);
-            color: white;
-            font-weight: 600;
-            border: none;
-            padding: 1rem;
-            font-size: 0.9rem;
-        }
-        
-        .table tbody tr {
-            transition: all 0.3s ease;
-        }
-        
-        .table tbody tr:hover {
-            background-color: rgba(63, 81, 181, 0.05);
-            transform: scale(1.01);
-        }
-        
-        .table tbody td {
-            padding: 1rem;
-            vertical-align: middle;
-            border-color: rgba(0,0,0,0.05);
-        }
-        
-        .booth-badge {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            color: white;
-            text-align: center;
-            min-width: 50px;
-        }
-        
-        .booth-A { background: linear-gradient(135deg, #ff9800, #f57c00); }
-        .booth-B { background: linear-gradient(135deg, #2196f3, #1976d2); }
-        .booth-C { background: linear-gradient(135deg, #4caf50, #388e3c); }
-        .booth-D { background: linear-gradient(135deg, #f44336, #d32f2f); }
-        .booth-E { background: linear-gradient(135deg, #9c27b0, #7b1fa2); }
-        .booth-F { background: linear-gradient(135deg, #e91e63, #c2185b); }
-        .booth-G { background: linear-gradient(135deg, #607d8b, #455a64); }
-        
-        .company-name {
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-        
-        .country-flag {
-            display: inline-block;
-            padding: 0.2rem 0.5rem;
-            border-radius: 10px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-right: 0.5rem;
-        }
-        
-        .size-badge {
-            display: inline-block;
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .size-大型 { background: var(--gradient-secondary); color: white; }
-        .size-中型 { background: linear-gradient(135deg, #2196f3, #1976d2); color: white; }
-        .size-小型 { background: linear-gradient(135deg, #4caf50, #388e3c); color: white; }
-        .size-微型 { background: linear-gradient(135deg, #607d8b, #455a64); color: white; }
-        
-        .footer {
-            background: var(--dark-color);
-            color: white;
-            padding: 3rem 0;
-            margin-top: 4rem;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h5 {
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-        
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-section a:hover {
-            color: var(--accent-color);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-primary);
-            color: white;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-        
-        .social-link:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .scroll-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-primary);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 1000;
-            display: none;
-        }
-        
-        .scroll-to-top:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .loading-spinner {
-            display: none;
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        .spinner-border {
-            width: 3rem;
-            height: 3rem;
-            border-width: 0.3em;
-        }
-        
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .stats-container {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 1rem;
-            }
-            
-            .stat-card {
-                padding: 1.5rem;
-            }
-            
-            .filter-section,
-            .table-container {
-                padding: 1.5rem;
-            }
-        }
-        
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
-        }
-        
-        .fade-in.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
-</head>
-<body>
-    <!-- 導航欄 -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-train"></i>
-                Raillog Korea 2025
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#stats">統計資訊</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#filters">篩選工具</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#exhibitors">參展廠商</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <main class="main-content">
-        <!-- 英雄區域 -->
-        <section class="hero-section">
-            <div class="container">
-                <div class="hero-content" data-aos="fade-up">
-                    <h1 class="hero-title">
-                        <i class="fas fa-train me-3"></i>
-                        Raillog Korea 2025
-                    </h1>
-                    <p class="hero-subtitle">
-                        韓國國際鐵道物流展覽會 - 全球鐵道產業互動式參展指南
-                    </p>
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <p><i class="fas fa-calendar-alt me-2"></i>展會日期：2025年</p>
-                        </div>
-                        <div class="col-md-6">
-                            <p><i class="fas fa-map-marker-alt me-2"></i>展覽地點：釜山展覽會議中心 (BEXCO)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="container">
-            <!-- 統計資訊 -->
-            <section id="stats" class="stats-container" data-aos="fade-up">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <div class="stat-number" id="totalCompanies">106</div>
-                    <div class="stat-label">參展廠商總數</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-globe-asia"></i>
-                    </div>
-                    <div class="stat-number" id="totalCountries">18</div>
-                    <div class="stat-label">參展國家數</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-flag"></i>
-                    </div>
-                    <div class="stat-number" id="koreanCompanies">78</div>
-                    <div class="stat-label">韓國廠商數</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-map"></i>
-                    </div>
-                    <div class="stat-number" id="totalBooths">7</div>
-                    <div class="stat-label">展覽區域數</div>
-                </div>
-            </section>
-
-            <!-- 過濾區域 -->
-            <section id="filters" class="filter-section" data-aos="fade-up">
-                <h2 class="filter-title">
-                    <i class="fas fa-filter me-2"></i>
-                    智慧篩選工具
-                </h2>
-                
-                <div class="filter-group">
-                    <h6><i class="fas fa-map-marked-alt me-2"></i>依展覽區域</h6>
-                    <button class="btn filter-btn active" data-filter="all">全部區域</button>
-                    <button class="btn filter-btn" data-filter="A">A區</button>
-                    <button class="btn filter-btn" data-filter="B">B區</button>
-                    <button class="btn filter-btn" data-filter="C">C區</button>
-                    <button class="btn filter-btn" data-filter="D">D區</button>
-                    <button class="btn filter-btn" data-filter="E">E區</button>
-                    <button class="btn filter-btn" data-filter="F">F區</button>
-                    <button class="btn filter-btn" data-filter="G">G區</button>
-                </div>
-                
-                <div class="filter-group">
-                    <h6><i class="fas fa-chart-bar me-2"></i>依公司規模</h6>
-                    <button class="btn filter-btn active" data-filter-size="all">全部規模</button>
-                    <button class="btn filter-btn" data-filter-size="大型">大型企業</button>
-                    <button class="btn filter-btn" data-filter-size="中型">中型企業</button>
-                    <button class="btn filter-btn" data-filter-size="小型">小型企業</button>
-                    <button class="btn filter-btn" data-filter-size="微型">微型企業</button>
-                </div>
-                
-                <div class="filter-group">
-                    <h6><i class="fas fa-globe me-2"></i>依參展國家</h6>
-                    <button class="btn filter-btn active" data-filter-country="all">全部國家</button>
-                    <button class="btn filter-btn" data-filter-country="韓國">韓國</button>
-                    <button class="btn filter-btn" data-filter-country="中國">中國</button>
-                    <button class="btn filter-btn" data-filter-country="德國">德國系</button>
-                    <button class="btn filter-btn" data-filter-country="other">其他國家</button>
-                </div>
-            </section>
-
-            <!-- 參展廠商表格 -->
-            <section id="exhibitors" class="table-container" data-aos="fade-up">
-                <h2 class="table-title">
-                    <i class="fas fa-table me-2"></i>
-                    參展廠商完整資料庫
-                </h2>
-                
-                <div class="loading-spinner">
-                    <div class="spinner-border text-primary" role="status">
-                        <span class="visually-hidden">載入中...</span>
-                    </div>
-                    <p class="mt-2">正在載入參展廠商資料...</p>
-                </div>
-                
-                <div class="table-responsive">
-                    <table id="exhibitorTable" class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>攤位</th>
-                                <th>公司名稱</th>
-                                <th>國家</th>
-                                <th>主要產品</th>
-                                <th>主要客戶</th>
-                                <th>規模</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- 資料將由JavaScript動態載入 -->
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <!-- 頁尾 -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h5>關於 Raillog Korea</h5>
-                    <p>Raillog Korea 是韓國最具影響力的國際鐵路技術、基礎設施和物流貿易展覽會。自2003年以來每兩年舉辦一次，已成為全球第四大鐵路展，展覽面積達17,000平方米。</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h5>快速連結</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">官方網站</a></li>
-                        <li><a href="#">參展指南</a></li>
-                        <li><a href="#">交通資訊</a></li>
-                        <li><a href="#">住宿推薦</a></li>
-                        <li><a href="#">展覽地圖</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h5>展會資訊</h5>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-clock me-2"></i>展覽時間：09:00 - 18:00</li>
-                        <li><i class="fas fa-ticket-alt me-2"></i>免費入場</li>
-                        <li><i class="fas fa-parking me-2"></i>免費停車</li>
-                        <li><i class="fas fa-wifi me-2"></i>免費Wi-Fi</li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h5>聯絡我們</h5>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-envelope me-2"></i>info@raillogkorea.com</li>
-                        <li><i class="fas fa-phone me-2"></i>+82-2-123-4567</li>
-                        <li><i class="fas fa-fax me-2"></i>+82-2-123-4568</li>
-                        <li><i class="fas fa-map-marker-alt me-2"></i>釜山廣域市海雲台區</li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="border-secondary">
-            <div class="text-center">
-                <p class="mb-0">&copy; 2025 Raillog Korea. All rights reserved. | 
-                <a href="#" class="text-decoration-none">隱私政策</a> | 
-                <a href="#" class="text-decoration-none">使用條款</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- 回到頂部按鈕 -->
-    <button class="scroll-to-top" id="scrollToTop">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-
-    <!-- JavaScript 庫 -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
+    <title>RailLog Korea 2025 展覽平面互動圖</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // 參展商資料
-        const exhibitorData = [
-            {"攤位號":"A04","公司":"DEMCO CSI","國家":"韓國","主要產品":"戶外高亮度 TFT‑LCD 資訊顯示器","主要客戶":"機場、鐵路及公車站","公司規模":"中型"},
-            {"攤位號":"A05","公司":"YK Construction Equipment Co., Ltd.","國家":"韓國","主要產品":"工程與軌道施工機械租售","主要客戶":"韓國土木、軌道承包商","公司規模":"中型"},
-            {"攤位號":"A06","公司":"SPACEPRO","國家":"韓國","主要產品":"碳纖維車體複材結構","主要客戶":"韓國高鐵與航太供應鏈","公司規模":"小型"},
-            {"攤位號":"A07","公司":"Hyundai Rotem Company","國家":"韓國","主要產品":"高速列車、電聯車、號誌系統","主要客戶":"KORAIL、台灣高鐵、英國 TfL 等","公司規模":"大型"},
-            {"攤位號":"B01","公司":"Electronic & Human Technology","國家":"韓國","主要產品":"車載連接器、感測器整合","主要客戶":"船舶、軌道、自動化設備商","公司規模":"微型"},
-            {"攤位號":"B02","公司":"ENTEC Electric & Electronic Co., Ltd.","國家":"韓國","主要產品":"牽引開關櫃、高速斷路器、再閉合器","主要客戶":"50+ 國電力公司與地鐵","公司規模":"中型"},
-            {"攤位號":"B03","公司":"KUMSAN M&E Co., LTD","國家":"韓國","主要產品":"鐵道繼電器、端子台","主要客戶":"韓國船廠與維修商","公司規模":"小型"},
-            {"攤位號":"B04","公司":"MAPSCO Co., Ltd.","國家":"韓國","主要產品":"GIS 圖資、港口/車站導航","主要客戶":"釜山港務局、地方政府","公司規模":"小型"},
-            {"攤位號":"B05","公司":"Mahani Electric Co., Ltd.","國家":"韓國","主要產品":"感測器、連接器、PMA 纜管","主要客戶":"鐵道道岔升級、半導體廠","公司規模":"小型"},
-            {"攤位號":"B06","公司":"EASTERN R&E Co., Ltd.","國家":"韓國","主要產品":"輪對、轉向架、貨車車體設計","主要客戶":"韓國貨車製造與維保","公司規模":"中型"},
-            {"攤位號":"B07","公司":"KOBA Co., Ltd.","國家":"韓國","主要產品":"撞緩器、液壓減震器","主要客戶":"全球列車 OEM、港口起重機","公司規模":"中型"},
-            {"攤位號":"B08","公司":"CSIN Tech Co., Ltd.","國家":"韓國","主要產品":"HVAC、遠端監控、RAMS","主要客戶":"Hyderabad Metro、韓國輕軌","公司規模":"小型"},
-            {"攤位號":"B09","公司":"Dujin I&T","國家":"韓國","主要產品":"車輛零部件、RAMS 諮詢","主要客戶":"CRRC、中印合作專案","公司規模":"小型"},
-            {"攤位號":"B10","公司":"VCTECH Co., Ltd.","國家":"韓國","主要產品":"逆變器、電驅控制器","主要客戶":"Hyundai Rotem、海外出口","公司規模":"中型"},
-            {"攤位號":"B11","公司":"TÜV Rheinland Korea Ltd.","國家":"德國〈韓〉","主要產品":"安全認證、EMC/功能安全測試","主要客戶":"KRRI、全球車輛與信號商","公司規模":"大型"},
-            {"攤位號":"B12","公司":"ILME Korea Co.","國家":"義大利〈韓〉","主要產品":"工業矩形連接器","主要客戶":"線束廠、機械自動化","公司規模":"小型"},
-            {"攤位號":"C01","公司":"SAMSON TECH Co., Ltd.","國家":"韓國","主要產品":"公共廣播、聲學量測設備","主要客戶":"KORAIL、都市鐵路","公司規模":"小型"},
-            {"攤位號":"C02","公司":"KOSTECH","國家":"韓國","主要產品":"資料擷取、振動/應變感測器代理","主要客戶":"KRRI、Hyundai Rotem 測試中心","公司規模":"小型"},
-            {"攤位號":"C03","公司":"intech","國家":"韓國","主要產品":"試驗記錄器、環境試驗艙","主要客戶":"列車 OEM 測試部門","公司規模":"小型"},
-            {"攤位號":"C04","公司":"Jinil 1'Stec Co., Ltd.","國家":"韓國","主要產品":"硬度計、無損檢測儀器","主要客戶":"鋼鐵、車輛維修工廠","公司規模":"微型"},
-            {"攤位號":"C05","公司":"YOUNG JOONG IND Co., Ltd.","國家":"韓國","主要產品":"車軸鍛件、扣件","主要客戶":"Hyundai Rotem、Sampyo Railway","公司規模":"小型"},
-            {"攤位號":"C06","公司":"T.I.CORPORATION","國家":"韓國","主要產品":"輪對/轉向架加工","主要客戶":"貨車維保、出口市場","公司規模":"小型"},
-            {"攤位號":"C07","公司":"GLOS Co., Ltd.","國家":"韓國","主要產品":"LED 顯示與照明","主要客戶":"韓國都市鐵路","公司規模":"小型"},
-            {"攤位號":"C08","公司":"BEST ENGINEERING","國家":"韓國","主要產品":"軌道檢測/維修顧問","主要客戶":"國營與民營維修處","公司規模":"小型"},
-            {"攤位號":"C09","公司":"WOOJAE","國家":"韓國","主要產品":"扣件、耐磨件","主要客戶":"KR、地鐵維修商","公司規模":"小型"},
-            {"攤位號":"C10","公司":"Roxtec Korea","國家":"瑞典〈韓〉","主要產品":"電纜/管線穿隔密封模組","主要客戶":"KTX 車站、船舶","公司規模":"中型"},
-            {"攤位號":"C11","公司":"GMTECH Co., Ltd.","國家":"韓國","主要產品":"車載電源、HVAC 控制盤","主要客戶":"Woojin、系統集成商","公司規模":"小型"},
-            {"攤位號":"C12","公司":"WAINKOREA","國家":"中國〈韓〉","主要產品":"工業矩形/圓形連接器","主要客戶":"線束廠、機械自動化","公司規模":"小型"},
-            {"攤位號":"C13","公司":"Korea Petroleum","國家":"韓國","主要產品":"潤滑脂、齒輪油","主要客戶":"KORAIL、轉轍器維保商","公司規模":"大型"},
-            {"攤位號":"C14","公司":"Elthus T&L","國家":"韓國","主要產品":"AFC 系統物流","主要客戶":"都市鐵路業主","公司規模":"小型"},
-            {"攤位號":"C15","公司":"NAWOO Ltd.","國家":"韓國","主要產品":"電纜束整飾、波紋管","主要客戶":"信號系統集成商","公司規模":"小型"},
-            {"攤位號":"C16","公司":"ZEECOM","國家":"韓國","主要產品":"車載通訊終端、LTE‑R","主要客戶":"韓國 LTE‑R 路段、列車","公司規模":"小型"},
-            {"攤位號":"C17","公司":"DNV Business Assurance Korea","國家":"挪威〈韓〉","主要產品":"系統安全/功能安全認證","主要客戶":"KRRI、信號與車輛製造商","公司規模":"大型"},
-            {"攤位號":"C18","公司":"Schaltbau Korea Ltd.","國家":"德國〈韓〉","主要產品":"DC 接觸器、UIC 跳線","主要客戶":"Hyundai Rotem、全球車輛 OEM","公司規模":"中型"},
-            {"攤位號":"C19","公司":"CEL‑BIO KUBE Co., Ltd.","國家":"韓國","主要產品":"環保潤滑油、生質清潔劑","主要客戶":"地鐵動力系統維保","公司規模":"微型"},
-            {"攤位號":"C20","公司":"BP Intelligent Mechanics","國家":"中國","主要產品":"檢測機器人、AI 缺陷判讀","主要客戶":"中韓軌道檢測中心","公司規模":"小型"},
-            {"攤位號":"C21","公司":"TILC Co., Ltd.","國家":"韓國","主要產品":"車窗複材、遮陽系統","主要客戶":"Woojin、塗裝 OEM","公司規模":"小型"},
-            {"攤位號":"C22","公司":"Rehau & Chunho Co., Ltd.","國家":"德國/韓國","主要產品":"聚合物管路、內裝件","主要客戶":"Hyundai Rotem、改裝商","公司規模":"大型"},
-            {"攤位號":"C23","公司":"RM","國家":"韓國","主要產品":"軌道養護顧問、加固材料","主要客戶":"城市軌道局","公司規模":"微型"},
-            {"攤位號":"D04","公司":"PRIMET&R Co., Ltd.","國家":"韓國","主要產品":"轉向架零件、盤形煞車","主要客戶":"KORAIL 維修段","公司規模":"微型"},
-            {"攤位號":"D06","公司":"Thomas Co., Ltd.","國家":"韓國","主要產品":"動態電纜、線束拖鏈","主要客戶":"車輛 OEM、半導體設備商","公司規模":"小型"},
-            {"攤位號":"D08","公司":"Belden Singapore Pte Ltd","國家":"美國〈星〉","主要產品":"工業乙太網交換器、電纜","主要客戶":"Alstom、Siemens Mobility","公司規模":"大型"},
-            {"攤位號":"D09","公司":"Kyoungseong Co., Ltd.","國家":"韓國","主要產品":"檢測車、橋梁維修設備","主要客戶":"基建維保單位","公司規模":"小型"},
-            {"攤位號":"D10","公司":"Innovation & Created Co., Ltd.","國家":"韓國","主要產品":"3D 數位孿生、AR 維修平台","主要客戶":"釜山交通公社","公司規模":"微型"},
-            {"攤位號":"D11","公司":"NST","國家":"韓國","主要產品":"非破壞檢測服務","主要客戶":"KRRI、監造單位","公司規模":"小型"},
-            {"攤位號":"D12","公司":"O‑Sung Electric Machinery Co., Ltd.","國家":"韓國","主要產品":"ATS/ACB 斷路器、微電機","主要客戶":"Woojin","公司規模":"小型"},
-            {"攤位號":"D13","公司":"DO IT Co., Ltd.","國家":"韓國","主要產品":"輪軌監測 IoT 感測器","主要客戶":"地方有軌電車","公司規模":"微型"},
-            {"攤位號":"D14","公司":"KATEM Co., Ltd.","國家":"韓國","主要產品":"鋁合金門框、車窗","主要客戶":"Hyundai Rotem、Woojin","公司規模":"小型"},
-            {"攤位號":"D15","公司":"Consilium Marine Korea","國家":"瑞典","主要產品":"火警/氣體偵測系統","主要客戶":"都市鐵路、公車電動化","公司規模":"中型"},
-            {"攤位號":"D16","公司":"Gaius Industrial Systems Co., Ltd.","國家":"韓國","主要產品":"節能驅動、齒輪箱維修","主要客戶":"輕軌、機場 APM","公司規模":"微型"},
-            {"攤位號":"D17","公司":"JKTECH GLOBAL","國家":"韓國","主要產品":"PCB 分板、BGA 重工","主要客戶":"車輛控制板維修","公司規模":"小型"},
-            {"攤位號":"D18","公司":"MBST Co., Ltd.","國家":"韓國","主要產品":"振動測試台、模態分析","主要客戶":"KRRI、研發中心","公司規模":"微型"},
-            {"攤位號":"D19","公司":"AHWON Corp. Co., Ltd.","國家":"韓國","主要產品":"車輪螺帽、緊固件","主要客戶":"Sampyo Railway","公司規模":"小型"},
-            {"攤位號":"D20","公司":"Sécheron SA","國家":"瑞士","主要產品":"DC 高速斷路器、隔離開關","主要客戶":"Alstom、CAF","公司規模":"中型"},
-            {"攤位號":"D21","公司":"Sampyo Railway","國家":"韓國","主要產品":"高速道岔、磨軌車","主要客戶":"韓國高鐵、印度 JV","公司規模":"中型"},
-            {"攤位號":"D22","公司":"WISKA Korea Ltd.","國家":"德國〈韓〉","主要產品":"IP68 電纜格蘭、匯流箱","主要客戶":"德鐵、挪威國鐵、造船","公司規模":"中型"},
-            {"攤位號":"D23","公司":"PROTECH","國家":"韓國","主要產品":"技師培訓、RAMS 諮詢","主要客戶":"輕軌營運商","公司規模":"微型"},
-            {"攤位號":"D24","公司":"Cincon Electronics Co., Ltd.","國家":"台灣","主要產品":"EN 50155 DC/DC 電源","主要客戶":"Stadler、Hitachi Rail","公司規模":"中型"},
-            {"攤位號":"D25","公司":"Daeyang Electric Co., Ltd.","國家":"韓國","主要產品":"LED 行車燈、信號燈、艙室照明","主要客戶":"造船、海軍艦艇","公司規模":"大型"},
-            {"攤位號":"D26","公司":"Gaepoong Electronics Co., Ltd.","國家":"韓國","主要產品":"控制繼電器、通風濾網","主要客戶":"Woojin","公司規模":"小型"},
-            {"攤位號":"D27","公司":"Joowon Industrial Co., Ltd.","國家":"韓國","主要產品":"鐵道扣件","主要客戶":"道床維保標案","公司規模":"小型"},
-            {"攤位號":"D28","公司":"ANTS Co., Ltd.","國家":"韓國","主要產品":"自動檢票閘門、票卡終端","主要客戶":"釜山、大邱地鐵","公司規模":"小型"},
-            {"攤位號":"D29","公司":"EoneTNC","國家":"韓國","主要產品":"LTE‑R/5G 無線閘道器","主要客戶":"京江線 LTE‑R","公司規模":"小型"},
-            {"攤位號":"D30","公司":"Rail Economy News","國家":"韓國","主要產品":"鐵道專業媒體","主要客戶":"廠商行銷、政府採購單位","公司規模":"微型"},
-            {"攤位號":"E04","公司":"ONESERVICE","國家":"韓國","主要產品":"智慧維保平台、遠端監控","主要客戶":"—","公司規模":"微型"},
-            {"攤位號":"E05","公司":"Korea Rolling Stock Industries Association (KORSIA)","國家":"韓國","主要產品":"產業協會、標準推廣","主要客戶":"韓國軌道供應商","公司規模":"小型"},
-            {"攤位號":"E08","公司":"BROSPOWER Co., Ltd.","國家":"韓國","主要產品":"AC/DC、DC/DC 電源","主要客戶":"Hyundai Rotem、Woojin","公司規模":"小型"},
-            {"攤位號":"E09","公司":"ICK","國家":"韓國","主要產品":"交通票證、智慧卡模組","主要客戶":"首爾 T‑Money 系統","公司規模":"中型"},
-            {"攤位號":"E10","公司":"Yooksong Co., Ltd.","國家":"韓國","主要產品":"消防栓、滅火器、閥件","主要客戶":"車庫、地鐵站","公司規模":"小型"},
-            {"攤位號":"E11","公司":"Yujin Machinery Ltd.","國家":"韓國","主要產品":"車軸箱、緩衝器維修","主要客戶":"KORAIL、Hyundai Rotem","公司規模":"小型"},
-            {"攤位號":"E12","公司":"WeZON","國家":"韓國","主要產品":"IoT Gateways、車載數據平台","主要客戶":"韓國輕軌雲端監控","公司規模":"小型"},
-            {"攤位號":"E13","公司":"FOGTEC Brandschutz GmbH","國家":"德國","主要產品":"水霧滅火系統","主要客戶":"Siemens Mobility、Alstom","公司規模":"中型"},
-            {"攤位號":"E14","公司":"Linsinger Maschinenbau GmbH","國家":"奧地利","主要產品":"鋼軌銑削車","主要客戶":"DB、Network Rail、JR 東","公司規模":"中型"},
-            {"攤位號":"E15","公司":"Suzhou DONEKA","國家":"中國","主要產品":"電機碳刷、刷盒","主要客戶":"CRRC 車用電機維修","公司規模":"小型"},
-            {"攤位號":"E16","公司":"CRRC","國家":"中國","主要產品":"高速列車、地鐵車輛","主要客戶":"全球鐵路運營商","公司規模":"大型"},
-            {"攤位號":"E17","公司":"Henan QiangLi Machinery","國家":"中國","主要產品":"軌道維修機具","主要客戶":"中國國鐵、東協市場","公司規模":"小型"},
-            {"攤位號":"E18","公司":"KR Trading","國家":"韓國","主要產品":"軌道緊固件貿易","主要客戶":"KORAIL、私鐵改造","公司規模":"小型"},
-            {"攤位號":"E19","公司":"Black & Decker","國家":"美國","主要產品":"便攜式電動工具","主要客戶":"全球工務維修團隊","公司規模":"大型"},
-            {"攤位號":"E20","公司":"GERB Korea","國家":"德國〈韓〉","主要產品":"減振彈簧座、浮置板","主要客戶":"韓高鐵橋梁、TGV 車站","公司規模":"中型"},
-            {"攤位號":"E21","公司":"UNIVIS Co., Ltd.","國家":"韓國","主要產品":"LED 車廂照明","主要客戶":"Woojin、內裝 OEM","公司規模":"小型"},
-            {"攤位號":"E22","公司":"Korea Institute of Machinery & Materials (KIMM)","國家":"韓國","主要產品":"振動抑制暨可靠度研發","主要客戶":"KRRI、車輛 OEM","公司規模":"大型"},
-            {"攤位號":"E23","公司":"Korea Association for Public Safety Telecommunication","國家":"韓國","主要產品":"公共安全 LTE‑R 標準推廣","主要客戶":"國家 LTE‑R 專案","公司規模":"小型"},
-            {"攤位號":"F01","公司":"TÜV SÜD Korea Ltd.","國家":"德國〈韓〉","主要產品":"系統安全與功能安全認證","主要客戶":"Hyundai Rotem、KRRI","公司規模":"大型"},
-            {"攤位號":"F02","公司":"SIB Korea","國家":"韓國","主要產品":"高載荷滾動導軌、線性滑軌","主要客戶":"自動化裝配線","公司規模":"小型"},
-            {"攤位號":"F03","公司":"VIB‑LOCK Co., Ltd.","國家":"韓국","主要產品":"振動隔離墊","主要客戶":"車站機電設備","公司規模":"小型"},
-            {"攤位號":"F04","公司":"Railroad Industry Inc.","國家":"韓國","主要產品":"工務設備製造、租賃","主要客戶":"國內維修段","公司規模":"小型"},
-            {"攤位號":"F05","公司":"Quantum Inc.","國家":"韓國","主要產品":"基礎設施量測與 AI 診斷","主要客戶":"—","公司規模":"微型"},
-            {"攤位號":"F06","公司":"Romansys Co., Ltd.","國家":"韓國","主要產品":"客貨車車體製造與翻修","主要客戶":"貨運轉運專案","公司規模":"小型"},
-            {"攤位號":"F07","公司":"JST Transformateurs","國家":"法國","主要產品":"車載牽引變壓器","主要客戶":"SNCF、Alstom TGV","公司規模":"中型"},
-            {"攤位號":"F08","公司":"Longhua Technology Group","國家":"中國","主要產品":"減振扣件、橡膠支座","主要客戶":"中國高鐵、城市鐵路","公司規模":"大型"},
-            {"攤位號":"F09","公司":"Jiangsu Tie Mao Technology","國家":"中國","主要產品":"車窗安全玻璃","主要客戶":"CRRC、ASEAN 出口","公司規模":"中型"},
-            {"攤位號":"F10","公司":"InnoTrans 2026","國家":"德國","主要產品":"國際鐵道展宣傳","主要客戶":"全球設備商、運營商","公司規模":"小型"},
-            {"攤位號":"F11","公司":"Railway Gazette International","國家":"英國","主要產品":"專業媒體、數據服務","主要客戶":"全球鐵道企業","公司規模":"小型"},
-            {"攤位號":"F12","公司":"Zhengzhou Mingtai Transportation New Material","國家":"中國","主要產品":"鋁合金車體板材","主要客戶":"中國都市地鐵、EU 市場","公司規模":"中型"},
-            {"攤位號":"F13","公司":"IWMT Co., Ltd.","國家":"韓國","主要產品":"再生塑木枕木","主要客戶":"韓國枕木汰換計畫","公司規模":"小型"},
-            {"攤位號":"F14","公司":"Sean Inc.","國家":"韓國","主要產品":"焊接件、減振部件","主要客戶":"軌道養護商","公司規模":"小型"},
-            {"攤位號":"F15","公司":"Korea National Railway","國家":"韓國","主要產品":"基建建設與維護","主要客戶":"高鐵與都市鐵路專案","公司規模":"大型"},
-            {"攤位號":"G01","公司":"Woojin Industrial Systems","國家":"韓國","主要產品":"地鐵與輕軌車輛","主要客戶":"仁川機場磁浮、馬來西亞 LRT","公司規模":"中型"},
-            {"攤位號":"G02","公司":"Busan Metropolitan City","國家":"韓國","主要產品":"地方政府招商","主要客戶":"軌道產業投資推介","公司規模":"大型"},
-            {"攤位號":"G03","公司":"Korea Railroad Research Institute (KRRI)","國家":"韓國","主要產品":"列車與號誌研發、試驗線","主要客戶":"國家研發專案","公司規模":"大型"},
-            {"攤位號":"G04","公司":"Busan Transportation Corporation","國家":"韓國","主要產品":"城市地鐵營運與維修","主要客戶":"釜山地鐵 1‑4 號線","公司規模":"大型"},
-            {"攤位號":"G05","公司":"KORAIL","國家":"韓國","主要產品":"客貨運營運","主要客戶":"全國乘客與貨運客戶","公司規模":"大型"},
-            {"攤位號":"G06","公司":"Korea National Railway (KNRA)","國家":"韓國","主要產品":"鐵道基建建設與監理","主要客戶":"KTX 建設、都市鐵路延伸","公司規模":"大型"},
-            {"攤位號":"G07","公司":"Korea Railway Industry Association","國家":"韓國","主要產品":"產業政策協調、國際推廣","主要客戶":"300+ 協會會員","公司規模":"小型"},
-            {"攤位號":"G09","公司":"KORAIL Retail","國家":"韓國","主要產品":"車站零售與免稅","主要客戶":"首爾站、新村站等","公司規模":"中型"},
-            {"攤位號":"G10","公司":"SaeYoung Technologies Co., Ltd.","國家":"韓國","主要產品":"LTE‑R / ERTMS 測試方案","主要客戶":"韓國 LTE‑R、ERTMS 專案","公司規模":"小型"}
-        ];
+        const companyData = {"A04": {"booth": "A04", "company": "DEMCO CSI", "country": "韓國", "product": "戶外高亮度 TFT‑LCD 資訊顯示器", "client": "機場、鐵路及公車站", "scale": "中型"}, "A05": {"booth": "A05", "company": "YK Construction Equipment Co., Ltd.", "country": "韓國", "product": "工程與軌道施工機械租售", "client": "韓國土木、軌道承包商", "scale": "中型"}, "A06": {"booth": "A06", "company": "SPACEPRO", "country": "韓國", "product": "碳纖維車體複材結構", "client": "韓國高鐵與航太供應鏈", "scale": "小型"}, "A07": {"booth": "A07", "company": "Hyundai Rotem Company", "country": "韓國", "product": "高速列車、電聯車、號誌系統", "client": "KORAIL、台灣高鐵、英國 TfL 等", "scale": "大型"}, "B01": {"booth": "B01", "company": "Electronic & Human Technology", "country": "韓國", "product": "車載連接器、感測器整合", "client": "船舶、軌道、自動化設備商", "scale": "微型"}, "B02": {"booth": "B02", "company": "ENTEC Electric & Electronic Co., Ltd.", "country": "韓國", "product": "牽引開關櫃、高速斷路器、再閉合器", "client": "50+ 國電力公司與地鐵", "scale": "中型"}, "B03": {"booth": "B03", "company": "KUMSAN M&E Co., LTD", "country": "韓國", "product": "鐵道繼電器、端子台", "client": "韓國船廠與維修商", "scale": "小型"}, "B04": {"booth": "B04", "company": "MAPSCO Co., Ltd.", "country": "韓國", "product": "GIS 圖資、港口/車站導航", "client": "釜山港務局、地方政府", "scale": "小型"}, "B05": {"booth": "B05", "company": "Mahani Electric Co., Ltd.", "country": "韓國", "product": "感測器、連接器、PMA 纜管", "client": "鐵道道岔升級、半導體廠", "scale": "小型"}, "B06": {"booth": "B06", "company": "EASTERN R&E Co., Ltd.", "country": "韓國", "product": "輪對、轉向架、貨車車體設計", "client": "韓國貨車製造與維保", "scale": "中型"}, "B07": {"booth": "B07", "company": "KOBA Co., Ltd.", "country": "韓國", "product": "撞緩器、液壓減震器", "client": "全球列車 OEM、港口起重機", "scale": "中型"}, "B08": {"booth": "B08", "company": "CSIN Tech Co., Ltd.", "country": "韓國", "product": "HVAC、遠端監控、RAMS", "client": "Hyderabad Metro、韓國輕軌", "scale": "小型"}, "B09": {"booth": "B09", "company": "Dujin I&T", "country": "韓國", "product": "車輛零部件、RAMS 諮詢", "client": "CRRC、中印合作專案", "scale": "小型"}, "B10": {"booth": "B10", "company": "VCTECH Co., Ltd.", "country": "韓國", "product": "逆變器、電驅控制器", "client": "Hyundai Rotem、海外出口", "scale": "中型"}, "B11": {"booth": "B11", "company": "TÜV Rheinland Korea Ltd.", "country": "德國〈韓〉", "product": "安全認證、EMC/功能安全測試", "client": "KRRI、全球車輛與信號商", "scale": "大型"}, "B12": {"booth": "B12", "company": "ILME Korea Co.", "country": "義大利〈韓〉", "product": "工業矩形連接器", "client": "線束廠、機械自動化", "scale": "小型"}, "C01": {"booth": "C01", "company": "SAMSON TECH Co., Ltd.", "country": "韓國", "product": "公共廣播、聲學量測設備", "client": "KORAIL、都市鐵路", "scale": "小型"}, "C02": {"booth": "C02", "company": "KOSTECH", "country": "韓國", "product": "資料擷取、振動/應變感測器代理", "client": "KRRI、Hyundai Rotem 測試中心", "scale": "小型"}, "C03": {"booth": "C03", "company": "intech", "country": "韓國", "product": "試驗記錄器、環境試驗艙", "client": "列車 OEM 測試部門", "scale": "小型"}, "C04": {"booth": "C04", "company": "Jinil 1'Stec Co., Ltd.", "country": "韓國", "product": "硬度計、無損檢測儀器", "client": "鋼鐵、車輛維修工廠", "scale": "微型"}, "C05": {"booth": "C05", "company": "YOUNG JOONG IND Co., Ltd.", "country": "韓國", "product": "車軸鍛件、扣件", "client": "Hyundai Rotem、Sampyo Railway", "scale": "小型"}, "C06": {"booth": "C06", "company": "T.I.CORPORATION", "country": "韓國", "product": "輪對/轉向架加工", "client": "貨車維保、出口市場", "scale": "小型"}, "C07": {"booth": "C07", "company": "GLOS Co., Ltd.", "country": "韓國", "product": "LED 顯示與照明", "client": "韓國都市鐵路", "scale": "小型"}, "C08": {"booth": "C08", "company": "BEST ENGINEERING", "country": "韓國", "product": "軌道檢測/維修顧問", "client": "國營與民營維修處", "scale": "小型"}, "C09": {"booth": "C09", "company": "WOOJAE", "country": "韓國", "product": "扣件、耐磨件", "client": "KR、地鐵維修商", "scale": "小型"}, "C10": {"booth": "C10", "company": "Roxtec Korea", "country": "瑞典〈韓〉", "product": "電纜/管線穿隔密封模組", "client": "KTX 車站、船舶", "scale": "中型"}, "C11": {"booth": "C11", "company": "GMTECH Co., Ltd.", "country": "韓國", "product": "車載電源、HVAC 控制盤", "client": "Woojin、系統集成商", "scale": "小型"}, "C12": {"booth": "C12", "company": "WAINKOREA", "country": "中國〈韓〉", "product": "工業矩形/圓形連接器", "client": "線束廠、機械自動化", "scale": "小型"}, "C13": {"booth": "C13", "company": "Korea Petroleum", "country": "韓國", "product": "潤滑脂、齒輪油", "client": "KORAIL、轉轍器維保商", "scale": "大型"}, "C14": {"booth": "C14", "company": "Elthus T&L", "country": "韓國", "product": "AFC 系統物流", "client": "都市鐵路業主", "scale": "小型"}, "C15": {"booth": "C15", "company": "NAWOO Ltd.", "country": "韓國", "product": "電纜束整飾、波紋管", "client": "信號系統集成商", "scale": "小型"}, "C16": {"booth": "C16", "company": "ZEECOM", "country": "韓國", "product": "車載通訊終端、LTE‑R", "client": "韓國 LTE‑R 路段、列車", "scale": "小型"}, "C17": {"booth": "C17", "company": "DNV Business Assurance Korea", "country": "挪威〈韓〉", "product": "系統安全/功能安全認證", "client": "KRRI、信號與車輛製造商", "scale": "大型"}, "C18": {"booth": "C18", "company": "Schaltbau Korea Ltd.", "country": "德國〈韓〉", "product": "DC 接觸器、UIC 跳線", "client": "Hyundai Rotem、全球車輛 OEM", "scale": "中型"}, "C19": {"booth": "C19", "company": "CEL‑BIO KUBE Co., Ltd.", "country": "韓國", "product": "環保潤滑油、生質清潔劑", "client": "地鐵動力系統維保", "scale": "微型"}, "C20": {"booth": "C20", "company": "BP Intelligent Mechanics", "country": "中國", "product": "檢測機器人、AI 缺陷判讀", "client": "中韓軌道檢測中心", "scale": "小型"}, "C21": {"booth": "C21", "company": "TILC Co., Ltd.", "country": "韓國", "product": "車窗複材、遮陽系統", "client": "Woojin、塗裝 OEM", "scale": "小型"}, "C22": {"booth": "C22", "company": "Rehau & Chunho Co., Ltd.", "country": "德國/韓國", "product": "聚合物管路、內裝件", "client": "Hyundai Rotem、改裝商", "scale": "大型"}, "C23": {"booth": "C23", "company": "RM", "country": "韓國", "product": "軌道養護顧問、加固材料", "client": "城市軌道局", "scale": "微型"}, "D04": {"booth": "D04", "company": "PRIMET&R Co., Ltd.", "country": "韓國", "product": "轉向架零件、盤形煞車", "client": "KORAIL 維修段", "scale": "微型"}, "D06": {"booth": "D06", "company": "Thomas Co., Ltd.", "country": "韓國", "product": "動態電纜、線束拖鏈", "client": "車輛 OEM、半導體設備商", "scale": "小型"}, "D08": {"booth": "D08", "company": "Belden Singapore Pte Ltd", "country": "美國〈星〉", "product": "工業乙太網交換器、電纜", "client": "Alstom、Siemens Mobility", "scale": "大型"}, "D09": {"booth": "D09", "company": "Kyoungseong Co., Ltd.", "country": "韓國", "product": "檢測車、橋梁維修設備", "client": "基建維保單位", "scale": "小型"}, "D10": {"booth": "D10", "company": "Innovation & Created Co., Ltd.", "country": "韓國", "product": "3D 數位孿生、AR 維修平台", "client": "釜山交通公社", "scale": "微型"}, "D11": {"booth": "D11", "company": "NST", "country": "韓國", "product": "非破壞檢測服務", "client": "KRRI、監造單位", "scale": "小型"}, "D12": {"booth": "D12", "company": "O‑Sung Electric Machinery Co., Ltd.", "country": "韓國", "product": "ATS/ACB 斷路器、微電機", "client": "Woojin", "scale": "小型"}, "D13": {"booth": "D13", "company": "DO IT Co., Ltd.", "country": "韓國", "product": "輪軌監測 IoT 感測器", "client": "地方有軌電車", "scale": "微型"}, "D14": {"booth": "D14", "company": "KATEM Co., Ltd.", "country": "韓國", "product": "鋁合金門框、車窗", "client": "Hyundai Rotem、Woojin", "scale": "小型"}, "D15": {"booth": "D15", "company": "Consilium Marine Korea", "country": "瑞典", "product": "火警/氣體偵測系統", "client": "都市鐵路、公車電動化", "scale": "中型"}, "D16": {"booth": "D16", "company": "Gaius Industrial Systems Co., Ltd.", "country": "韓國", "product": "節能驅動、齒輪箱維修", "client": "輕軌、機場 APM", "scale": "微型"}, "D17": {"booth": "D17", "company": "JKTECH GLOBAL", "country": "韓國", "product": "PCB 分板、BGA 重工", "client": "車輛控制板維修", "scale": "小型"}, "D18": {"booth": "D18", "company": "MBST Co., Ltd.", "country": "韓國", "product": "振動測試台、模態分析", "client": "KRRI、研發中心", "scale": "微型"}, "D19": {"booth": "D19", "company": "AHWON Corp. Co., Ltd.", "country": "韓國", "product": "車輪螺帽、緊固件", "client": "Sampyo Railway", "scale": "小型"}, "D20": {"booth": "D20", "company": "Sécheron SA", "country": "瑞士", "product": "DC 高速斷路器、隔離開關", "client": "Alstom、CAF", "scale": "中型"}, "D21": {"booth": "D21", "company": "Sampyo Railway", "country": "韓國", "product": "高速道岔、磨軌車", "client": "韓國高鐵、印度 JV", "scale": "中型"}, "D22": {"booth": "D22", "company": "WISKA Korea Ltd.", "country": "德國〈韓〉", "product": "IP68 電纜格蘭、匯流箱", "client": "德鐵、挪威國鐵、造船", "scale": "中型"}, "D23": {"booth": "D23", "company": "PROTECH", "country": "韓國", "product": "技師培訓、RAMS 諮詢", "client": "輕軌營運商", "scale": "微型"}, "D24": {"booth": "D24", "company": "Cincon Electronics Co., Ltd.", "country": "台灣", "product": "EN 50155 DC/DC 電源", "client": "Stadler、Hitachi Rail", "scale": "中型"}, "D25": {"booth": "D25", "company": "Daeyang Electric Co., Ltd.", "country": "韓國", "product": "LED 行車燈、信號燈、艙室照明", "client": "造船、海軍艦艇", "scale": "大型"}, "D26": {"booth": "D26", "company": "Gaepoong Electronics Co., Ltd.", "country": "韓國", "product": "控制繼電器、通風濾網", "client": "Woojin", "scale": "小型"}, "D27": {"booth": "D27", "company": "Joowon Industrial Co., Ltd.", "country": "韓國", "product": "鐵道扣件", "client": "道床維保標案", "scale": "小型"}, "D28": {"booth": "D28", "company": "ANTS Co., Ltd.", "country": "韓國", "product": "自動檢票閘門、票卡終端", "client": "釜山、大邱地鐵", "scale": "小型"}, "D29": {"booth": "D29", "company": "EoneTNC", "country": "韓國", "product": "LTE‑R/5G 無線閘道器", "client": "京江線 LTE‑R", "scale": "小型"}, "D30": {"booth": "D30", "company": "Rail Economy News", "country": "韓國", "product": "鐵道專業媒體", "client": "廠商行銷、政府採購單位", "scale": "微型"}, "E04": {"booth": "E04", "company": "ONESERVICE", "country": "韓國", "product": "智慧維保平台、遠端監控", "client": "—", "scale": "微型"}, "E05": {"booth": "E05", "company": "Korea Rolling Stock Industries Association (KORSIA)", "country": "韓國", "product": "產業協會、標準推廣", "client": "韓國軌道供應商", "scale": "小型"}, "E08": {"booth": "E08", "company": "BROSPOWER Co., Ltd.", "country": "韓國", "product": "AC/DC、DC/DC 電源", "client": "Hyundai Rotem、Woojin", "scale": "小型"}, "E09": {"booth": "E09", "company": "ICK", "country": "韓國", "product": "交通票證、智慧卡模組", "client": "首爾 T‑Money 系統", "scale": "中型"}, "E10": {"booth": "E10", "company": "Yooksong Co., Ltd.", "country": "韓國", "product": "消防栓、滅火器、閥件", "client": "車庫、地鐵站", "scale": "小型"}, "E11": {"booth": "E11", "company": "Yujin Machinery Ltd.", "country": "韓國", "product": "車軸箱、緩衝器維修", "client": "KORAIL、Hyundai Rotem", "scale": "小型"}, "E12": {"booth": "E12", "company": "WeZON", "country": "韓國", "product": "IoT Gateways、車載數據平台", "client": "韓國輕軌雲端監控", "scale": "小型"}, "E13": {"booth": "E13", "company": "FOGTEC Brandschutz GmbH", "country": "德國", "product": "水霧滅火系統", "client": "Siemens Mobility、Alstom", "scale": "中型"}, "E14": {"booth": "E14", "company": "Linsinger Maschinenbau GmbH", "country": "奧地利", "product": "鋼軌銑削車", "client": "DB、Network Rail、JR 東", "scale": "中型"}, "E15": {"booth": "E15", "company": "Suzhou DONEKA", "country": "中國", "product": "電機碳刷、刷盒", "client": "CRRC 車用電機維修", "scale": "小型"}, "E16": {"booth": "E16", "company": "CRRC", "country": "中國", "product": "高速列車、地鐵車輛", "client": "全球鐵路運營商", "scale": "大型"}, "E17": {"booth": "E17", "company": "Henan QiangLi Machinery", "country": "中國", "product": "軌道維修機具", "client": "中國國鐵、東協市場", "scale": "小型"}, "E18": {"booth": "E18", "company": "KR Trading", "country": "韓國", "product": "軌道緊固件貿易", "client": "KORAIL、私鐵改造", "scale": "小型"}, "E19": {"booth": "E19", "company": "Black & Decker", "country": "美國", "product": "便攜式電動工具", "client": "全球工務維修團隊", "scale": "大型"}, "E20": {"booth": "E20", "company": "GERB Korea", "country": "德國〈韓〉", "product": "減振彈簧座、浮置板", "client": "韓高鐵橋梁、TGV 車站", "scale": "中型"}, "E21": {"booth": "E21", "company": "UNIVIS Co., Ltd.", "country": "韓國", "product": "LED 車廂照明", "client": "Woojin、內裝 OEM", "scale": "小型"}, "E22": {"booth": "E22", "company": "Korea Institute of Machinery & Materials (KIMM)", "country": "韓國", "product": "振動抑制暨可靠度研發", "client": "KRRI、車輛 OEM", "scale": "大型"}, "E23": {"booth": "E23", "company": "Korea Association for Public Safety Telecommunication", "country": "韓國", "product": "公共安全 LTE‑R 標準推廣", "client": "國家 LTE‑R 專案", "scale": "小型"}, "F01": {"booth": "F01", "company": "TÜV SÜD Korea Ltd.", "country": "德國〈韓〉", "product": "系統安全與功能安全認證", "client": "Hyundai Rotem、KRRI", "scale": "大型"}, "F02": {"booth": "F02", "company": "SIB Korea", "country": "韓國", "product": "高載荷滾動導軌、線性滑軌", "client": "自動化裝配線", "scale": "小型"}, "F03": {"booth": "F03", "company": "VIB‑LOCK Co., Ltd.", "country": "韓국", "product": "振動隔離墊", "client": "車站機電設備", "scale": "小型"}, "F04": {"booth": "F04", "company": "Railroad Industry Inc.", "country": "韓國", "product": "工務設備製造、租賃", "client": "國內維修段", "scale": "小型"}, "F05": {"booth": "F05", "company": "Quantum Inc.", "country": "韓國", "product": "基礎設施量測與 AI 診斷", "client": "—", "scale": "微型"}, "F06": {"booth": "F06", "company": "Romansys Co., Ltd.", "country": "韓國", "product": "客貨車車體製造與翻修", "client": "貨運轉運專案", "scale": "小型"}, "F07": {"booth": "F07", "company": "JST Transformateurs", "country": "法國", "product": "車載牽引變壓器", "client": "SNCF、Alstom TGV", "scale": "中型"}, "F08": {"booth": "F08", "company": "Longhua Technology Group", "country": "中國", "product": "減振扣件、橡膠支座", "client": "中國高鐵、城市鐵路", "scale": "大型"}, "F09": {"booth": "F09", "company": "Jiangsu Tie Mao Technology", "country": "中國", "product": "車窗安全玻璃", "client": "CRRC、ASEAN 出口", "scale": "中型"}, "F10": {"booth": "F10", "company": "InnoTrans 2026", "country": "德國", "product": "國際鐵道展宣傳", "client": "全球設備商、運營商", "scale": "小型"}, "F11": {"booth": "F11", "company": "Railway Gazette International", "country": "英國", "product": "專業媒體、數據服務", "client": "全球鐵道企業", "scale": "小型"}, "F12": {"booth": "F12", "company": "Zhengzhou Mingtai Transportation New Material", "country": "中國", "product": "鋁合金車體板材", "client": "中國都市地鐵、EU 市場", "scale": "中型"}, "F13": {"booth": "F13", "company": "IWMT Co., Ltd.", "country": "韓國", "product": "再生塑木枕木", "client": "韓國枕木汰換計畫", "scale": "小型"}, "F14": {"booth": "F14", "company": "Sean Inc.", "country": "韓國", "product": "焊接件、減振部件", "client": "軌道養護商", "scale": "小型"}, "F15": {"booth": "F15", "company": "Korea National Railway", "country": "韓國", "product": "基建建設與維護", "client": "高鐵與都市鐵路專案", "scale": "大型"}, "G01": {"booth": "G01", "company": "Woojin Industrial Systems", "country": "韓國", "product": "地鐵與輕軌車輛", "client": "仁川機場磁浮、馬來西亞 LRT", "scale": "中型"}, "G02": {"booth": "G02", "company": "Busan Metropolitan City", "country": "韓國", "product": "地方政府招商", "client": "軌道產業投資推介", "scale": "大型"}, "G03": {"booth": "G03", "company": "Korea Railroad Research Institute (KRRI)", "country": "韓國", "product": "列車與號誌研發、試驗線", "client": "國家研發專案", "scale": "大型"}, "G04": {"booth": "G04", "company": "Busan Transportation Corporation", "country": "韓國", "product": "城市地鐵營運與維修", "client": "釜山地鐵 1‑4 號線", "scale": "大型"}, "G05": {"booth": "G05", "company": "KORAIL", "country": "韓國", "product": "客貨運營運", "client": "全國乘客與貨運客戶", "scale": "大型"}, "G06": {"booth": "G06", "company": "Korea National Railway (KNRA)", "country": "韓國", "product": "鐵道基建建設與監理", "client": "KTX 建設、都市鐵路延伸", "scale": "大型"}, "G07": {"booth": "G07", "company": "Korea Railway Industry Association", "country": "韓國", "product": "產業政策協調、國際推廣", "client": "300+ 協會會員", "scale": "小型"}, "G09": {"booth": "G09", "company": "KORAIL Retail", "country": "韓國", "product": "車站零售與免稅", "client": "首爾站、新村站等", "scale": "中型"}, "G10": {"booth": "G10", "company": "SaeYoung Technologies Co., Ltd.", "country": "韓國", "product": "LTE‑R / ERTMS 測試方案", "client": "韓國 LTE‑R、ERTMS 專案", "scale": "小型"}};
 
-        $(document).ready(function() {
-            // 初始化 AOS 動畫
-            AOS.init({
-                duration: 800,
-                easing: 'ease-in-out',
-                once: true
+        function showInfo(booth) {
+            const info = companyData[booth];
+            const infoPanel = document.getElementById("info-panel");
+            infoPanel.innerHTML = `
+                <h2 class='text-xl font-bold mb-2'>${info.company}</h2>
+                <p><strong>攤位號:</strong> ${info.booth}</p>
+                <p><strong>國家:</strong> ${info.country}</p>
+                <p><strong>主要產品:</strong> ${info.product}</p>
+                <p><strong>主要客戶:</strong> ${info.client}</p>
+                <p><strong>公司規模:</strong> ${info.scale}</p>
+            `;
+        }
+
+        function searchBooth() {
+            const keyword = document.getElementById("searchInput").value.toLowerCase();
+            const allButtons = document.querySelectorAll("button[onclick^='showInfo']");
+            allButtons.forEach(btn => {
+                btn.style.display = btn.innerText.toLowerCase().includes(keyword) ? "" : "none";
             });
-
-            // 顯示載入動畫
-            $('.loading-spinner').show();
-
-            // 初始化 DataTable
-            const table = $('#exhibitorTable').DataTable({
-                data: exhibitorData,
-                columns: [
-                    { 
-                        data: '攤位號',
-                        render: function(data, type, row) {
-                            const boothPrefix = data.charAt(0);
-                            return `<span class="booth-badge booth-${boothPrefix}">${data}</span>`;
-                        }
-                    },
-                    { 
-                        data: '公司',
-                        render: function(data, type, row) {
-                            return `<span class="company-name">${data}</span>`;
-                        }
-                    },
-                    { data: '國家' },
-                    { data: '主要產品' },
-                    { data: '主要客戶' },
-                    { 
-                        data: '公司規模',
-                        render: function(data, type, row) {
-                            return `<span class="size-badge size-${data}">${data}</span>`;
-                        }
-                    }
-                ],
-                language: {
-                    "processing": "處理中...",
-                    "lengthMenu": "顯示 _MENU_ 筆資料",
-                    "zeroRecords": "沒有找到符合條件的資料",
-                    "info": "顯示第 _START_ 至 _END_ 筆，共 _TOTAL_ 筆資料",
-                    "infoEmpty": "顯示第 0 至 0 筆，共 0 筆資料",
-                    "infoFiltered": "(從 _MAX_ 筆資料中篩選)",
-                    "search": "搜尋:",
-                    "paginate": {
-                        "first": "第一頁",
-                        "previous": "上一頁",
-                        "next": "下一頁",
-                        "last": "最後一頁"
-                    }
-                },
-                pageLength: 15,
-                responsive: true,
-                order: [[0, 'asc']],
-                drawCallback: function() {
-                    // 隱藏載入動畫
-                    $('.loading-spinner').hide();
-                }
-            });
-
-            // 篩選功能
-            let currentFilters = {
-                booth: 'all',
-                size: 'all',
-                country: 'all'
-            };
-
-            function applyFilters() {
-                table.columns().search('');
-                
-                if (currentFilters.booth !== 'all') {
-                    table.column(0).search('^' + currentFilters.booth, true, false);
-                }
-                
-                if (currentFilters.size !== 'all') {
-                    table.column(5).search('^' + currentFilters.size + '$', true, false);
-                }
-                
-                if (currentFilters.country !== 'all') {
-                    if (currentFilters.country === '德國') {
-                        table.column(2).search('德國', true, false);
-                    } else if (currentFilters.country === 'other') {
-                        table.column(2).search('^(?!韓國|中國|德國).*$', true, false);
-                    } else {
-                        table.column(2).search('^' + currentFilters.country, true, false);
-                    }
-                }
-                
-                table.draw();
-            }
-
-            // 展區篩選
-            $('[data-filter]').on('click', function() {
-                const filterValue = $(this).data('filter');
-                currentFilters.booth = filterValue;
-                
-                $('[data-filter]').removeClass('active');
-                $(this).addClass('active');
-                
-                applyFilters();
-            });
-
-            // 公司規模篩選
-            $('[data-filter-size]').on('click', function() {
-                const filterValue = $(this).data('filter-size');
-                currentFilters.size = filterValue;
-                
-                $('[data-filter-size]').removeClass('active');
-                $(this).addClass('active');
-                
-                applyFilters();
-            });
-
-            // 國家篩選
-            $('[data-filter-country]').on('click', function() {
-                const filterValue = $(this).data('filter-country');
-                currentFilters.country = filterValue;
-                
-                $('[data-filter-country]').removeClass('active');
-                $(this).addClass('active');
-                
-                applyFilters();
-            });
-
-            // 更新統計數據
-            function updateStats() {
-                $('#totalCompanies').text(exhibitorData.length);
-                
-                const uniqueCountries = [...new Set(exhibitorData.map(item => {
-                    return item.國家.split('〈')[0];
-                }))];
-                $('#totalCountries').text(uniqueCountries.length);
-                
-                const koreanCompanies = exhibitorData.filter(item => item.國家.includes('韓國')).length;
-                $('#koreanCompanies').text(koreanCompanies);
-                
-                const uniqueBooths = [...new Set(exhibitorData.map(item => item.攤位號.charAt(0)))];
-                $('#totalBooths').text(uniqueBooths.length);
-            }
-
-            updateStats();
-
-            // 回到頂部按鈕
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 100) {
-                    $('#scrollToTop').fadeIn();
-                } else {
-                    $('#scrollToTop').fadeOut();
-                }
-            });
-
-            $('#scrollToTop').click(function() {
-                $('html, body').animate({scrollTop: 0}, 800);
-                return false;
-            });
-
-            // 平滑滾動至錨點
-            $('a[href^="#"]').on('click', function(event) {
-                event.preventDefault();
-                const target = $(this.getAttribute('href'));
-                if (target.length) {
-                    $('html, body').animate({
-                        scrollTop: target.offset().top - 100
-                    }, 800);
-                }
-            });
-
-            // 導航欄透明度效果
-            $(window).scroll(function() {
-                const scroll = $(window).scrollTop();
-                if (scroll > 100) {
-                    $('.navbar').css('background', 'rgba(255, 255, 255, 0.98)');
-                } else {
-                    $('.navbar').css('background', 'rgba(255, 255, 255, 0.95)');
-                }
-            });
-        });
+        }
     </script>
+</head>
+<body class="bg-gray-100 font-sans p-6">
+    <h1 class="text-3xl font-bold mb-4 text-center">RailLog Korea 2025 展覽互動平面圖</h1>
+
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2 bg-white rounded shadow p-4">
+            <h2 class="text-lg font-semibold mb-2">展覽平面圖</h2>
+            <input id="searchInput" onkeyup="searchBooth()" placeholder="輸入攤位編號過濾..." class="mb-4 p-2 border w-full rounded" />
+            
+    <div class="mb-4">
+        <h2 class="font-semibold text-lg mb-2">A 區</h2>
+        <div class="flex flex-wrap"><button onclick="showInfo('A04')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">A04</button>
+<button onclick="showInfo('A05')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">A05</button>
+<button onclick="showInfo('A06')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">A06</button>
+<button onclick="showInfo('A07')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">A07</button></div>
+    </div>
+    
+    <div class="mb-4">
+        <h2 class="font-semibold text-lg mb-2">B 區</h2>
+        <div class="flex flex-wrap"><button onclick="showInfo('B01')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">B01</button>
+<button onclick="showInfo('B02')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">B02</button>
+<button onclick="showInfo('B03')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">B03</button>
+<button onclick="showInfo('B04')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">B04</button>
+<button onclick="showInfo('B05')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">B05</button>
+<button onclick="showInfo('B06')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">B06</button>
+<button onclick="showInfo('B07')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">B07</button>
+<button onclick="showInfo('B08')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">B08</button>
+<button onclick="showInfo('B09')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">B09</button>
+<button onclick="showInfo('B10')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">B10</button>
+<button onclick="showInfo('B11')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">B11</button>
+<button onclick="showInfo('B12')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">B12</button></div>
+    </div>
+    
+    <div class="mb-4">
+        <h2 class="font-semibold text-lg mb-2">C 區</h2>
+        <div class="flex flex-wrap"><button onclick="showInfo('C01')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C01</button>
+<button onclick="showInfo('C02')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C02</button>
+<button onclick="showInfo('C03')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C03</button>
+<button onclick="showInfo('C04')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C04</button>
+<button onclick="showInfo('C05')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C05</button>
+<button onclick="showInfo('C06')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C06</button>
+<button onclick="showInfo('C07')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C07</button>
+<button onclick="showInfo('C08')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C08</button>
+<button onclick="showInfo('C09')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C09</button>
+<button onclick="showInfo('C10')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C10</button>
+<button onclick="showInfo('C11')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C11</button>
+<button onclick="showInfo('C12')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C12</button>
+<button onclick="showInfo('C13')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C13</button>
+<button onclick="showInfo('C14')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C14</button>
+<button onclick="showInfo('C15')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C15</button>
+<button onclick="showInfo('C16')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C16</button>
+<button onclick="showInfo('C17')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C17</button>
+<button onclick="showInfo('C18')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C18</button>
+<button onclick="showInfo('C19')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C19</button>
+<button onclick="showInfo('C20')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C20</button>
+<button onclick="showInfo('C21')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C21</button>
+<button onclick="showInfo('C22')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C22</button>
+<button onclick="showInfo('C23')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">C23</button></div>
+    </div>
+    
+    <div class="mb-4">
+        <h2 class="font-semibold text-lg mb-2">D 區</h2>
+        <div class="flex flex-wrap"><button onclick="showInfo('D04')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D04</button>
+<button onclick="showInfo('D06')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D06</button>
+<button onclick="showInfo('D08')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D08</button>
+<button onclick="showInfo('D09')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D09</button>
+<button onclick="showInfo('D10')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D10</button>
+<button onclick="showInfo('D11')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D11</button>
+<button onclick="showInfo('D12')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D12</button>
+<button onclick="showInfo('D13')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D13</button>
+<button onclick="showInfo('D14')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D14</button>
+<button onclick="showInfo('D15')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D15</button>
+<button onclick="showInfo('D16')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D16</button>
+<button onclick="showInfo('D17')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D17</button>
+<button onclick="showInfo('D18')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D18</button>
+<button onclick="showInfo('D19')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D19</button>
+<button onclick="showInfo('D20')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D20</button>
+<button onclick="showInfo('D21')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D21</button>
+<button onclick="showInfo('D22')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D22</button>
+<button onclick="showInfo('D23')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D23</button>
+<button onclick="showInfo('D24')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D24</button>
+<button onclick="showInfo('D25')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D25</button>
+<button onclick="showInfo('D26')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D26</button>
+<button onclick="showInfo('D27')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D27</button>
+<button onclick="showInfo('D28')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D28</button>
+<button onclick="showInfo('D29')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D29</button>
+<button onclick="showInfo('D30')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">D30</button></div>
+    </div>
+    
+    <div class="mb-4">
+        <h2 class="font-semibold text-lg mb-2">E 區</h2>
+        <div class="flex flex-wrap"><button onclick="showInfo('E04')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">E04</button>
+<button onclick="showInfo('E05')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">E05</button>
+<button onclick="showInfo('E08')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">E08</button>
+<button onclick="showInfo('E09')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">E09</button>
+<button onclick="showInfo('E10')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">E10</button>
+<button onclick="showInfo('E11')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">E11</button>
+<button onclick="showInfo('E12')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">E12</button>
+<button onclick="showInfo('E13')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">E13</button>
+<button onclick="showInfo('E14')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">E14</button>
+<button onclick="showInfo('E15')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">E15</button>
+<button onclick="showInfo('E16')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">E16</button>
+<button onclick="showInfo('E17')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">E17</button>
+<button onclick="showInfo('E18')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">E18</button>
+<button onclick="showInfo('E19')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">E19</button>
+<button onclick="showInfo('E20')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">E20</button>
+<button onclick="showInfo('E21')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">E21</button>
+<button onclick="showInfo('E22')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">E22</button>
+<button onclick="showInfo('E23')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">E23</button></div>
+    </div>
+    
+    <div class="mb-4">
+        <h2 class="font-semibold text-lg mb-2">F 區</h2>
+        <div class="flex flex-wrap"><button onclick="showInfo('F01')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">F01</button>
+<button onclick="showInfo('F02')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">F02</button>
+<button onclick="showInfo('F03')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">F03</button>
+<button onclick="showInfo('F04')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">F04</button>
+<button onclick="showInfo('F05')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">F05</button>
+<button onclick="showInfo('F06')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">F06</button>
+<button onclick="showInfo('F07')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">F07</button>
+<button onclick="showInfo('F08')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">F08</button>
+<button onclick="showInfo('F09')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">F09</button>
+<button onclick="showInfo('F10')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">F10</button>
+<button onclick="showInfo('F11')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">F11</button>
+<button onclick="showInfo('F12')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">F12</button>
+<button onclick="showInfo('F13')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">F13</button>
+<button onclick="showInfo('F14')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">F14</button>
+<button onclick="showInfo('F15')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">F15</button></div>
+    </div>
+    
+    <div class="mb-4">
+        <h2 class="font-semibold text-lg mb-2">G 區</h2>
+        <div class="flex flex-wrap"><button onclick="showInfo('G01')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">G01</button>
+<button onclick="showInfo('G02')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">G02</button>
+<button onclick="showInfo('G03')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">G03</button>
+<button onclick="showInfo('G04')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">G04</button>
+<button onclick="showInfo('G05')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">G05</button>
+<button onclick="showInfo('G06')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">G06</button>
+<button onclick="showInfo('G07')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">G07</button>
+<button onclick="showInfo('G09')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">G09</button>
+<button onclick="showInfo('G10')" class="p-2 m-1 border border-blue-400 rounded hover:bg-blue-100">G10</button></div>
+    </div>
+    
+        </div>
+        <div class="bg-white rounded shadow p-4">
+            <h2 class="text-lg font-semibold mb-2">詳細資訊</h2>
+            <div id="info-panel" class="text-sm text-gray-700">
+                <p>請點擊攤位查看詳細資訊</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
