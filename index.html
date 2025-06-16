@@ -301,6 +301,55 @@
     </div>
 
     <script>
+
+    // 將展區與展商清單動態加到頁面中
+    function renderSections(data) {
+        const container = document.getElementById('sectionsContainer');
+        container.innerHTML = ''; // 清空
+        let visibleCount = 0;
+
+        for (const section in data) {
+            const booths = data[section];
+            if (!booths || booths.length === 0) continue;
+
+            const sectionDiv = document.createElement('div');
+            sectionDiv.className = 'section';
+
+            const header = document.createElement('div');
+            header.className = 'section-header';
+            header.innerHTML = `<h3>展區 ${section}</h3><span class="section-toggle">▼</span>`;
+            header.onclick = () => {
+                content.classList.toggle('active');
+            };
+
+            const content = document.createElement('div');
+            content.className = 'section-content';
+
+            booths.forEach(booth => {
+                const boothHTML = createBoothHTML(booth);
+                content.innerHTML += boothHTML;
+                visibleCount++;
+            });
+
+            sectionDiv.appendChild(header);
+            sectionDiv.appendChild(content);
+            container.appendChild(sectionDiv);
+        }
+
+        document.getElementById('visibleExhibitors').innerText = visibleCount;
+    }
+
+    function toggleBooth(boothId) {
+        const details = document.getElementById(`booth-${boothId}`);
+        if (details) {
+            details.classList.toggle('active');
+        }
+    }
+
+    // 初始化載入
+    renderSections(filteredData);
+</script>
+
         const exhibitorData = {
             "A": [
                 {"攤位號": "A04", "公司": "DEMCO CSI", "國家": "韓國", "主要產品": "戶外高亮度 TFT‑LCD 資訊顯示器", "主要客戶": "機場、鐵路及公車站", "公司規模": "中型"},
@@ -460,6 +509,13 @@
                             <div class="detail-row">
                                 <span class="detail-label">🛠️ 主要產品：</span>
                                 <span class="detail-value">${booth.主要產品}</span>
-                            </div>
-                            <div class="detail-row">
-                                <span class="detail-label">👥 主```
+                      
+            <div class="detail-row">
+    <span class="detail-label">👥 主要客戶：</span>
+    <span class="detail-value">${booth.主要客戶}</span>
+</div>
+</div>
+</div>
+</div>
+`;
+
