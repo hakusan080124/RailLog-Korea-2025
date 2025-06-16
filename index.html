@@ -436,30 +436,95 @@
             }
         }
 
-        function createBoothHTML(booth) {
-            return `
-                <div class="booth-item" data-booth="${booth.攤位號}" data-company="${booth.公司}" data-product="${booth.主要產品}">
-                    <div class="booth-header" onclick="toggleBooth('${booth.攤位號}')">
-                        <div>
-                            <span class="booth-number">${booth.攤位號}</span>
-                            <span class="company-name">${booth.公司}</span>
-                            <span class="company-size ${getSizeClass(booth.公司規模)}">${booth.公司規模}</span>
-                        </div>
-                        <span class="section-toggle">▼</span>
+function createBoothHTML(booth) {
+    return `
+        <div class="booth-item" data-booth="${booth.攤位號}" data-company="${booth.公司}" data-product="${booth.主要產品}">
+            <div class="booth-header" onclick="toggleBooth('${booth.攤位號}')">
+                <div>
+                    <span class="booth-number">${booth.攤位號}</span>
+                    <span class="company-name">${booth.公司}</span>
+                    <span class="company-size ${getSizeClass(booth.公司規模)}">${booth.公司規模}</span>
+                </div>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="booth-details" id="booth-${booth.攤位號}">
+                <div class="details-content">
+                    <div class="detail-row">
+                        <span class="detail-label">🏢 公司名稱：</span>
+                        <span class="detail-value">${booth.公司}</span>
                     </div>
-                    <div class="booth-details" id="booth-${booth.攤位號}">
-                        <div class="details-content">
-                            <div class="detail-row">
-                                <span class="detail-label">🏢 公司名稱：</span>
-                                <span class="detail-value">${booth.公司}</span>
-                            </div>
-                            <div class="detail-row">
-                                <span class="detail-label">🌍 國家：</span>
-                                <span class="detail-value">${booth.國家}</span>
-                            </div>
-                            <div class="detail-row">
-                                <span class="detail-label">🛠️ 主要產品：</span>
-                                <span class="detail-value">${booth.主要產品}</span>
-                            </div>
-                            <div class="detail-row">
-                                <span class="detail-label">👥 主```
+                    <div class="detail-row">
+                        <span class="detail-label">🌍 國家：</span>
+                        <span class="detail-value">${booth.國家}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">🛠️ 主要產品：</span>
+                        <span class="detail-value">${booth.主要產品}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">👥 主要客戶：</span>
+                        <span class="detail-value">${booth.主要客戶}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function toggleSection(id) {
+    const section = document.getElementById(id);
+    section.classList.toggle('active');
+}
+
+function toggleBooth(id) {
+    const booth = document.getElementById('booth-' + id);
+    booth.classList.toggle('active');
+}
+
+function renderSections(data) {
+    const container = document.getElementById('sectionsContainer');
+    container.innerHTML = '';
+    let count = 0;
+    Object.keys(data).sort().forEach(key => {
+        const boothsHTML = data[key].map(createBoothHTML).join('');
+        count += data[key].length;
+        container.insertAdjacentHTML('beforeend', `
+            <div class="section">
+                <div class="section-header" onclick="toggleSection('section-${key}')">
+                    <h3>${key} 區</h3>
+                    <span class="section-toggle">▼</span>
+                </div>
+                <div class="section-content" id="section-${key}">
+                    ${boothsHTML}
+                </div>
+            </div>
+        `);
+    });
+    document.getElementById('visibleExhibitors').textContent = count;
+    document.getElementById('totalExhibitors').textContent = count;
+}
+
+function filterAndRender(query) {
+    const lowered = query.trim().toLowerCase();
+    const result = {};
+    Object.keys(exhibitorData).forEach(key => {
+        const booths = exhibitorData[key].filter(b =>
+            b.攤位號.toLowerCase().includes(lowered) ||
+            b.公司.toLowerCase().includes(lowered) ||
+            b.主要產品.toLowerCase().includes(lowered)
+        );
+        if (booths.length) result[key] = booths;
+    });
+    renderSections(result);
+}
+
+document.getElementById('searchBox').addEventListener('input', (e) => {
+    filterAndRender(e.target.value);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    filterAndRender('');
+});
+    </script>
+</body>
+</html>
