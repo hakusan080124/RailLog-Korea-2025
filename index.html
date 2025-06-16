@@ -3,135 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RailLog Korea 2025 參展商查詢系統</title>
+    <title>RailLog Korea 2025 - 展商資訊</title>
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --hover-color: #2980b9;
-        }
-
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Noto Sans TC', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 10px;
             line-height: 1.6;
-            padding: 20px;
-            background: #f5f6fa;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
         }
 
         .header {
+            background: linear-gradient(45deg, #2c3e50, #3498db);
+            color: white;
+            padding: 20px;
             text-align: center;
-            margin-bottom: 2rem;
-            padding: 1rem;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 10px;
         }
 
-        .grid-system {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-            gap: 10px;
-            margin-bottom: 2rem;
+        .header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
         }
 
-        .booth-btn {
-            padding: 12px;
-            background: var(--secondary-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 16px;
+        .header p {
+            opacity: 0.9;
+            font-size: 0.95rem;
         }
 
-        .booth-btn:hover {
-            background: var(--hover-color);
-            transform: translateY(-2px);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-        }
-
-        .info-window {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
-            max-width: 400px;
-            max-height: 80vh;
-            overflow-y: auto;
-            transform: scale(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease;
-        }
-
-        .info-window.active {
-            transform: scale(1);
-        }
-
-        .company-info h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 0.5rem;
-        }
-
-        .info-item {
-            margin-bottom: 1rem;
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 8px;
+        .search-container {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
         }
 
         .search-box {
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        #searchInput {
             width: 100%;
-            padding: 15px;
+            padding: 12px 15px;
             border: 2px solid #ddd;
-            border-radius: 30px;
+            border-radius: 25px;
             font-size: 16px;
-            padding-right: 50px;
+            outline: none;
+            transition: border-color 0.3s;
         }
 
-        .search-icon {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
+        .search-box:focus {
+            border-color: #3498db;
+        }
+
+        .exhibitor-list {
+            max-height: 70vh;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .exhibitor-item {
+            margin-bottom: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .exhibitor-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .exhibitor-header {
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .exhibitor-header:hover {
+            background: linear-gradient(45deg, #e9ecef, #dee2e6);
+        }
+
+        .booth-number {
+            background: #3498db;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .company-name {
+            flex: 1;
+            margin-left: 15px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .dropdown-arrow {
+            transition: transform 0.3s;
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        .exhibitor-details {
+            display: none;
+            background: white;
+            padding: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .exhibitor-details.active {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .detail-row {
+            margin-bottom: 12px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #555;
+            width: 80px;
+            flex-shrink: 0;
+        }
+
+        .detail-value {
+            flex: 1;
+            color: #333;
+            margin-left: 10px;
+        }
+
+        .country-flag {
+            display: inline-block;
+            width: 20px;
+            height: 15px;
+            background: #ddd;
+            border-radius: 2px;
+            margin-right: 5px;
+        }
+
+        .company-size {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .size-large { background: #e8f5e8; color: #2e7d32; }
+        .size-medium { background: #fff3e0; color: #f57c00; }
+        .size-small { background: #e3f2fd; color: #1976d2; }
+        .size-micro { background: #fce4ec; color: #c2185b; }
+
+        .stats {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9rem;
             color: #666;
         }
 
-        @media (max-width: 768px) {
-            .grid-system {
-                grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+        @media (max-width: 600px) {
+            .detail-row {
+                flex-direction: column;
             }
             
-            .booth-btn {
-                padding: 10px;
-                font-size: 14px;
+            .detail-label {
+                width: 100%;
+                margin-bottom: 5px;
             }
             
-            .info-window {
-                width: 90%;
-                right: 5%;
-                bottom: 10px;
+            .detail-value {
+                margin-left: 0;
             }
         }
     </style>
@@ -139,108 +209,963 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>RailLog Korea 2025 參展商查詢系統</h1>
-            <p>總計 106 家參展廠商 | 最後更新：2025-06-12</p>
+            <h1>🚄 RailLog Korea 2025</h1>
+            <p>軌道產業展覽會 - 展商資訊總覽</p>
         </div>
 
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="輸入攤位號或公司名稱...">
-            <i class="search-icon">🔍</i>
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="搜尋展商或攤位號碼..." id="searchBox">
         </div>
 
-        <div class="grid-system" id="boothGrid"></div>
+        <div class="stats">
+            共 106 家展商參展 | 來自多個國家的軌道產業領導企業
+        </div>
+
+        <div class="exhibitor-list" id="exhibitorList">
+            <!-- Exhibitor data will be inserted here by JavaScript -->
+        </div>
     </div>
 
-    <div class="info-window" id="infoWindow">
-        <div class="company-info" id="companyContent"></div>
-    </div>
+    <script>
+        const exhibitors = [
+            {
+                booth: "A04",
+                company: "DEMCO CSI",
+                country: "韓國",
+                products: "戶外高亮度 TFT‑LCD 資訊顯示器",
+                customers: "機場、鐵路及公車站",
+                size: "中型"
+            },
+            {
+                booth: "A05",
+                company: "YK Construction Equipment Co., Ltd.",
+                country: "韓國",
+                products: "工程與軌道施工機械租售",
+                customers: "韓國土木、軌道承包商",
+                size: "中型"
+            },
+            {
+                booth: "A06",
+                company: "SPACEPRO",
+                country: "韓國",
+                products: "碳纖維車體複材結構",
+                customers: "韓國高鐵與航太供應鏈",
+                size: "小型"
+            },
+            {
+                booth: "A07",
+                company: "Hyundai Rotem Company",
+                country: "韓國",
+                products: "高速列車、電聯車、號誌系統",
+                customers: "KORAIL、台灣高鐵、英國 TfL 等",
+                size: "大型"
+            },
+            {
+                booth: "B01",
+                company: "Electronic & Human Technology",
+                country: "韓國",
+                products: "車載連接器、感測器整合",
+                customers: "船舶、軌道、自動化設備商",
+                size: "微型"
+            },
+            {
+                booth: "B02",
+                company: "ENTEC Electric & Electronic Co., Ltd.",
+                country: "韓國",
+                products: "牽引開關櫃、高速斷路器、再閉合器",
+                customers: "50+ 國電力公司與地鐵",
+                size: "中型"
+            },
+            {
+                booth: "B03",
+                company: "KUMSAN M&E Co., LTD",
+                country: "韓國",
+                products: "鐵道繼電器、端子台",
+                customers: "韓國船廠與維修商",
+                size: "小型"
+            },
+            {
+                booth: "B04",
+                company: "MAPSCO Co., Ltd.",
+                country: "韓國",
+                products: "GIS 圖資、港口/車站導航",
+                customers: "釜山港務局、地方政府",
+                size: "小型"
+            },
+            {
+                booth: "B05",
+                company: "Mahani Electric Co., Ltd.",
+                country: "韓國",
+                products: "感測器、連接器、PMA 纜管",
+                customers: "鐵道道岔升級、半導體廠",
+                size: "小型"
+            },
+            {
+                booth: "B06",
+                company: "EASTERN R&E Co., Ltd.",
+                country: "韓國",
+                products: "輪對、轉向架、貨車車體設計",
+                customers: "韓國貨車製造與維保",
+                size: "中型"
+            },
+            {
+                booth: "B07",
+                company: "KOBA Co., Ltd.",
+                country: "韓國",
+                products: "撞緩器、液壓減震器",
+                customers: "全球列車 OEM、港口起重機",
+                size: "中型"
+            },
+            {
+                booth: "B08",
+                company: "CSIN Tech Co., Ltd.",
+                country: "韓國",
+                products: "HVAC、遠端監控、RAMS",
+                customers: "Hyderabad Metro、韓國輕軌",
+                size: "小型"
+            },
+            {
+                booth: "B09",
+                company: "Dujin I&T",
+                country: "韓國",
+                products: "車輛零部件、RAMS 諮詢",
+                customers: "CRRC、中印合作專案",
+                size: "小型"
+            },
+            {
+                booth: "B10",
+                company: "VCTECH Co., Ltd.",
+                country: "韓國",
+                products: "逆變器、電驅控制器",
+                customers: "Hyundai Rotem、海外出口",
+                size: "中型"
+            },
+            {
+                booth: "B11",
+                company: "TÜV Rheinland Korea Ltd.",
+                country: "德國〈韓〉",
+                products: "安全認證、EMC/功能安全測試",
+                customers: "KRRI、全球車輛與信號商",
+                size: "大型"
+            },
+            {
+                booth: "B12",
+                company: "ILME Korea Co.",
+                country: "義大利〈韓〉",
+                products: "工業矩形連接器",
+                customers: "線束廠、機械自動化",
+                size: "小型"
+            },
+            {
+                booth: "C01",
+                company: "SAMSON TECH Co., Ltd.",
+                country: "韓國",
+                products: "公共廣播、聲學量測設備",
+                customers: "KORAIL、都市鐵路",
+                size: "小型"
+            },
+            {
+                booth: "C02",
+                company: "KOSTECH",
+                country: "韓國",
+                products: "資料擷取、振動/應變感測器代理",
+                customers: "KRRI、Hyundai Rotem 測試中心",
+                size: "小型"
+            },
+            {
+                booth: "C03",
+                company: "intech",
+                country: "韓國",
+                products: "試驗記錄器、環境試驗艙",
+                customers: "列車 OEM 測試部門",
+                size: "小型"
+            },
+            {
+                booth: "C04",
+                company: "Jinil 1'Stec Co., Ltd.",
+                country: "韓國",
+                products: "硬度計、無損檢測儀器",
+                customers: "鋼鐵、車輛維修工廠",
+                size: "微型"
+            },
+            {
+                booth: "C05",
+                company: "YOUNG JOONG IND Co., Ltd.",
+                country: "韓國",
+                products: "車軸鍛件、扣件",
+                customers: "Hyundai Rotem、Sampyo Railway",
+                size: "小型"
+            },
+            {
+                booth: "C06",
+                company: "T.I.CORPORATION",
+                country: "韓國",
+                products: "輪對/轉向架加工",
+                customers: "貨車維保、出口市場",
+                size: "小型"
+            },
+            {
+                booth: "C07",
+                company: "GLOS Co., Ltd.",
+                country: "韓國",
+                products: "LED 顯示與照明",
+                customers: "韓國都市鐵路",
+                size: "小型"
+            },
+            {
+                booth: "C08",
+                company: "BEST ENGINEERING",
+                country: "韓國",
+                products: "軌道檢測/維修顧問",
+                customers: "國營與民營維修處",
+                size: "小型"
+            },
+            {
+                booth: "C09",
+                company: "WOOJAE",
+                country: "韓國",
+                products: "扣件、耐磨件",
+                customers: "KR、地鐵維修商",
+                size: "小型"
+            },
+            {
+                booth: "C10",
+                company: "Roxtec Korea",
+                country: "瑞典〈韓〉",
+                products: "電纜/管線穿隔密封模組",
+                customers: "KTX 車站、船舶",
+                size: "中型"
+            },
+            {
+                booth: "C11",
+                company: "GMTECH Co., Ltd.",
+                country: "韓國",
+                products: "車載電源、HVAC 控制盤",
+                customers: "Woojin、系統集成商",
+                size: "小型"
+            },
+            {
+                booth: "C12",
+                company: "WAINKOREA",
+                country: "中國〈韓〉",
+                products: "工業矩形/圓形連接器",
+                customers: "線束廠、機械自動化",
+                size: "小型"
+            },
+            {
+                booth: "C13",
+                company: "Korea Petroleum",
+                country: "韓國",
+                products: "潤滑脂、齒輪油",
+                customers: "KORAIL、轉轍器維保商",
+                size: "大型"
+            },
+            {
+                booth: "C14",
+                company: "Elthus T&L",
+                country: "韓國",
+                products: "AFC 系統物流",
+                customers: "都市鐵路業主",
+                size: "小型"
+            },
+            {
+                booth: "C15",
+                company: "NAWOO Ltd.",
+                country: "韓國",
+                products: "電纜束整飾、波紋管",
+                customers: "信號系統集成商",
+                size: "小型"
+            },
+            {
+                booth: "C16",
+                company: "ZEECOM",
+                country: "韓國",
+                products: "車載通訊終端、LTE‑R",
+                customers: "韓國 LTE‑R 路段、列車",
+                size: "小型"
+            },
+            {
+                booth: "C17",
+                company: "DNV Business Assurance Korea",
+                country: "挪威〈韓〉",
+                products: "系統安全/功能安全認證",
+                customers: "KRRI、信號與車輛製造商",
+                size: "大型"
+            },
+            {
+                booth: "C18",
+                company: "Schaltbau Korea Ltd.",
+                country: "德國〈韓〉",
+                products: "DC 接觸器、UIC 跳線",
+                customers: "Hyundai Rotem、全球車輛 OEM",
+                size: "中型"
+            },
+            {
+                booth: "C19",
+                company: "CEL‑BIO KUBE Co., Ltd.",
+                country: "韓國",
+                products: "環保潤滑油、生質清潔劑",
+                customers: "地鐵動力系統維保",
+                size: "微型"
+            },
+            {
+                booth: "C20",
+                company: "BP Intelligent Mechanics",
+                country: "中國",
+                products: "檢測機器人、AI 缺陷判讀",
+                customers: "中韓軌道檢測中心",
+                size: "小型"
+            },
+            {
+                booth: "C21",
+                company: "TILC Co., Ltd.",
+                country: "韓國",
+                products: "車窗複材、遮陽系統",
+                customers: "Woojin、塗裝 OEM",
+                size: "小型"
+            },
+            {
+                booth: "C22",
+                company: "Rehau & Chunho Co., Ltd.",
+                country: "德國/韓國",
+                products: "聚合物管路、內裝件",
+                customers: "Hyundai Rotem、改裝商",
+                size: "大型"
+            },
+            {
+                booth: "C23",
+                company: "RM",
+                country: "韓國",
+                products: "軌道養護顧問、加固材料",
+                customers: "城市軌道局",
+                size: "微型"
+            },
+            {
+                booth: "D04",
+                company: "PRIMET&R Co., Ltd.",
+                country: "韓國",
+                products: "轉向架零件、盤形煞車",
+                customers: "KORAIL 維修段",
+                size: "微型"
+            },
+            {
+                booth: "D06",
+                company: "Thomas Co., Ltd.",
+                country: "韓國",
+                products: "動態電纜、線束拖鏈",
+                customers: "車輛 OEM、半導體設備商",
+                size: "小型"
+            },
+            {
+                booth: "D08",
+                company: "Belden Singapore Pte Ltd",
+                country: "美國〈星〉",
+                products: "工業乙太網交換器、電纜",
+                customers: "Alstom、Siemens Mobility",
+                size: "大型"
+            },
+            {
+                booth: "D09",
+                company: "Kyoungseong Co., Ltd.",
+                country: "韓國",
+                products: "檢測車、橋梁維修設備",
+                customers: "基建維保單位",
+                size: "小型"
+            },
+            {
+                booth: "D10",
+                company: "Innovation & Created Co., Ltd.",
+                country: "韓國",
+                products: "3D 數位孿生、AR 維修平台",
+                customers: "釜山交通公社",
+                size: "微型"
+            },
+            {
+                booth: "D11",
+                company: "NST",
+                country: "韓國",
+                products: "非破壞檢測服務",
+                customers: "KRRI、監造單位",
+                size: "小型"
+            },
+            {
+                booth: "D12",
+                company: "O‑Sung Electric Machinery Co., Ltd.",
+                country: "韓國",
+                products: "ATS/ACB 斷路器、微電機",
+                customers: "Woojin",
+                size: "小型"
+            },
+            {
+                booth: "D13",
+                company: "DO IT Co., Ltd.",
+                country: "韓國",
+                products: "輪軌監測 IoT 感測器",
+                customers: "地方有軌電車",
+                size: "微型"
+            },
+            {
+                booth: "D14",
+                company: "KATEM Co., Ltd.",
+                country: "韓國",
+                products: "鋁合金門框、車窗",
+                customers: "Hyundai Rotem、Woojin",
+                size: "小型"
+            },
+            {
+                booth: "D15",
+                company: "Consilium Marine Korea",
+                country: "瑞典",
+                products: "火警/氣體偵測系統",
+                customers: "都市鐵路、公車電動化",
+                size: "中型"
+            },
+            {
+                booth: "D16",
+                company: "Gaius Industrial Systems Co., Ltd.",
+                country: "韓國",
+                products: "節能驅動、齒輪箱維修",
+                customers: "輕軌、機場 APM",
+                size: "微型"
+            },
+            {
+                booth: "D17",
+                company: "JKTECH GLOBAL",
+                country: "韓國",
+                products: "PCB 分板、BGA 重工",
+                customers: "車輛控制板維修",
+                size: "小型"
+            },
+            {
+                booth: "D18",
+                company: "MBST Co., Ltd.",
+                country: "韓國",
+                products: "振動測試台、模態分析",
+                customers: "KRRI、研發中心",
+                size: "微型"
+            },
+            {
+                booth: "D19",
+                company: "AHWON Corp. Co., Ltd.",
+                country: "韓國",
+                products: "車輪螺帽、緊固件",
+                customers: "Sampyo Railway",
+                size: "小型"
+            },
+            {
+                booth: "D20",
+                company: "Sécheron SA",
+                country: "瑞士",
+                products: "DC 高速斷路器、隔離開關",
+                customers: "Alstom、CAF",
+                size: "中型"
+            },
+            {
+                booth: "D21",
+                company: "Sampyo Railway",
+                country: "韓國",
+                products: "高速道岔、磨軌車",
+                customers: "韓國高鐵、印度 JV",
+                size: "中型"
+            },
+            {
+                booth: "D22",
+                company: "WISKA Korea Ltd.",
+                country: "德國〈韓〉",
+                products: "IP68 電纜格蘭、匯流箱",
+                customers: "德鐵、挪威國鐵、造船",
+                size: "中型"
+            },
+            {
+                booth: "D23",
+                company: "PROTECH",
+                country: "韓國",
+                products: "技師培訓、RAMS 諮詢",
+                customers: "輕軌營運商",
+                size: "微型"
+            },
+            {
+                booth: "D24",
+                company: "Cincon Electronics Co., Ltd.",
+                country: "台灣",
+                products: "EN 50155 DC/DC 電源",
+                customers: "Stadler、Hitachi Rail",
+                size: "中型"
+            },
+            {
+                booth: "D25",
+                company: "Daeyang Electric Co., Ltd.",
+                country: "韓國",
+                products: "LED 行車燈、信號燈、艙室照明",
+                customers: "造船、海軍艦艇",
+                size: "大型"
+            },
+            {
+                booth: "D26",
+                company: "Gaepoong Electronics Co., Ltd.",
+                country: "韓國",
+                products: "控制繼電器、通風濾網",
+                customers: "Woojin",
+                size: "小型"
+            },
+            {
+                booth: "D27",
+                company: "Joowon Industrial Co., Ltd.",
+                country: "韓國",
+                products: "鐵道扣件",
+                customers: "道床維保標案",
+                size: "小型"
+            },
+            {
+                booth: "D28",
+                company: "ANTS Co., Ltd.",
+                country: "韓國",
+                products: "自動檢票閘門、票卡終端",
+                customers: "釜山、大邱地鐵",
+                size: "小型"
+            },
+            {
+                booth: "D29",
+                company: "EoneTNC",
+                country: "韓國",
+                products: "LTE‑R/5G 無線閘道器",
+                customers: "京江線 LTE‑R",
+                size: "小型"
+            },
+            {
+                booth: "D30",
+                company: "Rail Economy News",
+                country: "韓國",
+                products: "鐵道專業媒體",
+                customers: "廠商行銷、政府採購單位",
+                size: "微型"
+            },
+            {
+                booth: "E04",
+                company: "ONESERVICE",
+                country: "韓國",
+                products: "智慧維保平台、遠端監控",
+                customers: "—",
+                size: "微型"
+            },
+            {
+                booth: "E05",
+                company: "Korea Rolling Stock Industries Association (KORSIA)",
+                country: "韓國",
+                products: "產業協會、標準推廣",
+                customers: "韓國軌道供應商",
+                size: "小型"
+            },
+            {
+                booth: "E08",
+                company: "BROSPOWER Co., Ltd.",
+                country: "韓國",
+                products: "AC/DC、DC/DC 電源",
+                customers: "Hyundai Rotem、Woojin",
+                size: "小型"
+            },
+            {
+                booth: "E09",
+                company: "ICK",
+                country: "韓國",
+                products: "交通票證、智慧卡模組",
+                customers: "首爾 T‑Money 系統",
+                size: "中型"
+            },
+            {
+                booth: "E10",
+                company: "Yooksong Co., Ltd.",
+                country: "韓國",
+                products: "消防栓、滅火器、閥件",
+                customers: "車庫、地鐵站",
+                size: "小型"
+            },
+            {
+                booth: "E11",
+                company: "Yujin Machinery Ltd.",
+                country: "韓國",
+                products: "車軸箱、緩衝器維修",
+                customers: "KORAIL、Hyundai Rotem",
+                size: "小型"
+            },
+            {
+                booth: "E12",
+                company: "WeZON",
+                country: "韓國",
+                products: "IoT Gateways、車載數據平台",
+                customers: "韓國輕軌雲端監控",
+                size: "小型"
+            },
+            {
+                booth: "E13",
+                company: "FOGTEC Brandschutz GmbH",
+                country: "德國",
+                products: "水霧滅火系統",
+                customers: "Siemens Mobility、Alstom",
+                size: "中型"
+            },
+            {
+                booth: "E14",
+                company: "Linsinger Maschinenbau GmbH",
+                country: "奧地利",
+                products: "鋼軌銑削車",
+                customers: "DB、Network Rail、JR 東",
+                size: "中型"
+            },
+            {
+                booth: "E15",
+                company: "Suzhou DONEKA",
+                country: "中國",
+                products: "電機碳刷、刷盒",
+                customers: "CRRC 車用電機維修",
+                size: "小型"
+            },
+            {
+                booth: "E16",
+                company: "CRRC",
+                country: "中國",
+                products: "高速列車、地鐵車輛",
+                customers: "全球鐵路運營商",
+                size: "大型"
+            },
+            {
+                booth: "E17",
+                company: "Henan QiangLi Machinery",
+                country: "中國",
+                products: "軌道維修機具",
+                customers: "中國國鐵、東協市場",
+                size: "小型"
+            },
+            {
+                booth: "E18",
+                company: "KR Trading",
+                country: "韓國",
+                products: "軌道緊固件貿易",
+                customers: "KORAIL、私鐵改造",
+                size: "小型"
+            },
+            {
+                booth: "E19",
+                company: "Black & Decker",
+                country: "美國",
+                products: "便攜式電動工具",
+                customers: "全球工務維修團隊",
+                size: "大型"
+            },
+            {
+                booth: "E20",
+                company: "GERB Korea",
+                country: "德國〈韓〉",
+                products: "減振彈簧座、浮置板",
+                customers: "韓高鐵橋梁、TGV 車站",
+                size: "中型"
+            },
+            {
+                booth: "E21",
+                company: "UNIVIS Co., Ltd.",
+                country: "韓國",
+                products: "LED 車廂照明",
+                customers: "Woojin、內裝 OEM",
+                size: "小型"
+            },
+            {
+                booth: "E22",
+                company: "Korea Institute of Machinery & Materials (KIMM)",
+                country: "韓國",
+                products: "振動抑制暨可靠度研發",
+                customers: "KRRI、車輛 OEM",
+                size: "大型"
+            },
+            {
+                booth: "E23",
+                company: "Korea Association for Public Safety Telecommunication",
+                country: "韓國",
+                products: "公共安全 LTE‑R 標準推廣",
+                customers: "國家 LTE‑R 專案",
+                size: "小型"
+            },
+            {
+                booth: "F01",
+                company: "TÜV SÜD Korea Ltd.",
+                country: "德國〈韓〉",
+                products: "系統安全與功能安全認證",
+                customers: "Hyundai Rotem、KRRI",
+                size: "大型"
+            },
+            {
+                booth: "F02",
+                company: "SIB Korea",
+                country: "韓國",
+                products: "高載荷滾動導軌、線性滑軌",
+                customers: "自動化裝配線",
+                size: "小型"
+            },
+            {
+                booth: "F03",
+                company: "VIB‑LOCK Co., Ltd.",
+                country: "韓國",
+                products: "振動隔離墊",
+                customers: "車站機電設備",
+                size: "小型"
+            },
+            {
+                booth: "F04",
+                company: "Railroad Industry Inc.",
+                country: "韓國",
+                products: "工務設備製造、租賃",
+                customers: "國內維修段",
+                size: "小型"
+            },
+            {
+                booth: "F05",
+                company: "Quantum Inc.",
+                country: "韓國",
+                products: "基礎設施量測與 AI 診斷",
+                customers: "—",
+                size: "微型"
+            },
+            {
+                booth: "F06",
+                company: "Romansys Co., Ltd.",
+                country: "韓國",
+                products: "客貨車車體製造與翻修",
+                customers: "貨運轉運專案",
+                size: "小型"
+            },
+            {
+                booth: "F07",
+                company: "JST Transformateurs",
+                country: "法國",
+                products: "車載牽引變壓器",
+                customers: "SNCF、Alstom TGV",
+                size: "中型"
+            },
+            {
+                booth: "F08",
+                company: "Longhua Technology Group",
+                country: "中國",
+                products: "減振扣件、橡膠支座",
+                customers: "中國高鐵、城市鐵路",
+                size: "大型"
+            },
+            {
+                booth: "F09",
+                company: "Jiangsu Tie Mao Technology",
+                country: "中國",
+                products: "車窗安全玻璃",
+                customers: "CRRC、ASEAN 出口",
+                size: "中型"
+            },
+            {
+                booth: "F10",
+                company: "InnoTrans 2026",
+                country: "德國",
+                products: "國際鐵道展宣傳",
+                customers: "全球設備商、運營商",
+                size: "小型"
+            },
+            {
+                booth: "F11",
+                company: "Railway Gazette International",
+                country: "英國",
+                products: "專業媒體、數據服務",
+                customers: "全球鐵道企業",
+                size: "小型"
+            },
+            {
+                booth: "F12",
+                company: "Zhengzhou Mingtai Transportation New Material",
+                country: "中國",
+                products: "鋁合金車體板材",
+                customers: "中國都市地鐵、EU 市場",
+                size: "中型"
+            },
+            {
+                booth: "F13",
+                company: "IWMT Co., Ltd.",
+                country: "韓國",
+                products: "再生塑木枕木",
+                customers: "韓國枕木汰換計畫",
+                size: "小型"
+            },
+            {
+                booth: "F14",
+                company: "Sean Inc.",
+                country: "韓國",
+                products: "焊接件、減振部件",
+                customers: "軌道養護商",
+                size: "小型"
+            },
+            {
+                booth: "F15",
+                company: "Korea National Railway",
+                country: "韓國",
+                products: "基建建設與維護",
+                customers: "高鐵與都市鐵路專案",
+                size: "大型"
+            },
+            {
+                booth: "G01",
+                company: "Woojin Industrial Systems",
+                country: "韓國",
+                products: "地鐵與輕軌車輛",
+                customers: "仁川機場磁浮、馬來西亞 LRT",
+                size: "中型"
+            },
+            {
+                booth: "G02",
+                company: "Busan Metropolitan City",
+                country: "韓國",
+                products: "地方政府招商",
+                customers: "軌道產業投資推介",
+                size: "大型"
+            },
+            {
+                booth: "G03",
+                company: "Korea Railroad Research Institute (KRRI)",
+                country: "韓國",
+                products: "列車與號誌研發、試驗線",
+                customers: "國家研發專案",
+                size: "大型"
+            },
+            {
+                booth: "G04",
+                company: "Busan Transportation Corporation",
+                country: "韓國",
+                products: "城市地鐵營運與維修",
+                customers: "釜山地鐵 1‑4 號線",
+                size: "大型"
+            },
+            {
+                booth: "G05",
+                company: "KORAIL",
+                country: "韓國",
+                products: "客貨運營運",
+                customers: "全國乘客與貨運客戶",
+                size: "大型"
+            },
+            {
+                booth: "G06",
+                company: "Korea National Railway (KNRA)",
+                country: "韓國",
+                products: "鐵道基建建設與監理",
+                customers: "KTX 建設、都市鐵路延伸",
+                size: "大型"
+            },
+            {
+                booth: "G07",
+                company: "Korea Railway Industry Association",
+                country: "韓國",
+                products: "產業政策協調、國際推廣",
+                customers: "300+ 協會會員",
+                size: "小型"
+            },
+            {
+                booth: "G09",
+                company: "KORAIL Retail",
+                country: "韓國",
+                products: "車站零售與免稅",
+                customers: "首爾站、新村站等",
+                size: "中型"
+            },
+            {
+                booth: "G10",
+                company: "SaeYoung Technologies Co., Ltd.",
+                country: "韓國",
+                products: "LTE‑R / ERTMS 測試方案",
+                customers: "韓國 LTE‑R、ERTMS 專案",
+                size: "小型"
+            }
+        ];
 
-<script>
-const companyData = {
-    // 原始CSV数据转换为JSON格式
-    "A04": {
-        "公司": "DEMCO CSI",
-        "國家": "韓國",
-        "主要產品": "戶外高亮度 TFT-LCD 資訊顯示器",
-        "主要客戶": "機場、鐵路及公車站",
-        "公司規模": "中型"
-    },
-    "A05": {
-        "公司": "YK Construction Equipment Co., Ltd.",
-        "國家": "韓國", 
-        "主要產品": "工程與軌道施工機械租售",
-        "主要客戶": "韓國土木、軌道承包商",
-        "公司規模": "中型"
-    },
-    // 其他104家厂商数据...
-};
-
-function initBoothGrid() {
-    const grid = document.getElementById('boothGrid');
-    const letters = ['A','B','C','D','E','F','G'];
-    
-    letters.forEach(letter => {
-        for(let i = 1; i <= 30; i++) {
-            const booth = `${letter}${i.toString().padStart(2,'0')}`;
-            if(companyData[booth]) {
-                const btn = document.createElement('button');
-                btn.className = 'booth-btn';
-                btn.textContent = booth;
-                btn.addEventListener('click', () => showInfo(booth));
-                grid.appendChild(btn);
+        function getSizeClass(size) {
+            switch(size) {
+                case '大型': return 'size-large';
+                case '中型': return 'size-medium';
+                case '小型': return 'size-small';
+                case '微型': return 'size-micro';
+                default: return 'size-small';
             }
         }
-    });
-}
 
-function showInfo(booth) {
-    const info = companyData[booth];
-    const content = `
-        <h3>${info.公司}</h3>
-        <div class="info-item">
-            <strong>攤位號碼：</strong>${booth}
-        </div>
-        <div class="info-item">
-            <strong>國家：</strong>${info.國家}
-        </div>
-        <div class="info-item">
-            <strong>主要產品：</strong>${info.主要產品}
-        </div>
-        <div class="info-item">
-            <strong>主要客戶：</strong>${info.主要客戶}
-        </div>
-        <div class="info-item">
-            <strong>公司規模：</strong>${info.公司規模}
-        </div>
-    `;
-    
-    document.getElementById('companyContent').innerHTML = content;
-    document.getElementById('infoWindow').classList.add('active');
-}
+        function renderExhibitors(exhibitorList = exhibitors) {
+            const container = document.getElementById('exhibitorList');
+            container.innerHTML = '';
 
-// 初始化
-initBoothGrid();
+            exhibitorList.forEach(exhibitor => {
+                const exhibitorDiv = document.createElement('div');
+                exhibitorDiv.className = 'exhibitor-item';
+                exhibitorDiv.innerHTML = `
+                    <div class="exhibitor-header" onclick="toggleDetails('${exhibitor.booth}')">
+                        <div class="booth-number">${exhibitor.booth}</div>
+                        <div class="company-name">${exhibitor.company}</div>
+                        <div class="dropdown-arrow" id="arrow-${exhibitor.booth}">▼</div>
+                    </div>
+                    <div class="exhibitor-details" id="details-${exhibitor.booth}">
+                        <div class="detail-row">
+                            <div class="detail-label">國家：</div>
+                            <div class="detail-value"><span class="country-flag"></span>${exhibitor.country}</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">主要產品：</div>
+                            <div class="detail-value">${exhibitor.products}</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">主要客戶：</div>
+                            <div class="detail-value">${exhibitor.customers}</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">公司規模：</div>
+                            <div class="detail-value">
+                                <span class="company-size ${getSizeClass(exhibitor.size)}">${exhibitor.size}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(exhibitorDiv);
+            });
+        }
 
-// 点击窗口外关闭
-document.addEventListener('click', (e) => {
-    if(!e.target.closest('.info-window') && !e.target.closest('.booth-btn')) {
-        document.getElementById('infoWindow').classList.remove('active');
-    }
-});
+        function toggleDetails(boothNumber) {
+            const details = document.getElementById(`details-${boothNumber}`);
+            const arrow = document.getElementById(`arrow-${boothNumber}`);
+            
+            if (details.classList.contains('active')) {
+                details.classList.remove('active');
+                arrow.style.transform = 'rotate(0deg)';
+            } else {
+                // Close all other open details
+                document.querySelectorAll('.exhibitor-details.active').forEach(detail => {
+                    detail.classList.remove('active');
+                });
+                document.querySelectorAll('.dropdown-arrow').forEach(arrow => {
+                    arrow.style.transform = 'rotate(0deg)';
+                });
+                
+                // Open current details
+                details.classList.add('active');
+                arrow.style.transform = 'rotate(180deg)';
+            }
+        }
 
-// 搜索功能
-document.getElementById('searchInput').addEventListener('input', function(e) {
-    const searchTerm = e.target.value.toUpperCase();
-    const buttons = document.getElementsByClassName('booth-btn');
-    
-    Array.from(buttons).forEach(btn => {
-        const booth = btn.textContent;
-        const company = companyData[booth]?.公司.toUpperCase() || '';
-        btn.style.display = (booth.includes(searchTerm) || company.includes(searchTerm)) 
-            ? 'block' : 'none';
-    });
-});
-</script>
+        function searchExhibitors() {
+            const searchTerm = document.getElementById('searchBox').value.toLowerCase();
+            const filteredExhibitors = exhibitors.filter(exhibitor => 
+                exhibitor.booth.toLowerCase().includes(searchTerm) ||
+                exhibitor.company.toLowerCase().includes(searchTerm) ||
+                exhibitor.country.toLowerCase().includes(searchTerm) ||
+                exhibitor.products.toLowerCase().includes(searchTerm)
+            );
+            renderExhibitors(filteredExhibitors);
+        }
 
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderExhibitors();
+            
+            // Add search functionality
+            document.getElementById('searchBox').addEventListener('input', searchExhibitors);
+        });
+    </script>
 </body>
 </html>
