@@ -3,11 +3,11 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" />
-  <title>RailLog Korea 2025 展場互動圖</title>
+  <title>RailLog Korea 2025 展場互動圖（彩色）</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .booth {
-      @apply p-2 bg-white border border-blue-400 text-xs rounded hover:bg-blue-100 text-center;
+      @apply p-2 border border-blue-500 text-xs rounded text-center hover:brightness-110;
     }
   </style>
   <script>
@@ -40,7 +40,7 @@
   </script>
 </head>
 <body class="bg-gray-100 font-sans p-4">
-  <h1 class="text-3xl font-bold mb-4 text-center">RailLog Korea 2025 展覽互動圖</h1>
+  <h1 class="text-3xl font-bold mb-4 text-center">RailLog Korea 2025 展覽互動圖（彩色區分）</h1>
   <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
     <!-- 左側攤位圖 -->
     <div class="lg:col-span-2 bg-white p-4 rounded shadow">
@@ -49,26 +49,26 @@
       
 <!-- A 區 -->
 <div class="grid grid-cols-8 gap-1">
-  <button class="booth" onclick="showInfo('A01')">A01</button>
-  <button class="booth" onclick="showInfo('A02')">A02</button>
+  <button class="booth bg-amber-200" onclick="showInfo('A01')">A01</button>
+  <button class="booth bg-amber-200" onclick="showInfo('A02')">A02</button>
   <div class="col-span-2"></div>
-  <button class="booth" onclick="showInfo('A03')">A03</button>
-  <button class="booth" onclick="showInfo('A04')">A04</button>
-  <button class="booth" onclick="showInfo('A05')">A05</button>
-  <button class="booth" onclick="showInfo('A06')">A06</button>
+  <button class="booth bg-amber-200" onclick="showInfo('A03')">A03</button>
+  <button class="booth bg-amber-200" onclick="showInfo('A04')">A04</button>
+  <button class="booth bg-amber-200" onclick="showInfo('A05')">A05</button>
+  <button class="booth bg-amber-200" onclick="showInfo('A06')">A06</button>
 </div>
 <div class="mt-2 grid grid-cols-1">
-  <button class="booth h-24 w-full" onclick="showInfo('A07')">A07</button>
+  <div class="h-24"><button class="booth bg-amber-200" onclick="showInfo('A07')">A07</button></div>
 </div>
 
 <!-- B 區 (部分示意) -->
 <div class="mt-4 grid grid-cols-6 gap-1">
-  <button class="booth" onclick="showInfo('B01')">B01</button>
-  <button class="booth" onclick="showInfo('B02')">B02</button>
-  <button class="booth" onclick="showInfo('B03')">B03</button>
-  <button class="booth" onclick="showInfo('B04')">B04</button>
-  <button class="booth" onclick="showInfo('B05')">B05</button>
-  <button class="booth" onclick="showInfo('B06')">B06</button>
+  <button class="booth bg-green-200" onclick="showInfo('B01')">B01</button>
+  <button class="booth bg-green-200" onclick="showInfo('B02')">B02</button>
+  <button class="booth bg-green-200" onclick="showInfo('B03')">B03</button>
+  <button class="booth bg-green-200" onclick="showInfo('B04')">B04</button>
+  <button class="booth bg-green-200" onclick="showInfo('B05')">B05</button>
+  <button class="booth bg-green-200" onclick="showInfo('B06')">B06</button>
 </div>
 
     </div>
@@ -82,4 +82,3 @@
     </div>
   </div>
 </body>
-</html>
