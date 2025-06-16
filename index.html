@@ -1,473 +1,2374 @@
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raillog Korea 2025 參展廠商資訊</title>
-    
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- DataTables CSS -->
-    <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        body {
-            font-family: 'Microsoft JhengHei', Arial, sans-serif;
-            background-color: #f8f9fa;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #0d6efd, #0a4da8);
-            color: white;
-            padding: 2rem 0;
-            margin-bottom: 2rem;
-        }
-        
-        .card {
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
-        
-        .card-header {
-            background-color: #f1f5fd;
-            border-bottom: 1px solid #dee2e6;
-            padding: 1rem;
-        }
-        
-        .filter-section {
-            background-color: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-        
-        .btn-filter {
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stats-card {
-            text-align: center;
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            color: white;
-        }
-        
-        .stats-card h3 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stats-card p {
-            font-size: 1rem;
-            margin-bottom: 0;
-        }
-        
-        .stats-card.blue {
-            background: linear-gradient(135deg, #0d6efd, #0a4da8);
-        }
-        
-        .stats-card.green {
-            background: linear-gradient(135deg, #198754, #115c39);
-        }
-        
-        .stats-card.purple {
-            background: linear-gradient(135deg, #6f42c1, #4e2d89);
-        }
-        
-        .stats-card.orange {
-            background: linear-gradient(135deg, #fd7e14, #b35900);
-        }
-        
-        footer {
-            background-color: #343a40;
-            color: white;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
-        
-        .booth-A { background-color: #ffecb3; }
-        .booth-B { background-color: #b3e0ff; }
-        .booth-C { background-color: #c6e2c6; }
-        .booth-D { background-color: #ffd6cc; }
-        .booth-E { background-color: #e6ccff; }
-        .booth-F { background-color: #ffc6e0; }
-        .booth-G { background-color: #c6e2ff; }
-        
-        .size-大型 { font-weight: bold; color: #d63384; }
-        .size-中型 { font-weight: bold; color: #0d6efd; }
-        .size-小型 { font-weight: normal; color: #198754; }
-        .size-微型 { font-weight: normal; color: #6c757d; }
-    </style>
+    <title>RailLog Korea 2025 參展廠商名錄</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    function filterTable() {
+        let input = document.getElementById("searchInput").value.toLowerCase();
+        let rows = document.querySelectorAll("tbody tr");
+        rows.forEach(row => {
+            row.style.display = row.innerText.toLowerCase().includes(input) ? "" : "none";
+        });
+    }
+    </script>
 </head>
-<body>
-    <!-- 頁首 -->
-    <header class="header">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <h1><i class="fas fa-train me-2"></i>Raillog Korea 2025</h1>
-                    <p class="lead">韓國鐵道物流展覽會 - 參展廠商資訊</p>
-                </div>
-                <div class="col-md-4 text-md-end">
-                    <p><i class="fas fa-calendar-alt me-2"></i>2025年展會</p>
-                    <p><i class="fas fa-map-marker-alt me-2"></i>釜山展覽會議中心 (BEXCO)</p>
-                </div>
-            </div>
-        </div>
-    </header>
+<body class="bg-gray-100 font-sans">
+    <div class="max-w-7xl mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-4 text-center">RailLog Korea 2025 參展廠商名錄</h1>
+        <input id="searchInput" type="text" onkeyup="filterTable()" placeholder="輸入關鍵字以篩選..." 
+               class="mb-4 p-3 border border-gray-300 w-full rounded-lg" />
+        <div class="overflow-x-auto bg-white rounded-lg shadow-lg">
+            <table class="table-auto w-full text-sm text-left border-collapse">
+                <thead class="bg-gray-200 text-gray-700">
+                    <tr>
+                        <th class="border p-2">攤位號</th>
+                        <th class="border p-2">公司</th>
+                        <th class="border p-2">國家</th>
+                        <th class="border p-2">主要產品</th>
+                        <th class="border p-2">主要客戶</th>
+                        <th class="border p-2">公司規模</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-A04').classList.remove('hidden')">
+        <td class="border p-2">A04</td>
+        <td class="border p-2">DEMCO CSI</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">戶外高亮度 TFT‑LCD 資訊顯示器</td>
+        <td class="border p-2">機場、鐵路及公車站</td>
+        <td class="border p-2">中型</td>
+    </tr>
 
-    <div class="container">
-        <!-- 統計資訊 -->
-        <div class="row mb-4">
-            <div class="col-md-3">
-                <div class="stats-card blue">
-                    <i class="fas fa-building fa-2x mb-2"></i>
-                    <h3 id="totalCompanies">106</h3>
-                    <p>參展廠商總數</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="stats-card green">
-                    <i class="fas fa-globe-asia fa-2x mb-2"></i>
-                    <h3 id="totalCountries">18</h3>
-                    <p>參展國家數</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="stats-card purple">
-                    <i class="fas fa-flag fa-2x mb-2"></i>
-                    <h3 id="koreanCompanies">78</h3>
-                    <p>韓國廠商數</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="stats-card orange">
-                    <i class="fas fa-map fa-2x mb-2"></i>
-                    <h3 id="totalBooths">7</h3>
-                    <p>展區數量</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 過濾區域 -->
-        <div class="card filter-section">
-            <div class="card-body">
-                <h5 class="card-title mb-3"><i class="fas fa-filter me-2"></i>快速過濾</h5>
-                
-                <div class="mb-3">
-                    <h6>依展區：</h6>
-                    <button class="btn btn-sm btn-outline-secondary btn-filter" data-filter="all">全部</button>
-                    <button class="btn btn-sm btn-outline-warning btn-filter" data-filter="A">A區</button>
-                    <button class="btn btn-sm btn-outline-info btn-filter" data-filter="B">B區</button>
-                    <button class="btn btn-sm btn-outline-success btn-filter" data-filter="C">C區</button>
-                    <button class="btn btn-sm btn-outline-danger btn-filter" data-filter="D">D區</button>
-                    <button class="btn btn-sm btn-outline-primary btn-filter" data-filter="E">E區</button>
-                    <button class="btn btn-sm btn-outline-dark btn-filter" data-filter="F">F區</button>
-                    <button class="btn btn-sm btn-outline-secondary btn-filter" data-filter="G">G區</button>
-                </div>
-                
-                <div class="mb-3">
-                    <h6>依公司規模：</h6>
-                    <button class="btn btn-sm btn-outline-secondary btn-filter" data-filter-size="all">全部</button>
-                    <button class="btn btn-sm btn-outline-danger btn-filter" data-filter-size="大型">大型</button>
-                    <button class="btn btn-sm btn-outline-primary btn-filter" data-filter-size="中型">中型</button>
-                    <button class="btn btn-sm btn-outline-success btn-filter" data-filter-size="小型">小型</button>
-                    <button class="btn btn-sm btn-outline-secondary btn-filter" data-filter-size="微型">微型</button>
-                </div>
-                
-                <div>
-                    <h6>依國家：</h6>
-                    <button class="btn btn-sm btn-outline-secondary btn-filter" data-filter-country="all">全部</button>
-                    <button class="btn btn-sm btn-outline-primary btn-filter" data-filter-country="韓國">韓國</button>
-                    <button class="btn btn-sm btn-outline-danger btn-filter" data-filter-country="中國">中國</button>
-                    <button class="btn btn-sm btn-outline-success btn-filter" data-filter-country="德國">德國系</button>
-                    <button class="btn btn-sm btn-outline-warning btn-filter" data-filter-country="other">其他國家</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- 主要表格 -->
-        <div class="card">
-            <div class="card-header">
-                <h5><i class="fas fa-table me-2"></i>參展廠商完整列表</h5>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table id="exhibitorTable" class="table table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <th>攤位號</th>
-                                <th>公司</th>
-                                <th>國家</th>
-                                <th>主要產品</th>
-                                <th>主要客戶</th>
-                                <th>公司規模</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- 資料將由JavaScript動態載入 -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+    <!-- Modal for DEMCO CSI -->
+    <div id="modal-A04" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-A04').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">DEMCO CSI</h2>
+            <p><strong>攤位號:</strong> A04</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 戶外高亮度 TFT‑LCD 資訊顯示器</p>
+            <p><strong>主要客戶:</strong> 機場、鐵路及公車站</p>
+            <p><strong>公司規模:</strong> 中型</p>
         </div>
     </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-A05').classList.remove('hidden')">
+        <td class="border p-2">A05</td>
+        <td class="border p-2">YK Construction Equipment Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">工程與軌道施工機械租售</td>
+        <td class="border p-2">韓國土木、軌道承包商</td>
+        <td class="border p-2">中型</td>
+    </tr>
 
-    <!-- 頁尾 -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>關於 Raillog Korea</h5>
-                    <p>Raillog Korea 是韓國領先的國際鐵路技術、基礎設施和物流貿易展覽會。自2003年以來每兩年舉辦一次，Raillog Korea 已成為全球第四大鐵路展，展覽面積達17,000平方米。</p>
-                </div>
-                <div class="col-md-3">
-                    <h5>快速連結</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">官方網站</a></li>
-                        <li><a href="#" class="text-white">參展指南</a></li>
-                        <li><a href="#" class="text-white">交通資訊</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h5>聯絡資訊</h5>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-envelope me-2"></i>info@raillogkorea.com</li>
-                        <li><i class="fas fa-phone me-2"></i>+82-2-123-4567</li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="mt-4 mb-4">
-            <div class="text-center">
-                <p>&copy; 2025 Raillog Korea. 版權所有。</p>
-            </div>
+    <!-- Modal for YK Construction Equipment Co., Ltd. -->
+    <div id="modal-A05" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-A05').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">YK Construction Equipment Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> A05</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 工程與軌道施工機械租售</p>
+            <p><strong>主要客戶:</strong> 韓國土木、軌道承包商</p>
+            <p><strong>公司規模:</strong> 中型</p>
         </div>
-    </footer>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-A06').classList.remove('hidden')">
+        <td class="border p-2">A06</td>
+        <td class="border p-2">SPACEPRO</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">碳纖維車體複材結構</td>
+        <td class="border p-2">韓國高鐵與航太供應鏈</td>
+        <td class="border p-2">小型</td>
+    </tr>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Modal for SPACEPRO -->
+    <div id="modal-A06" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-A06').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">SPACEPRO</h2>
+            <p><strong>攤位號:</strong> A06</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 碳纖維車體複材結構</p>
+            <p><strong>主要客戶:</strong> 韓國高鐵與航太供應鏈</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
     
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- DataTables JS -->
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
-    
-    <script>
-        // 參展商資料
-        const exhibitorData = [
-            {"攤位號":"A04","公司":"DEMCO CSI","國家":"韓國","主要產品":"戶外高亮度 TFT‑LCD 資訊顯示器","主要客戶":"機場、鐵路及公車站","公司規模":"中型"},
-            {"攤位號":"A05","公司":"YK Construction Equipment Co., Ltd.","國家":"韓國","主要產品":"工程與軌道施工機械租售","主要客戶":"韓國土木、軌道承包商","公司規模":"中型"},
-            {"攤位號":"A06","公司":"SPACEPRO","國家":"韓國","主要產品":"碳纖維車體複材結構","主要客戶":"韓國高鐵與航太供應鏈","公司規模":"小型"},
-            {"攤位號":"A07","公司":"Hyundai Rotem Company","國家":"韓國","主要產品":"高速列車、電聯車、號誌系統","主要客戶":"KORAIL、台灣高鐵、英國 TfL 等","公司規模":"大型"},
-            {"攤位號":"B01","公司":"Electronic & Human Technology","國家":"韓國","主要產品":"車載連接器、感測器整合","主要客戶":"船舶、軌道、自動化設備商","公司規模":"微型"},
-            {"攤位號":"B02","公司":"ENTEC Electric & Electronic Co., Ltd.","國家":"韓國","主要產品":"牽引開關櫃、高速斷路器、再閉合器","主要客戶":"50+ 國電力公司與地鐵","公司規模":"中型"},
-            {"攤位號":"B03","公司":"KUMSAN M&E Co., LTD","國家":"韓國","主要產品":"鐵道繼電器、端子台","主要客戶":"韓國船廠與維修商","公司規模":"小型"},
-            {"攤位號":"B04","公司":"MAPSCO Co., Ltd.","國家":"韓國","主要產品":"GIS 圖資、港口/車站導航","主要客戶":"釜山港務局、地方政府","公司規模":"小型"},
-            {"攤位號":"B05","公司":"Mahani Electric Co., Ltd.","國家":"韓國","主要產品":"感測器、連接器、PMA 纜管","主要客戶":"鐵道道岔升級、半導體廠","公司規模":"小型"},
-            {"攤位號":"B06","公司":"EASTERN R&E Co., Ltd.","國家":"韓國","主要產品":"輪對、轉向架、貨車車體設計","主要客戶":"韓國貨車製造與維保","公司規模":"中型"},
-            {"攤位號":"B07","公司":"KOBA Co., Ltd.","國家":"韓國","主要產品":"撞緩器、液壓減震器","主要客戶":"全球列車 OEM、港口起重機","公司規模":"中型"},
-            {"攤位號":"B08","公司":"CSIN Tech Co., Ltd.","國家":"韓國","主要產品":"HVAC、遠端監控、RAMS","主要客戶":"Hyderabad Metro、韓國輕軌","公司規模":"小型"},
-            {"攤位號":"B09","公司":"Dujin I&T","國家":"韓國","主要產品":"車輛零部件、RAMS 諮詢","主要客戶":"CRRC、中印合作專案","公司規模":"小型"},
-            {"攤位號":"B10","公司":"VCTECH Co., Ltd.","國家":"韓國","主要產品":"逆變器、電驅控制器","主要客戶":"Hyundai Rotem、海外出口","公司規模":"中型"},
-            {"攤位號":"B11","公司":"TÜV Rheinland Korea Ltd.","國家":"德國〈韓〉","主要產品":"安全認證、EMC/功能安全測試","主要客戶":"KRRI、全球車輛與信號商","公司規模":"大型"},
-            {"攤位號":"B12","公司":"ILME Korea Co.","國家":"義大利〈韓〉","主要產品":"工業矩形連接器","主要客戶":"線束廠、機械自動化","公司規模":"小型"},
-            {"攤位號":"C01","公司":"SAMSON TECH Co., Ltd.","國家":"韓國","主要產品":"公共廣播、聲學量測設備","主要客戶":"KORAIL、都市鐵路","公司規模":"小型"},
-            {"攤位號":"C02","公司":"KOSTECH","國家":"韓國","主要產品":"資料擷取、振動/應變感測器代理","主要客戶":"KRRI、Hyundai Rotem 測試中心","公司規模":"小型"},
-            {"攤位號":"C03","公司":"intech","國家":"韓國","主要產品":"試驗記錄器、環境試驗艙","主要客戶":"列車 OEM 測試部門","公司規模":"小型"},
-            {"攤位號":"C04","公司":"Jinil 1'Stec Co., Ltd.","國家":"韓國","主要產品":"硬度計、無損檢測儀器","主要客戶":"鋼鐵、車輛維修工廠","公司規模":"微型"},
-            {"攤位號":"C05","公司":"YOUNG JOONG IND Co., Ltd.","國家":"韓國","主要產品":"車軸鍛件、扣件","主要客戶":"Hyundai Rotem、Sampyo Railway","公司規模":"小型"},
-            {"攤位號":"C06","公司":"T.I.CORPORATION","國家":"韓國","主要產品":"輪對/轉向架加工","主要客戶":"貨車維保、出口市場","公司規模":"小型"},
-            {"攤位號":"C07","公司":"GLOS Co., Ltd.","國家":"韓國","主要產品":"LED 顯示與照明","主要客戶":"韓國都市鐵路","公司規模":"小型"},
-            {"攤位號":"C08","公司":"BEST ENGINEERING","國家":"韓國","主要產品":"軌道檢測/維修顧問","主要客戶":"國營與民營維修處","公司規模":"小型"},
-            {"攤位號":"C09","公司":"WOOJAE","國家":"韓國","主要產品":"扣件、耐磨件","主要客戶":"KR、地鐵維修商","公司規模":"小型"},
-            {"攤位號":"C10","公司":"Roxtec Korea","國家":"瑞典〈韓〉","主要產品":"電纜/管線穿隔密封模組","主要客戶":"KTX 車站、船舶","公司規模":"中型"},
-            {"攤位號":"C11","公司":"GMTECH Co., Ltd.","國家":"韓國","主要產品":"車載電源、HVAC 控制盤","主要客戶":"Woojin、系統集成商","公司規模":"小型"},
-            {"攤位號":"C12","公司":"WAINKOREA","國家":"中國〈韓〉","主要產品":"工業矩形/圓形連接器","主要客戶":"線束廠、機械自動化","公司規模":"小型"},
-            {"攤位號":"C13","公司":"Korea Petroleum","國家":"韓國","主要產品":"潤滑脂、齒輪油","主要客戶":"KORAIL、轉轍器維保商","公司規模":"大型"},
-            {"攤位號":"C14","公司":"Elthus T&L","國家":"韓國","主要產品":"AFC 系統物流","主要客戶":"都市鐵路業主","公司規模":"小型"},
-            {"攤位號":"C15","公司":"NAWOO Ltd.","國家":"韓國","主要產品":"電纜束整飾、波紋管","主要客戶":"信號系統集成商","公司規模":"小型"},
-            {"攤位號":"C16","公司":"ZEECOM","國家":"韓國","主要產品":"車載通訊終端、LTE‑R","主要客戶":"韓國 LTE‑R 路段、列車","公司規模":"小型"},
-            {"攤位號":"C17","公司":"DNV Business Assurance Korea","國家":"挪威〈韓〉","主要產品":"系統安全/功能安全認證","主要客戶":"KRRI、信號與車輛製造商","公司規模":"大型"},
-            {"攤位號":"C18","公司":"Schaltbau Korea Ltd.","國家":"德國〈韓〉","主要產品":"DC 接觸器、UIC 跳線","主要客戶":"Hyundai Rotem、全球車輛 OEM","公司規模":"中型"},
-            {"攤位號":"C19","公司":"CEL‑BIO KUBE Co., Ltd.","國家":"韓國","主要產品":"環保潤滑油、生質清潔劑","主要客戶":"地鐵動力系統維保","公司規模":"微型"},
-            {"攤位號":"C20","公司":"BP Intelligent Mechanics","國家":"中國","主要產品":"檢測機器人、AI 缺陷判讀","主要客戶":"中韓軌道檢測中心","公司規模":"小型"},
-            {"攤位號":"C21","公司":"TILC Co., Ltd.","國家":"韓國","主要產品":"車窗複材、遮陽系統","主要客戶":"Woojin、塗裝 OEM","公司規模":"小型"},
-            {"攤位號":"C22","公司":"Rehau & Chunho Co., Ltd.","國家":"德國/韓國","主要產品":"聚合物管路、內裝件","主要客戶":"Hyundai Rotem、改裝商","公司規模":"大型"},
-            {"攤位號":"C23","公司":"RM","國家":"韓國","主要產品":"軌道養護顧問、加固材料","主要客戶":"城市軌道局","公司規模":"微型"},
-            {"攤位號":"D04","公司":"PRIMET&R Co., Ltd.","國家":"韓國","主要產品":"轉向架零件、盤形煞車","主要客戶":"KORAIL 維修段","公司規模":"微型"},
-            {"攤位號":"D06","公司":"Thomas Co., Ltd.","國家":"韓國","主要產品":"動態電纜、線束拖鏈","主要客戶":"車輛 OEM、半導體設備商","公司規模":"小型"},
-            {"攤位號":"D08","公司":"Belden Singapore Pte Ltd","國家":"美國〈星〉","主要產品":"工業乙太網交換器、電纜","主要客戶":"Alstom、Siemens Mobility","公司規模":"大型"},
-            {"攤位號":"D09","公司":"Kyoungseong Co., Ltd.","國家":"韓國","主要產品":"檢測車、橋梁維修設備","主要客戶":"基建維保單位","公司規模":"小型"},
-            {"攤位號":"D10","公司":"Innovation & Created Co., Ltd.","國家":"韓國","主要產品":"3D 數位孿生、AR 維修平台","主要客戶":"釜山交通公社","公司規模":"微型"},
-            {"攤位號":"D11","公司":"NST","國家":"韓國","主要產品":"非破壞檢測服務","主要客戶":"KRRI、監造單位","公司規模":"小型"},
-            {"攤位號":"D12","公司":"O‑Sung Electric Machinery Co., Ltd.","國家":"韓國","主要產品":"ATS/ACB 斷路器、微電機","主要客戶":"Woojin","公司規模":"小型"},
-            {"攤位號":"D13","公司":"DO IT Co., Ltd.","國家":"韓國","主要產品":"輪軌監測 IoT 感測器","主要客戶":"地方有軌電車","公司規模":"微型"},
-            {"攤位號":"D14","公司":"KATEM Co., Ltd.","國家":"韓國","主要產品":"鋁合金門框、車窗","主要客戶":"Hyundai Rotem、Woojin","公司規模":"小型"},
-            {"攤位號":"D15","公司":"Consilium Marine Korea","國家":"瑞典","主要產品":"火警/氣體偵測系統","主要客戶":"都市鐵路、公車電動化","公司規模":"中型"},
-            {"攤位號":"D16","公司":"Gaius Industrial Systems Co., Ltd.","國家":"韓國","主要產品":"節能驅動、齒輪箱維修","主要客戶":"輕軌、機場 APM","公司規模":"微型"},
-            {"攤位號":"D17","公司":"JKTECH GLOBAL","國家":"韓國","主要產品":"PCB 分板、BGA 重工","主要客戶":"車輛控制板維修","公司規模":"小型"},
-            {"攤位號":"D18","公司":"MBST Co., Ltd.","國家":"韓國","主要產品":"振動測試台、模態分析","主要客戶":"KRRI、研發中心","公司規模":"微型"},
-            {"攤位號":"D19","公司":"AHWON Corp. Co., Ltd.","國家":"韓國","主要產品":"車輪螺帽、緊固件","主要客戶":"Sampyo Railway","公司規模":"小型"},
-            {"攤位號":"D20","公司":"Sécheron SA","國家":"瑞士","主要產品":"DC 高速斷路器、隔離開關","主要客戶":"Alstom、CAF","公司規模":"中型"},
-            {"攤位號":"D21","公司":"Sampyo Railway","國家":"韓國","主要產品":"高速道岔、磨軌車","主要客戶":"韓國高鐵、印度 JV","公司規模":"中型"},
-            {"攤位號":"D22","公司":"WISKA Korea Ltd.","國家":"德國〈韓〉","主要產品":"IP68 電纜格蘭、匯流箱","主要客戶":"德鐵、挪威國鐵、造船","公司規模":"中型"},
-            {"攤位號":"D23","公司":"PROTECH","國家":"韓國","主要產品":"技師培訓、RAMS 諮詢","主要客戶":"輕軌營運商","公司規模":"微型"},
-            {"攤位號":"D24","公司":"Cincon Electronics Co., Ltd.","國家":"台灣","主要產品":"EN 50155 DC/DC 電源","主要客戶":"Stadler、Hitachi Rail","公司規模":"中型"},
-            {"攤位號":"D25","公司":"Daeyang Electric Co., Ltd.","國家":"韓國","主要產品":"LED 行車燈、信號燈、艙室照明","主要客戶":"造船、海軍艦艇","公司規模":"大型"},
-            {"攤位號":"D26","公司":"Gaepoong Electronics Co., Ltd.","國家":"韓國","主要產品":"控制繼電器、通風濾網","主要客戶":"Woojin","公司規模":"小型"},
-            {"攤位號":"D27","公司":"Joowon Industrial Co., Ltd.","國家":"韓國","主要產品":"鐵道扣件","主要客戶":"道床維保標案","公司規模":"小型"},
-            {"攤位號":"D28","公司":"ANTS Co., Ltd.","國家":"韓國","主要產品":"自動檢票閘門、票卡終端","主要客戶":"釜山、大邱地鐵","公司規模":"小型"},
-            {"攤位號":"D29","公司":"EoneTNC","國家":"韓國","主要產品":"LTE‑R/5G 無線閘道器","主要客戶":"京江線 LTE‑R","公司規模":"小型"},
-            {"攤位號":"D30","公司":"Rail Economy News","國家":"韓國","主要產品":"鐵道專業媒體","主要客戶":"廠商行銷、政府採購單位","公司規模":"微型"},
-            {"攤位號":"E04","公司":"ONESERVICE","國家":"韓國","主要產品":"智慧維保平台、遠端監控","主要客戶":"—","公司規模":"微型"},
-            {"攤位號":"E05","公司":"Korea Rolling Stock Industries Association (KORSIA)","國家":"韓國","主要產品":"產業協會、標準推廣","主要客戶":"韓國軌道供應商","公司規模":"小型"},
-            {"攤位號":"E08","公司":"BROSPOWER Co., Ltd.","國家":"韓國","主要產品":"AC/DC、DC/DC 電源","主要客戶":"Hyundai Rotem、Woojin","公司規模":"小型"},
-            {"攤位號":"E09","公司":"ICK","國家":"韓國","主要產品":"交通票證、智慧卡模組","主要客戶":"首爾 T‑Money 系統","公司規模":"中型"},
-            {"攤位號":"E10","公司":"Yooksong Co., Ltd.","國家":"韓國","主要產品":"消防栓、滅火器、閥件","主要客戶":"車庫、地鐵站","公司規模":"小型"},
-            {"攤位號":"E11","公司":"Yujin Machinery Ltd.","國家":"韓國","主要產品":"車軸箱、緩衝器維修","主要客戶":"KORAIL、Hyundai Rotem","公司規模":"小型"},
-            {"攤位號":"E12","公司":"WeZON","國家":"韓國","主要產品":"IoT Gateways、車載數據平台","主要客戶":"韓國輕軌雲端監控","公司規模":"小型"},
-            {"攤位號":"E13","公司":"FOGTEC Brandschutz GmbH","國家":"德國","主要產品":"水霧滅火系統","主要客戶":"Siemens Mobility、Alstom","公司規模":"中型"},
-            {"攤位號":"E14","公司":"Linsinger Maschinenbau GmbH","國家":"奧地利","主要產品":"鋼軌銑削車","主要客戶":"DB、Network Rail、JR 東","公司規模":"中型"},
-            {"攤位號":"E15","公司":"Suzhou DONEKA","國家":"中國","主要產品":"電機碳刷、刷盒","主要客戶":"CRRC 車用電機維修","公司規模":"小型"},
-            {"攤位號":"E16","公司":"CRRC","國家":"中國","主要產品":"高速列車、地鐵車輛","主要客戶":"全球鐵路運營商","公司規模":"大型"},
-            {"攤位號":"E17","公司":"Henan QiangLi Machinery","國家":"中國","主要產品":"軌道維修機具","主要客戶":"中國國鐵、東協市場","公司規模":"小型"},
-            {"攤位號":"E18","公司":"KR Trading","國家":"韓國","主要產品":"軌道緊固件貿易","主要客戶":"KORAIL、私鐵改造","公司規模":"小型"},
-            {"攤位號":"E19","公司":"Black & Decker","國家":"美國","主要產品":"便攜式電動工具","主要客戶":"全球工務維修團隊","公司規模":"大型"},
-            {"攤位號":"E20","公司":"GERB Korea","國家":"德國〈韓〉","主要產品":"減振彈簧座、浮置板","主要客戶":"韓高鐵橋梁、TGV 車站","公司規模":"中型"},
-            {"攤位號":"E21","公司":"UNIVIS Co., Ltd.","國家":"韓國","主要產品":"LED 車廂照明","主要客戶":"Woojin、內裝 OEM","公司規模":"小型"},
-            {"攤位號":"E22","公司":"Korea Institute of Machinery & Materials (KIMM)","國家":"韓國","主要產品":"振動抑制暨可靠度研發","主要客戶":"KRRI、車輛 OEM","公司規模":"大型"},
-            {"攤位號":"E23","公司":"Korea Association for Public Safety Telecommunication","國家":"韓國","主要產品":"公共安全 LTE‑R 標準推廣","主要客戶":"國家 LTE‑R 專案","公司規模":"小型"},
-            {"攤位號":"F01","公司":"TÜV SÜD Korea Ltd.","國家":"德國〈韓〉","主要產品":"系統安全與功能安全認證","主要客戶":"Hyundai Rotem、KRRI","公司規模":"大型"},
-            {"攤位號":"F02","公司":"SIB Korea","國家":"韓國","主要產品":"高載荷滾動導軌、線性滑軌","主要客戶":"自動化裝配線","公司規模":"小型"},
-            {"攤位號":"F03","公司":"VIB‑LOCK Co., Ltd.","國家":"韓国","主要產品":"振動隔離墊","主要客戶":"車站機電設備","公司規模":"小型"},
-            {"攤位號":"F04","公司":"Railroad Industry Inc.","國家":"韓國","主要產品":"工務設備製造、租賃","主要客戶":"國內維修段","公司規模":"小型"},
-            {"攤位號":"F05","公司":"Quantum Inc.","國家":"韓國","主要產品":"基礎設施量測與 AI 診斷","主要客戶":"—","公司規模":"微型"},
-            {"攤位號":"F06","公司":"Romansys Co., Ltd.","國家":"韓國","主要產品":"客貨車車體製造與翻修","主要客戶":"貨運轉運專案","公司規模":"小型"},
-            {"攤位號":"F07","公司":"JST Transformateurs","國家":"法國","主要產品":"車載牽引變壓器","主要客戶":"SNCF、Alstom TGV","公司規模":"中型"},
-            {"攤位號":"F08","公司":"Longhua Technology Group","國家":"中國","主要產品":"減振扣件、橡膠支座","主要客戶":"中國高鐵、城市鐵路","公司規模":"大型"},
-            {"攤位號":"F09","公司":"Jiangsu Tie Mao Technology","國家":"中國","主要產品":"車窗安全玻璃","主要客戶":"CRRC、ASEAN 出口","公司規模":"中型"},
-            {"攤位號":"F10","公司":"InnoTrans 2026","國家":"德國","主要產品":"國際鐵道展宣傳","主要客戶":"全球設備商、運營商","公司規模":"小型"},
-            {"攤位號":"F11","公司":"Railway Gazette International","國家":"英國","主要產品":"專業媒體、數據服務","主要客戶":"全球鐵道企業","公司規模":"小型"},
-            {"攤位號":"F12","公司":"Zhengzhou Mingtai Transportation New Material","國家":"中國","主要產品":"鋁合金車體板材","主要客戶":"中國都市地鐵、EU 市場","公司規模":"中型"},
-            {"攤位號":"F13","公司":"IWMT Co., Ltd.","國家":"韓國","主要產品":"再生塑木枕木","主要客戶":"韓國枕木汰換計畫","公司規模":"小型"},
-            {"攤位號":"F14","公司":"Sean Inc.","國家":"韓國","主要產品":"焊接件、減振部件","主要客戶":"軌道養護商","公司規模":"小型"},
-            {"攤位號":"F15","公司":"Korea National Railway","國家":"韓國","主要產品":"基建建設與維護","主要客戶":"高鐵與都市鐵路專案","公司規模":"大型"},
-            {"攤位號":"G01","公司":"Woojin Industrial Systems","國家":"韓國","主要產品":"地鐵與輕軌車輛","主要客戶":"仁川機場磁浮、馬來西亞 LRT","公司規模":"中型"},
-            {"攤位號":"G02","公司":"Busan Metropolitan City","國家":"韓國","主要產品":"地方政府招商","主要客戶":"軌道產業投資推介","公司規模":"大型"},
-            {"攤位號":"G03","公司":"Korea Railroad Research Institute (KRRI)","國家":"韓國","主要產品":"列車與號誌研發、試驗線","主要客戶":"國家研發專案","公司規模":"大型"},
-            {"攤位號":"G04","公司":"Busan Transportation Corporation","國家":"韓國","主要產品":"城市地鐵營運與維修","主要客戶":"釜山地鐵 1‑4 號線","公司規模":"大型"},
-            {"攤位號":"G05","公司":"KORAIL","國家":"韓國","主要產品":"客貨運營運","主要客戶":"全國乘客與貨運客戶","公司規模":"大型"},
-            {"攤位號":"G06","公司":"Korea National Railway (KNRA)","國家":"韓國","主要產品":"鐵道基建建設與監理","主要客戶":"KTX 建設、都市鐵路延伸","公司規模":"大型"},
-            {"攤位號":"G07","公司":"Korea Railway Industry Association","國家":"韓國","主要產品":"產業政策協調、國際推廣","主要客戶":"300+ 協會會員","公司規模":"小型"},
-            {"攤位號":"G09","公司":"KORAIL Retail","國家":"韓國","主要產品":"車站零售與免稅","主要客戶":"首爾站、新村站等","公司規模":"中型"},
-            {"攤位號":"G10","公司":"SaeYoung Technologies Co., Ltd.","國家":"韓國","主要產品":"LTE‑R / ERTMS 測試方案","主要客戶":"韓國 LTE‑R、ERTMS 專案","公司規模":"小型"}
-        ];
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-A07').classList.remove('hidden')">
+        <td class="border p-2">A07</td>
+        <td class="border p-2">Hyundai Rotem Company</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">高速列車、電聯車、號誌系統</td>
+        <td class="border p-2">KORAIL、台灣高鐵、英國 TfL 等</td>
+        <td class="border p-2">大型</td>
+    </tr>
 
-        $(document).ready(function() {
-            // 初始化 DataTable
-            const table = $('#exhibitorTable').DataTable({
-                data: exhibitorData,
-                columns: [
-                    { data: '攤位號' },
-                    { data: '公司' },
-                    { data: '國家' },
-                    { data: '主要產品' },
-                    { data: '主要客戶' },
-                    { data: '公司規模' }
-                ],
-                language: {
-                    "processing": "處理中...",
-                    "lengthMenu": "顯示 _MENU_ 筆資料",
-                    "zeroRecords": "沒有符合的資料",
-                    "info": "顯示第 _START_ 至 _END_ 筆資料，共 _TOTAL_ 筆",
-                    "infoEmpty": "顯示第 0 至 0 筆資料，共 0 筆",
-                    "infoFiltered": "(從 _MAX_ 筆資料中過濾)",
-                    "search": "搜尋:",
-                    "paginate": {
-                        "first": "第一頁",
-                        "previous": "上一頁",
-                        "next": "下一頁",
-                        "last": "最後一頁"
-                    }
-                },
-                pageLength: 10,
-                responsive: true,
-                createdRow: function(row, data, dataIndex) {
-                    // 根據攤位號添加顏色
-                    const boothPrefix = data.攤位號.charAt(0);
-                    $(row).addClass('booth-' + boothPrefix);
-                    
-                    // 根據公司規模添加樣式
-                    $('td:eq(5)', row).addClass('size-' + data.公司規模);
-                }
-            });
-            
-            // 展區過濾按鈕
-            $('.btn-filter').on('click', function() {
-                const filterValue = $(this).data('filter');
-                
-                if (filterValue === 'all') {
-                    table.column(0).search('').draw();
-                } else {
-                    table.column(0).search('^' + filterValue, true, false).draw();
-                }
-            });
-            
-            // 公司規模過濾按鈕
-            $('[data-filter-size]').on('click', function() {
-                const filterValue = $(this).data('filter-size');
-                
-                if (filterValue === 'all') {
-                    table.column(5).search('').draw();
-                } else {
-                    table.column(5).search('^' + filterValue + '$', true, false).draw();
-                }
-            });
-            
-            // 國家過濾按鈕
-            $('[data-filter-country]').on('click', function() {
-                const filterValue = $(this).data('filter-country');
-                
-                if (filterValue === 'all') {
-                    table.column(2).search('').draw();
-                } else if (filterValue === '德國系') {
-                    table.column(2).search('德國', true, false).draw();
-                } else if (filterValue === 'other') {
-                    table.column(2).search('^(?!韓國|中國|德國).*$', true, false).draw();
-                } else {
-                    table.column(2).search('^' + filterValue, true, false).draw();
-                }
-            });
-            
-            // 更新統計數字
-            $('#totalCompanies').text(exhibitorData.length);
-            
-            // 計算不同國家數量
-            const uniqueCountries = [...new Set(exhibitorData.map(item => {
-                // 提取主要國家名稱（去除〈韓〉等後綴）
-                const country = item.國家.split('〈')[0];
-                return country;
-            }))];
-            $('#totalCountries').text(uniqueCountries.length);
-            
-            // 計算韓國廠商數量
-            const koreanCompanies = exhibitorData.filter(item => item.國家.includes('韓國')).length;
-            $('#koreanCompanies').text(koreanCompanies);
-            
-            // 計算展區數量
-            const uniqueBooths = [...new Set(exhibitorData.map(item => item.攤位號.charAt(0)))];
-            $('#totalBooths').text(uniqueBooths.length);
-        });
-    </script>
+    <!-- Modal for Hyundai Rotem Company -->
+    <div id="modal-A07" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-A07').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Hyundai Rotem Company</h2>
+            <p><strong>攤位號:</strong> A07</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 高速列車、電聯車、號誌系統</p>
+            <p><strong>主要客戶:</strong> KORAIL、台灣高鐵、英國 TfL 等</p>
+            <p><strong>公司規模:</strong> 大型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-B01').classList.remove('hidden')">
+        <td class="border p-2">B01</td>
+        <td class="border p-2">Electronic & Human Technology</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">車載連接器、感測器整合</td>
+        <td class="border p-2">船舶、軌道、自動化設備商</td>
+        <td class="border p-2">微型</td>
+    </tr>
+
+    <!-- Modal for Electronic & Human Technology -->
+    <div id="modal-B01" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-B01').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Electronic & Human Technology</h2>
+            <p><strong>攤位號:</strong> B01</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 車載連接器、感測器整合</p>
+            <p><strong>主要客戶:</strong> 船舶、軌道、自動化設備商</p>
+            <p><strong>公司規模:</strong> 微型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-B02').classList.remove('hidden')">
+        <td class="border p-2">B02</td>
+        <td class="border p-2">ENTEC Electric & Electronic Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">牽引開關櫃、高速斷路器、再閉合器</td>
+        <td class="border p-2">50+ 國電力公司與地鐵</td>
+        <td class="border p-2">中型</td>
+    </tr>
+
+    <!-- Modal for ENTEC Electric & Electronic Co., Ltd. -->
+    <div id="modal-B02" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-B02').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">ENTEC Electric & Electronic Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> B02</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 牽引開關櫃、高速斷路器、再閉合器</p>
+            <p><strong>主要客戶:</strong> 50+ 國電力公司與地鐵</p>
+            <p><strong>公司規模:</strong> 中型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-B03').classList.remove('hidden')">
+        <td class="border p-2">B03</td>
+        <td class="border p-2">KUMSAN M&E Co., LTD</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">鐵道繼電器、端子台</td>
+        <td class="border p-2">韓國船廠與維修商</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for KUMSAN M&E Co., LTD -->
+    <div id="modal-B03" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-B03').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">KUMSAN M&E Co., LTD</h2>
+            <p><strong>攤位號:</strong> B03</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 鐵道繼電器、端子台</p>
+            <p><strong>主要客戶:</strong> 韓國船廠與維修商</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-B04').classList.remove('hidden')">
+        <td class="border p-2">B04</td>
+        <td class="border p-2">MAPSCO Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">GIS 圖資、港口/車站導航</td>
+        <td class="border p-2">釜山港務局、地方政府</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for MAPSCO Co., Ltd. -->
+    <div id="modal-B04" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-B04').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">MAPSCO Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> B04</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> GIS 圖資、港口/車站導航</p>
+            <p><strong>主要客戶:</strong> 釜山港務局、地方政府</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-B05').classList.remove('hidden')">
+        <td class="border p-2">B05</td>
+        <td class="border p-2">Mahani Electric Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">感測器、連接器、PMA 纜管</td>
+        <td class="border p-2">鐵道道岔升級、半導體廠</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for Mahani Electric Co., Ltd. -->
+    <div id="modal-B05" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-B05').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Mahani Electric Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> B05</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 感測器、連接器、PMA 纜管</p>
+            <p><strong>主要客戶:</strong> 鐵道道岔升級、半導體廠</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-B06').classList.remove('hidden')">
+        <td class="border p-2">B06</td>
+        <td class="border p-2">EASTERN R&E Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">輪對、轉向架、貨車車體設計</td>
+        <td class="border p-2">韓國貨車製造與維保</td>
+        <td class="border p-2">中型</td>
+    </tr>
+
+    <!-- Modal for EASTERN R&E Co., Ltd. -->
+    <div id="modal-B06" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-B06').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">EASTERN R&E Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> B06</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 輪對、轉向架、貨車車體設計</p>
+            <p><strong>主要客戶:</strong> 韓國貨車製造與維保</p>
+            <p><strong>公司規模:</strong> 中型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-B07').classList.remove('hidden')">
+        <td class="border p-2">B07</td>
+        <td class="border p-2">KOBA Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">撞緩器、液壓減震器</td>
+        <td class="border p-2">全球列車 OEM、港口起重機</td>
+        <td class="border p-2">中型</td>
+    </tr>
+
+    <!-- Modal for KOBA Co., Ltd. -->
+    <div id="modal-B07" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-B07').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">KOBA Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> B07</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 撞緩器、液壓減震器</p>
+            <p><strong>主要客戶:</strong> 全球列車 OEM、港口起重機</p>
+            <p><strong>公司規模:</strong> 中型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-B08').classList.remove('hidden')">
+        <td class="border p-2">B08</td>
+        <td class="border p-2">CSIN Tech Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">HVAC、遠端監控、RAMS</td>
+        <td class="border p-2">Hyderabad Metro、韓國輕軌</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for CSIN Tech Co., Ltd. -->
+    <div id="modal-B08" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-B08').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">CSIN Tech Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> B08</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> HVAC、遠端監控、RAMS</p>
+            <p><strong>主要客戶:</strong> Hyderabad Metro、韓國輕軌</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-B09').classList.remove('hidden')">
+        <td class="border p-2">B09</td>
+        <td class="border p-2">Dujin I&T</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">車輛零部件、RAMS 諮詢</td>
+        <td class="border p-2">CRRC、中印合作專案</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for Dujin I&T -->
+    <div id="modal-B09" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-B09').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Dujin I&T</h2>
+            <p><strong>攤位號:</strong> B09</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 車輛零部件、RAMS 諮詢</p>
+            <p><strong>主要客戶:</strong> CRRC、中印合作專案</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-B10').classList.remove('hidden')">
+        <td class="border p-2">B10</td>
+        <td class="border p-2">VCTECH Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">逆變器、電驅控制器</td>
+        <td class="border p-2">Hyundai Rotem、海外出口</td>
+        <td class="border p-2">中型</td>
+    </tr>
+
+    <!-- Modal for VCTECH Co., Ltd. -->
+    <div id="modal-B10" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-B10').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">VCTECH Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> B10</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 逆變器、電驅控制器</p>
+            <p><strong>主要客戶:</strong> Hyundai Rotem、海外出口</p>
+            <p><strong>公司規模:</strong> 中型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-B11').classList.remove('hidden')">
+        <td class="border p-2">B11</td>
+        <td class="border p-2">TÜV Rheinland Korea Ltd.</td>
+        <td class="border p-2">德國〈韓〉</td>
+        <td class="border p-2">安全認證、EMC/功能安全測試</td>
+        <td class="border p-2">KRRI、全球車輛與信號商</td>
+        <td class="border p-2">大型</td>
+    </tr>
+
+    <!-- Modal for TÜV Rheinland Korea Ltd. -->
+    <div id="modal-B11" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-B11').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">TÜV Rheinland Korea Ltd.</h2>
+            <p><strong>攤位號:</strong> B11</p>
+            <p><strong>國家:</strong> 德國〈韓〉</p>
+            <p><strong>主要產品:</strong> 安全認證、EMC/功能安全測試</p>
+            <p><strong>主要客戶:</strong> KRRI、全球車輛與信號商</p>
+            <p><strong>公司規模:</strong> 大型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-B12').classList.remove('hidden')">
+        <td class="border p-2">B12</td>
+        <td class="border p-2">ILME Korea Co.</td>
+        <td class="border p-2">義大利〈韓〉</td>
+        <td class="border p-2">工業矩形連接器</td>
+        <td class="border p-2">線束廠、機械自動化</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for ILME Korea Co. -->
+    <div id="modal-B12" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-B12').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">ILME Korea Co.</h2>
+            <p><strong>攤位號:</strong> B12</p>
+            <p><strong>國家:</strong> 義大利〈韓〉</p>
+            <p><strong>主要產品:</strong> 工業矩形連接器</p>
+            <p><strong>主要客戶:</strong> 線束廠、機械自動化</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C01').classList.remove('hidden')">
+        <td class="border p-2">C01</td>
+        <td class="border p-2">SAMSON TECH Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">公共廣播、聲學量測設備</td>
+        <td class="border p-2">KORAIL、都市鐵路</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for SAMSON TECH Co., Ltd. -->
+    <div id="modal-C01" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C01').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">SAMSON TECH Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> C01</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 公共廣播、聲學量測設備</p>
+            <p><strong>主要客戶:</strong> KORAIL、都市鐵路</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C02').classList.remove('hidden')">
+        <td class="border p-2">C02</td>
+        <td class="border p-2">KOSTECH</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">資料擷取、振動/應變感測器代理</td>
+        <td class="border p-2">KRRI、Hyundai Rotem 測試中心</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for KOSTECH -->
+    <div id="modal-C02" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C02').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">KOSTECH</h2>
+            <p><strong>攤位號:</strong> C02</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 資料擷取、振動/應變感測器代理</p>
+            <p><strong>主要客戶:</strong> KRRI、Hyundai Rotem 測試中心</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C03').classList.remove('hidden')">
+        <td class="border p-2">C03</td>
+        <td class="border p-2">intech</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">試驗記錄器、環境試驗艙</td>
+        <td class="border p-2">列車 OEM 測試部門</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for intech -->
+    <div id="modal-C03" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C03').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">intech</h2>
+            <p><strong>攤位號:</strong> C03</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 試驗記錄器、環境試驗艙</p>
+            <p><strong>主要客戶:</strong> 列車 OEM 測試部門</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C04').classList.remove('hidden')">
+        <td class="border p-2">C04</td>
+        <td class="border p-2">Jinil 1'Stec Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">硬度計、無損檢測儀器</td>
+        <td class="border p-2">鋼鐵、車輛維修工廠</td>
+        <td class="border p-2">微型</td>
+    </tr>
+
+    <!-- Modal for Jinil 1'Stec Co., Ltd. -->
+    <div id="modal-C04" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C04').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Jinil 1'Stec Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> C04</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 硬度計、無損檢測儀器</p>
+            <p><strong>主要客戶:</strong> 鋼鐵、車輛維修工廠</p>
+            <p><strong>公司規模:</strong> 微型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C05').classList.remove('hidden')">
+        <td class="border p-2">C05</td>
+        <td class="border p-2">YOUNG JOONG IND Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">車軸鍛件、扣件</td>
+        <td class="border p-2">Hyundai Rotem、Sampyo Railway</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for YOUNG JOONG IND Co., Ltd. -->
+    <div id="modal-C05" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C05').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">YOUNG JOONG IND Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> C05</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 車軸鍛件、扣件</p>
+            <p><strong>主要客戶:</strong> Hyundai Rotem、Sampyo Railway</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C06').classList.remove('hidden')">
+        <td class="border p-2">C06</td>
+        <td class="border p-2">T.I.CORPORATION</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">輪對/轉向架加工</td>
+        <td class="border p-2">貨車維保、出口市場</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for T.I.CORPORATION -->
+    <div id="modal-C06" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C06').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">T.I.CORPORATION</h2>
+            <p><strong>攤位號:</strong> C06</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 輪對/轉向架加工</p>
+            <p><strong>主要客戶:</strong> 貨車維保、出口市場</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C07').classList.remove('hidden')">
+        <td class="border p-2">C07</td>
+        <td class="border p-2">GLOS Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">LED 顯示與照明</td>
+        <td class="border p-2">韓國都市鐵路</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for GLOS Co., Ltd. -->
+    <div id="modal-C07" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C07').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">GLOS Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> C07</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> LED 顯示與照明</p>
+            <p><strong>主要客戶:</strong> 韓國都市鐵路</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C08').classList.remove('hidden')">
+        <td class="border p-2">C08</td>
+        <td class="border p-2">BEST ENGINEERING</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">軌道檢測/維修顧問</td>
+        <td class="border p-2">國營與民營維修處</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for BEST ENGINEERING -->
+    <div id="modal-C08" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C08').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">BEST ENGINEERING</h2>
+            <p><strong>攤位號:</strong> C08</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 軌道檢測/維修顧問</p>
+            <p><strong>主要客戶:</strong> 國營與民營維修處</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C09').classList.remove('hidden')">
+        <td class="border p-2">C09</td>
+        <td class="border p-2">WOOJAE</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">扣件、耐磨件</td>
+        <td class="border p-2">KR、地鐵維修商</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for WOOJAE -->
+    <div id="modal-C09" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C09').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">WOOJAE</h2>
+            <p><strong>攤位號:</strong> C09</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 扣件、耐磨件</p>
+            <p><strong>主要客戶:</strong> KR、地鐵維修商</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C10').classList.remove('hidden')">
+        <td class="border p-2">C10</td>
+        <td class="border p-2">Roxtec Korea</td>
+        <td class="border p-2">瑞典〈韓〉</td>
+        <td class="border p-2">電纜/管線穿隔密封模組</td>
+        <td class="border p-2">KTX 車站、船舶</td>
+        <td class="border p-2">中型</td>
+    </tr>
+
+    <!-- Modal for Roxtec Korea -->
+    <div id="modal-C10" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C10').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Roxtec Korea</h2>
+            <p><strong>攤位號:</strong> C10</p>
+            <p><strong>國家:</strong> 瑞典〈韓〉</p>
+            <p><strong>主要產品:</strong> 電纜/管線穿隔密封模組</p>
+            <p><strong>主要客戶:</strong> KTX 車站、船舶</p>
+            <p><strong>公司規模:</strong> 中型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C11').classList.remove('hidden')">
+        <td class="border p-2">C11</td>
+        <td class="border p-2">GMTECH Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">車載電源、HVAC 控制盤</td>
+        <td class="border p-2">Woojin、系統集成商</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for GMTECH Co., Ltd. -->
+    <div id="modal-C11" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C11').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">GMTECH Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> C11</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 車載電源、HVAC 控制盤</p>
+            <p><strong>主要客戶:</strong> Woojin、系統集成商</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C12').classList.remove('hidden')">
+        <td class="border p-2">C12</td>
+        <td class="border p-2">WAINKOREA</td>
+        <td class="border p-2">中國〈韓〉</td>
+        <td class="border p-2">工業矩形/圓形連接器</td>
+        <td class="border p-2">線束廠、機械自動化</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for WAINKOREA -->
+    <div id="modal-C12" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C12').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">WAINKOREA</h2>
+            <p><strong>攤位號:</strong> C12</p>
+            <p><strong>國家:</strong> 中國〈韓〉</p>
+            <p><strong>主要產品:</strong> 工業矩形/圓形連接器</p>
+            <p><strong>主要客戶:</strong> 線束廠、機械自動化</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C13').classList.remove('hidden')">
+        <td class="border p-2">C13</td>
+        <td class="border p-2">Korea Petroleum</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">潤滑脂、齒輪油</td>
+        <td class="border p-2">KORAIL、轉轍器維保商</td>
+        <td class="border p-2">大型</td>
+    </tr>
+
+    <!-- Modal for Korea Petroleum -->
+    <div id="modal-C13" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C13').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Korea Petroleum</h2>
+            <p><strong>攤位號:</strong> C13</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 潤滑脂、齒輪油</p>
+            <p><strong>主要客戶:</strong> KORAIL、轉轍器維保商</p>
+            <p><strong>公司規模:</strong> 大型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C14').classList.remove('hidden')">
+        <td class="border p-2">C14</td>
+        <td class="border p-2">Elthus T&L</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">AFC 系統物流</td>
+        <td class="border p-2">都市鐵路業主</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for Elthus T&L -->
+    <div id="modal-C14" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C14').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Elthus T&L</h2>
+            <p><strong>攤位號:</strong> C14</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> AFC 系統物流</p>
+            <p><strong>主要客戶:</strong> 都市鐵路業主</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C15').classList.remove('hidden')">
+        <td class="border p-2">C15</td>
+        <td class="border p-2">NAWOO Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">電纜束整飾、波紋管</td>
+        <td class="border p-2">信號系統集成商</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for NAWOO Ltd. -->
+    <div id="modal-C15" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C15').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">NAWOO Ltd.</h2>
+            <p><strong>攤位號:</strong> C15</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 電纜束整飾、波紋管</p>
+            <p><strong>主要客戶:</strong> 信號系統集成商</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C16').classList.remove('hidden')">
+        <td class="border p-2">C16</td>
+        <td class="border p-2">ZEECOM</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">車載通訊終端、LTE‑R</td>
+        <td class="border p-2">韓國 LTE‑R 路段、列車</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for ZEECOM -->
+    <div id="modal-C16" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C16').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">ZEECOM</h2>
+            <p><strong>攤位號:</strong> C16</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 車載通訊終端、LTE‑R</p>
+            <p><strong>主要客戶:</strong> 韓國 LTE‑R 路段、列車</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C17').classList.remove('hidden')">
+        <td class="border p-2">C17</td>
+        <td class="border p-2">DNV Business Assurance Korea</td>
+        <td class="border p-2">挪威〈韓〉</td>
+        <td class="border p-2">系統安全/功能安全認證</td>
+        <td class="border p-2">KRRI、信號與車輛製造商</td>
+        <td class="border p-2">大型</td>
+    </tr>
+
+    <!-- Modal for DNV Business Assurance Korea -->
+    <div id="modal-C17" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C17').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">DNV Business Assurance Korea</h2>
+            <p><strong>攤位號:</strong> C17</p>
+            <p><strong>國家:</strong> 挪威〈韓〉</p>
+            <p><strong>主要產品:</strong> 系統安全/功能安全認證</p>
+            <p><strong>主要客戶:</strong> KRRI、信號與車輛製造商</p>
+            <p><strong>公司規模:</strong> 大型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C18').classList.remove('hidden')">
+        <td class="border p-2">C18</td>
+        <td class="border p-2">Schaltbau Korea Ltd.</td>
+        <td class="border p-2">德國〈韓〉</td>
+        <td class="border p-2">DC 接觸器、UIC 跳線</td>
+        <td class="border p-2">Hyundai Rotem、全球車輛 OEM</td>
+        <td class="border p-2">中型</td>
+    </tr>
+
+    <!-- Modal for Schaltbau Korea Ltd. -->
+    <div id="modal-C18" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C18').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Schaltbau Korea Ltd.</h2>
+            <p><strong>攤位號:</strong> C18</p>
+            <p><strong>國家:</strong> 德國〈韓〉</p>
+            <p><strong>主要產品:</strong> DC 接觸器、UIC 跳線</p>
+            <p><strong>主要客戶:</strong> Hyundai Rotem、全球車輛 OEM</p>
+            <p><strong>公司規模:</strong> 中型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C19').classList.remove('hidden')">
+        <td class="border p-2">C19</td>
+        <td class="border p-2">CEL‑BIO KUBE Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">環保潤滑油、生質清潔劑</td>
+        <td class="border p-2">地鐵動力系統維保</td>
+        <td class="border p-2">微型</td>
+    </tr>
+
+    <!-- Modal for CEL‑BIO KUBE Co., Ltd. -->
+    <div id="modal-C19" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C19').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">CEL‑BIO KUBE Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> C19</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 環保潤滑油、生質清潔劑</p>
+            <p><strong>主要客戶:</strong> 地鐵動力系統維保</p>
+            <p><strong>公司規模:</strong> 微型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C20').classList.remove('hidden')">
+        <td class="border p-2">C20</td>
+        <td class="border p-2">BP Intelligent Mechanics</td>
+        <td class="border p-2">中國</td>
+        <td class="border p-2">檢測機器人、AI 缺陷判讀</td>
+        <td class="border p-2">中韓軌道檢測中心</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for BP Intelligent Mechanics -->
+    <div id="modal-C20" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C20').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">BP Intelligent Mechanics</h2>
+            <p><strong>攤位號:</strong> C20</p>
+            <p><strong>國家:</strong> 中國</p>
+            <p><strong>主要產品:</strong> 檢測機器人、AI 缺陷判讀</p>
+            <p><strong>主要客戶:</strong> 中韓軌道檢測中心</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C21').classList.remove('hidden')">
+        <td class="border p-2">C21</td>
+        <td class="border p-2">TILC Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">車窗複材、遮陽系統</td>
+        <td class="border p-2">Woojin、塗裝 OEM</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for TILC Co., Ltd. -->
+    <div id="modal-C21" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C21').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">TILC Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> C21</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 車窗複材、遮陽系統</p>
+            <p><strong>主要客戶:</strong> Woojin、塗裝 OEM</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C22').classList.remove('hidden')">
+        <td class="border p-2">C22</td>
+        <td class="border p-2">Rehau & Chunho Co., Ltd.</td>
+        <td class="border p-2">德國/韓國</td>
+        <td class="border p-2">聚合物管路、內裝件</td>
+        <td class="border p-2">Hyundai Rotem、改裝商</td>
+        <td class="border p-2">大型</td>
+    </tr>
+
+    <!-- Modal for Rehau & Chunho Co., Ltd. -->
+    <div id="modal-C22" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C22').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Rehau & Chunho Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> C22</p>
+            <p><strong>國家:</strong> 德國/韓國</p>
+            <p><strong>主要產品:</strong> 聚合物管路、內裝件</p>
+            <p><strong>主要客戶:</strong> Hyundai Rotem、改裝商</p>
+            <p><strong>公司規模:</strong> 大型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-C23').classList.remove('hidden')">
+        <td class="border p-2">C23</td>
+        <td class="border p-2">RM</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">軌道養護顧問、加固材料</td>
+        <td class="border p-2">城市軌道局</td>
+        <td class="border p-2">微型</td>
+    </tr>
+
+    <!-- Modal for RM -->
+    <div id="modal-C23" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-C23').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">RM</h2>
+            <p><strong>攤位號:</strong> C23</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 軌道養護顧問、加固材料</p>
+            <p><strong>主要客戶:</strong> 城市軌道局</p>
+            <p><strong>公司規模:</strong> 微型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D04').classList.remove('hidden')">
+        <td class="border p-2">D04</td>
+        <td class="border p-2">PRIMET&R Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">轉向架零件、盤形煞車</td>
+        <td class="border p-2">KORAIL 維修段</td>
+        <td class="border p-2">微型</td>
+    </tr>
+
+    <!-- Modal for PRIMET&R Co., Ltd. -->
+    <div id="modal-D04" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D04').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">PRIMET&R Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> D04</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 轉向架零件、盤形煞車</p>
+            <p><strong>主要客戶:</strong> KORAIL 維修段</p>
+            <p><strong>公司規模:</strong> 微型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D06').classList.remove('hidden')">
+        <td class="border p-2">D06</td>
+        <td class="border p-2">Thomas Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">動態電纜、線束拖鏈</td>
+        <td class="border p-2">車輛 OEM、半導體設備商</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for Thomas Co., Ltd. -->
+    <div id="modal-D06" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D06').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Thomas Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> D06</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 動態電纜、線束拖鏈</p>
+            <p><strong>主要客戶:</strong> 車輛 OEM、半導體設備商</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D08').classList.remove('hidden')">
+        <td class="border p-2">D08</td>
+        <td class="border p-2">Belden Singapore Pte Ltd</td>
+        <td class="border p-2">美國〈星〉</td>
+        <td class="border p-2">工業乙太網交換器、電纜</td>
+        <td class="border p-2">Alstom、Siemens Mobility</td>
+        <td class="border p-2">大型</td>
+    </tr>
+
+    <!-- Modal for Belden Singapore Pte Ltd -->
+    <div id="modal-D08" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D08').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Belden Singapore Pte Ltd</h2>
+            <p><strong>攤位號:</strong> D08</p>
+            <p><strong>國家:</strong> 美國〈星〉</p>
+            <p><strong>主要產品:</strong> 工業乙太網交換器、電纜</p>
+            <p><strong>主要客戶:</strong> Alstom、Siemens Mobility</p>
+            <p><strong>公司規模:</strong> 大型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D09').classList.remove('hidden')">
+        <td class="border p-2">D09</td>
+        <td class="border p-2">Kyoungseong Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">檢測車、橋梁維修設備</td>
+        <td class="border p-2">基建維保單位</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for Kyoungseong Co., Ltd. -->
+    <div id="modal-D09" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D09').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Kyoungseong Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> D09</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 檢測車、橋梁維修設備</p>
+            <p><strong>主要客戶:</strong> 基建維保單位</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D10').classList.remove('hidden')">
+        <td class="border p-2">D10</td>
+        <td class="border p-2">Innovation & Created Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">3D 數位孿生、AR 維修平台</td>
+        <td class="border p-2">釜山交通公社</td>
+        <td class="border p-2">微型</td>
+    </tr>
+
+    <!-- Modal for Innovation & Created Co., Ltd. -->
+    <div id="modal-D10" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D10').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Innovation & Created Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> D10</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 3D 數位孿生、AR 維修平台</p>
+            <p><strong>主要客戶:</strong> 釜山交通公社</p>
+            <p><strong>公司規模:</strong> 微型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D11').classList.remove('hidden')">
+        <td class="border p-2">D11</td>
+        <td class="border p-2">NST</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">非破壞檢測服務</td>
+        <td class="border p-2">KRRI、監造單位</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for NST -->
+    <div id="modal-D11" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D11').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">NST</h2>
+            <p><strong>攤位號:</strong> D11</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 非破壞檢測服務</p>
+            <p><strong>主要客戶:</strong> KRRI、監造單位</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D12').classList.remove('hidden')">
+        <td class="border p-2">D12</td>
+        <td class="border p-2">O‑Sung Electric Machinery Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">ATS/ACB 斷路器、微電機</td>
+        <td class="border p-2">Woojin</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for O‑Sung Electric Machinery Co., Ltd. -->
+    <div id="modal-D12" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D12').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">O‑Sung Electric Machinery Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> D12</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> ATS/ACB 斷路器、微電機</p>
+            <p><strong>主要客戶:</strong> Woojin</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D13').classList.remove('hidden')">
+        <td class="border p-2">D13</td>
+        <td class="border p-2">DO IT Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">輪軌監測 IoT 感測器</td>
+        <td class="border p-2">地方有軌電車</td>
+        <td class="border p-2">微型</td>
+    </tr>
+
+    <!-- Modal for DO IT Co., Ltd. -->
+    <div id="modal-D13" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D13').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">DO IT Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> D13</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 輪軌監測 IoT 感測器</p>
+            <p><strong>主要客戶:</strong> 地方有軌電車</p>
+            <p><strong>公司規模:</strong> 微型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D14').classList.remove('hidden')">
+        <td class="border p-2">D14</td>
+        <td class="border p-2">KATEM Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">鋁合金門框、車窗</td>
+        <td class="border p-2">Hyundai Rotem、Woojin</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for KATEM Co., Ltd. -->
+    <div id="modal-D14" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D14').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">KATEM Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> D14</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 鋁合金門框、車窗</p>
+            <p><strong>主要客戶:</strong> Hyundai Rotem、Woojin</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D15').classList.remove('hidden')">
+        <td class="border p-2">D15</td>
+        <td class="border p-2">Consilium Marine Korea</td>
+        <td class="border p-2">瑞典</td>
+        <td class="border p-2">火警/氣體偵測系統</td>
+        <td class="border p-2">都市鐵路、公車電動化</td>
+        <td class="border p-2">中型</td>
+    </tr>
+
+    <!-- Modal for Consilium Marine Korea -->
+    <div id="modal-D15" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D15').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Consilium Marine Korea</h2>
+            <p><strong>攤位號:</strong> D15</p>
+            <p><strong>國家:</strong> 瑞典</p>
+            <p><strong>主要產品:</strong> 火警/氣體偵測系統</p>
+            <p><strong>主要客戶:</strong> 都市鐵路、公車電動化</p>
+            <p><strong>公司規模:</strong> 中型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D16').classList.remove('hidden')">
+        <td class="border p-2">D16</td>
+        <td class="border p-2">Gaius Industrial Systems Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">節能驅動、齒輪箱維修</td>
+        <td class="border p-2">輕軌、機場 APM</td>
+        <td class="border p-2">微型</td>
+    </tr>
+
+    <!-- Modal for Gaius Industrial Systems Co., Ltd. -->
+    <div id="modal-D16" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D16').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Gaius Industrial Systems Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> D16</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 節能驅動、齒輪箱維修</p>
+            <p><strong>主要客戶:</strong> 輕軌、機場 APM</p>
+            <p><strong>公司規模:</strong> 微型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D17').classList.remove('hidden')">
+        <td class="border p-2">D17</td>
+        <td class="border p-2">JKTECH GLOBAL</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">PCB 分板、BGA 重工</td>
+        <td class="border p-2">車輛控制板維修</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for JKTECH GLOBAL -->
+    <div id="modal-D17" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D17').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">JKTECH GLOBAL</h2>
+            <p><strong>攤位號:</strong> D17</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> PCB 分板、BGA 重工</p>
+            <p><strong>主要客戶:</strong> 車輛控制板維修</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D18').classList.remove('hidden')">
+        <td class="border p-2">D18</td>
+        <td class="border p-2">MBST Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">振動測試台、模態分析</td>
+        <td class="border p-2">KRRI、研發中心</td>
+        <td class="border p-2">微型</td>
+    </tr>
+
+    <!-- Modal for MBST Co., Ltd. -->
+    <div id="modal-D18" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D18').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">MBST Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> D18</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 振動測試台、模態分析</p>
+            <p><strong>主要客戶:</strong> KRRI、研發中心</p>
+            <p><strong>公司規模:</strong> 微型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D19').classList.remove('hidden')">
+        <td class="border p-2">D19</td>
+        <td class="border p-2">AHWON Corp. Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">車輪螺帽、緊固件</td>
+        <td class="border p-2">Sampyo Railway</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for AHWON Corp. Co., Ltd. -->
+    <div id="modal-D19" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D19').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">AHWON Corp. Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> D19</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 車輪螺帽、緊固件</p>
+            <p><strong>主要客戶:</strong> Sampyo Railway</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D20').classList.remove('hidden')">
+        <td class="border p-2">D20</td>
+        <td class="border p-2">Sécheron SA</td>
+        <td class="border p-2">瑞士</td>
+        <td class="border p-2">DC 高速斷路器、隔離開關</td>
+        <td class="border p-2">Alstom、CAF</td>
+        <td class="border p-2">中型</td>
+    </tr>
+
+    <!-- Modal for Sécheron SA -->
+    <div id="modal-D20" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D20').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Sécheron SA</h2>
+            <p><strong>攤位號:</strong> D20</p>
+            <p><strong>國家:</strong> 瑞士</p>
+            <p><strong>主要產品:</strong> DC 高速斷路器、隔離開關</p>
+            <p><strong>主要客戶:</strong> Alstom、CAF</p>
+            <p><strong>公司規模:</strong> 中型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D21').classList.remove('hidden')">
+        <td class="border p-2">D21</td>
+        <td class="border p-2">Sampyo Railway</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">高速道岔、磨軌車</td>
+        <td class="border p-2">韓國高鐵、印度 JV</td>
+        <td class="border p-2">中型</td>
+    </tr>
+
+    <!-- Modal for Sampyo Railway -->
+    <div id="modal-D21" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D21').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Sampyo Railway</h2>
+            <p><strong>攤位號:</strong> D21</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 高速道岔、磨軌車</p>
+            <p><strong>主要客戶:</strong> 韓國高鐵、印度 JV</p>
+            <p><strong>公司規模:</strong> 中型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D22').classList.remove('hidden')">
+        <td class="border p-2">D22</td>
+        <td class="border p-2">WISKA Korea Ltd.</td>
+        <td class="border p-2">德國〈韓〉</td>
+        <td class="border p-2">IP68 電纜格蘭、匯流箱</td>
+        <td class="border p-2">德鐵、挪威國鐵、造船</td>
+        <td class="border p-2">中型</td>
+    </tr>
+
+    <!-- Modal for WISKA Korea Ltd. -->
+    <div id="modal-D22" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D22').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">WISKA Korea Ltd.</h2>
+            <p><strong>攤位號:</strong> D22</p>
+            <p><strong>國家:</strong> 德國〈韓〉</p>
+            <p><strong>主要產品:</strong> IP68 電纜格蘭、匯流箱</p>
+            <p><strong>主要客戶:</strong> 德鐵、挪威國鐵、造船</p>
+            <p><strong>公司規模:</strong> 中型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D23').classList.remove('hidden')">
+        <td class="border p-2">D23</td>
+        <td class="border p-2">PROTECH</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">技師培訓、RAMS 諮詢</td>
+        <td class="border p-2">輕軌營運商</td>
+        <td class="border p-2">微型</td>
+    </tr>
+
+    <!-- Modal for PROTECH -->
+    <div id="modal-D23" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D23').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">PROTECH</h2>
+            <p><strong>攤位號:</strong> D23</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 技師培訓、RAMS 諮詢</p>
+            <p><strong>主要客戶:</strong> 輕軌營運商</p>
+            <p><strong>公司規模:</strong> 微型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D24').classList.remove('hidden')">
+        <td class="border p-2">D24</td>
+        <td class="border p-2">Cincon Electronics Co., Ltd.</td>
+        <td class="border p-2">台灣</td>
+        <td class="border p-2">EN 50155 DC/DC 電源</td>
+        <td class="border p-2">Stadler、Hitachi Rail</td>
+        <td class="border p-2">中型</td>
+    </tr>
+
+    <!-- Modal for Cincon Electronics Co., Ltd. -->
+    <div id="modal-D24" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D24').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Cincon Electronics Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> D24</p>
+            <p><strong>國家:</strong> 台灣</p>
+            <p><strong>主要產品:</strong> EN 50155 DC/DC 電源</p>
+            <p><strong>主要客戶:</strong> Stadler、Hitachi Rail</p>
+            <p><strong>公司規模:</strong> 中型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D25').classList.remove('hidden')">
+        <td class="border p-2">D25</td>
+        <td class="border p-2">Daeyang Electric Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">LED 行車燈、信號燈、艙室照明</td>
+        <td class="border p-2">造船、海軍艦艇</td>
+        <td class="border p-2">大型</td>
+    </tr>
+
+    <!-- Modal for Daeyang Electric Co., Ltd. -->
+    <div id="modal-D25" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D25').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Daeyang Electric Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> D25</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> LED 行車燈、信號燈、艙室照明</p>
+            <p><strong>主要客戶:</strong> 造船、海軍艦艇</p>
+            <p><strong>公司規模:</strong> 大型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D26').classList.remove('hidden')">
+        <td class="border p-2">D26</td>
+        <td class="border p-2">Gaepoong Electronics Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">控制繼電器、通風濾網</td>
+        <td class="border p-2">Woojin</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for Gaepoong Electronics Co., Ltd. -->
+    <div id="modal-D26" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D26').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Gaepoong Electronics Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> D26</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 控制繼電器、通風濾網</p>
+            <p><strong>主要客戶:</strong> Woojin</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D27').classList.remove('hidden')">
+        <td class="border p-2">D27</td>
+        <td class="border p-2">Joowon Industrial Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">鐵道扣件</td>
+        <td class="border p-2">道床維保標案</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for Joowon Industrial Co., Ltd. -->
+    <div id="modal-D27" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D27').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Joowon Industrial Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> D27</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 鐵道扣件</p>
+            <p><strong>主要客戶:</strong> 道床維保標案</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D28').classList.remove('hidden')">
+        <td class="border p-2">D28</td>
+        <td class="border p-2">ANTS Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">自動檢票閘門、票卡終端</td>
+        <td class="border p-2">釜山、大邱地鐵</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for ANTS Co., Ltd. -->
+    <div id="modal-D28" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D28').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">ANTS Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> D28</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 自動檢票閘門、票卡終端</p>
+            <p><strong>主要客戶:</strong> 釜山、大邱地鐵</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D29').classList.remove('hidden')">
+        <td class="border p-2">D29</td>
+        <td class="border p-2">EoneTNC</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">LTE‑R/5G 無線閘道器</td>
+        <td class="border p-2">京江線 LTE‑R</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for EoneTNC -->
+    <div id="modal-D29" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D29').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">EoneTNC</h2>
+            <p><strong>攤位號:</strong> D29</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> LTE‑R/5G 無線閘道器</p>
+            <p><strong>主要客戶:</strong> 京江線 LTE‑R</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-D30').classList.remove('hidden')">
+        <td class="border p-2">D30</td>
+        <td class="border p-2">Rail Economy News</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">鐵道專業媒體</td>
+        <td class="border p-2">廠商行銷、政府採購單位</td>
+        <td class="border p-2">微型</td>
+    </tr>
+
+    <!-- Modal for Rail Economy News -->
+    <div id="modal-D30" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-D30').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Rail Economy News</h2>
+            <p><strong>攤位號:</strong> D30</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 鐵道專業媒體</p>
+            <p><strong>主要客戶:</strong> 廠商行銷、政府採購單位</p>
+            <p><strong>公司規模:</strong> 微型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-E04').classList.remove('hidden')">
+        <td class="border p-2">E04</td>
+        <td class="border p-2">ONESERVICE</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">智慧維保平台、遠端監控</td>
+        <td class="border p-2">—</td>
+        <td class="border p-2">微型</td>
+    </tr>
+
+    <!-- Modal for ONESERVICE -->
+    <div id="modal-E04" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-E04').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">ONESERVICE</h2>
+            <p><strong>攤位號:</strong> E04</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 智慧維保平台、遠端監控</p>
+            <p><strong>主要客戶:</strong> —</p>
+            <p><strong>公司規模:</strong> 微型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-E05').classList.remove('hidden')">
+        <td class="border p-2">E05</td>
+        <td class="border p-2">Korea Rolling Stock Industries Association (KORSIA)</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">產業協會、標準推廣</td>
+        <td class="border p-2">韓國軌道供應商</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for Korea Rolling Stock Industries Association (KORSIA) -->
+    <div id="modal-E05" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-E05').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Korea Rolling Stock Industries Association (KORSIA)</h2>
+            <p><strong>攤位號:</strong> E05</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 產業協會、標準推廣</p>
+            <p><strong>主要客戶:</strong> 韓國軌道供應商</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-E08').classList.remove('hidden')">
+        <td class="border p-2">E08</td>
+        <td class="border p-2">BROSPOWER Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">AC/DC、DC/DC 電源</td>
+        <td class="border p-2">Hyundai Rotem、Woojin</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for BROSPOWER Co., Ltd. -->
+    <div id="modal-E08" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-E08').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">BROSPOWER Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> E08</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> AC/DC、DC/DC 電源</p>
+            <p><strong>主要客戶:</strong> Hyundai Rotem、Woojin</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-E09').classList.remove('hidden')">
+        <td class="border p-2">E09</td>
+        <td class="border p-2">ICK</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">交通票證、智慧卡模組</td>
+        <td class="border p-2">首爾 T‑Money 系統</td>
+        <td class="border p-2">中型</td>
+    </tr>
+
+    <!-- Modal for ICK -->
+    <div id="modal-E09" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-E09').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">ICK</h2>
+            <p><strong>攤位號:</strong> E09</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 交通票證、智慧卡模組</p>
+            <p><strong>主要客戶:</strong> 首爾 T‑Money 系統</p>
+            <p><strong>公司規模:</strong> 中型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-E10').classList.remove('hidden')">
+        <td class="border p-2">E10</td>
+        <td class="border p-2">Yooksong Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">消防栓、滅火器、閥件</td>
+        <td class="border p-2">車庫、地鐵站</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for Yooksong Co., Ltd. -->
+    <div id="modal-E10" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-E10').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Yooksong Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> E10</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 消防栓、滅火器、閥件</p>
+            <p><strong>主要客戶:</strong> 車庫、地鐵站</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-E11').classList.remove('hidden')">
+        <td class="border p-2">E11</td>
+        <td class="border p-2">Yujin Machinery Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">車軸箱、緩衝器維修</td>
+        <td class="border p-2">KORAIL、Hyundai Rotem</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for Yujin Machinery Ltd. -->
+    <div id="modal-E11" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-E11').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Yujin Machinery Ltd.</h2>
+            <p><strong>攤位號:</strong> E11</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 車軸箱、緩衝器維修</p>
+            <p><strong>主要客戶:</strong> KORAIL、Hyundai Rotem</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-E12').classList.remove('hidden')">
+        <td class="border p-2">E12</td>
+        <td class="border p-2">WeZON</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">IoT Gateways、車載數據平台</td>
+        <td class="border p-2">韓國輕軌雲端監控</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for WeZON -->
+    <div id="modal-E12" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-E12').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">WeZON</h2>
+            <p><strong>攤位號:</strong> E12</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> IoT Gateways、車載數據平台</p>
+            <p><strong>主要客戶:</strong> 韓國輕軌雲端監控</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-E13').classList.remove('hidden')">
+        <td class="border p-2">E13</td>
+        <td class="border p-2">FOGTEC Brandschutz GmbH</td>
+        <td class="border p-2">德國</td>
+        <td class="border p-2">水霧滅火系統</td>
+        <td class="border p-2">Siemens Mobility、Alstom</td>
+        <td class="border p-2">中型</td>
+    </tr>
+
+    <!-- Modal for FOGTEC Brandschutz GmbH -->
+    <div id="modal-E13" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-E13').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">FOGTEC Brandschutz GmbH</h2>
+            <p><strong>攤位號:</strong> E13</p>
+            <p><strong>國家:</strong> 德國</p>
+            <p><strong>主要產品:</strong> 水霧滅火系統</p>
+            <p><strong>主要客戶:</strong> Siemens Mobility、Alstom</p>
+            <p><strong>公司規模:</strong> 中型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-E14').classList.remove('hidden')">
+        <td class="border p-2">E14</td>
+        <td class="border p-2">Linsinger Maschinenbau GmbH</td>
+        <td class="border p-2">奧地利</td>
+        <td class="border p-2">鋼軌銑削車</td>
+        <td class="border p-2">DB、Network Rail、JR 東</td>
+        <td class="border p-2">中型</td>
+    </tr>
+
+    <!-- Modal for Linsinger Maschinenbau GmbH -->
+    <div id="modal-E14" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-E14').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Linsinger Maschinenbau GmbH</h2>
+            <p><strong>攤位號:</strong> E14</p>
+            <p><strong>國家:</strong> 奧地利</p>
+            <p><strong>主要產品:</strong> 鋼軌銑削車</p>
+            <p><strong>主要客戶:</strong> DB、Network Rail、JR 東</p>
+            <p><strong>公司規模:</strong> 中型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-E15').classList.remove('hidden')">
+        <td class="border p-2">E15</td>
+        <td class="border p-2">Suzhou DONEKA</td>
+        <td class="border p-2">中國</td>
+        <td class="border p-2">電機碳刷、刷盒</td>
+        <td class="border p-2">CRRC 車用電機維修</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for Suzhou DONEKA -->
+    <div id="modal-E15" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-E15').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Suzhou DONEKA</h2>
+            <p><strong>攤位號:</strong> E15</p>
+            <p><strong>國家:</strong> 中國</p>
+            <p><strong>主要產品:</strong> 電機碳刷、刷盒</p>
+            <p><strong>主要客戶:</strong> CRRC 車用電機維修</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-E16').classList.remove('hidden')">
+        <td class="border p-2">E16</td>
+        <td class="border p-2">CRRC</td>
+        <td class="border p-2">中國</td>
+        <td class="border p-2">高速列車、地鐵車輛</td>
+        <td class="border p-2">全球鐵路運營商</td>
+        <td class="border p-2">大型</td>
+    </tr>
+
+    <!-- Modal for CRRC -->
+    <div id="modal-E16" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-E16').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">CRRC</h2>
+            <p><strong>攤位號:</strong> E16</p>
+            <p><strong>國家:</strong> 中國</p>
+            <p><strong>主要產品:</strong> 高速列車、地鐵車輛</p>
+            <p><strong>主要客戶:</strong> 全球鐵路運營商</p>
+            <p><strong>公司規模:</strong> 大型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-E17').classList.remove('hidden')">
+        <td class="border p-2">E17</td>
+        <td class="border p-2">Henan QiangLi Machinery</td>
+        <td class="border p-2">中國</td>
+        <td class="border p-2">軌道維修機具</td>
+        <td class="border p-2">中國國鐵、東協市場</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for Henan QiangLi Machinery -->
+    <div id="modal-E17" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-E17').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Henan QiangLi Machinery</h2>
+            <p><strong>攤位號:</strong> E17</p>
+            <p><strong>國家:</strong> 中國</p>
+            <p><strong>主要產品:</strong> 軌道維修機具</p>
+            <p><strong>主要客戶:</strong> 中國國鐵、東協市場</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-E18').classList.remove('hidden')">
+        <td class="border p-2">E18</td>
+        <td class="border p-2">KR Trading</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">軌道緊固件貿易</td>
+        <td class="border p-2">KORAIL、私鐵改造</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for KR Trading -->
+    <div id="modal-E18" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-E18').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">KR Trading</h2>
+            <p><strong>攤位號:</strong> E18</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 軌道緊固件貿易</p>
+            <p><strong>主要客戶:</strong> KORAIL、私鐵改造</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-E19').classList.remove('hidden')">
+        <td class="border p-2">E19</td>
+        <td class="border p-2">Black & Decker</td>
+        <td class="border p-2">美國</td>
+        <td class="border p-2">便攜式電動工具</td>
+        <td class="border p-2">全球工務維修團隊</td>
+        <td class="border p-2">大型</td>
+    </tr>
+
+    <!-- Modal for Black & Decker -->
+    <div id="modal-E19" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-E19').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Black & Decker</h2>
+            <p><strong>攤位號:</strong> E19</p>
+            <p><strong>國家:</strong> 美國</p>
+            <p><strong>主要產品:</strong> 便攜式電動工具</p>
+            <p><strong>主要客戶:</strong> 全球工務維修團隊</p>
+            <p><strong>公司規模:</strong> 大型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-E20').classList.remove('hidden')">
+        <td class="border p-2">E20</td>
+        <td class="border p-2">GERB Korea</td>
+        <td class="border p-2">德國〈韓〉</td>
+        <td class="border p-2">減振彈簧座、浮置板</td>
+        <td class="border p-2">韓高鐵橋梁、TGV 車站</td>
+        <td class="border p-2">中型</td>
+    </tr>
+
+    <!-- Modal for GERB Korea -->
+    <div id="modal-E20" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-E20').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">GERB Korea</h2>
+            <p><strong>攤位號:</strong> E20</p>
+            <p><strong>國家:</strong> 德國〈韓〉</p>
+            <p><strong>主要產品:</strong> 減振彈簧座、浮置板</p>
+            <p><strong>主要客戶:</strong> 韓高鐵橋梁、TGV 車站</p>
+            <p><strong>公司規模:</strong> 中型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-E21').classList.remove('hidden')">
+        <td class="border p-2">E21</td>
+        <td class="border p-2">UNIVIS Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">LED 車廂照明</td>
+        <td class="border p-2">Woojin、內裝 OEM</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for UNIVIS Co., Ltd. -->
+    <div id="modal-E21" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-E21').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">UNIVIS Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> E21</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> LED 車廂照明</p>
+            <p><strong>主要客戶:</strong> Woojin、內裝 OEM</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-E22').classList.remove('hidden')">
+        <td class="border p-2">E22</td>
+        <td class="border p-2">Korea Institute of Machinery & Materials (KIMM)</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">振動抑制暨可靠度研發</td>
+        <td class="border p-2">KRRI、車輛 OEM</td>
+        <td class="border p-2">大型</td>
+    </tr>
+
+    <!-- Modal for Korea Institute of Machinery & Materials (KIMM) -->
+    <div id="modal-E22" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-E22').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Korea Institute of Machinery & Materials (KIMM)</h2>
+            <p><strong>攤位號:</strong> E22</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 振動抑制暨可靠度研發</p>
+            <p><strong>主要客戶:</strong> KRRI、車輛 OEM</p>
+            <p><strong>公司規模:</strong> 大型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-E23').classList.remove('hidden')">
+        <td class="border p-2">E23</td>
+        <td class="border p-2">Korea Association for Public Safety Telecommunication</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">公共安全 LTE‑R 標準推廣</td>
+        <td class="border p-2">國家 LTE‑R 專案</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for Korea Association for Public Safety Telecommunication -->
+    <div id="modal-E23" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-E23').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Korea Association for Public Safety Telecommunication</h2>
+            <p><strong>攤位號:</strong> E23</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 公共安全 LTE‑R 標準推廣</p>
+            <p><strong>主要客戶:</strong> 國家 LTE‑R 專案</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-F01').classList.remove('hidden')">
+        <td class="border p-2">F01</td>
+        <td class="border p-2">TÜV SÜD Korea Ltd.</td>
+        <td class="border p-2">德國〈韓〉</td>
+        <td class="border p-2">系統安全與功能安全認證</td>
+        <td class="border p-2">Hyundai Rotem、KRRI</td>
+        <td class="border p-2">大型</td>
+    </tr>
+
+    <!-- Modal for TÜV SÜD Korea Ltd. -->
+    <div id="modal-F01" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-F01').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">TÜV SÜD Korea Ltd.</h2>
+            <p><strong>攤位號:</strong> F01</p>
+            <p><strong>國家:</strong> 德國〈韓〉</p>
+            <p><strong>主要產品:</strong> 系統安全與功能安全認證</p>
+            <p><strong>主要客戶:</strong> Hyundai Rotem、KRRI</p>
+            <p><strong>公司規模:</strong> 大型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-F02').classList.remove('hidden')">
+        <td class="border p-2">F02</td>
+        <td class="border p-2">SIB Korea</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">高載荷滾動導軌、線性滑軌</td>
+        <td class="border p-2">自動化裝配線</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for SIB Korea -->
+    <div id="modal-F02" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-F02').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">SIB Korea</h2>
+            <p><strong>攤位號:</strong> F02</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 高載荷滾動導軌、線性滑軌</p>
+            <p><strong>主要客戶:</strong> 自動化裝配線</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-F03').classList.remove('hidden')">
+        <td class="border p-2">F03</td>
+        <td class="border p-2">VIB‑LOCK Co., Ltd.</td>
+        <td class="border p-2">韓국</td>
+        <td class="border p-2">振動隔離墊</td>
+        <td class="border p-2">車站機電設備</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for VIB‑LOCK Co., Ltd. -->
+    <div id="modal-F03" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-F03').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">VIB‑LOCK Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> F03</p>
+            <p><strong>國家:</strong> 韓국</p>
+            <p><strong>主要產品:</strong> 振動隔離墊</p>
+            <p><strong>主要客戶:</strong> 車站機電設備</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-F04').classList.remove('hidden')">
+        <td class="border p-2">F04</td>
+        <td class="border p-2">Railroad Industry Inc.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">工務設備製造、租賃</td>
+        <td class="border p-2">國內維修段</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for Railroad Industry Inc. -->
+    <div id="modal-F04" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-F04').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Railroad Industry Inc.</h2>
+            <p><strong>攤位號:</strong> F04</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 工務設備製造、租賃</p>
+            <p><strong>主要客戶:</strong> 國內維修段</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-F05').classList.remove('hidden')">
+        <td class="border p-2">F05</td>
+        <td class="border p-2">Quantum Inc.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">基礎設施量測與 AI 診斷</td>
+        <td class="border p-2">—</td>
+        <td class="border p-2">微型</td>
+    </tr>
+
+    <!-- Modal for Quantum Inc. -->
+    <div id="modal-F05" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-F05').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Quantum Inc.</h2>
+            <p><strong>攤位號:</strong> F05</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 基礎設施量測與 AI 診斷</p>
+            <p><strong>主要客戶:</strong> —</p>
+            <p><strong>公司規模:</strong> 微型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-F06').classList.remove('hidden')">
+        <td class="border p-2">F06</td>
+        <td class="border p-2">Romansys Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">客貨車車體製造與翻修</td>
+        <td class="border p-2">貨運轉運專案</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for Romansys Co., Ltd. -->
+    <div id="modal-F06" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-F06').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Romansys Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> F06</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 客貨車車體製造與翻修</p>
+            <p><strong>主要客戶:</strong> 貨運轉運專案</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-F07').classList.remove('hidden')">
+        <td class="border p-2">F07</td>
+        <td class="border p-2">JST Transformateurs</td>
+        <td class="border p-2">法國</td>
+        <td class="border p-2">車載牽引變壓器</td>
+        <td class="border p-2">SNCF、Alstom TGV</td>
+        <td class="border p-2">中型</td>
+    </tr>
+
+    <!-- Modal for JST Transformateurs -->
+    <div id="modal-F07" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-F07').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">JST Transformateurs</h2>
+            <p><strong>攤位號:</strong> F07</p>
+            <p><strong>國家:</strong> 法國</p>
+            <p><strong>主要產品:</strong> 車載牽引變壓器</p>
+            <p><strong>主要客戶:</strong> SNCF、Alstom TGV</p>
+            <p><strong>公司規模:</strong> 中型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-F08').classList.remove('hidden')">
+        <td class="border p-2">F08</td>
+        <td class="border p-2">Longhua Technology Group</td>
+        <td class="border p-2">中國</td>
+        <td class="border p-2">減振扣件、橡膠支座</td>
+        <td class="border p-2">中國高鐵、城市鐵路</td>
+        <td class="border p-2">大型</td>
+    </tr>
+
+    <!-- Modal for Longhua Technology Group -->
+    <div id="modal-F08" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-F08').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Longhua Technology Group</h2>
+            <p><strong>攤位號:</strong> F08</p>
+            <p><strong>國家:</strong> 中國</p>
+            <p><strong>主要產品:</strong> 減振扣件、橡膠支座</p>
+            <p><strong>主要客戶:</strong> 中國高鐵、城市鐵路</p>
+            <p><strong>公司規模:</strong> 大型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-F09').classList.remove('hidden')">
+        <td class="border p-2">F09</td>
+        <td class="border p-2">Jiangsu Tie Mao Technology</td>
+        <td class="border p-2">中國</td>
+        <td class="border p-2">車窗安全玻璃</td>
+        <td class="border p-2">CRRC、ASEAN 出口</td>
+        <td class="border p-2">中型</td>
+    </tr>
+
+    <!-- Modal for Jiangsu Tie Mao Technology -->
+    <div id="modal-F09" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-F09').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Jiangsu Tie Mao Technology</h2>
+            <p><strong>攤位號:</strong> F09</p>
+            <p><strong>國家:</strong> 中國</p>
+            <p><strong>主要產品:</strong> 車窗安全玻璃</p>
+            <p><strong>主要客戶:</strong> CRRC、ASEAN 出口</p>
+            <p><strong>公司規模:</strong> 中型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-F10').classList.remove('hidden')">
+        <td class="border p-2">F10</td>
+        <td class="border p-2">InnoTrans 2026</td>
+        <td class="border p-2">德國</td>
+        <td class="border p-2">國際鐵道展宣傳</td>
+        <td class="border p-2">全球設備商、運營商</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for InnoTrans 2026 -->
+    <div id="modal-F10" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-F10').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">InnoTrans 2026</h2>
+            <p><strong>攤位號:</strong> F10</p>
+            <p><strong>國家:</strong> 德國</p>
+            <p><strong>主要產品:</strong> 國際鐵道展宣傳</p>
+            <p><strong>主要客戶:</strong> 全球設備商、運營商</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-F11').classList.remove('hidden')">
+        <td class="border p-2">F11</td>
+        <td class="border p-2">Railway Gazette International</td>
+        <td class="border p-2">英國</td>
+        <td class="border p-2">專業媒體、數據服務</td>
+        <td class="border p-2">全球鐵道企業</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for Railway Gazette International -->
+    <div id="modal-F11" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-F11').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Railway Gazette International</h2>
+            <p><strong>攤位號:</strong> F11</p>
+            <p><strong>國家:</strong> 英國</p>
+            <p><strong>主要產品:</strong> 專業媒體、數據服務</p>
+            <p><strong>主要客戶:</strong> 全球鐵道企業</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-F12').classList.remove('hidden')">
+        <td class="border p-2">F12</td>
+        <td class="border p-2">Zhengzhou Mingtai Transportation New Material</td>
+        <td class="border p-2">中國</td>
+        <td class="border p-2">鋁合金車體板材</td>
+        <td class="border p-2">中國都市地鐵、EU 市場</td>
+        <td class="border p-2">中型</td>
+    </tr>
+
+    <!-- Modal for Zhengzhou Mingtai Transportation New Material -->
+    <div id="modal-F12" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-F12').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Zhengzhou Mingtai Transportation New Material</h2>
+            <p><strong>攤位號:</strong> F12</p>
+            <p><strong>國家:</strong> 中國</p>
+            <p><strong>主要產品:</strong> 鋁合金車體板材</p>
+            <p><strong>主要客戶:</strong> 中國都市地鐵、EU 市場</p>
+            <p><strong>公司規模:</strong> 中型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-F13').classList.remove('hidden')">
+        <td class="border p-2">F13</td>
+        <td class="border p-2">IWMT Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">再生塑木枕木</td>
+        <td class="border p-2">韓國枕木汰換計畫</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for IWMT Co., Ltd. -->
+    <div id="modal-F13" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-F13').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">IWMT Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> F13</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 再生塑木枕木</p>
+            <p><strong>主要客戶:</strong> 韓國枕木汰換計畫</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-F14').classList.remove('hidden')">
+        <td class="border p-2">F14</td>
+        <td class="border p-2">Sean Inc.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">焊接件、減振部件</td>
+        <td class="border p-2">軌道養護商</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for Sean Inc. -->
+    <div id="modal-F14" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-F14').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Sean Inc.</h2>
+            <p><strong>攤位號:</strong> F14</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 焊接件、減振部件</p>
+            <p><strong>主要客戶:</strong> 軌道養護商</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-F15').classList.remove('hidden')">
+        <td class="border p-2">F15</td>
+        <td class="border p-2">Korea National Railway</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">基建建設與維護</td>
+        <td class="border p-2">高鐵與都市鐵路專案</td>
+        <td class="border p-2">大型</td>
+    </tr>
+
+    <!-- Modal for Korea National Railway -->
+    <div id="modal-F15" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-F15').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Korea National Railway</h2>
+            <p><strong>攤位號:</strong> F15</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 基建建設與維護</p>
+            <p><strong>主要客戶:</strong> 高鐵與都市鐵路專案</p>
+            <p><strong>公司規模:</strong> 大型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-G01').classList.remove('hidden')">
+        <td class="border p-2">G01</td>
+        <td class="border p-2">Woojin Industrial Systems</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">地鐵與輕軌車輛</td>
+        <td class="border p-2">仁川機場磁浮、馬來西亞 LRT</td>
+        <td class="border p-2">中型</td>
+    </tr>
+
+    <!-- Modal for Woojin Industrial Systems -->
+    <div id="modal-G01" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-G01').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Woojin Industrial Systems</h2>
+            <p><strong>攤位號:</strong> G01</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 地鐵與輕軌車輛</p>
+            <p><strong>主要客戶:</strong> 仁川機場磁浮、馬來西亞 LRT</p>
+            <p><strong>公司規模:</strong> 中型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-G02').classList.remove('hidden')">
+        <td class="border p-2">G02</td>
+        <td class="border p-2">Busan Metropolitan City</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">地方政府招商</td>
+        <td class="border p-2">軌道產業投資推介</td>
+        <td class="border p-2">大型</td>
+    </tr>
+
+    <!-- Modal for Busan Metropolitan City -->
+    <div id="modal-G02" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-G02').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Busan Metropolitan City</h2>
+            <p><strong>攤位號:</strong> G02</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 地方政府招商</p>
+            <p><strong>主要客戶:</strong> 軌道產業投資推介</p>
+            <p><strong>公司規模:</strong> 大型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-G03').classList.remove('hidden')">
+        <td class="border p-2">G03</td>
+        <td class="border p-2">Korea Railroad Research Institute (KRRI)</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">列車與號誌研發、試驗線</td>
+        <td class="border p-2">國家研發專案</td>
+        <td class="border p-2">大型</td>
+    </tr>
+
+    <!-- Modal for Korea Railroad Research Institute (KRRI) -->
+    <div id="modal-G03" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-G03').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Korea Railroad Research Institute (KRRI)</h2>
+            <p><strong>攤位號:</strong> G03</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 列車與號誌研發、試驗線</p>
+            <p><strong>主要客戶:</strong> 國家研發專案</p>
+            <p><strong>公司規模:</strong> 大型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-G04').classList.remove('hidden')">
+        <td class="border p-2">G04</td>
+        <td class="border p-2">Busan Transportation Corporation</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">城市地鐵營運與維修</td>
+        <td class="border p-2">釜山地鐵 1‑4 號線</td>
+        <td class="border p-2">大型</td>
+    </tr>
+
+    <!-- Modal for Busan Transportation Corporation -->
+    <div id="modal-G04" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-G04').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Busan Transportation Corporation</h2>
+            <p><strong>攤位號:</strong> G04</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 城市地鐵營運與維修</p>
+            <p><strong>主要客戶:</strong> 釜山地鐵 1‑4 號線</p>
+            <p><strong>公司規模:</strong> 大型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-G05').classList.remove('hidden')">
+        <td class="border p-2">G05</td>
+        <td class="border p-2">KORAIL</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">客貨運營運</td>
+        <td class="border p-2">全國乘客與貨運客戶</td>
+        <td class="border p-2">大型</td>
+    </tr>
+
+    <!-- Modal for KORAIL -->
+    <div id="modal-G05" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-G05').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">KORAIL</h2>
+            <p><strong>攤位號:</strong> G05</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 客貨運營運</p>
+            <p><strong>主要客戶:</strong> 全國乘客與貨運客戶</p>
+            <p><strong>公司規模:</strong> 大型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-G06').classList.remove('hidden')">
+        <td class="border p-2">G06</td>
+        <td class="border p-2">Korea National Railway (KNRA)</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">鐵道基建建設與監理</td>
+        <td class="border p-2">KTX 建設、都市鐵路延伸</td>
+        <td class="border p-2">大型</td>
+    </tr>
+
+    <!-- Modal for Korea National Railway (KNRA) -->
+    <div id="modal-G06" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-G06').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Korea National Railway (KNRA)</h2>
+            <p><strong>攤位號:</strong> G06</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 鐵道基建建設與監理</p>
+            <p><strong>主要客戶:</strong> KTX 建設、都市鐵路延伸</p>
+            <p><strong>公司規模:</strong> 大型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-G07').classList.remove('hidden')">
+        <td class="border p-2">G07</td>
+        <td class="border p-2">Korea Railway Industry Association</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">產業政策協調、國際推廣</td>
+        <td class="border p-2">300+ 協會會員</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for Korea Railway Industry Association -->
+    <div id="modal-G07" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-G07').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">Korea Railway Industry Association</h2>
+            <p><strong>攤位號:</strong> G07</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 產業政策協調、國際推廣</p>
+            <p><strong>主要客戶:</strong> 300+ 協會會員</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-G09').classList.remove('hidden')">
+        <td class="border p-2">G09</td>
+        <td class="border p-2">KORAIL Retail</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">車站零售與免稅</td>
+        <td class="border p-2">首爾站、新村站等</td>
+        <td class="border p-2">中型</td>
+    </tr>
+
+    <!-- Modal for KORAIL Retail -->
+    <div id="modal-G09" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-G09').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">KORAIL Retail</h2>
+            <p><strong>攤位號:</strong> G09</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> 車站零售與免稅</p>
+            <p><strong>主要客戶:</strong> 首爾站、新村站等</p>
+            <p><strong>公司規模:</strong> 中型</p>
+        </div>
+    </div>
+    
+    <tr class="cursor-pointer hover:bg-gray-100" onclick="document.getElementById('modal-G10').classList.remove('hidden')">
+        <td class="border p-2">G10</td>
+        <td class="border p-2">SaeYoung Technologies Co., Ltd.</td>
+        <td class="border p-2">韓國</td>
+        <td class="border p-2">LTE‑R / ERTMS 測試方案</td>
+        <td class="border p-2">韓國 LTE‑R、ERTMS 專案</td>
+        <td class="border p-2">小型</td>
+    </tr>
+
+    <!-- Modal for SaeYoung Technologies Co., Ltd. -->
+    <div id="modal-G10" class="fixed inset-0 z-50 bg-black bg-opacity-40 hidden flex items-center justify-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
+            <button onclick="document.getElementById('modal-G10').classList.add('hidden')" class="absolute top-2 right-2 text-gray-500 hover:text-black text-2xl">&times;</button>
+            <h2 class="text-xl font-bold mb-2">SaeYoung Technologies Co., Ltd.</h2>
+            <p><strong>攤位號:</strong> G10</p>
+            <p><strong>國家:</strong> 韓國</p>
+            <p><strong>主要產品:</strong> LTE‑R / ERTMS 測試方案</p>
+            <p><strong>主要客戶:</strong> 韓國 LTE‑R、ERTMS 專案</p>
+            <p><strong>公司規模:</strong> 小型</p>
+        </div>
+    </div>
+    
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
