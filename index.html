@@ -3,484 +3,442 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RailLog Korea 2025 - 互動式展覽攤位地圖</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>RailLog Korea 2025 - 展會平面圖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang TC', Arial, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .event-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .event-info div {
+            margin: 5px 15px 5px 0;
+            font-size: 0.85rem;
+            color: #495057;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            margin-right: 8px;
+        }
+
+        .map-container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .floor-map {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 15px;
+            padding: 20px;
+        }
+
+        .area-container {
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .area-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .area-header {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #1e3c72;
+            text-align: center;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .booth-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+            grid-gap: 8px;
+        }
+
+        .booth {
+            padding: 8px 4px;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            color: white;
+        }
+
+        .booth:hover {
+            transform: scale(1.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .size-large { background: #28a745; }
+        .size-medium { background: #007bff; }
+        .size-small { background: #ffc107; color: #212529; }
+        .size-micro { background: #6c757d; }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        .modal-content {
+            background: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            position: relative;
+            animation: modalopen 0.4s;
+        }
+
+        @keyframes modalopen {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: #555;
+        }
+
+        .modal-header {
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .modal-header h2 {
+            font-size: 1.5rem;
+            color: #1e3c72;
+        }
+
+        .modal-company {
+            font-size: 1.2rem;
+            color: #495057;
+            margin-bottom: 5px;
+        }
+
+        .booth-details {
+            margin-top: 15px;
+        }
+
+        .detail-row {
+            margin-bottom: 12px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            color: #495057;
+            min-width: 100px;
+            margin-right: 10px;
+        }
+
+        .detail-value {
+            color: #6c757d;
+            flex: 1;
+        }
+
+        .company-size {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: white;
+            margin-left: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .floor-map {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .area-container:nth-child(7) {
+                grid-column: span 2;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .event-info {
+                flex-direction: column;
+            }
+            
+            .modal-content {
+                width: 90%;
+                margin: 20% auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .floor-map {
+                grid-template-columns: 1fr;
+            }
+            
+            .area-container:nth-child(7) {
+                grid-column: span 1;
+            }
+            
+            .booth-grid {
+                grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="app-container">
-        <!-- Hero Section with Exhibition Image -->
-        <section class="hero-section">
-            <div class="hero-background">
-                <img src="RailLogKorea2025.webp.1024.jpg" alt="RailLog Korea 2025 Exhibition" class="hero-image">
-                <div class="hero-overlay"></div>
-            </div>
-            <div class="hero-content">
-                <h1 class="hero-title">RailLog Korea 2025</h1>
-                <p class="hero-subtitle">Next-Generation Interactive Exhibition Map</p>
-                <div class="hero-particles"></div>
-            </div>
-        </section>
+    <div class="container">
+        <div class="header">
+            <h1>🚄 RailLog Korea 2025</h1>
+            <p>韓國鐵路與物流博覽會 - 視覺化展位圖</p>
+        </div>
 
-        <!-- Navigation Controls -->
-        <div class="control-panel glass-panel">
-            <div class="search-section">
-                <div class="search-container">
-                    <div class="search-input-wrapper">
-                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="21 21l-4.35-4.35"></path>
-                        </svg>
-                        <input type="text" id="searchInput" class="search-input" placeholder="搜尋攤位號或公司名稱...">
-                        <button id="clearSearch" class="clear-btn">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                        </button>
-                    </div>
+        <div class="event-info">
+            <div><strong>📅 展會日期：</strong>2025年6月18日至21日</div>
+            <div><strong>📍 展會地點：</strong>BEXCO (釜山會展中心), 韓國釜山</div>
+            <div><strong>🏢 參展商數量：</strong>106家</div>
+            <div><strong>🌏 展會規模：</strong>世界第四大鐵路展會</div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color size-large"></div>
+                <span>大型企業</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color size-medium"></div>
+                <span>中型企業</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color size-small"></div>
+                <span>小型企業</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color size-micro"></div>
+                <span>微型企業</span>
+            </div>
+        </div>
+
+        <div class="map-container">
+            <div class="floor-map" id="floorMap">
+                <!-- 展區將由JavaScript動態生成 -->
+            </div>
+        </div>
+
+        <!-- 展位詳情彈窗 -->
+        <div id="boothModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <div class="modal-header">
+                    <h2 id="modalTitle">攤位詳情</h2>
+                </div>
+                <div id="modalContent">
+                    <!-- 展位詳情將由JavaScript動態生成 -->
                 </div>
             </div>
+        </div>
+    </div>
+
+    <script>
+        // 展覽數據 (這裡放入你的CSV數據)
+        const exhibitorData = {
+            "A": [
+                {"攤位號": "A04", "公司": "DEMCO CSI", "國家": "韓國", "主要產品": "戶外高亮度 TFT‑LCD 資訊顯示器", "主要客戶": "機場、鐵路及公車站", "公司規模": "中型"},
+                {"攤位號": "A05", "公司": "YK Construction Equipment Co., Ltd.", "國家": "韓國", "主要產品": "工程與軌道施工機械租售", "主要客戶": "韓國土木、軌道承包商", "公司規模": "中型"},
+                {"攤位號": "A06", "公司": "SPACEPRO", "國家": "韓國", "主要產品": "碳纖維車體複材結構", "主要客戶": "韓國高鐵與航太供應鏈", "公司規模": "小型"},
+                {"攤位號": "A07", "公司": "Hyundai Rotem Company", "國家": "韓國", "主要產品": "高速列車、電聯車、號誌系統", "主要客戶": "KORAIL、台灣高鐵、英國 TfL 等", "公司規模": "大型"}
+            ],
+            // ... 其他展區數據
+        };
+
+        // 創建展會地圖
+        function createFloorMap() {
+            const floorMap = document.getElementById('floorMap');
+            floorMap.innerHTML = '';
+
+            Object.keys(exhibitorData).forEach(area => {
+                const areaContainer = document.createElement('div');
+                areaContainer.className = 'area-container';
+                
+                const areaHeader = document.createElement('div');
+                areaHeader.className = 'area-header';
+                areaHeader.textContent = `${area} 區 (${exhibitorData[area].length} 攤位)`;
+                areaContainer.appendChild(areaHeader);
+                
+                const boothGrid = document.createElement('div');
+                boothGrid.className = 'booth-grid';
+                
+                exhibitorData[area].forEach(booth => {
+                    const boothElement = document.createElement('div');
+                    boothElement.className = `booth size-${getSizeClass(booth.公司規模)}`;
+                    boothElement.textContent = booth.攤位號;
+                    boothElement.setAttribute('data-booth', booth.攤位號);
+                    boothElement.onclick = () => showBoothDetails(area, booth.攤位號);
+                    boothGrid.appendChild(boothElement);
+                });
+                
+                areaContainer.appendChild(boothGrid);
+                floorMap.appendChild(areaContainer);
+            });
+        }
+
+        function getSizeClass(size) {
+            switch(size) {
+                case '大型': return 'large';
+                case '中型': return 'medium';
+                case '小型': return 'small';
+                case '微型': return 'micro';
+                default: return 'small';
+            }
+        }
+
+        function showBoothDetails(area, boothId) {
+            const booth = exhibitorData[area].find(b => b.攤位號 === boothId);
+            if (!booth) return;
             
-            <div class="filter-section">
-                <span class="filter-label">展區篩選</span>
-                <div class="filter-grid">
-                    <button class="filter-chip active" data-zone="all">
-                        <span class="chip-text">全部</span>
-                        <span class="chip-count">106</span>
-                    </button>
-                    <button class="filter-chip" data-zone="A">
-                        <span class="chip-text">A區</span>
-                        <span class="chip-count">4</span>
-                    </button>
-                    <button class="filter-chip" data-zone="B">
-                        <span class="chip-text">B區</span>
-                        <span class="chip-count">12</span>
-                    </button>
-                    <button class="filter-chip" data-zone="C">
-                        <span class="chip-text">C區</span>
-                        <span class="chip-count">23</span>
-                    </button>
-                    <button class="filter-chip" data-zone="D">
-                        <span class="chip-text">D區</span>
-                        <span class="chip-count">27</span>
-                    </button>
-                    <button class="filter-chip" data-zone="E">
-                        <span class="chip-text">E區</span>
-                        <span class="chip-count">20</span>
-                    </button>
-                    <button class="filter-chip" data-zone="F">
-                        <span class="chip-text">F區</span>
-                        <span class="chip-count">15</span>
-                    </button>
-                    <button class="filter-chip" data-zone="G">
-                        <span class="chip-text">G區</span>
-                        <span class="chip-count">9</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Main Application Layout -->
-        <div class="app-layout">
-            <!-- Interactive Map Panel -->
-            <div class="map-panel glass-panel">
-                <div class="panel-header">
-                    <h2 class="panel-title">
-                        <svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                            <path d="M21 15l-3.086-3.086a2 2 0 00-2.828 0L6 21"></path>
-                        </svg>
-                        Interactive Exhibition Map
-                    </h2>
-                    <div class="map-stats">
-                        <span class="stat-item">
-                            <span class="stat-number" id="totalBooths">106</span>
-                            <span class="stat-label">總攤位</span>
-                        </span>
-                        <span class="stat-item">
-                            <span class="stat-number" id="visibleBooths">106</span>
-                            <span class="stat-label">可見攤位</span>
+            const modal = document.getElementById('boothModal');
+            const modalContent = document.getElementById('modalContent');
+            const modalTitle = document.getElementById('modalTitle');
+            
+            modalTitle.textContent = `攤位號 ${booth.攤位號}`;
+            
+            modalContent.innerHTML = `
+                <div class="modal-company">${booth.公司}</div>
+                <div class="booth-details">
+                    <div class="detail-row">
+                        <span class="detail-label">🌍 國家：</span>
+                        <span class="detail-value">${booth.國家}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">🛠️ 主要產品：</span>
+                        <span class="detail-value">${booth.主要產品}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">👥 主要客戶：</span>
+                        <span class="detail-value">${booth.主要客戶}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">📊 公司規模：</span>
+                        <span class="detail-value">
+                            <span class="company-size size-${getSizeClass(booth.公司規模)}">${booth.公司規模}</span>
                         </span>
                     </div>
                 </div>
-                
-                <div class="map-container">
-                    <svg id="exhibitionMap" viewBox="0 0 1000 600" class="exhibition-svg">
-                        <!-- 背景定義 -->
-                        <defs>
-                            <pattern id="gridPattern" width="50" height="50" patternUnits="userSpaceOnUse">
-                                <rect width="50" height="50" fill="transparent"/>
-                                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(100, 255, 255, 0.1)" stroke-width="1"/>
-                            </pattern>
-                            <linearGradient id="mapBg" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:rgba(15, 23, 42, 0.95);stop-opacity:1" />
-                                <stop offset="50%" style="stop-color:rgba(30, 41, 59, 0.95);stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:rgba(51, 65, 85, 0.95);stop-opacity:1" />
-                            </linearGradient>
-                            <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
-                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                                <feMerge>
-                                    <feMergeNode in="coloredBlur"/>
-                                    <feMergeNode in="SourceGraphic"/>
-                                </feMerge>
-                            </filter>
-                            <filter id="boothShadow" x="-20%" y="-20%" width="140%" height="140%">
-                                <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="rgba(0, 0, 0, 0.3)"/>
-                            </filter>
-                        </defs>
-                        
-                        <!-- 地圖背景 -->
-                        <rect width="1000" height="600" fill="url(#mapBg)" stroke="rgba(100, 255, 255, 0.3)" stroke-width="2" rx="16"/>
-                        <rect width="1000" height="600" fill="url(#gridPattern)" opacity="0.4"/>
-                        
-                        <!-- Zone A -->
-                        <g class="zone" data-zone="A">
-                            <text x="50" y="35" class="zone-label">A 區域</text>
-                            <rect id="A04" x="20" y="50" width="60" height="40" class="booth" data-booth="A04" filter="url(#boothShadow)" rx="6"/>
-                            <text x="50" y="72" class="booth-label">A04</text>
-                            <rect id="A05" x="90" y="50" width="60" height="40" class="booth" data-booth="A05" filter="url(#boothShadow)" rx="6"/>
-                            <text x="120" y="72" class="booth-label">A05</text>
-                            <rect id="A06" x="160" y="50" width="60" height="40" class="booth" data-booth="A06" filter="url(#boothShadow)" rx="6"/>
-                            <text x="190" y="72" class="booth-label">A06</text>
-                            <rect id="A07" x="230" y="50" width="60" height="40" class="booth" data-booth="A07" filter="url(#boothShadow)" rx="6"/>
-                            <text x="260" y="72" class="booth-label">A07</text>
-                        </g>
+            `;
+            
+            modal.style.display = 'block';
+        }
 
-                        <!-- Zone B -->
-                        <g class="zone" data-zone="B">
-                            <text x="50" y="135" class="zone-label">B 區域</text>
-                            <rect id="B01" x="20" y="150" width="45" height="35" class="booth" data-booth="B01" filter="url(#boothShadow)" rx="4"/>
-                            <text x="42" y="169" class="booth-label">B01</text>
-                            <rect id="B02" x="75" y="150" width="45" height="35" class="booth" data-booth="B02" filter="url(#boothShadow)" rx="4"/>
-                            <text x="97" y="169" class="booth-label">B02</text>
-                            <rect id="B03" x="130" y="150" width="45" height="35" class="booth" data-booth="B03" filter="url(#boothShadow)" rx="4"/>
-                            <text x="152" y="169" class="booth-label">B03</text>
-                            <rect id="B04" x="185" y="150" width="45" height="35" class="booth" data-booth="B04" filter="url(#boothShadow)" rx="4"/>
-                            <text x="207" y="169" class="booth-label">B04</text>
-                            <rect id="B05" x="240" y="150" width="45" height="35" class="booth" data-booth="B05" filter="url(#boothShadow)" rx="4"/>
-                            <text x="262" y="169" class="booth-label">B05</text>
-                            <rect id="B06" x="295" y="150" width="45" height="35" class="booth" data-booth="B06" filter="url(#boothShadow)" rx="4"/>
-                            <text x="317" y="169" class="booth-label">B06</text>
-                            
-                            <rect id="B07" x="20" y="195" width="45" height="35" class="booth" data-booth="B07" filter="url(#boothShadow)" rx="4"/>
-                            <text x="42" y="214" class="booth-label">B07</text>
-                            <rect id="B08" x="75" y="195" width="45" height="35" class="booth" data-booth="B08" filter="url(#boothShadow)" rx="4"/>
-                            <text x="97" y="214" class="booth-label">B08</text>
-                            <rect id="B09" x="130" y="195" width="45" height="35" class="booth" data-booth="B09" filter="url(#boothShadow)" rx="4"/>
-                            <text x="152" y="214" class="booth-label">B09</text>
-                            <rect id="B10" x="185" y="195" width="45" height="35" class="booth" data-booth="B10" filter="url(#boothShadow)" rx="4"/>
-                            <text x="207" y="214" class="booth-label">B10</text>
-                            <rect id="B11" x="240" y="195" width="45" height="35" class="booth" data-booth="B11" filter="url(#boothShadow)" rx="4"/>
-                            <text x="262" y="214" class="booth-label">B11</text>
-                            <rect id="B12" x="295" y="195" width="45" height="35" class="booth" data-booth="B12" filter="url(#boothShadow)" rx="4"/>
-                            <text x="317" y="214" class="booth-label">B12</text>
-                        </g>
+        function closeModal() {
+            const modal = document.getElementById('boothModal');
+            modal.style.display = 'none';
+        }
 
-                        <!-- Zone C -->
-                        <g class="zone" data-zone="C">
-                            <text x="480" y="35" class="zone-label">C 區域</text>
-                            <!-- Row 1 -->
-                            <rect id="C01" x="380" y="50" width="35" height="30" class="booth" data-booth="C01" filter="url(#boothShadow)" rx="3"/>
-                            <text x="397" y="67" class="booth-label">C01</text>
-                            <rect id="C02" x="420" y="50" width="35" height="30" class="booth" data-booth="C02" filter="url(#boothShadow)" rx="3"/>
-                            <text x="437" y="67" class="booth-label">C02</text>
-                            <rect id="C03" x="460" y="50" width="35" height="30" class="booth" data-booth="C03" filter="url(#boothShadow)" rx="3"/>
-                            <text x="477" y="67" class="booth-label">C03</text>
-                            <rect id="C04" x="500" y="50" width="35" height="30" class="booth" data-booth="C04" filter="url(#boothShadow)" rx="3"/>
-                            <text x="517" y="67" class="booth-label">C04</text>
-                            <rect id="C05" x="540" y="50" width="35" height="30" class="booth" data-booth="C05" filter="url(#boothShadow)" rx="3"/>
-                            <text x="557" y="67" class="booth-label">C05</text>
-                            <rect id="C06" x="580" y="50" width="35" height="30" class="booth" data-booth="C06" filter="url(#boothShadow)" rx="3"/>
-                            <text x="597" y="67" class="booth-label">C06</text>
-                            
-                            <!-- Row 2 -->
-                            <rect id="C07" x="380" y="90" width="35" height="30" class="booth" data-booth="C07" filter="url(#boothShadow)" rx="3"/>
-                            <text x="397" y="107" class="booth-label">C07</text>
-                            <rect id="C08" x="420" y="90" width="35" height="30" class="booth" data-booth="C08" filter="url(#boothShadow)" rx="3"/>
-                            <text x="437" y="107" class="booth-label">C08</text>
-                            <rect id="C09" x="460" y="90" width="35" height="30" class="booth" data-booth="C09" filter="url(#boothShadow)" rx="3"/>
-                            <text x="477" y="107" class="booth-label">C09</text>
-                            <rect id="C10" x="500" y="90" width="35" height="30" class="booth" data-booth="C10" filter="url(#boothShadow)" rx="3"/>
-                            <text x="517" y="107" class="booth-label">C10</text>
-                            <rect id="C11" x="540" y="90" width="35" height="30" class="booth" data-booth="C11" filter="url(#boothShadow)" rx="3"/>
-                            <text x="557" y="107" class="booth-label">C11</text>
-                            <rect id="C12" x="580" y="90" width="35" height="30" class="booth" data-booth="C12" filter="url(#boothShadow)" rx="3"/>
-                            <text x="597" y="107" class="booth-label">C12</text>
-                            
-                            <!-- Row 3 -->
-                            <rect id="C13" x="380" y="130" width="35" height="30" class="booth" data-booth="C13" filter="url(#boothShadow)" rx="3"/>
-                            <text x="397" y="147" class="booth-label">C13</text>
-                            <rect id="C14" x="420" y="130" width="35" height="30" class="booth" data-booth="C14" filter="url(#boothShadow)" rx="3"/>
-                            <text x="437" y="147" class="booth-label">C14</text>
-                            <rect id="C15" x="460" y="130" width="35" height="30" class="booth" data-booth="C15" filter="url(#boothShadow)" rx="3"/>
-                            <text x="477" y="147" class="booth-label">C15</text>
-                            <rect id="C16" x="500" y="130" width="35" height="30" class="booth" data-booth="C16" filter="url(#boothShadow)" rx="3"/>
-                            <text x="517" y="147" class="booth-label">C16</text>
-                            <rect id="C17" x="540" y="130" width="35" height="30" class="booth" data-booth="C17" filter="url(#boothShadow)" rx="3"/>
-                            <text x="557" y="147" class="booth-label">C17</text>
-                            <rect id="C18" x="580" y="130" width="35" height="30" class="booth" data-booth="C18" filter="url(#boothShadow)" rx="3"/>
-                            <text x="597" y="147" class="booth-label">C18</text>
-                            
-                            <!-- Row 4 -->
-                            <rect id="C19" x="380" y="170" width="35" height="30" class="booth" data-booth="C19" filter="url(#boothShadow)" rx="3"/>
-                            <text x="397" y="187" class="booth-label">C19</text>
-                            <rect id="C20" x="420" y="170" width="35" height="30" class="booth" data-booth="C20" filter="url(#boothShadow)" rx="3"/>
-                            <text x="437" y="187" class="booth-label">C20</text>
-                            <rect id="C21" x="460" y="170" width="35" height="30" class="booth" data-booth="C21" filter="url(#boothShadow)" rx="3"/>
-                            <text x="477" y="187" class="booth-label">C21</text>
-                            <rect id="C22" x="500" y="170" width="35" height="30" class="booth" data-booth="C22" filter="url(#boothShadow)" rx="3"/>
-                            <text x="517" y="187" class="booth-label">C22</text>
-                            <rect id="C23" x="540" y="170" width="35" height="30" class="booth" data-booth="C23" filter="url(#boothShadow)" rx="3"/>
-                            <text x="557" y="187" class="booth-label">C23</text>
-                        </g>
+        // 點擊模態框外部關閉
+        window.onclick = function(event) {
+            const modal = document.getElementById('boothModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
 
-                        <!-- Zone D -->
-                        <g class="zone" data-zone="D">
-                            <text x="730" y="35" class="zone-label">D 區域</text>
-                            <!-- Column 1 -->
-                            <rect id="D04" x="650" y="50" width="35" height="30" class="booth" data-booth="D04" filter="url(#boothShadow)" rx="3"/>
-                            <text x="667" y="67" class="booth-label">D04</text>
-                            <rect id="D06" x="650" y="90" width="35" height="30" class="booth" data-booth="D06" filter="url(#boothShadow)" rx="3"/>
-                            <text x="667" y="107" class="booth-label">D06</text>
-                            <rect id="D08" x="650" y="130" width="35" height="30" class="booth" data-booth="D08" filter="url(#boothShadow)" rx="3"/>
-                            <text x="667" y="147" class="booth-label">D08</text>
-                            <rect id="D09" x="650" y="170" width="35" height="30" class="booth" data-booth="D09" filter="url(#boothShadow)" rx="3"/>
-                            <text x="667" y="187" class="booth-label">D09</text>
-                            <rect id="D10" x="650" y="210" width="35" height="30" class="booth" data-booth="D10" filter="url(#boothShadow)" rx="3"/>
-                            <text x="667" y="227" class="booth-label">D10</text>
-                            
-                            <!-- Column 2 -->
-                            <rect id="D11" x="690" y="50" width="35" height="30" class="booth" data-booth="D11" filter="url(#boothShadow)" rx="3"/>
-                            <text x="707" y="67" class="booth-label">D11</text>
-                            <rect id="D12" x="690" y="90" width="35" height="30" class="booth" data-booth="D12" filter="url(#boothShadow)" rx="3"/>
-                            <text x="707" y="107" class="booth-label">D12</text>
-                            <rect id="D13" x="690" y="130" width="35" height="30" class="booth" data-booth="D13" filter="url(#boothShadow)" rx="3"/>
-                            <text x="707" y="147" class="booth-label">D13</text>
-                            <rect id="D14" x="690" y="170" width="35" height="30" class="booth" data-booth="D14" filter="url(#boothShadow)" rx="3"/>
-                            <text x="707" y="187" class="booth-label">D14</text>
-                            <rect id="D15" x="690" y="210" width="35" height="30" class="booth" data-booth="D15" filter="url(#boothShadow)" rx="3"/>
-                            <text x="707" y="227" class="booth-label">D15</text>
-                            
-                            <!-- Column 3 -->
-                            <rect id="D16" x="730" y="50" width="35" height="30" class="booth" data-booth="D16" filter="url(#boothShadow)" rx="3"/>
-                            <text x="747" y="67" class="booth-label">D16</text>
-                            <rect id="D17" x="730" y="90" width="35" height="30" class="booth" data-booth="D17" filter="url(#boothShadow)" rx="3"/>
-                            <text x="747" y="107" class="booth-label">D17</text>
-                            <rect id="D18" x="730" y="130" width="35" height="30" class="booth" data-booth="D18" filter="url(#boothShadow)" rx="3"/>
-                            <text x="747" y="147" class="booth-label">D18</text>
-                            <rect id="D19" x="730" y="170" width="35" height="30" class="booth" data-booth="D19" filter="url(#boothShadow)" rx="3"/>
-                            <text x="747" y="187" class="booth-label">D19</text>
-                            <rect id="D20" x="730" y="210" width="35" height="30" class="booth" data-booth="D20" filter="url(#boothShadow)" rx="3"/>
-                            <text x="747" y="227" class="booth-label">D20</text>
-                            
-                            <!-- Column 4 -->
-                            <rect id="D21" x="770" y="50" width="35" height="30" class="booth" data-booth="D21" filter="url(#boothShadow)" rx="3"/>
-                            <text x="787" y="67" class="booth-label">D21</text>
-                            <rect id="D22" x="770" y="90" width="35" height="30" class="booth" data-booth="D22" filter="url(#boothShadow)" rx="3"/>
-                            <text x="787" y="107" class="booth-label">D22</text>
-                            <rect id="D23" x="770" y="130" width="35" height="30" class="booth" data-booth="D23" filter="url(#boothShadow)" rx="3"/>
-                            <text x="787" y="147" class="booth-label">D23</text>
-                            <rect id="D24" x="770" y="170" width="35" height="30" class="booth" data-booth="D24" filter="url(#boothShadow)" rx="3"/>
-                            <text x="787" y="187" class="booth-label">D24</text>
-                            <rect id="D25" x="770" y="210" width="35" height="30" class="booth" data-booth="D25" filter="url(#boothShadow)" rx="3"/>
-                            <text x="787" y="227" class="booth-label">D25</text>
-                            
-                            <!-- Column 5 -->
-                            <rect id="D26" x="810" y="50" width="35" height="30" class="booth" data-booth="D26" filter="url(#boothShadow)" rx="3"/>
-                            <text x="827" y="67" class="booth-label">D26</text>
-                            <rect id="D27" x="810" y="90" width="35" height="30" class="booth" data-booth="D27" filter="url(#boothShadow)" rx="3"/>
-                            <text x="827" y="107" class="booth-label">D27</text>
-                            <rect id="D28" x="810" y="130" width="35" height="30" class="booth" data-booth="D28" filter="url(#boothShadow)" rx="3"/>
-                            <text x="827" y="147" class="booth-label">D28</text>
-                            <rect id="D29" x="810" y="170" width="35" height="30" class="booth" data-booth="D29" filter="url(#boothShadow)" rx="3"/>
-                            <text x="827" y="187" class="booth-label">D29</text>
-                            <rect id="D30" x="810" y="210" width="35" height="30" class="booth" data-booth="D30" filter="url(#boothShadow)" rx="3"/>
-                            <text x="827" y="227" class="booth-label">D30</text>
-                        </g>
-
-                        <!-- Zone E -->
-                        <g class="zone" data-zone="E">
-                            <text x="150" y="305" class="zone-label">E 區域</text>
-                            <rect id="E04" x="20" y="320" width="40" height="35" class="booth" data-booth="E04" filter="url(#boothShadow)" rx="4"/>
-                            <text x="40" y="339" class="booth-label">E04</text>
-                            <rect id="E05" x="70" y="320" width="40" height="35" class="booth" data-booth="E05" filter="url(#boothShadow)" rx="4"/>
-                            <text x="90" y="339" class="booth-label">E05</text>
-                            <rect id="E08" x="120" y="320" width="40" height="35" class="booth" data-booth="E08" filter="url(#boothShadow)" rx="4"/>
-                            <text x="140" y="339" class="booth-label">E08</text>
-                            <rect id="E09" x="170" y="320" width="40" height="35" class="booth" data-booth="E09" filter="url(#boothShadow)" rx="4"/>
-                            <text x="190" y="339" class="booth-label">E09</text>
-                            <rect id="E10" x="220" y="320" width="40" height="35" class="booth" data-booth="E10" filter="url(#boothShadow)" rx="4"/>
-                            <text x="240" y="339" class="booth-label">E10</text>
-                            
-                            <rect id="E11" x="20" y="365" width="40" height="35" class="booth" data-booth="E11" filter="url(#boothShadow)" rx="4"/>
-                            <text x="40" y="384" class="booth-label">E11</text>
-                            <rect id="E12" x="70" y="365" width="40" height="35" class="booth" data-booth="E12" filter="url(#boothShadow)" rx="4"/>
-                            <text x="90" y="384" class="booth-label">E12</text>
-                            <rect id="E13" x="120" y="365" width="40" height="35" class="booth" data-booth="E13" filter="url(#boothShadow)" rx="4"/>
-                            <text x="140" y="384" class="booth-label">E13</text>
-                            <rect id="E14" x="170" y="365" width="40" height="35" class="booth" data-booth="E14" filter="url(#boothShadow)" rx="4"/>
-                            <text x="190" y="384" class="booth-label">E14</text>
-                            <rect id="E15" x="220" y="365" width="40" height="35" class="booth" data-booth="E15" filter="url(#boothShadow)" rx="4"/>
-                            <text x="240" y="384" class="booth-label">E15</text>
-                            
-                            <rect id="E16" x="20" y="410" width="40" height="35" class="booth" data-booth="E16" filter="url(#boothShadow)" rx="4"/>
-                            <text x="40" y="429" class="booth-label">E16</text>
-                            <rect id="E17" x="70" y="410" width="40" height="35" class="booth" data-booth="E17" filter="url(#boothShadow)" rx="4"/>
-                            <text x="90" y="429" class="booth-label">E17</text>
-                            <rect id="E18" x="120" y="410" width="40" height="35" class="booth" data-booth="E18" filter="url(#boothShadow)" rx="4"/>
-                            <text x="140" y="429" class="booth-label">E18</text>
-                            <rect id="E19" x="170" y="410" width="40" height="35" class="booth" data-booth="E19" filter="url(#boothShadow)" rx="4"/>
-                            <text x="190" y="429" class="booth-label">E19</text>
-                            <rect id="E20" x="220" y="410" width="40" height="35" class="booth" data-booth="E20" filter="url(#boothShadow)" rx="4"/>
-                            <text x="240" y="429" class="booth-label">E20</text>
-                            
-                            <rect id="E21" x="20" y="455" width="40" height="35" class="booth" data-booth="E21" filter="url(#boothShadow)" rx="4"/>
-                            <text x="40" y="474" class="booth-label">E21</text>
-                            <rect id="E22" x="70" y="455" width="40" height="35" class="booth" data-booth="E22" filter="url(#boothShadow)" rx="4"/>
-                            <text x="90" y="474" class="booth-label">E22</text>
-                            <rect id="E23" x="120" y="455" width="40" height="35" class="booth" data-booth="E23" filter="url(#boothShadow)" rx="4"/>
-                            <text x="140" y="474" class="booth-label">E23</text>
-                        </g>
-
-                        <!-- Zone F -->
-                        <g class="zone" data-zone="F">
-                            <text x="460" y="305" class="zone-label">F 區域</text>
-                            <rect id="F01" x="340" y="320" width="40" height="35" class="booth" data-booth="F01" filter="url(#boothShadow)" rx="4"/>
-                            <text x="360" y="339" class="booth-label">F01</text>
-                            <rect id="F02" x="390" y="320" width="40" height="35" class="booth" data-booth="F02" filter="url(#boothShadow)" rx="4"/>
-                            <text x="410" y="339" class="booth-label">F02</text>
-                            <rect id="F03" x="440" y="320" width="40" height="35" class="booth" data-booth="F03" filter="url(#boothShadow)" rx="4"/>
-                            <text x="460" y="339" class="booth-label">F03</text>
-                            <rect id="F04" x="490" y="320" width="40" height="35" class="booth" data-booth="F04" filter="url(#boothShadow)" rx="4"/>
-                            <text x="510" y="339" class="booth-label">F04</text>
-                            <rect id="F05" x="540" y="320" width="40" height="35" class="booth" data-booth="F05" filter="url(#boothShadow)" rx="4"/>
-                            <text x="560" y="339" class="booth-label">F05</text>
-                            
-                            <rect id="F06" x="340" y="365" width="40" height="35" class="booth" data-booth="F06" filter="url(#boothShadow)" rx="4"/>
-                            <text x="360" y="384" class="booth-label">F06</text>
-                            <rect id="F07" x="390" y="365" width="40" height="35" class="booth" data-booth="F07" filter="url(#boothShadow)" rx="4"/>
-                            <text x="410" y="384" class="booth-label">F07</text>
-                            <rect id="F08" x="440" y="365" width="40" height="35" class="booth" data-booth="F08" filter="url(#boothShadow)" rx="4"/>
-                            <text x="460" y="384" class="booth-label">F08</text>
-                            <rect id="F09" x="490" y="365" width="40" height="35" class="booth" data-booth="F09" filter="url(#boothShadow)" rx="4"/>
-                            <text x="510" y="384" class="booth-label">F09</text>
-                            <rect id="F10" x="540" y="365" width="40" height="35" class="booth" data-booth="F10" filter="url(#boothShadow)" rx="4"/>
-                            <text x="560" y="384" class="booth-label">F10</text>
-                            
-                            <rect id="F11" x="340" y="410" width="40" height="35" class="booth" data-booth="F11" filter="url(#boothShadow)" rx="4"/>
-                            <text x="360" y="429" class="booth-label">F11</text>
-                            <rect id="F12" x="390" y="410" width="40" height="35" class="booth" data-booth="F12" filter="url(#boothShadow)" rx="4"/>
-                            <text x="410" y="429" class="booth-label">F12</text>
-                            <rect id="F13" x="440" y="410" width="40" height="35" class="booth" data-booth="F13" filter="url(#boothShadow)" rx="4"/>
-                            <text x="460" y="429" class="booth-label">F13</text>
-                            <rect id="F14" x="490" y="410" width="40" height="35" class="booth" data-booth="F14" filter="url(#boothShadow)" rx="4"/>
-                            <text x="510" y="429" class="booth-label">F14</text>
-                            <rect id="F15" x="540" y="410" width="40" height="35" class="booth" data-booth="F15" filter="url(#boothShadow)" rx="4"/>
-                            <text x="560" y="429" class="booth-label">F15</text>
-                        </g>
-
-                        <!-- Zone G -->
-                        <g class="zone" data-zone="G">
-                            <text x="730" y="305" class="zone-label">G 區域</text>
-                            <rect id="G01" x="650" y="320" width="50" height="40" class="booth" data-booth="G01" filter="url(#boothShadow)" rx="6"/>
-                            <text x="675" y="342" class="booth-label">G01</text>
-                            <rect id="G02" x="710" y="320" width="50" height="40" class="booth" data-booth="G02" filter="url(#boothShadow)" rx="6"/>
-                            <text x="735" y="342" class="booth-label">G02</text>
-                            <rect id="G03" x="770" y="320" width="50" height="40" class="booth" data-booth="G03" filter="url(#boothShadow)" rx="6"/>
-                            <text x="795" y="342" class="booth-label">G03</text>
-                            
-                            <rect id="G04" x="650" y="370" width="50" height="40" class="booth" data-booth="G04" filter="url(#boothShadow)" rx="6"/>
-                            <text x="675" y="392" class="booth-label">G04</text>
-                            <rect id="G05" x="710" y="370" width="50" height="40" class="booth" data-booth="G05" filter="url(#boothShadow)" rx="6"/>
-                            <text x="735" y="392" class="booth-label">G05</text>
-                            <rect id="G06" x="770" y="370" width="50" height="40" class="booth" data-booth="G06" filter="url(#boothShadow)" rx="6"/>
-                            <text x="795" y="392" class="booth-label">G06</text>
-                            
-                            <rect id="G07" x="650" y="420" width="50" height="40" class="booth" data-booth="G07" filter="url(#boothShadow)" rx="6"/>
-                            <text x="675" y="442" class="booth-label">G07</text>
-                            <rect id="G09" x="710" y="420" width="50" height="40" class="booth" data-booth="G09" filter="url(#boothShadow)" rx="6"/>
-                            <text x="735" y="442" class="booth-label">G09</text>
-                            <rect id="G10" x="770" y="420" width="50" height="40" class="booth" data-booth="G10" filter="url(#boothShadow)" rx="6"/>
-                            <text x="795" y="442" class="booth-label">G10</text>
-                        </g>
-                    </svg>
-                </div>
-            </div>
-
-            <!-- Information Display Panel -->
-            <div class="info-panel glass-panel">
-                <div class="panel-header">
-                    <h2 class="panel-title">
-                        <svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-                        </svg>
-                        Exhibitor Information
-                    </h2>
-                </div>
-                
-                <div class="panel-content">
-                    <div id="infoContent">
-                        <div class="info-placeholder">
-                            <div class="placeholder-animation">
-                                <div class="animated-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                                    </svg>
-                                </div>
-                            </div>
-                            <h3>點擊攤位查看詳細資訊</h3>
-                            <p>選擇地圖上的任意攤位，或使用搜尋功能來探索參展商資訊。</p>
-                            <div class="feature-highlights">
-                                <div class="feature-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <circle cx="11" cy="11" r="8"></circle>
-                                        <path d="21 21l-4.35-4.35"></path>
-                                    </svg>
-                                    <span>智能搜尋</span>
-                                </div>
-                                <div class="feature-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                                        <path d="M21 15l-3.086-3.086a2 2 0 00-2.828 0L6 21"></path>
-                                    </svg>
-                                    <span>區域篩選</span>
-                                </div>
-                                <div class="feature-item">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path d="M9 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-4m-4 0V9a2 2 0 0 1 4 0v2m-4 0h4"></path>
-                                    </svg>
-                                    <span>即時資訊</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Search Results Overlay -->
-    <div id="searchResults" class="search-results-overlay">
-        <div class="search-results-content glass-panel">
-            <div class="search-results-header">
-                <h3>搜尋結果</h3>
-                <button id="closeSearchResults" class="close-btn">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-            </div>
-            <div id="searchResultsList" class="search-results-list"></div>
-        </div>
-    </div>
-
-    <script src="app.js"></script>
+        // 初始化展會地圖
+        document.addEventListener('DOMContentLoaded', () => {
+            createFloorMap();
+        });
+    </script>
 </body>
 </html>
