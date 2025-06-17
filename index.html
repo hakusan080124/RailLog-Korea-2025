@@ -6,36 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RailLog Korea 2025</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    const BOOTH_DATA = {"A04": {"公司名稱": "DEMCO CSI", "國家/地區": "韓國", "主要產品": "戶外高亮度 TFT‑LCD 資訊顯示器", "公司規模": "中型"}, "A05": {"公司名稱": "YK Construction Equipment Co., Ltd.", "國家/地區": "韓國", "主要產品": "工程與軌道施工機械租售", "公司規模": "中型"}, "A06": {"公司名稱": "SPACEPRO", "國家/地區": "韓國", "主要產品": "碳纖維車體複材結構", "公司規模": "小型"}, "A07": {"公司名稱": "Hyundai Rotem Company", "國家/地區": "韓國", "主要產品": "高速列車、電聯車、號誌系統", "公司規模": "大型"}, "B01": {"公司名稱": "Electronic & Human Technology", "國家/地區": "韓國", "主要產品": "電子開關、控制面板", "公司規模": "小型"}, "B02": {"公司名稱": "ENTEC Electric & Electronic Co., Ltd.", "國家/地區": "韓國", "主要產品": "中低壓供電設備、SCADA", "公司規模": "中型"}, "B03": {"公司名稱": "KUMSAN M&E Co., LTD", "國家/地區": "韓國", "主要產品": "鐵道繼電器、端子台", "公司規模": "小型"}, "B04": {"公司名稱": "MAPSCO Co., Ltd.", "國家/地區": "韓國", "主要產品": "滾珠螺桿、致動器", "公司規模": "小型"}, "B05": {"公司名稱": "Mahani Electric Co., Ltd.", "國家/地區": "韓國", "主要產品": "感測器、連接器", "公司規模": "小型"}, "B06": {"公司名稱": "EASTERN R&E Co., Ltd.", "國家/地區": "韓國", "主要產品": "輪對、轉向架、軌道貨車", "公司規模": "中型"}, "B07": {"公司名稱": "KOBA Co., Ltd.", "國家/地區": "韓國", "主要產品": "液壓減震器", "公司規模": "中型"}, "B08": {"公司名稱": "CSIN Tech Co., Ltd.", "國家/地區": "韓國", "主要產品": "列車控制、智慧物聯網、車載系統", "公司規模": "小型"}, "B09": {"公司名稱": "Dujin I&T", "國家/地區": "韓國", "主要產品": "車輛零部件、RAMS 諮詢", "公司規模": "小型"}, "B10": {"公司名稱": "VCTECH Co., Ltd.", "國家/地區": "韓國", "主要產品": "逆變器", "公司規模": "中型"}, "B11": {"公司名稱": "TÜV Rheinland Korea Ltd.", "國家/地區": "德國〈韓〉", "主要產品": "安全認證、EMC/功能安全測試", "公司規模": "大型"}, "B12": {"公司名稱": "ILME Korea Co.", "國家/地區": "義大利〈韓〉", "主要產品": "工業矩形連接器", "公司規模": "小型"}, "C01": {"公司名稱": "SAMSON TECH Co., Ltd.", "國家/地區": "韓國", "主要產品": "無資料", "公司規模": "無資料"}, "C02": {"公司名稱": "KOSTECH", "國家/地區": "韓國", "主要產品": "CAE測試", "公司規模": "小型"}, "C03": {"公司名稱": "intech", "國家/地區": "韓國", "主要產品": "無資料", "公司規模": "無資料"}, "C04": {"公司名稱": "Jinil 1'Stec Co., Ltd.", "國家/地區": "韓國", "主要產品": "檢測儀器", "公司規模": "小型"}, "C05": {"公司名稱": "YOUNG JOONG IND Co., Ltd.", "國家/地區": "韓國", "主要產品": "無資料", "公司規模": "無資料"}, "C06": {"公司名稱": "T.I.CORPORATION", "國家/地區": "韓國", "主要產品": "無資料", "公司規模": "無資料"}, "C07": {"公司名稱": "GLOS Co., Ltd.", "國家/地區": "韓國", "主要產品": "顯示器、自動化零件", "公司規模": "小型"}, "C08": {"公司名稱": "BEST ENGINEERING", "國家/地區": "韓國", "主要產品": "岔心、軌道配件", "公司規模": "小型"}, "C09": {"公司名稱": "WOOJAE", "國家/地區": "韓國", "主要產品": "空間設計", "公司規模": "小型"}, "C10": {"公司名稱": "Roxtec Korea", "國家/地區": "瑞典〈韓〉", "主要產品": "電纜/管線穿隔密封模組", "公司規模": "中型"}, "C11": {"公司名稱": "GMTECH Co., Ltd.", "國家/地區": "韓國", "主要產品": "鋼構設備", "公司規模": "小型"}, "C12": {"公司名稱": "WAINKOREA", "國家/地區": "無資料", "主要產品": "無資料", "公司規模": "無資料"}, "C13": {"公司名稱": "Korea Petroleum", "國家/地區": "韓國", "主要產品": "石油產品、化工品", "公司規模": "大型"}, "C14": {"公司名稱": "Elthus T&L", "國家/地區": "韓國", "主要產品": "施工維修工具、車輛組裝工具", "公司規模": "小型"}, "C15": {"公司名稱": "NAWOO Ltd.", "國家/地區": "韓國", "主要產品": "非破壞檢測NTD工具", "公司規模": "小型"}, "C16": {"公司名稱": "ZEECOM", "國家/地區": "韓國", "主要產品": "測量系統、開關、感測器", "公司規模": "小型"}, "C17": {"公司名稱": "DNV Business Assurance Korea", "國家/地區": "挪威〈韓〉", "主要產品": "系統安全/功能安全認證", "公司規模": "大型"}, "C18": {"公司名稱": "Schaltbau Korea Ltd.", "國家/地區": "德國〈韓〉", "主要產品": "DC接觸器、UIC連接器", "公司規模": "中型"}, "C19": {"公司名稱": "CEL‑BIO KUBE Co., Ltd.", "國家/地區": "韓國", "主要產品": "環保潤滑油、生質清潔劑", "公司規模": "小型"}, "C20": {"公司名稱": "BP Intelligent Mechanics", "國家/地區": "中國", "主要產品": "檢測機器人、AI缺陷判讀", "公司規模": "小型"}, "C21": {"公司名稱": "TILC Co., Ltd.", "國家/地區": "韓國", "主要產品": "技術諮詢與工程服務", "公司規模": "小型"}, "C22": {"公司名稱": "Rehau & Chunho Co., Ltd.", "國家/地區": "德國/韓國", "主要產品": "無資料", "公司規模": "無資料"}, "C23": {"公司名稱": "RM", "國家/地區": "韓國", "主要產品": "地板材料", "公司規模": "小型"}, "D01": {"公司名稱": "NEOPIS CO.,LTD.", "國家/地區": "韓國", "主要產品": "車載顯示器、工業顯示解決方案", "公司規模": "小型"}, "D02": {"公司名稱": "NATIONALGEOGRAPHIC", "國家/地區": "無", "主要產品": "無資料", "公司規模": "無資料"}, "D03": {"公司名稱": "TJT PLUS CO., LTD.", "國家/地區": "韓國", "主要產品": "非導電強化型液體滅火器", "公司規模": "無"}, "D04": {"公司名稱": "PRIMET&R Co., Ltd.", "國家/地區": "韓國", "主要產品": "轉向架零件、盤形煞車", "公司規模": "小型"}, "D05": {"公司名稱": "GLOSYS", "國家/地區": "韓國", "主要產品": "TFT LCD 顯示器", "公司規模": "小型"}, "D06": {"公司名稱": "Thomas Co., Ltd.", "國家/地區": "韓國", "主要產品": "工業用電纜、線束系統", "公司規模": "中型"}, "D08": {"公司名稱": "Belden", "國家/地區": "美國〈星〉", "主要產品": "工業通訊線纜、網路解決方案", "公司規模": "大型"}, "D09": {"公司名稱": "Kyoungseong Co., Ltd.", "國家/地區": "韓國", "主要產品": "重軌系統、救援工具", "公司規模": "中型"}, "D10": {"公司名稱": "Innovation & Created Co., Ltd.", "國家/地區": "韓國", "主要產品": "通訊半導體、電弧偵測模組", "公司規模": "小型"}, "D11": {"公司名稱": "NST", "國家/地區": "韓國", "主要產品": "網路交換器", "公司規模": "小型"}, "D12": {"公司名稱": "O‑Sung Electric Machinery Co., Ltd.", "國家/地區": "韓國", "主要產品": "ATS/ACB斷路器、微電機", "公司規模": "小型"}, "D13": {"公司名稱": "DO IT Co., Ltd.", "國家/地區": "韓國", "主要產品": "安全監控、重工業現場自動化", "公司規模": "小型"}, "D14": {"公司名稱": "KATEM Co., Ltd.", "國家/地區": "韓國", "主要產品": "KTX列車傳動軸、煞車盤", "公司規模": "小型"}, "D15": {"公司名稱": "Consilium Korea", "國家/地區": "瑞典", "主要產品": "火警/氣體偵測系統", "公司規模": "大型"}, "D16": {"公司名稱": "Gaius Industrial Systems Co., Ltd.", "國家/地區": "韓國", "主要產品": "HSCB、變壓器", "公司規模": "小型"}, "D17": {"公司名稱": "JKTECH GLOBAL", "國家/地區": "韓國", "主要產品": "電源模組與轉換器", "公司規模": "小型"}, "D18": {"公司名稱": "MBST Co., Ltd.", "國家/地區": "韓國", "主要產品": "鐵路公路兩用車、車輛零件", "公司規模": "小型"}, "D19": {"公司名稱": "EVLUBE", "國家/地區": "韓國", "主要產品": "工業潤滑油、機械用油", "公司規模": "小型"}, "D20": {"公司名稱": "Sécheron SA", "國家/地區": "瑞士", "主要產品": "電氣開關、電力設備", "公司規模": "中型"}, "D21": {"公司名稱": "Sampyo Railway", "國家/地區": "韓國", "主要產品": "軌道材料、轉轍器", "公司規模": "中型"}, "D22": {"公司名稱": "WISKA Korea Ltd.", "國家/地區": "德國〈韓〉", "主要產品": "工業連接器、照明", "公司規模": "中型"}, "D23": {"公司名稱": "PROTECH", "國家/地區": "韓國", "主要產品": "馬達控制系統", "公司規模": "小型"}, "D24": {"公司名稱": "Cincon Electronics Co., Ltd.", "國家/地區": "台灣", "主要產品": "EN 50155 DC/DC轉換器", "公司規模": "中型"}, "D25": {"公司名稱": "Daeyang Electric Co., Ltd.", "國家/地區": "韓國", "主要產品": "控制盤、配電盤、照明 ", "公司規模": "大型"}, "D26": {"公司名稱": "Gaepoong Electronics Co., Ltd.", "國家/地區": "韓國", "主要產品": "HMI", "公司規模": "小型"}, "D27": {"公司名稱": "Joowon Industrial Co., Ltd.", "國家/地區": "韓國", "主要產品": "環境與設施監控系統、工業測試儀", "公司規模": "小型"}, "D28": {"公司名稱": "ANTS Co., Ltd.", "國家/地區": "韓國", "主要產品": "PA/PIS、CCTV", "公司規模": "小型"}, "D29": {"公司名稱": "EoneTNC", "國家/地區": "韓國", "主要產品": "無資料", "公司規模": "無資料"}, "D30": {"公司名稱": "Rail Economy News", "國家/地區": "韓國", "主要產品": "鐵道專業媒體", "公司規模": "無資料"}, "E01": {"公司名稱": "HS ENGINEERING", "國家/地區": "韓國", "主要產品": "乙太交換器、無線通訊設備", "公司規模": NaN}, "E03": {"公司名稱": "ONESERVICE", "國家/地區": "韓國", "主要產品": "無資料", "公司規模": "無資料"}, "E05": {"公司名稱": "Korea Rolling Stock Industries Association (KORSIA)", "國家/地區": "韓國", "主要產品": "產業協會推廣", "公司規模": "無資料"}, "E08": {"公司名稱": "P-DUKE POWER", "國家/地區": "台灣", "主要產品": "AC/DC、DC/DC電源轉換器", "公司規模": "中型"}, "E09": {"公司名稱": "ICK", "國家/地區": "韓國", "主要產品": "無資料", "公司規模": "無資料"}, "E10": {"公司名稱": "Yooksong Co., Ltd.", "國家/地區": "韓國", "主要產品": "消防栓、滅火器、閥件", "公司規模": "小型"}, "E11": {"公司名稱": "Yujin Machinery Ltd.", "國家/地區": "韓國", "主要產品": "煞車、聯結器、車門控制", "公司規模": "小型"}, "E12": {"公司名稱": "WeZON", "國家/地區": "韓國", "主要產品": "IoT Gateways、車載數據平台", "公司規模": "小型"}, "E13": {"公司名稱": "FOGTEC Brandschutz GmbH", "國家/地區": "德國", "主要產品": "火災偵測、滅火系統", "公司規模": "中型"}, "E14": {"公司名稱": "Linsinger Maschinenbau GmbH", "國家/地區": "奧地利", "主要產品": "鋼軌銑削車", "公司規模": "中型"}, "E15": {"公司名稱": "Suzhou DONEKA", "國家/地區": "中國", "主要產品": "集電弓碳刷", "公司規模": "小型"}, "E16": {"公司名稱": "CRRC", "國家/地區": "中國", "主要產品": "高速列車、地鐵車輛", "公司規模": "大型"}, "E17": {"公司名稱": "Henan QiangLi Machinery", "國家/地區": "中國", "主要產品": "軌道維修機具", "公司規模": "小型"}, "E18": {"公司名稱": "KR Trading", "國家/地區": "無資料", "主要產品": "無資料", "公司規模": "無資料"}, "E19": {"公司名稱": "DEWALT", "國家/地區": "美國", "主要產品": "電動工具", "公司規模": "大型"}, "E20": {"公司名稱": "GERB Korea", "國家/地區": "德國〈韓〉", "主要產品": "減振彈簧座、FST", "公司規模": "中型"}, "E21": {"公司名稱": "UNIVIS Co., Ltd.", "國家/地區": "韓國", "主要產品": "緊急照明、感光控制燈", "公司規模": "小型"}, "E22": {"公司名稱": "Korea Institute of Machinery & Materials (KIMM)", "國家/地區": "韓國", "主要產品": "軌道技術研發、車輛與軌道相關檢測", "公司規模": "大型"}, "E23": {"公司名稱": "KAPST/SAFE-NET FORUM", "國家/地區": "韓國", "主要產品": "鐵道通訊標準FRMCS推廣", "公司規模": "小型"}, "F01": {"公司名稱": "TÜV SÜD Korea Ltd.", "國家/地區": "德國〈韓〉", "主要產品": "系統安全與功能安全認證", "公司規模": "大型"}, "F02": {"公司名稱": "SIB Korea", "國家/地區": "韓國", "主要產品": "LBS、隔離開關", "公司規模": "小型"}, "F03": {"公司名稱": "VIB‑LOCK Co., Ltd.", "國家/地區": "韓國", "主要產品": "振動隔離墊", "公司規模": "小型"}, "F04": {"公司名稱": "Railroad Industry Inc.", "國家/地區": "韓國", "主要產品": "研究機構", "公司規模": "小型"}, "F05": {"公司名稱": "Kefei(Quantum)", "國家/地區": "韓國", "主要產品": "無資料", "公司規模": "無資料"}, "F06": {"公司名稱": "Romansys Co., Ltd.", "國家/地區": "韓國", "主要產品": "客貨車車體製造與翻修", "公司規模": "小型"}, "F07": {"公司名稱": "JST Transformateurs", "國家/地區": "法國", "主要產品": "變壓器、電源設備", "公司規模": "中型"}, "F08": {"公司名稱": "Longhua Technology Group", "國家/地區": "中國", "主要產品": "車輛用電氣設備、電源系統", "公司規模": "大型"}, "F09": {"公司名稱": "Jiangsu Tie Mao Technology", "國家/地區": "中國", "主要產品": "車窗安全玻璃", "公司規模": "中型"}, "F10": {"公司名稱": "InnoTrans 2026", "國家/地區": "德國", "主要產品": "國際鐵道展宣傳", "公司規模": "無資料"}, "F11": {"公司名稱": "Railway Gazette International", "國家/地區": "英國", "主要產品": "專業媒體、數據服務", "公司規模": "小型"}, "F12": {"公司名稱": "Zhengzhou Mingtai Transportation New Material", "國家/地區": "中國", "主要產品": "鋁合金車體板材", "公司規模": "中型"}, "F13": {"公司名稱": "IWMT Co., Ltd.", "國家/地區": "韓國", "主要產品": "再生塑膠枕木", "公司規模": "小型"}, "F14": {"公司名稱": "Sean Inc.", "國家/地區": "韓國", "主要產品": "焊接件、減振部件", "公司規模": "小型"}, "F15": {"公司名稱": "KOREA RAILWAY INDUSTRY INFORMATION CENTER", "國家/地區": "韓國", "主要產品": "鐵道產業資訊", "公司規模": "無資料"}, "G01": {"公司名稱": "宇進產電(Woojin Industrial Systems)", "國家/地區": "韓國", "主要產品": "地鐵與輕軌車輛", "公司規模": "中型"}, "G02": {"公司名稱": "BUSAN METROPOLITAN RAILWAY PROMOTION BOOTH", "國家/地區": "韓國", "主要產品": "宣傳用展位", "公司規模": "無資料"}, "G03": {"公司名稱": "Korea Railroad Research Institute (KRRI)", "國家/地區": "韓國", "主要產品": "鐵道技術研發", "公司規模": "大型"}, "G04": {"公司名稱": "Busan Transportation Corporation", "國家/地區": "韓國", "主要產品": "城市地鐵營運與維修", "公司規模": "大型"}, "G05": {"公司名稱": "韓國鐵道公社(KORAIL)", "國家/地區": "韓國", "主要產品": "鐵路建設與維護", "公司規模": "大型"}, "G06": {"公司名稱": "國家鐵道公團(Korea National Railway)", "國家/地區": "韓國", "主要產品": "產業協會、國際推廣", "公司規模": "大型"}, "G07": {"公司名稱": "Korea Railway Industry Association", "國家/地區": "韓國", "主要產品": "產業政策協調、國際推廣", "公司規模": "小型"}, "G08-1": {"公司名稱": "Asiatech Co., Ltd.", "國家/地區": "韓國", "主要產品": "車輪", "公司規模": "無資料"}, "G08-2": {"公司名稱": "Herostech Co., Ltd.", "國家/地區": "韓國", "主要產品": "伸縮踏板", "公司規模": "無資料"}, "G08-3": {"公司名稱": "Shh Co., Ltd.", "國家/地區": "韓國", "主要產品": "無資料", "公司規模": "無資料"}, "G08-4": {"公司名稱": "Vickham Engineering Pvt. Ltd.", "國家/地區": "韓國", "主要產品": "無資料", "公司規模": "無資料"}, "G09": {"公司名稱": "KORAIL Retail", "國家/地區": "韓國", "主要產品": "鐵道相關商品販售", "公司規模": "無資料"}, "G10": {"公司名稱": "SaeYoung Technologies Co., Ltd.", "國家/地區": "韓國", "主要產品": "鐵道車輛用監控、感測器、安全設備（與德國Deuta-Werke合作）", "公司規模": "小型"}};
+  </script>
   
 <script>
-  const boothData = {"A04": {"公司": "DEMCO CSI", "國家": "韓國", "主要產品": "戶外高亮度 TFT‑LCD 資訊顯示器", "公司規模": "中型"}, "A05": {"公司": "YK Construction Equipment Co., Ltd.", "國家": "韓國", "主要產品": "工程與軌道施工機械租售", "公司規模": "中型"}, "A06": {"公司": "SPACEPRO", "國家": "韓國", "主要產品": "碳纖維車體複材結構", "公司規模": "小型"}, "A07": {"公司": "Hyundai Rotem Company", "國家": "韓國", "主要產品": "高速列車、電聯車、號誌系統", "公司規模": "大型"}, "B01": {"公司": "Electronic & Human Technology", "國家": "韓國", "主要產品": "電子開關、控制面板", "公司規模": "小型"}, "B02": {"公司": "ENTEC Electric & Electronic Co., Ltd.", "國家": "韓國", "主要產品": "中低壓供電設備、SCADA", "公司規模": "中型"}, "B03": {"公司": "KUMSAN M&E Co., LTD", "國家": "韓國", "主要產品": "鐵道繼電器、端子台", "公司規模": "小型"}, "B04": {"公司": "MAPSCO Co., Ltd.", "國家": "韓國", "主要產品": "滾珠螺桿、致動器", "公司規模": "小型"}, "B05": {"公司": "Mahani Electric Co., Ltd.", "國家": "韓國", "主要產品": "感測器、連接器", "公司規模": "小型"}, "B06": {"公司": "EASTERN R&E Co., Ltd.", "國家": "韓國", "主要產品": "輪對、轉向架、軌道貨車", "公司規模": "中型"}, "B07": {"公司": "KOBA Co., Ltd.", "國家": "韓國", "主要產品": "液壓減震器", "公司規模": "中型"}, "B08": {"公司": "CSIN Tech Co., Ltd.", "國家": "韓國", "主要產品": "列車控制、智慧物聯網、車載系統", "公司規模": "小型"}, "B09": {"公司": "Dujin I&T", "國家": "韓國", "主要產品": "車輛零部件、RAMS 諮詢", "公司規模": "小型"}, "B10": {"公司": "VCTECH Co., Ltd.", "國家": "韓國", "主要產品": "逆變器", "公司規模": "中型"}, "B11": {"公司": "TÜV Rheinland Korea Ltd.", "國家": "德國〈韓〉", "主要產品": "安全認證、EMC/功能安全測試", "公司規模": "大型"}, "B12": {"公司": "ILME Korea Co.", "國家": "義大利〈韓〉", "主要產品": "工業矩形連接器", "公司規模": "小型"}, "C01": {"公司": "SAMSON TECH Co., Ltd.", "國家": "韓國", "主要產品": "無資料", "公司規模": "無資料"}, "C02": {"公司": "KOSTECH", "國家": "韓國", "主要產品": "CAE測試", "公司規模": "小型"}, "C03": {"公司": "intech", "國家": "韓國", "主要產品": "無資料", "公司規模": "無資料"}, "C04": {"公司": "Jinil 1'Stec Co., Ltd.", "國家": "韓國", "主要產品": "檢測儀器", "公司規模": "小型"}, "C05": {"公司": "YOUNG JOONG IND Co., Ltd.", "國家": "韓國", "主要產品": "無資料", "公司規模": "無資料"}, "C06": {"公司": "T.I.CORPORATION", "國家": "韓國", "主要產品": "無資料", "公司規模": "無資料"}, "C07": {"公司": "GLOS Co., Ltd.", "國家": "韓國", "主要產品": "顯示器、自動化零件", "公司規模": "小型"}, "C08": {"公司": "BEST ENGINEERING", "國家": "韓國", "主要產品": "岔心、軌道配件", "公司規模": "小型"}, "C09": {"公司": "WOOJAE", "國家": "韓國", "主要產品": "空間設計", "公司規模": "小型"}, "C10": {"公司": "Roxtec Korea", "國家": "瑞典〈韓〉", "主要產品": "電纜/管線穿隔密封模組", "公司規模": "中型"}, "C11": {"公司": "GMTECH Co., Ltd.", "國家": "韓國", "主要產品": "鋼構設備", "公司規模": "小型"}, "C12": {"公司": "WAINKOREA", "國家": "無資料", "主要產品": "無資料", "公司規模": "無資料"}, "C13": {"公司": "Korea Petroleum", "國家": "韓國", "主要產品": "石油產品、化工品", "公司規模": "大型"}, "C14": {"公司": "Elthus T&L", "國家": "韓國", "主要產品": "施工維修工具、車輛組裝工具", "公司規模": "小型"}, "C15": {"公司": "NAWOO Ltd.", "國家": "韓國", "主要產品": "非破壞檢測NTD工具", "公司規模": "小型"}, "C16": {"公司": "ZEECOM", "國家": "韓國", "主要產品": "測量系統、開關、感測器", "公司規模": "小型"}, "C17": {"公司": "DNV Business Assurance Korea", "國家": "挪威〈韓〉", "主要產品": "系統安全/功能安全認證", "公司規模": "大型"}, "C18": {"公司": "Schaltbau Korea Ltd.", "國家": "德國〈韓〉", "主要產品": "DC接觸器、UIC連接器", "公司規模": "中型"}, "C19": {"公司": "CEL‑BIO KUBE Co., Ltd.", "國家": "韓國", "主要產品": "環保潤滑油、生質清潔劑", "公司規模": "小型"}, "C20": {"公司": "BP Intelligent Mechanics", "國家": "中國", "主要產品": "檢測機器人、AI缺陷判讀", "公司規模": "小型"}, "C21": {"公司": "TILC Co., Ltd.", "國家": "韓國", "主要產品": "技術諮詢與工程服務", "公司規模": "小型"}, "C22": {"公司": "Rehau & Chunho Co., Ltd.", "國家": "德國/韓國", "主要產品": "無資料", "公司規模": "無資料"}, "C23": {"公司": "RM", "國家": "韓國", "主要產品": "地板材料", "公司規模": "小型"}, "D01": {"公司": "NEOPIS CO.,LTD.", "國家": "韓國", "主要產品": "車載顯示器、工業顯示解決方案", "公司規模": "小型"}, "D02": {"公司": "NATIONALGEOGRAPHIC", "國家": "無", "主要產品": "無資料", "公司規模": "無資料"}, "D03": {"公司": "TJT PLUS CO., LTD.", "國家": "韓國", "主要產品": "非導電強化型液體滅火器", "公司規模": "無"}, "D04": {"公司": "PRIMET&R Co., Ltd.", "國家": "韓國", "主要產品": "轉向架零件、盤形煞車", "公司規模": "小型"}, "D05": {"公司": "GLOSYS", "國家": "韓國", "主要產品": "TFT LCD 顯示器", "公司規模": "小型"}, "D06": {"公司": "Thomas Co., Ltd.", "國家": "韓國", "主要產品": "工業用電纜、線束系統", "公司規模": "中型"}, "D08": {"公司": "Belden", "國家": "美國〈星〉", "主要產品": "工業通訊線纜、網路解決方案", "公司規模": "大型"}, "D09": {"公司": "Kyoungseong Co., Ltd.", "國家": "韓國", "主要產品": "重軌系統、救援工具", "公司規模": "中型"}, "D10": {"公司": "Innovation & Created Co., Ltd.", "國家": "韓國", "主要產品": "通訊半導體、電弧偵測模組", "公司規模": "小型"}, "D11": {"公司": "NST", "國家": "韓國", "主要產品": "網路交換器", "公司規模": "小型"}, "D12": {"公司": "O‑Sung Electric Machinery Co., Ltd.", "國家": "韓國", "主要產品": "ATS/ACB斷路器、微電機", "公司規模": "小型"}, "D13": {"公司": "DO IT Co., Ltd.", "國家": "韓國", "主要產品": "安全監控、重工業現場自動化", "公司規模": "小型"}, "D14": {"公司": "KATEM Co., Ltd.", "國家": "韓國", "主要產品": "KTX列車傳動軸、煞車盤", "公司規模": "小型"}, "D15": {"公司": "Consilium Korea", "國家": "瑞典", "主要產品": "火警/氣體偵測系統", "公司規模": "大型"}, "D16": {"公司": "Gaius Industrial Systems Co., Ltd.", "國家": "韓國", "主要產品": "HSCB、變壓器", "公司規模": "小型"}, "D17": {"公司": "JKTECH GLOBAL", "國家": "韓國", "主要產品": "電源模組與轉換器", "公司規模": "小型"}, "D18": {"公司": "MBST Co., Ltd.", "國家": "韓國", "主要產品": "鐵路公路兩用車、車輛零件", "公司規模": "小型"}, "D19": {"公司": "EVLUBE", "國家": "韓國", "主要產品": "工業潤滑油、機械用油", "公司規模": "小型"}, "D20": {"公司": "Sécheron SA", "國家": "瑞士", "主要產品": "電氣開關、電力設備", "公司規模": "中型"}, "D21": {"公司": "Sampyo Railway", "國家": "韓國", "主要產品": "軌道材料、轉轍器", "公司規模": "中型"}, "D22": {"公司": "WISKA Korea Ltd.", "國家": "德國〈韓〉", "主要產品": "工業連接器、照明", "公司規模": "中型"}, "D23": {"公司": "PROTECH", "國家": "韓國", "主要產品": "馬達控制系統", "公司規模": "小型"}, "D24": {"公司": "Cincon Electronics Co., Ltd.", "國家": "台灣", "主要產品": "EN 50155 DC/DC轉換器", "公司規模": "中型"}, "D25": {"公司": "Daeyang Electric Co., Ltd.", "國家": "韓國", "主要產品": "控制盤、配電盤、照明 ", "公司規模": "大型"}, "D26": {"公司": "Gaepoong Electronics Co., Ltd.", "國家": "韓國", "主要產品": "HMI", "公司規模": "小型"}, "D27": {"公司": "Joowon Industrial Co., Ltd.", "國家": "韓國", "主要產品": "環境與設施監控系統、工業測試儀", "公司規模": "小型"}, "D28": {"公司": "ANTS Co., Ltd.", "國家": "韓國", "主要產品": "PA/PIS、CCTV", "公司規模": "小型"}, "D29": {"公司": "EoneTNC", "國家": "韓國", "主要產品": "無資料", "公司規模": "無資料"}, "D30": {"公司": "Rail Economy News", "國家": "韓國", "主要產品": "鐵道專業媒體", "公司規模": "無資料"}, "E01": {"公司": "HS ENGINEERING", "國家": "韓國", "主要產品": "乙太交換器、無線通訊設備", "公司規模": NaN}, "E03": {"公司": "ONESERVICE", "國家": "韓國", "主要產品": "無資料", "公司規模": "無資料"}, "E05": {"公司": "Korea Rolling Stock Industries Association (KORSIA)", "國家": "韓國", "主要產品": "產業協會推廣", "公司規模": "無資料"}, "E08": {"公司": "P-DUKE POWER", "國家": "台灣", "主要產品": "AC/DC、DC/DC電源轉換器", "公司規模": "中型"}, "E09": {"公司": "ICK", "國家": "韓國", "主要產品": "無資料", "公司規模": "無資料"}, "E10": {"公司": "Yooksong Co., Ltd.", "國家": "韓國", "主要產品": "消防栓、滅火器、閥件", "公司規模": "小型"}, "E11": {"公司": "Yujin Machinery Ltd.", "國家": "韓國", "主要產品": "煞車、聯結器、車門控制", "公司規模": "小型"}, "E12": {"公司": "WeZON", "國家": "韓國", "主要產品": "IoT Gateways、車載數據平台", "公司規模": "小型"}, "E13": {"公司": "FOGTEC Brandschutz GmbH", "國家": "德國", "主要產品": "火災偵測、滅火系統", "公司規模": "中型"}, "E14": {"公司": "Linsinger Maschinenbau GmbH", "國家": "奧地利", "主要產品": "鋼軌銑削車", "公司規模": "中型"}, "E15": {"公司": "Suzhou DONEKA", "國家": "中國", "主要產品": "集電弓碳刷", "公司規模": "小型"}, "E16": {"公司": "CRRC", "國家": "中國", "主要產品": "高速列車、地鐵車輛", "公司規模": "大型"}, "E17": {"公司": "Henan QiangLi Machinery", "國家": "中國", "主要產品": "軌道維修機具", "公司規模": "小型"}, "E18": {"公司": "KR Trading", "國家": "無資料", "主要產品": "無資料", "公司規模": "無資料"}, "E19": {"公司": "DEWALT", "國家": "美國", "主要產品": "電動工具", "公司規模": "大型"}, "E20": {"公司": "GERB Korea", "國家": "德國〈韓〉", "主要產品": "減振彈簧座、FST", "公司規模": "中型"}, "E21": {"公司": "UNIVIS Co., Ltd.", "國家": "韓國", "主要產品": "緊急照明、感光控制燈", "公司規模": "小型"}, "E22": {"公司": "Korea Institute of Machinery & Materials (KIMM)", "國家": "韓國", "主要產品": "軌道技術研發、車輛與軌道相關檢測", "公司規模": "大型"}, "E23": {"公司": "KAPST/SAFE-NET FORUM", "國家": "韓國", "主要產品": "鐵道通訊標準FRMCS推廣", "公司規模": "小型"}, "F01": {"公司": "TÜV SÜD Korea Ltd.", "國家": "德國〈韓〉", "主要產品": "系統安全與功能安全認證", "公司規模": "大型"}, "F02": {"公司": "SIB Korea", "國家": "韓國", "主要產品": "LBS、隔離開關", "公司規模": "小型"}, "F03": {"公司": "VIB‑LOCK Co., Ltd.", "國家": "韓國", "主要產品": "振動隔離墊", "公司規模": "小型"}, "F04": {"公司": "Railroad Industry Inc.", "國家": "韓國", "主要產品": "研究機構", "公司規模": "小型"}, "F05": {"公司": "Kefei(Quantum)", "國家": "韓國", "主要產品": "無資料", "公司規模": "無資料"}, "F06": {"公司": "Romansys Co., Ltd.", "國家": "韓國", "主要產品": "客貨車車體製造與翻修", "公司規模": "小型"}, "F07": {"公司": "JST Transformateurs", "國家": "法國", "主要產品": "變壓器、電源設備", "公司規模": "中型"}, "F08": {"公司": "Longhua Technology Group", "國家": "中國", "主要產品": "車輛用電氣設備、電源系統", "公司規模": "大型"}, "F09": {"公司": "Jiangsu Tie Mao Technology", "國家": "中國", "主要產品": "車窗安全玻璃", "公司規模": "中型"}, "F10": {"公司": "InnoTrans 2026", "國家": "德國", "主要產品": "國際鐵道展宣傳", "公司規模": "無資料"}, "F11": {"公司": "Railway Gazette International", "國家": "英國", "主要產品": "專業媒體、數據服務", "公司規模": "小型"}, "F12": {"公司": "Zhengzhou Mingtai Transportation New Material", "國家": "中國", "主要產品": "鋁合金車體板材", "公司規模": "中型"}, "F13": {"公司": "IWMT Co., Ltd.", "國家": "韓國", "主要產品": "再生塑膠枕木", "公司規模": "小型"}, "F14": {"公司": "Sean Inc.", "國家": "韓國", "主要產品": "焊接件、減振部件", "公司規模": "小型"}, "F15": {"公司": "KOREA RAILWAY INDUSTRY INFORMATION CENTER", "國家": "韓國", "主要產品": "鐵道產業資訊", "公司規模": "無資料"}, "G01": {"公司": "宇進產電(Woojin Industrial Systems)", "國家": "韓國", "主要產品": "地鐵與輕軌車輛", "公司規模": "中型"}, "G02": {"公司": "BUSAN METROPOLITAN RAILWAY PROMOTION BOOTH", "國家": "韓國", "主要產品": "宣傳用展位", "公司規模": "無資料"}, "G03": {"公司": "Korea Railroad Research Institute (KRRI)", "國家": "韓國", "主要產品": "鐵道技術研發", "公司規模": "大型"}, "G04": {"公司": "Busan Transportation Corporation", "國家": "韓國", "主要產品": "城市地鐵營運與維修", "公司規模": "大型"}, "G05": {"公司": "韓國鐵道公社(KORAIL)", "國家": "韓國", "主要產品": "鐵路建設與維護", "公司規模": "大型"}, "G06": {"公司": "國家鐵道公團(Korea National Railway)", "國家": "韓國", "主要產品": "產業協會、國際推廣", "公司規模": "大型"}, "G07": {"公司": "Korea Railway Industry Association", "國家": "韓國", "主要產品": "產業政策協調、國際推廣", "公司規模": "小型"}, "G08-1": {"公司": "Asiatech Co., Ltd.", "國家": "韓國", "主要產品": "車輪", "公司規模": "無資料"}, "G08-2": {"公司": "Herostech Co., Ltd.", "國家": "韓國", "主要產品": "伸縮踏板", "公司規模": "無資料"}, "G08-3": {"公司": "Shh Co., Ltd.", "國家": "韓國", "主要產品": "無資料", "公司規模": "無資料"}, "G08-4": {"公司": "Vickham Engineering Pvt. Ltd.", "國家": "韓國", "主要產品": "無資料", "公司規模": "無資料"}, "G09": {"公司": "KORAIL Retail", "國家": "韓國", "主要產品": "鐵道相關商品販售", "公司規模": "無資料"}, "G10": {"公司": "SaeYoung Technologies Co., Ltd.", "國家": "韓國", "主要產品": "鐵道車輛用監控、感測器、安全設備（與德國Deuta-Werke合作）", "公司規模": "小型"}};
+  const data = BOOTH_DATA;
 
   function showInfo(boothId) {
-    const zonePrefix = boothId[0].toUpperCase();
-    const panel = document.getElementById("info-" + zonePrefix);
+    const info = data[boothId];
+    const target = document.getElementById("popup-" + boothId);
+    if (!info || !target) return;
 
-    // 清除所有 info 區塊內容
-    document.querySelectorAll('[id^="info-"]').forEach(p => p.innerHTML = '');
+    target.innerHTML = `
+      <div class='mt-2 p-3 bg-white border border-blue-300 rounded shadow text-sm'>
+        <p><strong>公司名稱：</strong>${info["公司名稱"]}</p>
+        <p><strong>國家/地區：</strong>${info["國家/地區"]}</p>
+        <p><strong>主要產品：</strong>${info["主要產品"]}</p>
+        <p><strong>公司規模：</strong>${info["公司規模"]}</p>
+      </div>
+    `;
+  }
 
-    const data = boothData[boothId];
-    if (data && panel) {
-      panel.innerHTML = `
-        <div class='p-4 bg-white border border-blue-300 rounded shadow mt-2'>
-          <p><strong>攤位：</strong> \${boothId}</p>
-          <p><strong>廠商名稱：</strong> \${data["公司"]}</p>
-          <p><strong>國家：</strong> \${data["國家"]}</p>
-          <p><strong>主要產品：</strong> \${data["主要產品"]}</p>
-          <p><strong>公司規模：</strong> \${data["公司規模"]}</p>
-        </div>`;
-      panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
+  function searchBooth() {
+    const input = document.getElementById("searchInput").value.toUpperCase();
+    const booths = document.querySelectorAll("button[id^='btn-']");
+    booths.forEach(btn => {
+      btn.style.display = btn.innerText.toUpperCase().includes(input) ? "inline-block" : "none";
+    });
   }
 </script>
 
 </head>
 <body class="bg-gray-100 font-sans p-4">
   <div class="w-full bg-blue-600 text-white text-center py-4 rounded-xl shadow mb-6">
-    <h1 class="text-3xl font-bold">RailLog Korea 2025 展覽互動圖（A ~ G 展區完整）</h1>
+    <h1 class="text-3xl font-bold">RailLog Korea 2025 展覽互動圖（區塊彈出版）</h1>
   </div>
 
   <div class="max-w-7xl mx-auto bg-white p-4 rounded shadow">
@@ -44,154 +49,148 @@
     <div class='mt-4'>
     <div class="mb-6">
       <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-amber-300 inline-block shadow">A 區</div>
-      <div class="mt-1"><div class='grid grid-cols-6 gap-1'><button onclick="showInfo('A04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200">A04</button>
-<button onclick="showInfo('A05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200">A05</button>
-<button onclick="showInfo('A06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200">A06</button>
-<button onclick="showInfo('A07')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200">A07</button></div></div>
-      <div id="info-A" class="mt-4 text-sm text-gray-700"></div>
+      <div class="mt-1"><div class='grid grid-cols-6 gap-1'><div><button id='btn-A04' onclick="showInfo('A04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200">A04</button><div id='popup-A04'></div></div>
+<div><button id='btn-A05' onclick="showInfo('A05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200">A05</button><div id='popup-A05'></div></div>
+<div><button id='btn-A06' onclick="showInfo('A06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200">A06</button><div id='popup-A06'></div></div>
+<div><button id='btn-A07' onclick="showInfo('A07')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200">A07</button><div id='popup-A07'></div></div></div></div>
     </div>
     
     <div class="mb-6">
       <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-green-300 inline-block shadow">B 區</div>
-      <div class="mt-1"><div class='grid grid-cols-6 gap-1'><button onclick="showInfo('B01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B01</button>
-<button onclick="showInfo('B02')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B02</button>
-<button onclick="showInfo('B03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B03</button>
-<button onclick="showInfo('B04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B04</button>
-<button onclick="showInfo('B05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B05</button>
-<button onclick="showInfo('B06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B06</button>
-<button onclick="showInfo('B07')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B07</button>
-<button onclick="showInfo('B08')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B08</button>
-<button onclick="showInfo('B09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B09</button>
-<button onclick="showInfo('B10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B10</button>
-<button onclick="showInfo('B11')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B11</button>
-<button onclick="showInfo('B12')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B12</button></div></div>
-      <div id="info-B" class="mt-4 text-sm text-gray-700"></div>
+      <div class="mt-1"><div class='grid grid-cols-6 gap-1'><div><button id='btn-B01' onclick="showInfo('B01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B01</button><div id='popup-B01'></div></div>
+<div><button id='btn-B02' onclick="showInfo('B02')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B02</button><div id='popup-B02'></div></div>
+<div><button id='btn-B03' onclick="showInfo('B03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B03</button><div id='popup-B03'></div></div>
+<div><button id='btn-B04' onclick="showInfo('B04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B04</button><div id='popup-B04'></div></div>
+<div><button id='btn-B05' onclick="showInfo('B05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B05</button><div id='popup-B05'></div></div>
+<div><button id='btn-B06' onclick="showInfo('B06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B06</button><div id='popup-B06'></div></div>
+<div><button id='btn-B07' onclick="showInfo('B07')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B07</button><div id='popup-B07'></div></div>
+<div><button id='btn-B08' onclick="showInfo('B08')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B08</button><div id='popup-B08'></div></div>
+<div><button id='btn-B09' onclick="showInfo('B09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B09</button><div id='popup-B09'></div></div>
+<div><button id='btn-B10' onclick="showInfo('B10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B10</button><div id='popup-B10'></div></div>
+<div><button id='btn-B11' onclick="showInfo('B11')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B11</button><div id='popup-B11'></div></div>
+<div><button id='btn-B12' onclick="showInfo('B12')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B12</button><div id='popup-B12'></div></div></div></div>
     </div>
     
     <div class="mb-6">
       <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-sky-300 inline-block shadow">C 區</div>
-      <div class="mt-1"><div class='grid grid-cols-6 gap-1'><button onclick="showInfo('C01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C01</button>
-<button onclick="showInfo('C02')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C02</button>
-<button onclick="showInfo('C03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C03</button>
-<button onclick="showInfo('C04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C04</button>
-<button onclick="showInfo('C05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C05</button>
-<button onclick="showInfo('C06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C06</button>
-<button onclick="showInfo('C07')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C07</button>
-<button onclick="showInfo('C08')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C08</button>
-<button onclick="showInfo('C09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C09</button>
-<button onclick="showInfo('C10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C10</button>
-<button onclick="showInfo('C11')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C11</button>
-<button onclick="showInfo('C12')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C12</button>
-<button onclick="showInfo('C13')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C13</button>
-<button onclick="showInfo('C14')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C14</button>
-<button onclick="showInfo('C15')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C15</button>
-<button onclick="showInfo('C16')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C16</button>
-<button onclick="showInfo('C17')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C17</button>
-<button onclick="showInfo('C18')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C18</button>
-<button onclick="showInfo('C19')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C19</button>
-<button onclick="showInfo('C20')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C20</button>
-<button onclick="showInfo('C21')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C21</button>
-<button onclick="showInfo('C22')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C22</button>
-<button onclick="showInfo('C23')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C23</button></div></div>
-      <div id="info-C" class="mt-4 text-sm text-gray-700"></div>
+      <div class="mt-1"><div class='grid grid-cols-6 gap-1'><div><button id='btn-C01' onclick="showInfo('C01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C01</button><div id='popup-C01'></div></div>
+<div><button id='btn-C02' onclick="showInfo('C02')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C02</button><div id='popup-C02'></div></div>
+<div><button id='btn-C03' onclick="showInfo('C03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C03</button><div id='popup-C03'></div></div>
+<div><button id='btn-C04' onclick="showInfo('C04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C04</button><div id='popup-C04'></div></div>
+<div><button id='btn-C05' onclick="showInfo('C05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C05</button><div id='popup-C05'></div></div>
+<div><button id='btn-C06' onclick="showInfo('C06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C06</button><div id='popup-C06'></div></div>
+<div><button id='btn-C07' onclick="showInfo('C07')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C07</button><div id='popup-C07'></div></div>
+<div><button id='btn-C08' onclick="showInfo('C08')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C08</button><div id='popup-C08'></div></div>
+<div><button id='btn-C09' onclick="showInfo('C09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C09</button><div id='popup-C09'></div></div>
+<div><button id='btn-C10' onclick="showInfo('C10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C10</button><div id='popup-C10'></div></div>
+<div><button id='btn-C11' onclick="showInfo('C11')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C11</button><div id='popup-C11'></div></div>
+<div><button id='btn-C12' onclick="showInfo('C12')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C12</button><div id='popup-C12'></div></div>
+<div><button id='btn-C13' onclick="showInfo('C13')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C13</button><div id='popup-C13'></div></div>
+<div><button id='btn-C14' onclick="showInfo('C14')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C14</button><div id='popup-C14'></div></div>
+<div><button id='btn-C15' onclick="showInfo('C15')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C15</button><div id='popup-C15'></div></div>
+<div><button id='btn-C16' onclick="showInfo('C16')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C16</button><div id='popup-C16'></div></div>
+<div><button id='btn-C17' onclick="showInfo('C17')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C17</button><div id='popup-C17'></div></div>
+<div><button id='btn-C18' onclick="showInfo('C18')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C18</button><div id='popup-C18'></div></div>
+<div><button id='btn-C19' onclick="showInfo('C19')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C19</button><div id='popup-C19'></div></div>
+<div><button id='btn-C20' onclick="showInfo('C20')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C20</button><div id='popup-C20'></div></div>
+<div><button id='btn-C21' onclick="showInfo('C21')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C21</button><div id='popup-C21'></div></div>
+<div><button id='btn-C22' onclick="showInfo('C22')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C22</button><div id='popup-C22'></div></div>
+<div><button id='btn-C23' onclick="showInfo('C23')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C23</button><div id='popup-C23'></div></div></div></div>
     </div>
     
     <div class="mb-6">
       <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-red-300 inline-block shadow">D 區</div>
-      <div class="mt-1"><div class='grid grid-cols-6 gap-1'><button onclick="showInfo('D01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D01</button>
-<button onclick="showInfo('D02')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D02</button>
-<button onclick="showInfo('D03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D03</button>
-<button onclick="showInfo('D04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D04</button>
-<button onclick="showInfo('D05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D05</button>
-<button onclick="showInfo('D06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D06</button>
-<button onclick="showInfo('D08')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D08</button>
-<button onclick="showInfo('D09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D09</button>
-<button onclick="showInfo('D10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D10</button>
-<button onclick="showInfo('D11')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D11</button>
-<button onclick="showInfo('D12')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D12</button>
-<button onclick="showInfo('D13')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D13</button>
-<button onclick="showInfo('D14')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D14</button>
-<button onclick="showInfo('D15')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D15</button>
-<button onclick="showInfo('D16')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D16</button>
-<button onclick="showInfo('D17')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D17</button>
-<button onclick="showInfo('D18')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D18</button>
-<button onclick="showInfo('D19')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D19</button>
-<button onclick="showInfo('D20')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D20</button>
-<button onclick="showInfo('D21')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D21</button>
-<button onclick="showInfo('D22')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D22</button>
-<button onclick="showInfo('D23')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D23</button>
-<button onclick="showInfo('D24')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D24</button>
-<button onclick="showInfo('D25')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D25</button>
-<button onclick="showInfo('D26')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D26</button>
-<button onclick="showInfo('D27')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D27</button>
-<button onclick="showInfo('D28')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D28</button>
-<button onclick="showInfo('D29')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D29</button>
-<button onclick="showInfo('D30')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D30</button></div></div>
-      <div id="info-D" class="mt-4 text-sm text-gray-700"></div>
+      <div class="mt-1"><div class='grid grid-cols-6 gap-1'><div><button id='btn-D01' onclick="showInfo('D01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D01</button><div id='popup-D01'></div></div>
+<div><button id='btn-D02' onclick="showInfo('D02')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D02</button><div id='popup-D02'></div></div>
+<div><button id='btn-D03' onclick="showInfo('D03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D03</button><div id='popup-D03'></div></div>
+<div><button id='btn-D04' onclick="showInfo('D04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D04</button><div id='popup-D04'></div></div>
+<div><button id='btn-D05' onclick="showInfo('D05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D05</button><div id='popup-D05'></div></div>
+<div><button id='btn-D06' onclick="showInfo('D06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D06</button><div id='popup-D06'></div></div>
+<div><button id='btn-D08' onclick="showInfo('D08')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D08</button><div id='popup-D08'></div></div>
+<div><button id='btn-D09' onclick="showInfo('D09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D09</button><div id='popup-D09'></div></div>
+<div><button id='btn-D10' onclick="showInfo('D10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D10</button><div id='popup-D10'></div></div>
+<div><button id='btn-D11' onclick="showInfo('D11')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D11</button><div id='popup-D11'></div></div>
+<div><button id='btn-D12' onclick="showInfo('D12')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D12</button><div id='popup-D12'></div></div>
+<div><button id='btn-D13' onclick="showInfo('D13')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D13</button><div id='popup-D13'></div></div>
+<div><button id='btn-D14' onclick="showInfo('D14')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D14</button><div id='popup-D14'></div></div>
+<div><button id='btn-D15' onclick="showInfo('D15')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D15</button><div id='popup-D15'></div></div>
+<div><button id='btn-D16' onclick="showInfo('D16')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D16</button><div id='popup-D16'></div></div>
+<div><button id='btn-D17' onclick="showInfo('D17')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D17</button><div id='popup-D17'></div></div>
+<div><button id='btn-D18' onclick="showInfo('D18')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D18</button><div id='popup-D18'></div></div>
+<div><button id='btn-D19' onclick="showInfo('D19')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D19</button><div id='popup-D19'></div></div>
+<div><button id='btn-D20' onclick="showInfo('D20')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D20</button><div id='popup-D20'></div></div>
+<div><button id='btn-D21' onclick="showInfo('D21')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D21</button><div id='popup-D21'></div></div>
+<div><button id='btn-D22' onclick="showInfo('D22')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D22</button><div id='popup-D22'></div></div>
+<div><button id='btn-D23' onclick="showInfo('D23')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D23</button><div id='popup-D23'></div></div>
+<div><button id='btn-D24' onclick="showInfo('D24')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D24</button><div id='popup-D24'></div></div>
+<div><button id='btn-D25' onclick="showInfo('D25')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D25</button><div id='popup-D25'></div></div>
+<div><button id='btn-D26' onclick="showInfo('D26')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D26</button><div id='popup-D26'></div></div>
+<div><button id='btn-D27' onclick="showInfo('D27')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D27</button><div id='popup-D27'></div></div>
+<div><button id='btn-D28' onclick="showInfo('D28')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D28</button><div id='popup-D28'></div></div>
+<div><button id='btn-D29' onclick="showInfo('D29')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D29</button><div id='popup-D29'></div></div>
+<div><button id='btn-D30' onclick="showInfo('D30')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D30</button><div id='popup-D30'></div></div></div></div>
     </div>
     
     <div class="mb-6">
       <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-yellow-300 inline-block shadow">E 區</div>
-      <div class="mt-1"><div class='grid grid-cols-6 gap-1'><button onclick="showInfo('E01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E01</button>
-<button onclick="showInfo('E03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E03</button>
-<button onclick="showInfo('E05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E05</button>
-<button onclick="showInfo('E08')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E08</button>
-<button onclick="showInfo('E09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E09</button>
-<button onclick="showInfo('E10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E10</button>
-<button onclick="showInfo('E11')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E11</button>
-<button onclick="showInfo('E12')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E12</button>
-<button onclick="showInfo('E13')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E13</button>
-<button onclick="showInfo('E14')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E14</button>
-<button onclick="showInfo('E15')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E15</button>
-<button onclick="showInfo('E16')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E16</button>
-<button onclick="showInfo('E17')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E17</button>
-<button onclick="showInfo('E18')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E18</button>
-<button onclick="showInfo('E19')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E19</button>
-<button onclick="showInfo('E20')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E20</button>
-<button onclick="showInfo('E21')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E21</button>
-<button onclick="showInfo('E22')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E22</button>
-<button onclick="showInfo('E23')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E23</button></div></div>
-      <div id="info-E" class="mt-4 text-sm text-gray-700"></div>
+      <div class="mt-1"><div class='grid grid-cols-6 gap-1'><div><button id='btn-E01' onclick="showInfo('E01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E01</button><div id='popup-E01'></div></div>
+<div><button id='btn-E03' onclick="showInfo('E03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E03</button><div id='popup-E03'></div></div>
+<div><button id='btn-E05' onclick="showInfo('E05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E05</button><div id='popup-E05'></div></div>
+<div><button id='btn-E08' onclick="showInfo('E08')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E08</button><div id='popup-E08'></div></div>
+<div><button id='btn-E09' onclick="showInfo('E09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E09</button><div id='popup-E09'></div></div>
+<div><button id='btn-E10' onclick="showInfo('E10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E10</button><div id='popup-E10'></div></div>
+<div><button id='btn-E11' onclick="showInfo('E11')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E11</button><div id='popup-E11'></div></div>
+<div><button id='btn-E12' onclick="showInfo('E12')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E12</button><div id='popup-E12'></div></div>
+<div><button id='btn-E13' onclick="showInfo('E13')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E13</button><div id='popup-E13'></div></div>
+<div><button id='btn-E14' onclick="showInfo('E14')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E14</button><div id='popup-E14'></div></div>
+<div><button id='btn-E15' onclick="showInfo('E15')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E15</button><div id='popup-E15'></div></div>
+<div><button id='btn-E16' onclick="showInfo('E16')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E16</button><div id='popup-E16'></div></div>
+<div><button id='btn-E17' onclick="showInfo('E17')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E17</button><div id='popup-E17'></div></div>
+<div><button id='btn-E18' onclick="showInfo('E18')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E18</button><div id='popup-E18'></div></div>
+<div><button id='btn-E19' onclick="showInfo('E19')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E19</button><div id='popup-E19'></div></div>
+<div><button id='btn-E20' onclick="showInfo('E20')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E20</button><div id='popup-E20'></div></div>
+<div><button id='btn-E21' onclick="showInfo('E21')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E21</button><div id='popup-E21'></div></div>
+<div><button id='btn-E22' onclick="showInfo('E22')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E22</button><div id='popup-E22'></div></div>
+<div><button id='btn-E23' onclick="showInfo('E23')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E23</button><div id='popup-E23'></div></div></div></div>
     </div>
     
     <div class="mb-6">
       <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-purple-300 inline-block shadow">F 區</div>
-      <div class="mt-1"><div class='grid grid-cols-6 gap-1'><button onclick="showInfo('F01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F01</button>
-<button onclick="showInfo('F02')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F02</button>
-<button onclick="showInfo('F03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F03</button>
-<button onclick="showInfo('F04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F04</button>
-<button onclick="showInfo('F05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F05</button>
-<button onclick="showInfo('F06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F06</button>
-<button onclick="showInfo('F07')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F07</button>
-<button onclick="showInfo('F08')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F08</button>
-<button onclick="showInfo('F09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F09</button>
-<button onclick="showInfo('F10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F10</button>
-<button onclick="showInfo('F11')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F11</button>
-<button onclick="showInfo('F12')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F12</button>
-<button onclick="showInfo('F13')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F13</button>
-<button onclick="showInfo('F14')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F14</button>
-<button onclick="showInfo('F15')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F15</button></div></div>
-      <div id="info-F" class="mt-4 text-sm text-gray-700"></div>
+      <div class="mt-1"><div class='grid grid-cols-6 gap-1'><div><button id='btn-F01' onclick="showInfo('F01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F01</button><div id='popup-F01'></div></div>
+<div><button id='btn-F02' onclick="showInfo('F02')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F02</button><div id='popup-F02'></div></div>
+<div><button id='btn-F03' onclick="showInfo('F03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F03</button><div id='popup-F03'></div></div>
+<div><button id='btn-F04' onclick="showInfo('F04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F04</button><div id='popup-F04'></div></div>
+<div><button id='btn-F05' onclick="showInfo('F05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F05</button><div id='popup-F05'></div></div>
+<div><button id='btn-F06' onclick="showInfo('F06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F06</button><div id='popup-F06'></div></div>
+<div><button id='btn-F07' onclick="showInfo('F07')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F07</button><div id='popup-F07'></div></div>
+<div><button id='btn-F08' onclick="showInfo('F08')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F08</button><div id='popup-F08'></div></div>
+<div><button id='btn-F09' onclick="showInfo('F09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F09</button><div id='popup-F09'></div></div>
+<div><button id='btn-F10' onclick="showInfo('F10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F10</button><div id='popup-F10'></div></div>
+<div><button id='btn-F11' onclick="showInfo('F11')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F11</button><div id='popup-F11'></div></div>
+<div><button id='btn-F12' onclick="showInfo('F12')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F12</button><div id='popup-F12'></div></div>
+<div><button id='btn-F13' onclick="showInfo('F13')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F13</button><div id='popup-F13'></div></div>
+<div><button id='btn-F14' onclick="showInfo('F14')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F14</button><div id='popup-F14'></div></div>
+<div><button id='btn-F15' onclick="showInfo('F15')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F15</button><div id='popup-F15'></div></div></div></div>
     </div>
     
     <div class="mb-6">
       <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-gray-300 inline-block shadow">G 區</div>
-      <div class="mt-1"><div class='grid grid-cols-6 gap-1'><button onclick="showInfo('G01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G01</button>
-<button onclick="showInfo('G02')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G02</button>
-<button onclick="showInfo('G03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G03</button>
-<button onclick="showInfo('G04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G04</button>
-<button onclick="showInfo('G05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G05</button>
-<button onclick="showInfo('G06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G06</button>
-<button onclick="showInfo('G07')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G07</button>
-<button onclick="showInfo('G08-1')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G08-1</button>
-<button onclick="showInfo('G08-2')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G08-2</button>
-<button onclick="showInfo('G08-3')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G08-3</button>
-<button onclick="showInfo('G08-4')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G08-4</button>
-<button onclick="showInfo('G09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G09</button>
-<button onclick="showInfo('G10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G10</button></div></div>
-      <div id="info-G" class="mt-4 text-sm text-gray-700"></div>
+      <div class="mt-1"><div class='grid grid-cols-6 gap-1'><div><button id='btn-G01' onclick="showInfo('G01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G01</button><div id='popup-G01'></div></div>
+<div><button id='btn-G02' onclick="showInfo('G02')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G02</button><div id='popup-G02'></div></div>
+<div><button id='btn-G03' onclick="showInfo('G03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G03</button><div id='popup-G03'></div></div>
+<div><button id='btn-G04' onclick="showInfo('G04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G04</button><div id='popup-G04'></div></div>
+<div><button id='btn-G05' onclick="showInfo('G05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G05</button><div id='popup-G05'></div></div>
+<div><button id='btn-G06' onclick="showInfo('G06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G06</button><div id='popup-G06'></div></div>
+<div><button id='btn-G07' onclick="showInfo('G07')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G07</button><div id='popup-G07'></div></div>
+<div><button id='btn-G08-1' onclick="showInfo('G08-1')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G08-1</button><div id='popup-G08-1'></div></div>
+<div><button id='btn-G08-2' onclick="showInfo('G08-2')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G08-2</button><div id='popup-G08-2'></div></div>
+<div><button id='btn-G08-3' onclick="showInfo('G08-3')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G08-3</button><div id='popup-G08-3'></div></div>
+<div><button id='btn-G08-4' onclick="showInfo('G08-4')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G08-4</button><div id='popup-G08-4'></div></div>
+<div><button id='btn-G09' onclick="showInfo('G09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G09</button><div id='popup-G09'></div></div>
+<div><button id='btn-G10' onclick="showInfo('G10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G10</button><div id='popup-G10'></div></div></div></div>
     </div>
     </div>
   </div>
 </body>
 </html>
+    
