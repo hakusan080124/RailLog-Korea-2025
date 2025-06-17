@@ -191,9 +191,9 @@ function closeModal() {
   </div>
 
 <!-- 浮動彈窗容器 -->
-<div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
-  <div class="bg-white rounded-lg p-4 max-w-sm w-full shadow-lg relative">
-    <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-600 hover:text-black text-xl">&times;</button>
+<div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50" onclick="closeModal()">
+  <div class="bg-white rounded-lg p-4 max-w-sm w-full shadow-lg relative" onclick="event.stopPropagation()">
+    
     <div id="modal-content" class="text-sm text-gray-800"></div>
   </div>
 </div>
