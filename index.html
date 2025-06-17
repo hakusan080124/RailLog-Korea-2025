@@ -11,36 +11,29 @@
   </script>
   
 <script>
-  const data = BOOTH_DATA;
-
-  function showInfo(boothId) {
-    const info = data[boothId];
-    const target = document.getElementById("popup-" + boothId);
-    if (!info || !target) return;
-
-    target.innerHTML = `
-      <div class='mt-2 p-3 bg-white border border-blue-300 rounded shadow text-sm'>
-        <p><strong>公司名稱：</strong>${info["公司名稱"]}</p>
-        <p><strong>國家/地區：</strong>${info["國家/地區"]}</p>
-        <p><strong>主要產品：</strong>${info["主要產品"]}</p>
-        <p><strong>公司規模：</strong>${info["公司規模"]}</p>
-      </div>
-    `;
+function showInfo(boothId) {
+  const info = BOOTH_DATA[boothId];
+  const popupId = "popup-" + boothId;
+  const popup = document.getElementById(popupId);
+  if (!info) {
+    popup.innerHTML = "<div class='mt-2 text-sm text-red-600'>找不到展商資訊</div>";
+    return;
   }
 
-  function searchBooth() {
-    const input = document.getElementById("searchInput").value.toUpperCase();
-    const booths = document.querySelectorAll("button[id^='btn-']");
-    booths.forEach(btn => {
-      btn.style.display = btn.innerText.toUpperCase().includes(input) ? "inline-block" : "none";
-    });
-  }
+  popup.innerHTML = `
+    <div class="mt-2 p-3 bg-white border border-blue-300 rounded shadow-md text-sm text-gray-800">
+      <div class="font-semibold mb-1">${boothId} - ${info['公司名稱']}</div>
+      <div><span class="font-medium">國家/地區：</span>${info['國家/地區']}</div>
+      <div><span class="font-medium">主要產品：</span>${info['主要產品']}</div>
+      <div><span class="font-medium">公司規模：</span>${info['公司規模']}</div>
+    </div>`;
+}
 </script>
 
 </head>
 <body class="bg-gray-100 font-sans p-4">
   <div class="w-full bg-blue-600 text-white text-center py-4 rounded-xl shadow mb-6">
-    <h1 class="text-3xl font-bold">RailLog Korea 2025 展覽互動圖（區塊彈出版）</h1>
+    <h1 class="text-3xl font-bold">RailLog Korea 2025 展覽互動圖（彈窗內嵌修正版）</h1>
   </div>
 
   <div class="max-w-7xl mx-auto bg-white p-4 rounded shadow">
