@@ -6,8 +6,31 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>RailLog Korea 2025</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+function searchBooths() {
+  const input = document.getElementById('searchInput').value.toLowerCase();
+  const buttons = document.querySelectorAll('[id^="popup-"]');
+  const boothWrappers = document.querySelectorAll('[id^="popup-"]');
 
-<style>
+  buttons.forEach(popup => {
+    const text = popup.innerText.toLowerCase();
+    const wrapper = popup.closest("div.relative");
+    if (text.includes(input)) {
+      wrapper.classList.remove("hidden");
+    } else {
+      wrapper.classList.add("hidden");
+    }
+  });
+
+  if (input === "") {
+    document.querySelectorAll('[id^="popup-"]').forEach(popup => {
+      const wrapper = popup.closest("div.relative");
+      wrapper.classList.remove("hidden");
+    });
+  }
+}
+</script><style>
 #searchInput:focus {
   outline: 2px solid #3b82f6;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
@@ -1101,9 +1124,27 @@ function showInfo(id) {
   const target = document.getElementById("popup-" + id);
   if (target) {
     target.classList.remove("hidden");
-    setTimeout(() => {
-      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 100);
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+</script><script>
+function toggleInfo(boothId) {
+  const popup = document.getElementById("popup-" + boothId);
+  if (!popup) return;
+
+  const allPopups = document.querySelectorAll('[id^="popup-"]');
+  allPopups.forEach(el => {
+    el.classList.add("hidden");
+    el.style.display = "none";
+  });
+
+  if (popup.classList.contains("hidden")) {
+    popup.classList.remove("hidden");
+    popup.style.display = "block";
+    popup.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } else {
+    popup.classList.add("hidden");
+    popup.style.display = "none";
   }
 }
 </script></body>
