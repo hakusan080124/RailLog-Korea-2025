@@ -8,7 +8,26 @@
 <title>RailLog Korea 2025</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
+    
     function toggleInfo(boothId) {
+      const popup = document.getElementById("popup-" + boothId);
+      if (!popup) return;
+      const allPopups = document.querySelectorAll('[id^="popup-"]');
+
+      allPopups.forEach(el => {
+        el.classList.add("hidden");
+        el.style.display = "none";
+      });
+
+      if (popup.classList.contains("hidden")) {
+        popup.classList.remove("hidden");
+        popup.style.display = "block";
+        popup.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        popup.classList.add("hidden");
+        popup.style.display = "none";
+      }
+    
       const popup = document.getElementById("popup-" + boothId);
       if (!popup) return;
       const allPopups = document.querySelectorAll('[id^="popup-"]');
