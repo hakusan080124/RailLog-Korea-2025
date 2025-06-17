@@ -13,20 +13,25 @@
 <script>
 function showInfo(boothId) {
   const info = BOOTH_DATA[boothId];
-  const popupId = "popup-" + boothId;
-  const popup = document.getElementById(popupId);
-  if (!info) {
-    popup.innerHTML = "<div class='mt-2 text-sm text-red-600'>找不到展商資訊</div>";
-    return;
-  }
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("modal-content");
 
-  popup.innerHTML = `
-    <div class="mt-2 p-3 bg-white border border-blue-300 rounded shadow-md text-sm text-gray-800">
-      <div class="font-semibold mb-1">${boothId} - ${info['公司名稱']}</div>
+  if (!info) {
+    content.innerHTML = `<div class="text-red-600">找不到展商資訊</div>`;
+  } else {
+    content.innerHTML = `
+      <div class="font-semibold text-base mb-2">${boothId} - ${info['公司名稱']}</div>
       <div><span class="font-medium">國家/地區：</span>${info['國家/地區']}</div>
       <div><span class="font-medium">主要產品：</span>${info['主要產品']}</div>
       <div><span class="font-medium">公司規模：</span>${info['公司規模']}</div>
-    </div>`;
+    `;
+  }
+
+  modal.classList.remove("hidden");
+}
+
+function closeModal() {
+  document.getElementById("modal").classList.add("hidden");
 }
 </script>
 
@@ -184,6 +189,15 @@ function showInfo(boothId) {
     </div>
     </div>
   </div>
+
+<!-- 浮動彈窗容器 -->
+<div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+  <div class="bg-white rounded-lg p-4 max-w-sm w-full shadow-lg relative">
+    <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-600 hover:text-black text-xl">&times;</button>
+    <div id="modal-content" class="text-sm text-gray-800"></div>
+  </div>
+</div>
+
 </body>
 </html>
     
