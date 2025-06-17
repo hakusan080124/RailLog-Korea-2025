@@ -36,17 +36,25 @@ function closeModal() {
 </script>
 
 
+
+
+
 <script>
 function searchBooth() {
   const input = document.getElementById("searchInput").value.toLowerCase();
   const buttons = document.querySelectorAll("button[id^='btn-']");
+
   buttons.forEach(btn => {
     const id = btn.id.replace('btn-', '');
     const info = BOOTH_DATA[id];
-    if (!info) return;
 
-    const name = info['公司名稱']?.toLowerCase() || '';
-    const country = info['國家/地區']?.toLowerCase() || '';
+    if (!info) {
+      btn.parentElement.style.display = 'none';
+      return;
+    }
+
+    const name = (info['公司名稱'] || '').toLowerCase();
+    const country = (info['國家/地區'] || '').toLowerCase();
 
     const match = id.toLowerCase().includes(input) || name.includes(input) || country.includes(input);
     btn.parentElement.style.display = match ? '' : 'none';
