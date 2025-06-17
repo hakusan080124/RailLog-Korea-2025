@@ -4,74 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RailLog Korea 2025 展商資訊</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f8f9fa;
-    }
-    header {
-      background: #005bac;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .zone {
-      padding: 1rem;
-      margin-bottom: 1rem;
-    }
-    .zone h2 {
-      background: #e1ecf4;
-      padding: 0.5rem;
-      margin-bottom: 0.5rem;
-      border-left: 5px solid #007acc;
-    }
-    .booth {
-      display: inline-block;
-      background: white;
-      border: 1px solid #ddd;
-      padding: 0.5rem 1rem;
-      margin: 0.3rem;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: 0.2s;
-    }
-    .booth:hover {
-      background: #e6f2ff;
-    }
-    .card {
-      display: none;
-      background: #ffffff;
-      border: 1px solid #ccc;
-      padding: 1rem;
-      margin-top: 0.5rem;
-      border-radius: 8px;
-    }
-    .search {
-      padding: 1rem;
-      text-align: center;
-    }
-    .search input {
-      width: 90%;
-      max-width: 400px;
-      padding: 0.5rem;
-      font-size: 1rem;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-    @media (max-width: 768px) {
-      .booth {
-        display: block;
-        margin: 0.5rem auto;
-        width: 90%;
-      }
-    }
-  </style>
-<script>
+  <title>RailLog Korea 2025</title>
+  <script>
 const boothData = {
   "A04": {
     "廠商名稱": "DEMCO CSI",
@@ -764,760 +698,188 @@ const boothData = {
     "公司大小": "小型"
   }
 };
+const boothMap = new Map(Object.entries(boothData));
+
+function showInfo(boothId) {
+  const panel = document.getElementById("info-panel");
+  const data = boothMap.get(boothId);
+  if (data) {
+    panel.innerHTML = `
+      <p><strong>攤位：</strong> ${boothId}</p>
+      <p><strong>廠商名稱：</strong> ${data["廠商名稱"]}</p>
+      <p><strong>國家：</strong> ${data["國家"]}</p>
+      <p><strong>主要產品：</strong> ${data["主要產品"]}</p>
+      <p><strong>公司大小：</strong> ${data["公司大小"]}</p>
+    `;
+  } else {
+    panel.innerHTML = `<p>找不到資料，請確認攤位編號。</p>`;
+  }
+}
 </script>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 1rem;
+      background: #f3f4f6;
+    }
+    .title {
+      background: #2563eb;
+      color: white;
+      padding: 1rem;
+      border-radius: 1rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .booth {
+      padding: 0.5rem;
+      font-size: 0.75rem;
+      border-radius: 0.25rem;
+      border: 1px solid #3b82f6;
+      text-align: center;
+      cursor: pointer;
+      background-color: white;
+    }
+    .booth:hover {
+      background-color: #dbeafe;
+    }
+    .zone {
+      margin-bottom: 1.5rem;
+    }
+    .info-panel {
+      background: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>RailLog Korea 2025 展商總覽</h1>
-  </header>
-  <div class="search">
-    <input type="text" id="searchBox" placeholder="搜尋公司、攤位、產品、國家..." oninput="filterExhibitors()">
+  <div class="title">
+    <h1>RailLog Korea 2025 展覽互動圖（A ~ G 展區）</h1>
   </div>
+  <div class="zone">
+    <h2>展區範例：A ~ G 區</h2>
+    <div class="grid" style="display: flex; flex-wrap: wrap; gap: 4px;">
+<div class="booth" onclick="showInfo('A04')">A04</div>
+<div class="booth" onclick="showInfo('A05')">A05</div>
+<div class="booth" onclick="showInfo('A06')">A06</div>
+<div class="booth" onclick="showInfo('A07')">A07</div>
+<div class="booth" onclick="showInfo('B01')">B01</div>
+<div class="booth" onclick="showInfo('B02')">B02</div>
+<div class="booth" onclick="showInfo('B03')">B03</div>
+<div class="booth" onclick="showInfo('B04')">B04</div>
+<div class="booth" onclick="showInfo('B05')">B05</div>
+<div class="booth" onclick="showInfo('B06')">B06</div>
+<div class="booth" onclick="showInfo('B07')">B07</div>
+<div class="booth" onclick="showInfo('B08')">B08</div>
+<div class="booth" onclick="showInfo('B09')">B09</div>
+<div class="booth" onclick="showInfo('B10')">B10</div>
+<div class="booth" onclick="showInfo('B11')">B11</div>
+<div class="booth" onclick="showInfo('B12')">B12</div>
+<div class="booth" onclick="showInfo('C01')">C01</div>
+<div class="booth" onclick="showInfo('C02')">C02</div>
+<div class="booth" onclick="showInfo('C03')">C03</div>
+<div class="booth" onclick="showInfo('C04')">C04</div>
+<div class="booth" onclick="showInfo('C05')">C05</div>
+<div class="booth" onclick="showInfo('C06')">C06</div>
+<div class="booth" onclick="showInfo('C07')">C07</div>
+<div class="booth" onclick="showInfo('C08')">C08</div>
+<div class="booth" onclick="showInfo('C09')">C09</div>
+<div class="booth" onclick="showInfo('C10')">C10</div>
+<div class="booth" onclick="showInfo('C11')">C11</div>
+<div class="booth" onclick="showInfo('C12')">C12</div>
+<div class="booth" onclick="showInfo('C13')">C13</div>
+<div class="booth" onclick="showInfo('C14')">C14</div>
+<div class="booth" onclick="showInfo('C15')">C15</div>
+<div class="booth" onclick="showInfo('C16')">C16</div>
+<div class="booth" onclick="showInfo('C17')">C17</div>
+<div class="booth" onclick="showInfo('C18')">C18</div>
+<div class="booth" onclick="showInfo('C19')">C19</div>
+<div class="booth" onclick="showInfo('C20')">C20</div>
+<div class="booth" onclick="showInfo('C21')">C21</div>
+<div class="booth" onclick="showInfo('C22')">C22</div>
+<div class="booth" onclick="showInfo('C23')">C23</div>
+<div class="booth" onclick="showInfo('D01')">D01</div>
+<div class="booth" onclick="showInfo('D02')">D02</div>
+<div class="booth" onclick="showInfo('D03')">D03</div>
+<div class="booth" onclick="showInfo('D04')">D04</div>
+<div class="booth" onclick="showInfo('D05')">D05</div>
+<div class="booth" onclick="showInfo('D06')">D06</div>
+<div class="booth" onclick="showInfo('D08')">D08</div>
+<div class="booth" onclick="showInfo('D09')">D09</div>
+<div class="booth" onclick="showInfo('D10')">D10</div>
+<div class="booth" onclick="showInfo('D11')">D11</div>
+<div class="booth" onclick="showInfo('D12')">D12</div>
+<div class="booth" onclick="showInfo('D13')">D13</div>
+<div class="booth" onclick="showInfo('D14')">D14</div>
+<div class="booth" onclick="showInfo('D15')">D15</div>
+<div class="booth" onclick="showInfo('D16')">D16</div>
+<div class="booth" onclick="showInfo('D17')">D17</div>
+<div class="booth" onclick="showInfo('D18')">D18</div>
+<div class="booth" onclick="showInfo('D19')">D19</div>
+<div class="booth" onclick="showInfo('D20')">D20</div>
+<div class="booth" onclick="showInfo('D21')">D21</div>
+<div class="booth" onclick="showInfo('D22')">D22</div>
+<div class="booth" onclick="showInfo('D23')">D23</div>
+<div class="booth" onclick="showInfo('D24')">D24</div>
+<div class="booth" onclick="showInfo('D25')">D25</div>
+<div class="booth" onclick="showInfo('D26')">D26</div>
+<div class="booth" onclick="showInfo('D27')">D27</div>
+<div class="booth" onclick="showInfo('D28')">D28</div>
+<div class="booth" onclick="showInfo('D29')">D29</div>
+<div class="booth" onclick="showInfo('D30')">D30</div>
+<div class="booth" onclick="showInfo('E01')">E01</div>
+<div class="booth" onclick="showInfo('E03')">E03</div>
+<div class="booth" onclick="showInfo('E05')">E05</div>
+<div class="booth" onclick="showInfo('E08')">E08</div>
+<div class="booth" onclick="showInfo('E09')">E09</div>
+<div class="booth" onclick="showInfo('E10')">E10</div>
+<div class="booth" onclick="showInfo('E11')">E11</div>
+<div class="booth" onclick="showInfo('E12')">E12</div>
+<div class="booth" onclick="showInfo('E13')">E13</div>
+<div class="booth" onclick="showInfo('E14')">E14</div>
+<div class="booth" onclick="showInfo('E15')">E15</div>
+<div class="booth" onclick="showInfo('E16')">E16</div>
+<div class="booth" onclick="showInfo('E17')">E17</div>
+<div class="booth" onclick="showInfo('E18')">E18</div>
+<div class="booth" onclick="showInfo('E19')">E19</div>
+<div class="booth" onclick="showInfo('E20')">E20</div>
+<div class="booth" onclick="showInfo('E21')">E21</div>
+<div class="booth" onclick="showInfo('E22')">E22</div>
+<div class="booth" onclick="showInfo('E23')">E23</div>
+<div class="booth" onclick="showInfo('F01')">F01</div>
+<div class="booth" onclick="showInfo('F02')">F02</div>
+<div class="booth" onclick="showInfo('F03')">F03</div>
+<div class="booth" onclick="showInfo('F04')">F04</div>
+<div class="booth" onclick="showInfo('F05')">F05</div>
+<div class="booth" onclick="showInfo('F06')">F06</div>
+<div class="booth" onclick="showInfo('F07')">F07</div>
+<div class="booth" onclick="showInfo('F08')">F08</div>
+<div class="booth" onclick="showInfo('F09')">F09</div>
+<div class="booth" onclick="showInfo('F10')">F10</div>
+<div class="booth" onclick="showInfo('F11')">F11</div>
+<div class="booth" onclick="showInfo('F12')">F12</div>
+<div class="booth" onclick="showInfo('F13')">F13</div>
+<div class="booth" onclick="showInfo('F14')">F14</div>
+<div class="booth" onclick="showInfo('F15')">F15</div>
+<div class="booth" onclick="showInfo('G01')">G01</div>
+<div class="booth" onclick="showInfo('G02')">G02</div>
+<div class="booth" onclick="showInfo('G03')">G03</div>
+<div class="booth" onclick="showInfo('G04')">G04</div>
+<div class="booth" onclick="showInfo('G05')">G05</div>
+<div class="booth" onclick="showInfo('G06')">G06</div>
+<div class="booth" onclick="showInfo('G07')">G07</div>
+<div class="booth" onclick="showInfo('G08-1')">G08-1</div>
+<div class="booth" onclick="showInfo('G08-2')">G08-2</div>
+<div class="booth" onclick="showInfo('G08-3')">G08-3</div>
+<div class="booth" onclick="showInfo('G08-4')">G08-4</div>
+<div class="booth" onclick="showInfo('G09')">G09</div>
+<div class="booth" onclick="showInfo('G10')">G10</div>
 
-  <div id="content"></div>
-
-  <script>
-const exhibitors = {
-  "A04": {
-    "company": "DEMCO CSI",
-    "country": "韓國",
-    "product": "戶外高亮度 TFT‑LCD 資訊顯示器",
-    "scale": "中型"
-  },
-  "A05": {
-    "company": "YK Construction Equipment Co., Ltd.",
-    "country": "韓國",
-    "product": "工程與軌道施工機械租售",
-    "scale": "中型"
-  },
-  "A06": {
-    "company": "SPACEPRO",
-    "country": "韓國",
-    "product": "碳纖維車體複材結構",
-    "scale": "小型"
-  },
-  "A07": {
-    "company": "Hyundai Rotem Company",
-    "country": "韓國",
-    "product": "高速列車、電聯車、號誌系統",
-    "scale": "大型"
-  },
-  "B01": {
-    "company": "Electronic & Human Technology",
-    "country": "韓國",
-    "product": "電子開關、控制面板",
-    "scale": "小型"
-  },
-  "B02": {
-    "company": "ENTEC Electric & Electronic Co., Ltd.",
-    "country": "韓國",
-    "product": "中低壓供電設備、SCADA",
-    "scale": "中型"
-  },
-  "B03": {
-    "company": "KUMSAN M&E Co., LTD",
-    "country": "韓國",
-    "product": "鐵道繼電器、端子台",
-    "scale": "小型"
-  },
-  "B04": {
-    "company": "MAPSCO Co., Ltd.",
-    "country": "韓國",
-    "product": "滾珠螺桿、致動器",
-    "scale": "小型"
-  },
-  "B05": {
-    "company": "Mahani Electric Co., Ltd.",
-    "country": "韓國",
-    "product": "感測器、連接器",
-    "scale": "小型"
-  },
-  "B06": {
-    "company": "EASTERN R&E Co., Ltd.",
-    "country": "韓國",
-    "product": "輪對、轉向架、軌道貨車",
-    "scale": "中型"
-  },
-  "B07": {
-    "company": "KOBA Co., Ltd.",
-    "country": "韓國",
-    "product": "液壓減震器",
-    "scale": "中型"
-  },
-  "B08": {
-    "company": "CSIN Tech Co., Ltd.",
-    "country": "韓國",
-    "product": "列車控制、智慧物聯網、車載系統",
-    "scale": "小型"
-  },
-  "B09": {
-    "company": "Dujin I&T",
-    "country": "韓國",
-    "product": "車輛零部件、RAMS 諮詢",
-    "scale": "小型"
-  },
-  "B10": {
-    "company": "VCTECH Co., Ltd.",
-    "country": "韓國",
-    "product": "逆變器",
-    "scale": "中型"
-  },
-  "B11": {
-    "company": "TÜV Rheinland Korea Ltd.",
-    "country": "德國〈韓〉",
-    "product": "安全認證、EMC/功能安全測試",
-    "scale": "大型"
-  },
-  "B12": {
-    "company": "ILME Korea Co.",
-    "country": "義大利〈韓〉",
-    "product": "工業矩形連接器",
-    "scale": "小型"
-  },
-  "C01": {
-    "company": "SAMSON TECH Co., Ltd.",
-    "country": "韓國",
-    "product": "無資料",
-    "scale": "無資料"
-  },
-  "C02": {
-    "company": "KOSTECH",
-    "country": "韓國",
-    "product": "CAE測試",
-    "scale": "小型"
-  },
-  "C03": {
-    "company": "intech",
-    "country": "韓國",
-    "product": "無資料",
-    "scale": "無資料"
-  },
-  "C04": {
-    "company": "Jinil 1'Stec Co., Ltd.",
-    "country": "韓國",
-    "product": "檢測儀器",
-    "scale": "小型"
-  },
-  "C05": {
-    "company": "YOUNG JOONG IND Co., Ltd.",
-    "country": "韓國",
-    "product": "無資料",
-    "scale": "無資料"
-  },
-  "C06": {
-    "company": "T.I.CORPORATION",
-    "country": "韓國",
-    "product": "無資料",
-    "scale": "無資料"
-  },
-  "C07": {
-    "company": "GLOS Co., Ltd.",
-    "country": "韓國",
-    "product": "顯示器、自動化零件",
-    "scale": "小型"
-  },
-  "C08": {
-    "company": "BEST ENGINEERING",
-    "country": "韓國",
-    "product": "岔心、軌道配件",
-    "scale": "小型"
-  },
-  "C09": {
-    "company": "WOOJAE",
-    "country": "韓國",
-    "product": "空間設計",
-    "scale": "小型"
-  },
-  "C10": {
-    "company": "Roxtec Korea",
-    "country": "瑞典〈韓〉",
-    "product": "電纜/管線穿隔密封模組",
-    "scale": "中型"
-  },
-  "C11": {
-    "company": "GMTECH Co., Ltd.",
-    "country": "韓國",
-    "product": "鋼構設備",
-    "scale": "小型"
-  },
-  "C12": {
-    "company": "WAINKOREA",
-    "country": "無資料",
-    "product": "無資料",
-    "scale": "無資料"
-  },
-  "C13": {
-    "company": "Korea Petroleum",
-    "country": "韓國",
-    "product": "石油產品、化工品",
-    "scale": "大型"
-  },
-  "C14": {
-    "company": "Elthus T&L",
-    "country": "韓國",
-    "product": "施工維修工具、車輛組裝工具",
-    "scale": "小型"
-  },
-  "C15": {
-    "company": "NAWOO Ltd.",
-    "country": "韓國",
-    "product": "非破壞檢測NTD工具",
-    "scale": "小型"
-  },
-  "C16": {
-    "company": "ZEECOM",
-    "country": "韓國",
-    "product": "測量系統、開關、感測器",
-    "scale": "小型"
-  },
-  "C17": {
-    "company": "DNV Business Assurance Korea",
-    "country": "挪威〈韓〉",
-    "product": "系統安全/功能安全認證",
-    "scale": "大型"
-  },
-  "C18": {
-    "company": "Schaltbau Korea Ltd.",
-    "country": "德國〈韓〉",
-    "product": "DC接觸器、UIC連接器",
-    "scale": "中型"
-  },
-  "C19": {
-    "company": "CEL‑BIO KUBE Co., Ltd.",
-    "country": "韓國",
-    "product": "環保潤滑油、生質清潔劑",
-    "scale": "小型"
-  },
-  "C20": {
-    "company": "BP Intelligent Mechanics",
-    "country": "中國",
-    "product": "檢測機器人、AI缺陷判讀",
-    "scale": "小型"
-  },
-  "C21": {
-    "company": "TILC Co., Ltd.",
-    "country": "韓國",
-    "product": "技術諮詢與工程服務",
-    "scale": "小型"
-  },
-  "C22": {
-    "company": "Rehau & Chunho Co., Ltd.",
-    "country": "德國/韓國",
-    "product": "無資料",
-    "scale": "無資料"
-  },
-  "C23": {
-    "company": "RM",
-    "country": "韓國",
-    "product": "地板材料",
-    "scale": "小型"
-  },
-  "D01": {
-    "company": "NEOPIS CO.,LTD.",
-    "country": "韓國",
-    "product": "車載顯示器、工業顯示解決方案",
-    "scale": "小型"
-  },
-  "D02": {
-    "company": "NATIONALGEOGRAPHIC",
-    "country": "無",
-    "product": "無資料",
-    "scale": "無資料"
-  },
-  "D03": {
-    "company": "TJT PLUS CO., LTD.",
-    "country": "韓國",
-    "product": "非導電強化型液體滅火器",
-    "scale": "無"
-  },
-  "D04": {
-    "company": "PRIMET&R Co., Ltd.",
-    "country": "韓國",
-    "product": "轉向架零件、盤形煞車",
-    "scale": "小型"
-  },
-  "D05": {
-    "company": "GLOSYS",
-    "country": "韓國",
-    "product": "TFT LCD 顯示器",
-    "scale": "小型"
-  },
-  "D06": {
-    "company": "Thomas Co., Ltd.",
-    "country": "韓國",
-    "product": "工業用電纜、線束系統",
-    "scale": "中型"
-  },
-  "D08": {
-    "company": "Belden",
-    "country": "美國〈星〉",
-    "product": "工業通訊線纜、網路解決方案",
-    "scale": "大型"
-  },
-  "D09": {
-    "company": "Kyoungseong Co., Ltd.",
-    "country": "韓國",
-    "product": "重軌系統、救援工具",
-    "scale": "中型"
-  },
-  "D10": {
-    "company": "Innovation & Created Co., Ltd.",
-    "country": "韓國",
-    "product": "通訊半導體、電弧偵測模組",
-    "scale": "小型"
-  },
-  "D11": {
-    "company": "NST",
-    "country": "韓國",
-    "product": "網路交換器",
-    "scale": "小型"
-  },
-  "D12": {
-    "company": "O‑Sung Electric Machinery Co., Ltd.",
-    "country": "韓國",
-    "product": "ATS/ACB斷路器、微電機",
-    "scale": "小型"
-  },
-  "D13": {
-    "company": "DO IT Co., Ltd.",
-    "country": "韓國",
-    "product": "安全監控、重工業現場自動化",
-    "scale": "小型"
-  },
-  "D14": {
-    "company": "KATEM Co., Ltd.",
-    "country": "韓國",
-    "product": "KTX列車傳動軸、煞車盤",
-    "scale": "小型"
-  },
-  "D15": {
-    "company": "Consilium Korea",
-    "country": "瑞典",
-    "product": "火警/氣體偵測系統",
-    "scale": "大型"
-  },
-  "D16": {
-    "company": "Gaius Industrial Systems Co., Ltd.",
-    "country": "韓國",
-    "product": "HSCB、變壓器",
-    "scale": "小型"
-  },
-  "D17": {
-    "company": "JKTECH GLOBAL",
-    "country": "韓國",
-    "product": "電源模組與轉換器",
-    "scale": "小型"
-  },
-  "D18": {
-    "company": "MBST Co., Ltd.",
-    "country": "韓國",
-    "product": "鐵路公路兩用車、車輛零件",
-    "scale": "小型"
-  },
-  "D19": {
-    "company": "EVLUBE",
-    "country": "韓國",
-    "product": "工業潤滑油、機械用油",
-    "scale": "小型"
-  },
-  "D20": {
-    "company": "Sécheron SA",
-    "country": "瑞士",
-    "product": "電氣開關、電力設備",
-    "scale": "中型"
-  },
-  "D21": {
-    "company": "Sampyo Railway",
-    "country": "韓國",
-    "product": "軌道材料、轉轍器",
-    "scale": "中型"
-  },
-  "D22": {
-    "company": "WISKA Korea Ltd.",
-    "country": "德國〈韓〉",
-    "product": "工業連接器、照明",
-    "scale": "中型"
-  },
-  "D23": {
-    "company": "PROTECH",
-    "country": "韓國",
-    "product": "馬達控制系統",
-    "scale": "小型"
-  },
-  "D24": {
-    "company": "Cincon Electronics Co., Ltd.",
-    "country": "台灣",
-    "product": "EN 50155 DC/DC轉換器",
-    "scale": "中型"
-  },
-  "D25": {
-    "company": "Daeyang Electric Co., Ltd.",
-    "country": "韓國",
-    "product": "控制盤、配電盤、照明 ",
-    "scale": "大型"
-  },
-  "D26": {
-    "company": "Gaepoong Electronics Co., Ltd.",
-    "country": "韓國",
-    "product": "HMI",
-    "scale": "小型"
-  },
-  "D27": {
-    "company": "Joowon Industrial Co., Ltd.",
-    "country": "韓國",
-    "product": "環境與設施監控系統、工業測試儀",
-    "scale": "小型"
-  },
-  "D28": {
-    "company": "ANTS Co., Ltd.",
-    "country": "韓國",
-    "product": "PA/PIS、CCTV",
-    "scale": "小型"
-  },
-  "D29": {
-    "company": "EoneTNC",
-    "country": "韓國",
-    "product": "無資料",
-    "scale": "無資料"
-  },
-  "D30": {
-    "company": "Rail Economy News",
-    "country": "韓國",
-    "product": "鐵道專業媒體",
-    "scale": "無資料"
-  },
-  "E01": {
-    "company": "HS ENGINEERING",
-    "country": "韓國",
-    "product": "乙太交換器、無線通訊設備",
-    "scale": NaN
-  },
-  "E03": {
-    "company": "ONESERVICE",
-    "country": "韓國",
-    "product": "無資料",
-    "scale": "無資料"
-  },
-  "E05": {
-    "company": "Korea Rolling Stock Industries Association (KORSIA)",
-    "country": "韓國",
-    "product": "產業協會推廣",
-    "scale": "無資料"
-  },
-  "E08": {
-    "company": "P-DUKE POWER",
-    "country": "台灣",
-    "product": "AC/DC、DC/DC電源轉換器",
-    "scale": "中型"
-  },
-  "E09": {
-    "company": "ICK",
-    "country": "韓國",
-    "product": "無資料",
-    "scale": "無資料"
-  },
-  "E10": {
-    "company": "Yooksong Co., Ltd.",
-    "country": "韓國",
-    "product": "消防栓、滅火器、閥件",
-    "scale": "小型"
-  },
-  "E11": {
-    "company": "Yujin Machinery Ltd.",
-    "country": "韓國",
-    "product": "煞車、聯結器、車門控制",
-    "scale": "小型"
-  },
-  "E12": {
-    "company": "WeZON",
-    "country": "韓國",
-    "product": "IoT Gateways、車載數據平台",
-    "scale": "小型"
-  },
-  "E13": {
-    "company": "FOGTEC Brandschutz GmbH",
-    "country": "德國",
-    "product": "火災偵測、滅火系統",
-    "scale": "中型"
-  },
-  "E14": {
-    "company": "Linsinger Maschinenbau GmbH",
-    "country": "奧地利",
-    "product": "鋼軌銑削車",
-    "scale": "中型"
-  },
-  "E15": {
-    "company": "Suzhou DONEKA",
-    "country": "中國",
-    "product": "集電弓碳刷",
-    "scale": "小型"
-  },
-  "E16": {
-    "company": "CRRC",
-    "country": "中國",
-    "product": "高速列車、地鐵車輛",
-    "scale": "大型"
-  },
-  "E17": {
-    "company": "Henan QiangLi Machinery",
-    "country": "中國",
-    "product": "軌道維修機具",
-    "scale": "小型"
-  },
-  "E18": {
-    "company": "KR Trading",
-    "country": "無資料",
-    "product": "無資料",
-    "scale": "無資料"
-  },
-  "E19": {
-    "company": "DEWALT",
-    "country": "美國",
-    "product": "電動工具",
-    "scale": "大型"
-  },
-  "E20": {
-    "company": "GERB Korea",
-    "country": "德國〈韓〉",
-    "product": "減振彈簧座、FST",
-    "scale": "中型"
-  },
-  "E21": {
-    "company": "UNIVIS Co., Ltd.",
-    "country": "韓國",
-    "product": "緊急照明、感光控制燈",
-    "scale": "小型"
-  },
-  "E22": {
-    "company": "Korea Institute of Machinery & Materials (KIMM)",
-    "country": "韓國",
-    "product": "軌道技術研發、車輛與軌道相關檢測",
-    "scale": "大型"
-  },
-  "E23": {
-    "company": "KAPST/SAFE-NET FORUM",
-    "country": "韓國",
-    "product": "鐵道通訊標準FRMCS推廣",
-    "scale": "小型"
-  },
-  "F01": {
-    "company": "TÜV SÜD Korea Ltd.",
-    "country": "德國〈韓〉",
-    "product": "系統安全與功能安全認證",
-    "scale": "大型"
-  },
-  "F02": {
-    "company": "SIB Korea",
-    "country": "韓國",
-    "product": "LBS、隔離開關",
-    "scale": "小型"
-  },
-  "F03": {
-    "company": "VIB‑LOCK Co., Ltd.",
-    "country": "韓國",
-    "product": "振動隔離墊",
-    "scale": "小型"
-  },
-  "F04": {
-    "company": "Railroad Industry Inc.",
-    "country": "韓國",
-    "product": "研究機構",
-    "scale": "小型"
-  },
-  "F05": {
-    "company": "Kefei(Quantum)",
-    "country": "韓國",
-    "product": "無資料",
-    "scale": "無資料"
-  },
-  "F06": {
-    "company": "Romansys Co., Ltd.",
-    "country": "韓國",
-    "product": "客貨車車體製造與翻修",
-    "scale": "小型"
-  },
-  "F07": {
-    "company": "JST Transformateurs",
-    "country": "法國",
-    "product": "變壓器、電源設備",
-    "scale": "中型"
-  },
-  "F08": {
-    "company": "Longhua Technology Group",
-    "country": "中國",
-    "product": "車輛用電氣設備、電源系統",
-    "scale": "大型"
-  },
-  "F09": {
-    "company": "Jiangsu Tie Mao Technology",
-    "country": "中國",
-    "product": "車窗安全玻璃",
-    "scale": "中型"
-  },
-  "F10": {
-    "company": "InnoTrans 2026",
-    "country": "德國",
-    "product": "國際鐵道展宣傳",
-    "scale": "無資料"
-  },
-  "F11": {
-    "company": "Railway Gazette International",
-    "country": "英國",
-    "product": "專業媒體、數據服務",
-    "scale": "小型"
-  },
-  "F12": {
-    "company": "Zhengzhou Mingtai Transportation New Material",
-    "country": "中國",
-    "product": "鋁合金車體板材",
-    "scale": "中型"
-  },
-  "F13": {
-    "company": "IWMT Co., Ltd.",
-    "country": "韓國",
-    "product": "再生塑膠枕木",
-    "scale": "小型"
-  },
-  "F14": {
-    "company": "Sean Inc.",
-    "country": "韓國",
-    "product": "焊接件、減振部件",
-    "scale": "小型"
-  },
-  "F15": {
-    "company": "KOREA RAILWAY INDUSTRY INFORMATION CENTER",
-    "country": "韓國",
-    "product": "鐵道產業資訊",
-    "scale": "無資料"
-  },
-  "G01": {
-    "company": "宇進產電(Woojin Industrial Systems)",
-    "country": "韓國",
-    "product": "地鐵與輕軌車輛",
-    "scale": "中型"
-  },
-  "G02": {
-    "company": "BUSAN METROPOLITAN RAILWAY PROMOTION BOOTH",
-    "country": "韓國",
-    "product": "宣傳用展位",
-    "scale": "無資料"
-  },
-  "G03": {
-    "company": "Korea Railroad Research Institute (KRRI)",
-    "country": "韓國",
-    "product": "鐵道技術研發",
-    "scale": "大型"
-  },
-  "G04": {
-    "company": "Busan Transportation Corporation",
-    "country": "韓國",
-    "product": "城市地鐵營運與維修",
-    "scale": "大型"
-  },
-  "G05": {
-    "company": "韓國鐵道公社(KORAIL)",
-    "country": "韓國",
-    "product": "鐵路建設與維護",
-    "scale": "大型"
-  },
-  "G06": {
-    "company": "國家鐵道公團(Korea National Railway)",
-    "country": "韓國",
-    "product": "產業協會、國際推廣",
-    "scale": "大型"
-  },
-  "G07": {
-    "company": "Korea Railway Industry Association",
-    "country": "韓國",
-    "product": "產業政策協調、國際推廣",
-    "scale": "小型"
-  },
-  "G08-1": {
-    "company": "Asiatech Co., Ltd.",
-    "country": "韓國",
-    "product": "車輪",
-    "scale": "無資料"
-  },
-  "G08-2": {
-    "company": "Herostech Co., Ltd.",
-    "country": "韓國",
-    "product": "伸縮踏板",
-    "scale": "無資料"
-  },
-  "G08-3": {
-    "company": "Shh Co., Ltd.",
-    "country": "韓國",
-    "product": "無資料",
-    "scale": "無資料"
-  },
-  "G08-4": {
-    "company": "Vickham Engineering Pvt. Ltd.",
-    "country": "韓國",
-    "product": "無資料",
-    "scale": "無資料"
-  },
-  "G09": {
-    "company": "KORAIL Retail",
-    "country": "韓國",
-    "product": "鐵道相關商品販售",
-    "scale": "無資料"
-  },
-  "G10": {
-    "company": "SaeYoung Technologies Co., Ltd.",
-    "country": "韓國",
-    "product": "鐵道車輛用監控、感測器、安全設備（與德國Deuta-Werke合作）",
-    "scale": "小型"
-  }
-};
-
-    const zones = {};
-    Object.entries(exhibitors).forEach(([booth, data]) => {
-      const zone = booth.charAt(0);
-      if (!zones[zone]) zones[zone] = [];
-      zones[zone].push([booth, data]);
-    });
-
-    const content = document.getElementById("content");
-    Object.entries(zones).forEach(([zone, booths]) => {
-      const section = document.createElement("div");
-      section.className = "zone";
-      section.innerHTML = `<h2>展區 ${zone}</h2>`;
-      booths.sort().forEach(([booth, data]) => {
-        const div = document.createElement("div");
-        div.className = "booth";
-        div.textContent = booth;
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-          <strong>公司：</strong> ${data.company}<br>
-          <strong>國家：</strong> ${data.country}<br>
-          <strong>產品：</strong> ${data.product}<br>
-          <strong>公司規模：</strong> ${data.scale}
-        `;
-        div.addEventListener("click", () => {
-          card.style.display = card.style.display === "none" ? "block" : "none";
-        });
-        section.appendChild(div);
-        section.appendChild(card);
-      });
-      content.appendChild(section);
-    });
-
-    function filterExhibitors() {
-      const keyword = document.getElementById("searchBox").value.toLowerCase();
-      const booths = document.querySelectorAll(".booth");
-      const cards = document.querySelectorAll(".card");
-      booths.forEach((booth, index) => {
-        const info = cards[index].textContent.toLowerCase() + booth.textContent.toLowerCase();
-        if (info.includes(keyword)) {
-          booth.style.display = "";
-          cards[index].style.display = "none";
-        } else {
-          booth.style.display = "none";
-          cards[index].style.display = "none";
-        }
-      });
-    }
-  </script>
+    </div>
+  </div>
+  <div class="info-panel" id="info-panel">
+    <p>請點選攤位查看展商資料。</p>
+  </div>
 </body>
 </html>
