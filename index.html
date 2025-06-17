@@ -75,6 +75,23 @@ function searchBooth() {
 }
 </script>
 
+
+<style>
+@keyframes popupFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+#modal .animated-modal {
+  animation: popupFadeIn 0.25s ease-out;
+}
+</style>
+
 </head>
 <body class="bg-gray-100 font-sans p-4">
   <div class="w-full bg-blue-600 text-white text-center py-4 rounded-xl shadow mb-6">
@@ -235,7 +252,7 @@ function searchBooth() {
 
 <!-- 浮動彈窗容器 -->
 <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center px-4 sm:px-0 hidden z-50" onclick="closeModal()">
-  <div class="bg-white rounded-2xl p-6 max-w-md w-full shadow-xl relative" onclick="event.stopPropagation()">
+  <div class="bg-white rounded-2xl p-6 max-w-md w-full shadow-xl relative animated-modal" onclick="event.stopPropagation()">
     
     <div id="modal-content" class="text-base text-gray-800 leading-relaxed space-y-2"></div>
   </div>
