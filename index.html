@@ -39,10 +39,17 @@ function closeModal() {
 
 
 
+
+
+
 <script>
 function searchBooth() {
-  const input = document.getElementById("searchInput").value.toLowerCase();
+  const input = document.getElementById("searchInput").value.toLowerCase().trim();
+  const isExclusion = input.startsWith('!');
+  const keyword = isExclusion ? input.slice(1) : input;
+
   const buttons = document.querySelectorAll("button[id^='btn-']");
+  let matchCount = 0;
 
   buttons.forEach(btn => {
     const id = btn.id.replace('btn-', '');
@@ -55,23 +62,32 @@ function searchBooth() {
 
     const name = (info['公司名稱'] || '').toLowerCase();
     const country = (info['國家/地區'] || '').toLowerCase();
+    const target = `${id.toLowerCase()} ${name} ${country}`;
+    const isMatch = target.includes(keyword);
+    const show = isExclusion ? !isMatch : isMatch;
 
-    const match = id.toLowerCase().includes(input) || name.includes(input) || country.includes(input);
-    btn.parentElement.style.display = match ? '' : 'none';
+    btn.parentElement.style.display = show ? '' : 'none';
+    if (show) matchCount++;
   });
+
+  const noResult = document.getElementById("noResultMessage");
+  if (noResult) noResult.style.display = matchCount === 0 ? 'block' : 'none';
 }
 </script>
 
 </head>
 <body class="bg-gray-100 font-sans p-4">
   <div class="w-full bg-blue-600 text-white text-center py-4 rounded-xl shadow mb-6">
-    <h1 class="text-3xl font-bold">RailLog Korea 2025 參展廠商</h1>
+    <h1 class="text-3xl font-bold">RailLog Korea 2025 展覽互動圖（彈窗內嵌修正版）</h1>
   </div>
 
   <div class="max-w-7xl mx-auto bg-white p-4 rounded shadow">
-    <h2 class="text-lg font-semibold mb-3">展場攤位</h2>
-    <input id="searchInput" onkeyup="searchBooth()" placeholder="搜尋..." class="mb-4 p-2 border w-full rounded" />
+    <h2 class="text-lg font-semibold mb-3">展場攤位圖</h2>
+    
+    <div class="text-sm text-gray-600 mb-1">可搜尋攤位編號、公司名稱或國家，輸入 <code>!韓國</code> 可排除韓國廠商</div>
+    <input id="searchInput" onkeyup="searchBooth()" placeholder="輸入攤位編號過濾..." class="mb-4 p-2 border w-full rounded" />
     <div class='mt-4'>
+    <div id="noResultMessage" class="hidden text-center text-red-500 text-sm mt-2">找不到符合的攤位，請嘗試其他關鍵字。</div>
     <div class="mb-6">
       <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-amber-300 inline-block shadow">A 區</div>
       <div class="mt-1"><div class='grid grid-cols-6 gap-1'><div><button id='btn-A04' onclick="showInfo('A04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200">A04</button><div id='popup-A04'></div></div>
