@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RailLog Korea 2025</title>
   <script>
-const boothData = {
+    const boothData = {
   "A04": {
     "廠商名稱": "DEMCO CSI",
     "國家": "韓國",
@@ -698,188 +698,193 @@ const boothData = {
     "公司大小": "小型"
   }
 };
-const boothMap = new Map(Object.entries(boothData));
-
-function showInfo(boothId) {
-  const panel = document.getElementById("info-panel");
-  const data = boothMap.get(boothId);
-  if (data) {
-    panel.innerHTML = `
-      <p><strong>攤位：</strong> ${boothId}</p>
-      <p><strong>廠商名稱：</strong> ${data["廠商名稱"]}</p>
-      <p><strong>國家：</strong> ${data["國家"]}</p>
-      <p><strong>主要產品：</strong> ${data["主要產品"]}</p>
-      <p><strong>公司大小：</strong> ${data["公司大小"]}</p>
-    `;
-  } else {
-    panel.innerHTML = `<p>找不到資料，請確認攤位編號。</p>`;
-  }
-}
-</script>
-  <style>
-    body {
-      font-family: sans-serif;
-      padding: 1rem;
-      background: #f3f4f6;
+    const boothMap = new Map(Object.entries(boothData));
+    function showInfo(boothId) {
+      const panel = document.getElementById("info-panel");
+      const data = boothMap.get(boothId);
+      if (data) {
+        panel.innerHTML = `
+          <p><strong>攤位：</strong> ` + boothId + `</p>
+          <p><strong>廠商名稱：</strong> ` + data["廠商名稱"] + `</p>
+          <p><strong>國家：</strong> ` + data["國家"] + `</p>
+          <p><strong>主要產品：</strong> ` + data["主要產品"] + `</p>
+          <p><strong>公司大小：</strong> ` + data["公司大小"] + `</p>
+        `;
+      } else {
+        panel.innerHTML = `<p>找不到資料，請確認攤位編號。</p>`;
+      }
     }
-    .title {
-      background: #2563eb;
-      color: white;
-      padding: 1rem;
-      border-radius: 1rem;
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-    .booth {
-      padding: 0.5rem;
-      font-size: 0.75rem;
-      border-radius: 0.25rem;
-      border: 1px solid #3b82f6;
-      text-align: center;
-      cursor: pointer;
-      background-color: white;
-    }
-    .booth:hover {
-      background-color: #dbeafe;
-    }
-    .zone {
-      margin-bottom: 1.5rem;
-    }
-    .info-panel {
-      background: white;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-  </style>
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="title">
-    <h1>RailLog Korea 2025 展覽互動圖（A ~ G 展區）</h1>
+<body class="bg-gray-100 font-sans p-4">
+  <div class="w-full bg-blue-600 text-white text-center py-4 rounded-xl shadow mb-6">
+    <h1 class="text-3xl font-bold">RailLog Korea 2025 展覽互動圖（A ~ G 展區完整）</h1>
   </div>
-  <div class="zone">
-    <h2>展區範例：A ~ G 區</h2>
-    <div class="grid" style="display: flex; flex-wrap: wrap; gap: 4px;">
-<div class="booth" onclick="showInfo('A04')">A04</div>
-<div class="booth" onclick="showInfo('A05')">A05</div>
-<div class="booth" onclick="showInfo('A06')">A06</div>
-<div class="booth" onclick="showInfo('A07')">A07</div>
-<div class="booth" onclick="showInfo('B01')">B01</div>
-<div class="booth" onclick="showInfo('B02')">B02</div>
-<div class="booth" onclick="showInfo('B03')">B03</div>
-<div class="booth" onclick="showInfo('B04')">B04</div>
-<div class="booth" onclick="showInfo('B05')">B05</div>
-<div class="booth" onclick="showInfo('B06')">B06</div>
-<div class="booth" onclick="showInfo('B07')">B07</div>
-<div class="booth" onclick="showInfo('B08')">B08</div>
-<div class="booth" onclick="showInfo('B09')">B09</div>
-<div class="booth" onclick="showInfo('B10')">B10</div>
-<div class="booth" onclick="showInfo('B11')">B11</div>
-<div class="booth" onclick="showInfo('B12')">B12</div>
-<div class="booth" onclick="showInfo('C01')">C01</div>
-<div class="booth" onclick="showInfo('C02')">C02</div>
-<div class="booth" onclick="showInfo('C03')">C03</div>
-<div class="booth" onclick="showInfo('C04')">C04</div>
-<div class="booth" onclick="showInfo('C05')">C05</div>
-<div class="booth" onclick="showInfo('C06')">C06</div>
-<div class="booth" onclick="showInfo('C07')">C07</div>
-<div class="booth" onclick="showInfo('C08')">C08</div>
-<div class="booth" onclick="showInfo('C09')">C09</div>
-<div class="booth" onclick="showInfo('C10')">C10</div>
-<div class="booth" onclick="showInfo('C11')">C11</div>
-<div class="booth" onclick="showInfo('C12')">C12</div>
-<div class="booth" onclick="showInfo('C13')">C13</div>
-<div class="booth" onclick="showInfo('C14')">C14</div>
-<div class="booth" onclick="showInfo('C15')">C15</div>
-<div class="booth" onclick="showInfo('C16')">C16</div>
-<div class="booth" onclick="showInfo('C17')">C17</div>
-<div class="booth" onclick="showInfo('C18')">C18</div>
-<div class="booth" onclick="showInfo('C19')">C19</div>
-<div class="booth" onclick="showInfo('C20')">C20</div>
-<div class="booth" onclick="showInfo('C21')">C21</div>
-<div class="booth" onclick="showInfo('C22')">C22</div>
-<div class="booth" onclick="showInfo('C23')">C23</div>
-<div class="booth" onclick="showInfo('D01')">D01</div>
-<div class="booth" onclick="showInfo('D02')">D02</div>
-<div class="booth" onclick="showInfo('D03')">D03</div>
-<div class="booth" onclick="showInfo('D04')">D04</div>
-<div class="booth" onclick="showInfo('D05')">D05</div>
-<div class="booth" onclick="showInfo('D06')">D06</div>
-<div class="booth" onclick="showInfo('D08')">D08</div>
-<div class="booth" onclick="showInfo('D09')">D09</div>
-<div class="booth" onclick="showInfo('D10')">D10</div>
-<div class="booth" onclick="showInfo('D11')">D11</div>
-<div class="booth" onclick="showInfo('D12')">D12</div>
-<div class="booth" onclick="showInfo('D13')">D13</div>
-<div class="booth" onclick="showInfo('D14')">D14</div>
-<div class="booth" onclick="showInfo('D15')">D15</div>
-<div class="booth" onclick="showInfo('D16')">D16</div>
-<div class="booth" onclick="showInfo('D17')">D17</div>
-<div class="booth" onclick="showInfo('D18')">D18</div>
-<div class="booth" onclick="showInfo('D19')">D19</div>
-<div class="booth" onclick="showInfo('D20')">D20</div>
-<div class="booth" onclick="showInfo('D21')">D21</div>
-<div class="booth" onclick="showInfo('D22')">D22</div>
-<div class="booth" onclick="showInfo('D23')">D23</div>
-<div class="booth" onclick="showInfo('D24')">D24</div>
-<div class="booth" onclick="showInfo('D25')">D25</div>
-<div class="booth" onclick="showInfo('D26')">D26</div>
-<div class="booth" onclick="showInfo('D27')">D27</div>
-<div class="booth" onclick="showInfo('D28')">D28</div>
-<div class="booth" onclick="showInfo('D29')">D29</div>
-<div class="booth" onclick="showInfo('D30')">D30</div>
-<div class="booth" onclick="showInfo('E01')">E01</div>
-<div class="booth" onclick="showInfo('E03')">E03</div>
-<div class="booth" onclick="showInfo('E05')">E05</div>
-<div class="booth" onclick="showInfo('E08')">E08</div>
-<div class="booth" onclick="showInfo('E09')">E09</div>
-<div class="booth" onclick="showInfo('E10')">E10</div>
-<div class="booth" onclick="showInfo('E11')">E11</div>
-<div class="booth" onclick="showInfo('E12')">E12</div>
-<div class="booth" onclick="showInfo('E13')">E13</div>
-<div class="booth" onclick="showInfo('E14')">E14</div>
-<div class="booth" onclick="showInfo('E15')">E15</div>
-<div class="booth" onclick="showInfo('E16')">E16</div>
-<div class="booth" onclick="showInfo('E17')">E17</div>
-<div class="booth" onclick="showInfo('E18')">E18</div>
-<div class="booth" onclick="showInfo('E19')">E19</div>
-<div class="booth" onclick="showInfo('E20')">E20</div>
-<div class="booth" onclick="showInfo('E21')">E21</div>
-<div class="booth" onclick="showInfo('E22')">E22</div>
-<div class="booth" onclick="showInfo('E23')">E23</div>
-<div class="booth" onclick="showInfo('F01')">F01</div>
-<div class="booth" onclick="showInfo('F02')">F02</div>
-<div class="booth" onclick="showInfo('F03')">F03</div>
-<div class="booth" onclick="showInfo('F04')">F04</div>
-<div class="booth" onclick="showInfo('F05')">F05</div>
-<div class="booth" onclick="showInfo('F06')">F06</div>
-<div class="booth" onclick="showInfo('F07')">F07</div>
-<div class="booth" onclick="showInfo('F08')">F08</div>
-<div class="booth" onclick="showInfo('F09')">F09</div>
-<div class="booth" onclick="showInfo('F10')">F10</div>
-<div class="booth" onclick="showInfo('F11')">F11</div>
-<div class="booth" onclick="showInfo('F12')">F12</div>
-<div class="booth" onclick="showInfo('F13')">F13</div>
-<div class="booth" onclick="showInfo('F14')">F14</div>
-<div class="booth" onclick="showInfo('F15')">F15</div>
-<div class="booth" onclick="showInfo('G01')">G01</div>
-<div class="booth" onclick="showInfo('G02')">G02</div>
-<div class="booth" onclick="showInfo('G03')">G03</div>
-<div class="booth" onclick="showInfo('G04')">G04</div>
-<div class="booth" onclick="showInfo('G05')">G05</div>
-<div class="booth" onclick="showInfo('G06')">G06</div>
-<div class="booth" onclick="showInfo('G07')">G07</div>
-<div class="booth" onclick="showInfo('G08-1')">G08-1</div>
-<div class="booth" onclick="showInfo('G08-2')">G08-2</div>
-<div class="booth" onclick="showInfo('G08-3')">G08-3</div>
-<div class="booth" onclick="showInfo('G08-4')">G08-4</div>
-<div class="booth" onclick="showInfo('G09')">G09</div>
-<div class="booth" onclick="showInfo('G10')">G10</div>
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div class="lg:col-span-2 bg-white p-4 rounded shadow">
+      <h2 class="text-lg font-semibold mb-3">展場攤位圖</h2>
+      <input id="searchInput" onkeyup="searchBooth()" placeholder="輸入攤位編號過濾..." class="mb-4 p-2 border w-full rounded" />
+      
+    <div class="mb-6">
+      <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-amber-300 inline-block shadow">A 區</div>
+      <div class="mt-1"><div class='grid grid-cols-8 gap-1'>
+    <button onclick="showInfo('A04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200">A04</button>
+<button onclick="showInfo('A05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200">A05</button>
+<button onclick="showInfo('A06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200">A06</button>
+<button onclick="showInfo('A07')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200">A07</button>
+</div></div></div>
+
+    <div class="mb-6">
+      <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-green-300 inline-block shadow">B 區</div>
+      <div class="mt-1"><div class='grid grid-cols-8 gap-1'>
+    <button onclick="showInfo('B01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B01</button>
+<button onclick="showInfo('B02')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B02</button>
+<button onclick="showInfo('B03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B03</button>
+<button onclick="showInfo('B04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B04</button>
+<button onclick="showInfo('B05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B05</button>
+<button onclick="showInfo('B06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B06</button>
+<button onclick="showInfo('B07')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B07</button>
+<button onclick="showInfo('B08')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B08</button>
+<button onclick="showInfo('B09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B09</button>
+<button onclick="showInfo('B10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B10</button>
+<button onclick="showInfo('B11')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B11</button>
+<button onclick="showInfo('B12')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200">B12</button>
+</div></div></div>
+
+    <div class="mb-6">
+      <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-sky-300 inline-block shadow">C 區</div>
+      <div class="mt-1"><div class='grid grid-cols-8 gap-1'>
+    <button onclick="showInfo('C01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C01</button>
+<button onclick="showInfo('C02')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C02</button>
+<button onclick="showInfo('C03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C03</button>
+<button onclick="showInfo('C04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C04</button>
+<button onclick="showInfo('C05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C05</button>
+<button onclick="showInfo('C06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C06</button>
+<button onclick="showInfo('C07')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C07</button>
+<button onclick="showInfo('C08')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C08</button>
+<button onclick="showInfo('C09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C09</button>
+<button onclick="showInfo('C10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C10</button>
+<button onclick="showInfo('C11')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C11</button>
+<button onclick="showInfo('C12')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C12</button>
+<button onclick="showInfo('C13')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C13</button>
+<button onclick="showInfo('C14')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C14</button>
+<button onclick="showInfo('C15')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C15</button>
+<button onclick="showInfo('C16')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C16</button>
+<button onclick="showInfo('C17')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C17</button>
+<button onclick="showInfo('C18')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C18</button>
+<button onclick="showInfo('C19')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C19</button>
+<button onclick="showInfo('C20')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C20</button>
+<button onclick="showInfo('C21')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C21</button>
+<button onclick="showInfo('C22')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C22</button>
+<button onclick="showInfo('C23')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200">C23</button>
+</div></div></div>
+
+    <div class="mb-6">
+      <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-red-300 inline-block shadow">D 區</div>
+      <div class="mt-1"><div class='grid grid-cols-8 gap-1'>
+    <button onclick="showInfo('D01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D01</button>
+<button onclick="showInfo('D02')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D02</button>
+<button onclick="showInfo('D03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D03</button>
+<button onclick="showInfo('D04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D04</button>
+<button onclick="showInfo('D05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D05</button>
+<button onclick="showInfo('D06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D06</button>
+<button onclick="showInfo('D08')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D08</button>
+<button onclick="showInfo('D09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D09</button>
+<button onclick="showInfo('D10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D10</button>
+<button onclick="showInfo('D11')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D11</button>
+<button onclick="showInfo('D12')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D12</button>
+<button onclick="showInfo('D13')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D13</button>
+<button onclick="showInfo('D14')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D14</button>
+<button onclick="showInfo('D15')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D15</button>
+<button onclick="showInfo('D16')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D16</button>
+<button onclick="showInfo('D17')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D17</button>
+<button onclick="showInfo('D18')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D18</button>
+<button onclick="showInfo('D19')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D19</button>
+<button onclick="showInfo('D20')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D20</button>
+<button onclick="showInfo('D21')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D21</button>
+<button onclick="showInfo('D22')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D22</button>
+<button onclick="showInfo('D23')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D23</button>
+<button onclick="showInfo('D24')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D24</button>
+<button onclick="showInfo('D25')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D25</button>
+<button onclick="showInfo('D26')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D26</button>
+<button onclick="showInfo('D27')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D27</button>
+<button onclick="showInfo('D28')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D28</button>
+<button onclick="showInfo('D29')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D29</button>
+<button onclick="showInfo('D30')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200">D30</button>
+</div></div></div>
+
+    <div class="mb-6">
+      <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-yellow-300 inline-block shadow">E 區</div>
+      <div class="mt-1"><div class='grid grid-cols-8 gap-1'>
+    <button onclick="showInfo('E01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E01</button>
+<button onclick="showInfo('E03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E03</button>
+<button onclick="showInfo('E05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E05</button>
+<button onclick="showInfo('E08')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E08</button>
+<button onclick="showInfo('E09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E09</button>
+<button onclick="showInfo('E10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E10</button>
+<button onclick="showInfo('E11')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E11</button>
+<button onclick="showInfo('E12')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E12</button>
+<button onclick="showInfo('E13')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E13</button>
+<button onclick="showInfo('E14')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E14</button>
+<button onclick="showInfo('E15')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E15</button>
+<button onclick="showInfo('E16')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E16</button>
+<button onclick="showInfo('E17')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E17</button>
+<button onclick="showInfo('E18')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E18</button>
+<button onclick="showInfo('E19')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E19</button>
+<button onclick="showInfo('E20')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E20</button>
+<button onclick="showInfo('E21')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E21</button>
+<button onclick="showInfo('E22')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E22</button>
+<button onclick="showInfo('E23')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200">E23</button>
+</div></div></div>
+
+    <div class="mb-6">
+      <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-purple-300 inline-block shadow">F 區</div>
+      <div class="mt-1"><div class='grid grid-cols-8 gap-1'>
+    <button onclick="showInfo('F01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F01</button>
+<button onclick="showInfo('F02')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F02</button>
+<button onclick="showInfo('F03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F03</button>
+<button onclick="showInfo('F04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F04</button>
+<button onclick="showInfo('F05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F05</button>
+<button onclick="showInfo('F06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F06</button>
+<button onclick="showInfo('F07')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F07</button>
+<button onclick="showInfo('F08')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F08</button>
+<button onclick="showInfo('F09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F09</button>
+<button onclick="showInfo('F10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F10</button>
+<button onclick="showInfo('F11')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F11</button>
+<button onclick="showInfo('F12')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F12</button>
+<button onclick="showInfo('F13')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F13</button>
+<button onclick="showInfo('F14')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F14</button>
+<button onclick="showInfo('F15')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200">F15</button>
+</div></div></div>
+
+    <div class="mb-6">
+      <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-gray-300 inline-block shadow">G 區</div>
+      <div class="mt-1"><div class='grid grid-cols-8 gap-1'>
+    <button onclick="showInfo('G01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G01</button>
+<button onclick="showInfo('G02')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G02</button>
+<button onclick="showInfo('G03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G03</button>
+<button onclick="showInfo('G04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G04</button>
+<button onclick="showInfo('G05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G05</button>
+<button onclick="showInfo('G06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G06</button>
+<button onclick="showInfo('G07')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G07</button>
+<button onclick="showInfo('G08-1')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G08-1</button>
+<button onclick="showInfo('G08-2')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G08-2</button>
+<button onclick="showInfo('G08-3')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G08-3</button>
+<button onclick="showInfo('G08-4')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G08-4</button>
+<button onclick="showInfo('G09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G09</button>
+<button onclick="showInfo('G10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-300">G10</button>
+</div></div></div>
 
     </div>
-  </div>
-  <div class="info-panel" id="info-panel">
-    <p>請點選攤位查看展商資料。</p>
+
+    <div class="bg-white p-4 rounded shadow">
+      <h2 class="text-lg font-semibold mb-3">展商資訊</h2>
+      <div id="info-panel" class="text-sm text-gray-700">
+        <p>請點選左側攤位查看展商資料。</p>
+      </div>
+    </div>
   </div>
 </body>
 </html>
