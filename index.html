@@ -95,14 +95,20 @@ function searchBooth() {
 </head>
 <body class="bg-gray-100 font-sans p-4">
   <div class="w-full bg-blue-600 text-white text-center py-4 rounded-xl shadow mb-6">
-    <h1 class="text-3xl font-bold">RailLog Korea 2025 參展廠商</h1>
+    
+<div class="bg-gradient-to-r from-blue-500 to-sky-400 text-white rounded-xl shadow-md py-4 px-4 text-center mb-6">
+  <img src="RailLogKorea2025.webp.1024.png" class="h-12 sm:h-16 mx-auto mb-2" alt="RailLog Logo" />
+  <h1 class="text-2xl sm:text-3xl font-bold">RailLog Korea 2025</h1>
+  <p class="text-sm sm:text-base text-white/90">參展廠商互動導覽</p>
+</div>
+
   </div>
 
   <div class="max-w-7xl mx-auto bg-white p-4 rounded shadow">
-    <h2 class="text-lg font-semibold mb-3">展場攤位</h2>
+    <h2 class="text-lg font-semibold mb-3">展場攤位圖</h2>
     
     <div class="text-sm text-gray-600 mb-1">可搜尋攤位編號、公司名稱或國家，輸入 <code>!韓國</code> 可排除韓國廠商</div>
-    <input id="searchInput" onkeyup="searchBooth()" placeholder="輸入搜尋..." class="mb-4 p-2 border w-full rounded" />
+    <input id="searchInput" onkeyup="searchBooth()" placeholder="輸入攤位編號過濾..." class="mb-4 p-2 border w-full rounded" />
     <div class='mt-4'>
     <div id="noResultMessage" class="hidden text-center text-red-500 text-sm mt-2">找不到符合的攤位，請嘗試其他關鍵字。</div>
     <div class="mb-6">
