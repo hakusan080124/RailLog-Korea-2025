@@ -1,12 +1,13 @@
 
 <!DOCTYPE html>
+
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RailLog Korea 2025</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RailLog Korea 2025</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
     function toggleInfo(boothId) {
       const popup = document.getElementById("popup-" + boothId);
       if (!popup) return;
@@ -15,1199 +16,1114 @@
       popup.classList.toggle("hidden");
     }
   </script>
-</head>
+<script>
+function searchBooths() {
+  const input = document.getElementById('searchInput').value.toLowerCase();
+  const buttons = document.querySelectorAll('[id^="popup-"]');
+  const boothWrappers = document.querySelectorAll('[id^="popup-"]');
+
+  buttons.forEach(popup => {
+    const text = popup.innerText.toLowerCase();
+    const wrapper = popup.closest("div.relative");
+    if (text.includes(input)) {
+      wrapper.classList.remove("hidden");
+    } else {
+      wrapper.classList.add("hidden");
+    }
+  });
+
+  if (input === "") {
+    document.querySelectorAll('[id^="popup-"]').forEach(popup => {
+      const wrapper = popup.closest("div.relative");
+      wrapper.classList.remove("hidden");
+    });
+  }
+}
+</script><style>
+#searchInput:focus {
+  outline: 2px solid #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+</style></head>
 <body class="bg-gray-100 font-sans p-4">
-  <div class="w-full bg-blue-600 text-white text-center py-4 rounded-xl shadow mb-6">
-    <h1 class="text-3xl font-bold">RailLog Korea 2025 展覽互動圖（展區內彈出）</h1>
-  </div>
-  <div class="max-w-7xl mx-auto bg-white p-4 rounded shadow">
-    <h2 class="text-lg font-semibold mb-3">展場攤位圖</h2>
-    
-    <div class="mb-6">
-      <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-amber-300 inline-block shadow">A 區</div>
-      <div class="mt-1 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
-        <div class="relative">
-          <button onclick="toggleInfo('A04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200 w-full">A04</button>
-          <div id="popup-A04" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">A04 - DEMCO CSI</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>戶外高亮度 TFT‑LCD 資訊顯示器</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('A05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200 w-full">A05</button>
-          <div id="popup-A05" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">A05 - YK Construction Equipment Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>工程與軌道施工機械租售</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('A06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200 w-full">A06</button>
-          <div id="popup-A06" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">A06 - SPACEPRO</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>碳纖維車體複材結構</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('A07')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200 w-full">A07</button>
-          <div id="popup-A07" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">A07 - Hyundai Rotem Company</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>高速列車、電聯車、號誌系統</div>
-            <div><span class="font-medium">公司規模：</span>大型</div>
-          </div>
-        </div>
-        </div>
-    </div>
-    
-    <div class="mb-6">
-      <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-green-300 inline-block shadow">B 區</div>
-      <div class="mt-1 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
-        <div class="relative">
-          <button onclick="toggleInfo('B01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full">B01</button>
-          <div id="popup-B01" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">B01 - Electronic & Human Technology</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>電子開關、控制面板</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('B02')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full">B02</button>
-          <div id="popup-B02" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">B02 - ENTEC Electric & Electronic Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>中低壓供電設備、SCADA</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('B03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full">B03</button>
-          <div id="popup-B03" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">B03 - KUMSAN M&E Co., LTD</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>鐵道繼電器、端子台</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('B04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full">B04</button>
-          <div id="popup-B04" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">B04 - MAPSCO Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>滾珠螺桿、致動器</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('B05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full">B05</button>
-          <div id="popup-B05" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">B05 - Mahani Electric Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>感測器、連接器</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('B06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full">B06</button>
-          <div id="popup-B06" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">B06 - EASTERN R&E Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>輪對、轉向架、軌道貨車</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('B07')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full">B07</button>
-          <div id="popup-B07" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">B07 - KOBA Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>液壓減震器</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('B08')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full">B08</button>
-          <div id="popup-B08" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">B08 - CSIN Tech Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>列車控制、智慧物聯網、車載系統</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('B09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full">B09</button>
-          <div id="popup-B09" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">B09 - Dujin I&T</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>車輛零部件、RAMS 諮詢</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('B10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full">B10</button>
-          <div id="popup-B10" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">B10 - VCTECH Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>逆變器</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('B11')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full">B11</button>
-          <div id="popup-B11" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">B11 - TÜV Rheinland Korea Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>德國〈韓〉</div>
-            <div><span class="font-medium">主要產品：</span>安全認證、EMC/功能安全測試</div>
-            <div><span class="font-medium">公司規模：</span>大型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('B12')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full">B12</button>
-          <div id="popup-B12" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">B12 - ILME Korea Co.</div>
-            <div><span class="font-medium">國家/地區：</span>義大利〈韓〉</div>
-            <div><span class="font-medium">主要產品：</span>工業矩形連接器</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        </div>
-    </div>
-    
-    <div class="mb-6">
-      <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-sky-300 inline-block shadow">C 區</div>
-      <div class="mt-1 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
-        <div class="relative">
-          <button onclick="toggleInfo('C01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C01</button>
-          <div id="popup-C01" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C01 - SAMSON TECH Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>無資料</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C02')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C02</button>
-          <div id="popup-C02" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C02 - KOSTECH</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>CAE測試</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C03</button>
-          <div id="popup-C03" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C03 - intech</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>無資料</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C04</button>
-          <div id="popup-C04" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C04 - Jinil 1'Stec Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>檢測儀器</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C05</button>
-          <div id="popup-C05" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C05 - YOUNG JOONG IND Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>無資料</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C06</button>
-          <div id="popup-C06" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C06 - T.I.CORPORATION</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>無資料</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C07')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C07</button>
-          <div id="popup-C07" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C07 - GLOS Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>顯示器、自動化零件</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C08')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C08</button>
-          <div id="popup-C08" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C08 - BEST ENGINEERING</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>岔心、軌道配件</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C09</button>
-          <div id="popup-C09" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C09 - WOOJAE</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>空間設計</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C10</button>
-          <div id="popup-C10" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C10 - Roxtec Korea</div>
-            <div><span class="font-medium">國家/地區：</span>瑞典〈韓〉</div>
-            <div><span class="font-medium">主要產品：</span>電纜/管線穿隔密封模組</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C11')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C11</button>
-          <div id="popup-C11" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C11 - GMTECH Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>鋼構設備</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C12')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C12</button>
-          <div id="popup-C12" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C12 - WAINKOREA</div>
-            <div><span class="font-medium">國家/地區：</span>無資料</div>
-            <div><span class="font-medium">主要產品：</span>無資料</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C13')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C13</button>
-          <div id="popup-C13" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C13 - Korea Petroleum</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>石油產品、化工品</div>
-            <div><span class="font-medium">公司規模：</span>大型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C14')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C14</button>
-          <div id="popup-C14" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C14 - Elthus T&L</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>施工維修工具、車輛組裝工具</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C15')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C15</button>
-          <div id="popup-C15" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C15 - NAWOO Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>非破壞檢測NTD工具</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C16')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C16</button>
-          <div id="popup-C16" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C16 - ZEECOM</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>測量系統、開關、感測器</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C17')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C17</button>
-          <div id="popup-C17" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C17 - DNV Business Assurance Korea</div>
-            <div><span class="font-medium">國家/地區：</span>挪威〈韓〉</div>
-            <div><span class="font-medium">主要產品：</span>系統安全/功能安全認證</div>
-            <div><span class="font-medium">公司規模：</span>大型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C18')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C18</button>
-          <div id="popup-C18" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C18 - Schaltbau Korea Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>德國〈韓〉</div>
-            <div><span class="font-medium">主要產品：</span>DC接觸器、UIC連接器</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C19')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C19</button>
-          <div id="popup-C19" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C19 - CEL‑BIO KUBE Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>環保潤滑油、生質清潔劑</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C20')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C20</button>
-          <div id="popup-C20" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C20 - BP Intelligent Mechanics</div>
-            <div><span class="font-medium">國家/地區：</span>中國</div>
-            <div><span class="font-medium">主要產品：</span>檢測機器人、AI缺陷判讀</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C21')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C21</button>
-          <div id="popup-C21" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C21 - TILC Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>技術諮詢與工程服務</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C22')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C22</button>
-          <div id="popup-C22" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C22 - Rehau & Chunho Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>德國/韓國</div>
-            <div><span class="font-medium">主要產品：</span>無資料</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('C23')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full">C23</button>
-          <div id="popup-C23" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">C23 - RM</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>地板材料</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        </div>
-    </div>
-    
-    <div class="mb-6">
-      <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-red-300 inline-block shadow">D 區</div>
-      <div class="mt-1 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
-        <div class="relative">
-          <button onclick="toggleInfo('D01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D01</button>
-          <div id="popup-D01" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D01 - NEOPIS CO.,LTD.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>車載顯示器、工業顯示解決方案</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D02')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D02</button>
-          <div id="popup-D02" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D02 - NATIONALGEOGRAPHIC</div>
-            <div><span class="font-medium">國家/地區：</span>無</div>
-            <div><span class="font-medium">主要產品：</span>無資料</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D03</button>
-          <div id="popup-D03" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D03 - TJT PLUS CO., LTD.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>非導電強化型液體滅火器</div>
-            <div><span class="font-medium">公司規模：</span>無</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D04</button>
-          <div id="popup-D04" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D04 - PRIMET&R Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>轉向架零件、盤形煞車</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D05</button>
-          <div id="popup-D05" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D05 - GLOSYS</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>TFT LCD 顯示器</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D06</button>
-          <div id="popup-D06" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D06 - Thomas Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>工業用電纜、線束系統</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D08')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D08</button>
-          <div id="popup-D08" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D08 - Belden</div>
-            <div><span class="font-medium">國家/地區：</span>美國〈星〉</div>
-            <div><span class="font-medium">主要產品：</span>工業通訊線纜、網路解決方案</div>
-            <div><span class="font-medium">公司規模：</span>大型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D09</button>
-          <div id="popup-D09" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D09 - Kyoungseong Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>重軌系統、救援工具</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D10</button>
-          <div id="popup-D10" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D10 - Innovation & Created Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>通訊半導體、電弧偵測模組</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D11')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D11</button>
-          <div id="popup-D11" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D11 - NST</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>網路交換器</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D12')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D12</button>
-          <div id="popup-D12" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D12 - O‑Sung Electric Machinery Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>ATS/ACB斷路器、微電機</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D13')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D13</button>
-          <div id="popup-D13" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D13 - DO IT Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>安全監控、重工業現場自動化</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D14')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D14</button>
-          <div id="popup-D14" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D14 - KATEM Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>KTX列車傳動軸、煞車盤</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D15')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D15</button>
-          <div id="popup-D15" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D15 - Consilium Korea</div>
-            <div><span class="font-medium">國家/地區：</span>瑞典</div>
-            <div><span class="font-medium">主要產品：</span>火警/氣體偵測系統</div>
-            <div><span class="font-medium">公司規模：</span>大型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D16')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D16</button>
-          <div id="popup-D16" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D16 - Gaius Industrial Systems Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>HSCB、變壓器</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D17')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D17</button>
-          <div id="popup-D17" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D17 - JKTECH GLOBAL</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>電源模組與轉換器</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D18')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D18</button>
-          <div id="popup-D18" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D18 - MBST Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>鐵路公路兩用車、車輛零件</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D19')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D19</button>
-          <div id="popup-D19" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D19 - EVLUBE</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>工業潤滑油、機械用油</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D20')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D20</button>
-          <div id="popup-D20" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D20 - Sécheron SA</div>
-            <div><span class="font-medium">國家/地區：</span>瑞士</div>
-            <div><span class="font-medium">主要產品：</span>電氣開關、電力設備</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D21')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D21</button>
-          <div id="popup-D21" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D21 - Sampyo Railway</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>軌道材料、轉轍器</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D22')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D22</button>
-          <div id="popup-D22" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D22 - WISKA Korea Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>德國〈韓〉</div>
-            <div><span class="font-medium">主要產品：</span>工業連接器、照明</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D23')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D23</button>
-          <div id="popup-D23" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D23 - PROTECH</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>馬達控制系統</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D24')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D24</button>
-          <div id="popup-D24" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D24 - Cincon Electronics Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>台灣</div>
-            <div><span class="font-medium">主要產品：</span>EN 50155 DC/DC轉換器</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D25')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D25</button>
-          <div id="popup-D25" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D25 - Daeyang Electric Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>控制盤、配電盤、照明 </div>
-            <div><span class="font-medium">公司規模：</span>大型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D26')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D26</button>
-          <div id="popup-D26" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D26 - Gaepoong Electronics Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>HMI</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D27')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D27</button>
-          <div id="popup-D27" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D27 - Joowon Industrial Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>環境與設施監控系統、工業測試儀</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D28')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D28</button>
-          <div id="popup-D28" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D28 - ANTS Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>PA/PIS、CCTV</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D29')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D29</button>
-          <div id="popup-D29" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D29 - EoneTNC</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>無資料</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('D30')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full">D30</button>
-          <div id="popup-D30" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">D30 - Rail Economy News</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>鐵道專業媒體</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        </div>
-    </div>
-    
-    <div class="mb-6">
-      <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-yellow-300 inline-block shadow">E 區</div>
-      <div class="mt-1 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
-        <div class="relative">
-          <button onclick="toggleInfo('E01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full">E01</button>
-          <div id="popup-E01" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">E01 - HS ENGINEERING</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>乙太交換器、無線通訊設備</div>
-            <div><span class="font-medium">公司規模：</span></div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('E03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full">E03</button>
-          <div id="popup-E03" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">E03 - ONESERVICE</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>無資料</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('E05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full">E05</button>
-          <div id="popup-E05" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">E05 - Korea Rolling Stock Industries Association (KORSIA)</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>產業協會推廣</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('E08')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full">E08</button>
-          <div id="popup-E08" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">E08 - P-DUKE POWER</div>
-            <div><span class="font-medium">國家/地區：</span>台灣</div>
-            <div><span class="font-medium">主要產品：</span>AC/DC、DC/DC電源轉換器</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('E09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full">E09</button>
-          <div id="popup-E09" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">E09 - ICK</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>無資料</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('E10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full">E10</button>
-          <div id="popup-E10" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">E10 - Yooksong Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>消防栓、滅火器、閥件</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('E11')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full">E11</button>
-          <div id="popup-E11" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">E11 - Yujin Machinery Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>煞車、聯結器、車門控制</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('E12')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full">E12</button>
-          <div id="popup-E12" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">E12 - WeZON</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>IoT Gateways、車載數據平台</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('E13')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full">E13</button>
-          <div id="popup-E13" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">E13 - FOGTEC Brandschutz GmbH</div>
-            <div><span class="font-medium">國家/地區：</span>德國</div>
-            <div><span class="font-medium">主要產品：</span>火災偵測、滅火系統</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('E14')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full">E14</button>
-          <div id="popup-E14" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">E14 - Linsinger Maschinenbau GmbH</div>
-            <div><span class="font-medium">國家/地區：</span>奧地利</div>
-            <div><span class="font-medium">主要產品：</span>鋼軌銑削車</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('E15')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full">E15</button>
-          <div id="popup-E15" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">E15 - Suzhou DONEKA</div>
-            <div><span class="font-medium">國家/地區：</span>中國</div>
-            <div><span class="font-medium">主要產品：</span>集電弓碳刷</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('E16')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full">E16</button>
-          <div id="popup-E16" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">E16 - CRRC</div>
-            <div><span class="font-medium">國家/地區：</span>中國</div>
-            <div><span class="font-medium">主要產品：</span>高速列車、地鐵車輛</div>
-            <div><span class="font-medium">公司規模：</span>大型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('E17')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full">E17</button>
-          <div id="popup-E17" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">E17 - Henan QiangLi Machinery</div>
-            <div><span class="font-medium">國家/地區：</span>中國</div>
-            <div><span class="font-medium">主要產品：</span>軌道維修機具</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('E18')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full">E18</button>
-          <div id="popup-E18" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">E18 - KR Trading</div>
-            <div><span class="font-medium">國家/地區：</span>無資料</div>
-            <div><span class="font-medium">主要產品：</span>無資料</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('E19')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full">E19</button>
-          <div id="popup-E19" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">E19 - DEWALT</div>
-            <div><span class="font-medium">國家/地區：</span>美國</div>
-            <div><span class="font-medium">主要產品：</span>電動工具</div>
-            <div><span class="font-medium">公司規模：</span>大型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('E20')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full">E20</button>
-          <div id="popup-E20" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">E20 - GERB Korea</div>
-            <div><span class="font-medium">國家/地區：</span>德國〈韓〉</div>
-            <div><span class="font-medium">主要產品：</span>減振彈簧座、FST</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('E21')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full">E21</button>
-          <div id="popup-E21" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">E21 - UNIVIS Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>緊急照明、感光控制燈</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('E22')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full">E22</button>
-          <div id="popup-E22" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">E22 - Korea Institute of Machinery & Materials (KIMM)</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>軌道技術研發、車輛與軌道相關檢測</div>
-            <div><span class="font-medium">公司規模：</span>大型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('E23')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full">E23</button>
-          <div id="popup-E23" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">E23 - KAPST/SAFE-NET FORUM</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>鐵道通訊標準FRMCS推廣</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        </div>
-    </div>
-    
-    <div class="mb-6">
-      <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-purple-300 inline-block shadow">F 區</div>
-      <div class="mt-1 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
-        <div class="relative">
-          <button onclick="toggleInfo('F01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full">F01</button>
-          <div id="popup-F01" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">F01 - TÜV SÜD Korea Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>德國〈韓〉</div>
-            <div><span class="font-medium">主要產品：</span>系統安全與功能安全認證</div>
-            <div><span class="font-medium">公司規模：</span>大型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('F02')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full">F02</button>
-          <div id="popup-F02" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">F02 - SIB Korea</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>LBS、隔離開關</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('F03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full">F03</button>
-          <div id="popup-F03" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">F03 - VIB‑LOCK Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>振動隔離墊</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('F04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full">F04</button>
-          <div id="popup-F04" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">F04 - Railroad Industry Inc.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>研究機構</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('F05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full">F05</button>
-          <div id="popup-F05" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">F05 - Kefei(Quantum)</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>無資料</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('F06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full">F06</button>
-          <div id="popup-F06" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">F06 - Romansys Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>客貨車車體製造與翻修</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('F07')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full">F07</button>
-          <div id="popup-F07" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">F07 - JST Transformateurs</div>
-            <div><span class="font-medium">國家/地區：</span>法國</div>
-            <div><span class="font-medium">主要產品：</span>變壓器、電源設備</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('F08')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full">F08</button>
-          <div id="popup-F08" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">F08 - Longhua Technology Group</div>
-            <div><span class="font-medium">國家/地區：</span>中國</div>
-            <div><span class="font-medium">主要產品：</span>車輛用電氣設備、電源系統</div>
-            <div><span class="font-medium">公司規模：</span>大型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('F09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full">F09</button>
-          <div id="popup-F09" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">F09 - Jiangsu Tie Mao Technology</div>
-            <div><span class="font-medium">國家/地區：</span>中國</div>
-            <div><span class="font-medium">主要產品：</span>車窗安全玻璃</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('F10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full">F10</button>
-          <div id="popup-F10" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">F10 - InnoTrans 2026</div>
-            <div><span class="font-medium">國家/地區：</span>德國</div>
-            <div><span class="font-medium">主要產品：</span>國際鐵道展宣傳</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('F11')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full">F11</button>
-          <div id="popup-F11" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">F11 - Railway Gazette International</div>
-            <div><span class="font-medium">國家/地區：</span>英國</div>
-            <div><span class="font-medium">主要產品：</span>專業媒體、數據服務</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('F12')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full">F12</button>
-          <div id="popup-F12" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">F12 - Zhengzhou Mingtai Transportation New Material</div>
-            <div><span class="font-medium">國家/地區：</span>中國</div>
-            <div><span class="font-medium">主要產品：</span>鋁合金車體板材</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('F13')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full">F13</button>
-          <div id="popup-F13" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">F13 - IWMT Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>再生塑膠枕木</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('F14')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full">F14</button>
-          <div id="popup-F14" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">F14 - Sean Inc.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>焊接件、減振部件</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('F15')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full">F15</button>
-          <div id="popup-F15" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">F15 - KOREA RAILWAY INDUSTRY INFORMATION CENTER</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>鐵道產業資訊</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        </div>
-    </div>
-    
-    <div class="mb-6">
-      <div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-gray-300 inline-block shadow">G 區</div>
-      <div class="mt-1 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
-        <div class="relative">
-          <button onclick="toggleInfo('G01')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full">G01</button>
-          <div id="popup-G01" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">G01 - 宇進產電(Woojin Industrial Systems)</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>地鐵與輕軌車輛</div>
-            <div><span class="font-medium">公司規模：</span>中型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('G02')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full">G02</button>
-          <div id="popup-G02" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">G02 - BUSAN METROPOLITAN RAILWAY PROMOTION BOOTH</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>宣傳用展位</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('G03')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full">G03</button>
-          <div id="popup-G03" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">G03 - Korea Railroad Research Institute (KRRI)</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>鐵道技術研發</div>
-            <div><span class="font-medium">公司規模：</span>大型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('G04')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full">G04</button>
-          <div id="popup-G04" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">G04 - Busan Transportation Corporation</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>城市地鐵營運與維修</div>
-            <div><span class="font-medium">公司規模：</span>大型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('G05')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full">G05</button>
-          <div id="popup-G05" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">G05 - 韓國鐵道公社(KORAIL)</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>鐵路建設與維護</div>
-            <div><span class="font-medium">公司規模：</span>大型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('G06')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full">G06</button>
-          <div id="popup-G06" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">G06 - 國家鐵道公團(Korea National Railway)</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>產業協會、國際推廣</div>
-            <div><span class="font-medium">公司規模：</span>大型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('G07')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full">G07</button>
-          <div id="popup-G07" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">G07 - Korea Railway Industry Association</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>產業政策協調、國際推廣</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('G08-1')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full">G08-1</button>
-          <div id="popup-G08-1" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">G08-1 - Asiatech Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>車輪</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('G08-2')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full">G08-2</button>
-          <div id="popup-G08-2" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">G08-2 - Herostech Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>伸縮踏板</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('G08-3')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full">G08-3</button>
-          <div id="popup-G08-3" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">G08-3 - Shh Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>無資料</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('G08-4')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full">G08-4</button>
-          <div id="popup-G08-4" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">G08-4 - Vickham Engineering Pvt. Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>無資料</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('G09')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full">G09</button>
-          <div id="popup-G09" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">G09 - KORAIL Retail</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>鐵道相關商品販售</div>
-            <div><span class="font-medium">公司規模：</span>無資料</div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <button onclick="toggleInfo('G10')" class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full">G10</button>
-          <div id="popup-G10" class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full">
-            <div class="font-semibold mb-1">G10 - SaeYoung Technologies Co., Ltd.</div>
-            <div><span class="font-medium">國家/地區：</span>韓國</div>
-            <div><span class="font-medium">主要產品：</span>鐵道車輛用監控、感測器、安全設備（與德國Deuta-Werke合作）</div>
-            <div><span class="font-medium">公司規模：</span>小型</div>
-          </div>
-        </div>
-        </div>
-    </div>
-    
-  </div>
+<div class="w-full bg-blue-600 text-white text-center py-4 rounded-xl shadow mb-6">
+<h1 class="text-3xl font-bold">RailLog Korea 2025 展覽互動圖（展區內彈出）</h1>
+</div><div class="max-w-7xl mx-auto bg-white p-4 rounded shadow mb-6">
+<h2 class="text-lg font-semibold mb-3">快速搜尋攤位</h2>
+<input class="mb-4 p-2 border w-full rounded" id="searchInput" onkeyup="searchBooths()" placeholder="輸入攤位編號、公司名稱、關鍵字..."/>
+</div>
+<div class="max-w-7xl mx-auto bg-white p-4 rounded shadow">
+<h2 class="text-lg font-semibold mb-3">展場攤位圖</h2>
+<div class="mb-6">
+<div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-amber-300 inline-block shadow">A 區</div>
+<div class="mt-1 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200 w-full" onclick="toggleInfo('A04')">A04</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-A04">
+<div class="font-semibold mb-1">A04 - DEMCO CSI</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>戶外高亮度 TFT‑LCD 資訊顯示器</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200 w-full" onclick="toggleInfo('A05')">A05</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-A05">
+<div class="font-semibold mb-1">A05 - YK Construction Equipment Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>工程與軌道施工機械租售</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200 w-full" onclick="toggleInfo('A06')">A06</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-A06">
+<div class="font-semibold mb-1">A06 - SPACEPRO</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>碳纖維車體複材結構</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200 w-full" onclick="toggleInfo('A07')">A07</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-A07">
+<div class="font-semibold mb-1">A07 - Hyundai Rotem Company</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>高速列車、電聯車、號誌系統</div>
+<div><span class="font-medium">公司規模：</span>大型</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-green-300 inline-block shadow">B 區</div>
+<div class="mt-1 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B01')">B01</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B01">
+<div class="font-semibold mb-1">B01 - Electronic &amp; Human Technology</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>電子開關、控制面板</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B02')">B02</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B02">
+<div class="font-semibold mb-1">B02 - ENTEC Electric &amp; Electronic Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>中低壓供電設備、SCADA</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B03')">B03</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B03">
+<div class="font-semibold mb-1">B03 - KUMSAN M&amp;E Co., LTD</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>鐵道繼電器、端子台</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B04')">B04</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B04">
+<div class="font-semibold mb-1">B04 - MAPSCO Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>滾珠螺桿、致動器</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B05')">B05</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B05">
+<div class="font-semibold mb-1">B05 - Mahani Electric Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>感測器、連接器</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B06')">B06</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B06">
+<div class="font-semibold mb-1">B06 - EASTERN R&amp;E Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>輪對、轉向架、軌道貨車</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B07')">B07</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B07">
+<div class="font-semibold mb-1">B07 - KOBA Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>液壓減震器</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B08')">B08</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B08">
+<div class="font-semibold mb-1">B08 - CSIN Tech Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>列車控制、智慧物聯網、車載系統</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B09')">B09</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B09">
+<div class="font-semibold mb-1">B09 - Dujin I&amp;T</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>車輛零部件、RAMS 諮詢</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B10')">B10</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B10">
+<div class="font-semibold mb-1">B10 - VCTECH Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>逆變器</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B11')">B11</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B11">
+<div class="font-semibold mb-1">B11 - TÜV Rheinland Korea Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>德國〈韓〉</div>
+<div><span class="font-medium">主要產品：</span>安全認證、EMC/功能安全測試</div>
+<div><span class="font-medium">公司規模：</span>大型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B12')">B12</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B12">
+<div class="font-semibold mb-1">B12 - ILME Korea Co.</div>
+<div><span class="font-medium">國家/地區：</span>義大利〈韓〉</div>
+<div><span class="font-medium">主要產品：</span>工業矩形連接器</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-sky-300 inline-block shadow">C 區</div>
+<div class="mt-1 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C01')">C01</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C01">
+<div class="font-semibold mb-1">C01 - SAMSON TECH Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>無資料</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C02')">C02</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C02">
+<div class="font-semibold mb-1">C02 - KOSTECH</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>CAE測試</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C03')">C03</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C03">
+<div class="font-semibold mb-1">C03 - intech</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>無資料</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C04')">C04</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C04">
+<div class="font-semibold mb-1">C04 - Jinil 1'Stec Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>檢測儀器</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C05')">C05</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C05">
+<div class="font-semibold mb-1">C05 - YOUNG JOONG IND Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>無資料</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C06')">C06</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C06">
+<div class="font-semibold mb-1">C06 - T.I.CORPORATION</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>無資料</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C07')">C07</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C07">
+<div class="font-semibold mb-1">C07 - GLOS Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>顯示器、自動化零件</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C08')">C08</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C08">
+<div class="font-semibold mb-1">C08 - BEST ENGINEERING</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>岔心、軌道配件</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C09')">C09</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C09">
+<div class="font-semibold mb-1">C09 - WOOJAE</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>空間設計</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C10')">C10</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C10">
+<div class="font-semibold mb-1">C10 - Roxtec Korea</div>
+<div><span class="font-medium">國家/地區：</span>瑞典〈韓〉</div>
+<div><span class="font-medium">主要產品：</span>電纜/管線穿隔密封模組</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C11')">C11</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C11">
+<div class="font-semibold mb-1">C11 - GMTECH Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>鋼構設備</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C12')">C12</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C12">
+<div class="font-semibold mb-1">C12 - WAINKOREA</div>
+<div><span class="font-medium">國家/地區：</span>無資料</div>
+<div><span class="font-medium">主要產品：</span>無資料</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C13')">C13</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C13">
+<div class="font-semibold mb-1">C13 - Korea Petroleum</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>石油產品、化工品</div>
+<div><span class="font-medium">公司規模：</span>大型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C14')">C14</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C14">
+<div class="font-semibold mb-1">C14 - Elthus T&amp;L</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>施工維修工具、車輛組裝工具</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C15')">C15</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C15">
+<div class="font-semibold mb-1">C15 - NAWOO Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>非破壞檢測NTD工具</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C16')">C16</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C16">
+<div class="font-semibold mb-1">C16 - ZEECOM</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>測量系統、開關、感測器</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C17')">C17</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C17">
+<div class="font-semibold mb-1">C17 - DNV Business Assurance Korea</div>
+<div><span class="font-medium">國家/地區：</span>挪威〈韓〉</div>
+<div><span class="font-medium">主要產品：</span>系統安全/功能安全認證</div>
+<div><span class="font-medium">公司規模：</span>大型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C18')">C18</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C18">
+<div class="font-semibold mb-1">C18 - Schaltbau Korea Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>德國〈韓〉</div>
+<div><span class="font-medium">主要產品：</span>DC接觸器、UIC連接器</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C19')">C19</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C19">
+<div class="font-semibold mb-1">C19 - CEL‑BIO KUBE Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>環保潤滑油、生質清潔劑</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C20')">C20</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C20">
+<div class="font-semibold mb-1">C20 - BP Intelligent Mechanics</div>
+<div><span class="font-medium">國家/地區：</span>中國</div>
+<div><span class="font-medium">主要產品：</span>檢測機器人、AI缺陷判讀</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C21')">C21</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C21">
+<div class="font-semibold mb-1">C21 - TILC Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>技術諮詢與工程服務</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C22')">C22</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C22">
+<div class="font-semibold mb-1">C22 - Rehau &amp; Chunho Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>德國/韓國</div>
+<div><span class="font-medium">主要產品：</span>無資料</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C23')">C23</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C23">
+<div class="font-semibold mb-1">C23 - RM</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>地板材料</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-red-300 inline-block shadow">D 區</div>
+<div class="mt-1 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D01')">D01</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D01">
+<div class="font-semibold mb-1">D01 - NEOPIS CO.,LTD.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>車載顯示器、工業顯示解決方案</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D02')">D02</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D02">
+<div class="font-semibold mb-1">D02 - NATIONALGEOGRAPHIC</div>
+<div><span class="font-medium">國家/地區：</span>無</div>
+<div><span class="font-medium">主要產品：</span>無資料</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D03')">D03</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D03">
+<div class="font-semibold mb-1">D03 - TJT PLUS CO., LTD.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>非導電強化型液體滅火器</div>
+<div><span class="font-medium">公司規模：</span>無</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D04')">D04</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D04">
+<div class="font-semibold mb-1">D04 - PRIMET&amp;R Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>轉向架零件、盤形煞車</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D05')">D05</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D05">
+<div class="font-semibold mb-1">D05 - GLOSYS</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>TFT LCD 顯示器</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D06')">D06</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D06">
+<div class="font-semibold mb-1">D06 - Thomas Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>工業用電纜、線束系統</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D08')">D08</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D08">
+<div class="font-semibold mb-1">D08 - Belden</div>
+<div><span class="font-medium">國家/地區：</span>美國〈星〉</div>
+<div><span class="font-medium">主要產品：</span>工業通訊線纜、網路解決方案</div>
+<div><span class="font-medium">公司規模：</span>大型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D09')">D09</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D09">
+<div class="font-semibold mb-1">D09 - Kyoungseong Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>重軌系統、救援工具</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D10')">D10</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D10">
+<div class="font-semibold mb-1">D10 - Innovation &amp; Created Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>通訊半導體、電弧偵測模組</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D11')">D11</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D11">
+<div class="font-semibold mb-1">D11 - NST</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>網路交換器</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D12')">D12</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D12">
+<div class="font-semibold mb-1">D12 - O‑Sung Electric Machinery Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>ATS/ACB斷路器、微電機</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D13')">D13</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D13">
+<div class="font-semibold mb-1">D13 - DO IT Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>安全監控、重工業現場自動化</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D14')">D14</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D14">
+<div class="font-semibold mb-1">D14 - KATEM Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>KTX列車傳動軸、煞車盤</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D15')">D15</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D15">
+<div class="font-semibold mb-1">D15 - Consilium Korea</div>
+<div><span class="font-medium">國家/地區：</span>瑞典</div>
+<div><span class="font-medium">主要產品：</span>火警/氣體偵測系統</div>
+<div><span class="font-medium">公司規模：</span>大型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D16')">D16</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D16">
+<div class="font-semibold mb-1">D16 - Gaius Industrial Systems Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>HSCB、變壓器</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D17')">D17</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D17">
+<div class="font-semibold mb-1">D17 - JKTECH GLOBAL</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>電源模組與轉換器</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D18')">D18</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D18">
+<div class="font-semibold mb-1">D18 - MBST Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>鐵路公路兩用車、車輛零件</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D19')">D19</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D19">
+<div class="font-semibold mb-1">D19 - EVLUBE</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>工業潤滑油、機械用油</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D20')">D20</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D20">
+<div class="font-semibold mb-1">D20 - Sécheron SA</div>
+<div><span class="font-medium">國家/地區：</span>瑞士</div>
+<div><span class="font-medium">主要產品：</span>電氣開關、電力設備</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D21')">D21</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D21">
+<div class="font-semibold mb-1">D21 - Sampyo Railway</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>軌道材料、轉轍器</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D22')">D22</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D22">
+<div class="font-semibold mb-1">D22 - WISKA Korea Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>德國〈韓〉</div>
+<div><span class="font-medium">主要產品：</span>工業連接器、照明</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D23')">D23</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D23">
+<div class="font-semibold mb-1">D23 - PROTECH</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>馬達控制系統</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D24')">D24</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D24">
+<div class="font-semibold mb-1">D24 - Cincon Electronics Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>台灣</div>
+<div><span class="font-medium">主要產品：</span>EN 50155 DC/DC轉換器</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D25')">D25</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D25">
+<div class="font-semibold mb-1">D25 - Daeyang Electric Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>控制盤、配電盤、照明 </div>
+<div><span class="font-medium">公司規模：</span>大型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D26')">D26</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D26">
+<div class="font-semibold mb-1">D26 - Gaepoong Electronics Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>HMI</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D27')">D27</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D27">
+<div class="font-semibold mb-1">D27 - Joowon Industrial Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>環境與設施監控系統、工業測試儀</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D28')">D28</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D28">
+<div class="font-semibold mb-1">D28 - ANTS Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>PA/PIS、CCTV</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D29')">D29</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D29">
+<div class="font-semibold mb-1">D29 - EoneTNC</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>無資料</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D30')">D30</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D30">
+<div class="font-semibold mb-1">D30 - Rail Economy News</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>鐵道專業媒體</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-yellow-300 inline-block shadow">E 區</div>
+<div class="mt-1 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E01')">E01</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E01">
+<div class="font-semibold mb-1">E01 - HS ENGINEERING</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>乙太交換器、無線通訊設備</div>
+<div><span class="font-medium">公司規模：</span></div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E03')">E03</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E03">
+<div class="font-semibold mb-1">E03 - ONESERVICE</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>無資料</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E05')">E05</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E05">
+<div class="font-semibold mb-1">E05 - Korea Rolling Stock Industries Association (KORSIA)</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>產業協會推廣</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E08')">E08</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E08">
+<div class="font-semibold mb-1">E08 - P-DUKE POWER</div>
+<div><span class="font-medium">國家/地區：</span>台灣</div>
+<div><span class="font-medium">主要產品：</span>AC/DC、DC/DC電源轉換器</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E09')">E09</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E09">
+<div class="font-semibold mb-1">E09 - ICK</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>無資料</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E10')">E10</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E10">
+<div class="font-semibold mb-1">E10 - Yooksong Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>消防栓、滅火器、閥件</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E11')">E11</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E11">
+<div class="font-semibold mb-1">E11 - Yujin Machinery Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>煞車、聯結器、車門控制</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E12')">E12</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E12">
+<div class="font-semibold mb-1">E12 - WeZON</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>IoT Gateways、車載數據平台</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E13')">E13</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E13">
+<div class="font-semibold mb-1">E13 - FOGTEC Brandschutz GmbH</div>
+<div><span class="font-medium">國家/地區：</span>德國</div>
+<div><span class="font-medium">主要產品：</span>火災偵測、滅火系統</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E14')">E14</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E14">
+<div class="font-semibold mb-1">E14 - Linsinger Maschinenbau GmbH</div>
+<div><span class="font-medium">國家/地區：</span>奧地利</div>
+<div><span class="font-medium">主要產品：</span>鋼軌銑削車</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E15')">E15</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E15">
+<div class="font-semibold mb-1">E15 - Suzhou DONEKA</div>
+<div><span class="font-medium">國家/地區：</span>中國</div>
+<div><span class="font-medium">主要產品：</span>集電弓碳刷</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E16')">E16</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E16">
+<div class="font-semibold mb-1">E16 - CRRC</div>
+<div><span class="font-medium">國家/地區：</span>中國</div>
+<div><span class="font-medium">主要產品：</span>高速列車、地鐵車輛</div>
+<div><span class="font-medium">公司規模：</span>大型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E17')">E17</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E17">
+<div class="font-semibold mb-1">E17 - Henan QiangLi Machinery</div>
+<div><span class="font-medium">國家/地區：</span>中國</div>
+<div><span class="font-medium">主要產品：</span>軌道維修機具</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E18')">E18</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E18">
+<div class="font-semibold mb-1">E18 - KR Trading</div>
+<div><span class="font-medium">國家/地區：</span>無資料</div>
+<div><span class="font-medium">主要產品：</span>無資料</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E19')">E19</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E19">
+<div class="font-semibold mb-1">E19 - DEWALT</div>
+<div><span class="font-medium">國家/地區：</span>美國</div>
+<div><span class="font-medium">主要產品：</span>電動工具</div>
+<div><span class="font-medium">公司規模：</span>大型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E20')">E20</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E20">
+<div class="font-semibold mb-1">E20 - GERB Korea</div>
+<div><span class="font-medium">國家/地區：</span>德國〈韓〉</div>
+<div><span class="font-medium">主要產品：</span>減振彈簧座、FST</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E21')">E21</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E21">
+<div class="font-semibold mb-1">E21 - UNIVIS Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>緊急照明、感光控制燈</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E22')">E22</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E22">
+<div class="font-semibold mb-1">E22 - Korea Institute of Machinery &amp; Materials (KIMM)</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>軌道技術研發、車輛與軌道相關檢測</div>
+<div><span class="font-medium">公司規模：</span>大型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E23')">E23</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E23">
+<div class="font-semibold mb-1">E23 - KAPST/SAFE-NET FORUM</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>鐵道通訊標準FRMCS推廣</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-purple-300 inline-block shadow">F 區</div>
+<div class="mt-1 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F01')">F01</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F01">
+<div class="font-semibold mb-1">F01 - TÜV SÜD Korea Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>德國〈韓〉</div>
+<div><span class="font-medium">主要產品：</span>系統安全與功能安全認證</div>
+<div><span class="font-medium">公司規模：</span>大型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F02')">F02</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F02">
+<div class="font-semibold mb-1">F02 - SIB Korea</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>LBS、隔離開關</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F03')">F03</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F03">
+<div class="font-semibold mb-1">F03 - VIB‑LOCK Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>振動隔離墊</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F04')">F04</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F04">
+<div class="font-semibold mb-1">F04 - Railroad Industry Inc.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>研究機構</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F05')">F05</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F05">
+<div class="font-semibold mb-1">F05 - Kefei(Quantum)</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>無資料</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F06')">F06</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F06">
+<div class="font-semibold mb-1">F06 - Romansys Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>客貨車車體製造與翻修</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F07')">F07</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F07">
+<div class="font-semibold mb-1">F07 - JST Transformateurs</div>
+<div><span class="font-medium">國家/地區：</span>法國</div>
+<div><span class="font-medium">主要產品：</span>變壓器、電源設備</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F08')">F08</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F08">
+<div class="font-semibold mb-1">F08 - Longhua Technology Group</div>
+<div><span class="font-medium">國家/地區：</span>中國</div>
+<div><span class="font-medium">主要產品：</span>車輛用電氣設備、電源系統</div>
+<div><span class="font-medium">公司規模：</span>大型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F09')">F09</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F09">
+<div class="font-semibold mb-1">F09 - Jiangsu Tie Mao Technology</div>
+<div><span class="font-medium">國家/地區：</span>中國</div>
+<div><span class="font-medium">主要產品：</span>車窗安全玻璃</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F10')">F10</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F10">
+<div class="font-semibold mb-1">F10 - InnoTrans 2026</div>
+<div><span class="font-medium">國家/地區：</span>德國</div>
+<div><span class="font-medium">主要產品：</span>國際鐵道展宣傳</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F11')">F11</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F11">
+<div class="font-semibold mb-1">F11 - Railway Gazette International</div>
+<div><span class="font-medium">國家/地區：</span>英國</div>
+<div><span class="font-medium">主要產品：</span>專業媒體、數據服務</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F12')">F12</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F12">
+<div class="font-semibold mb-1">F12 - Zhengzhou Mingtai Transportation New Material</div>
+<div><span class="font-medium">國家/地區：</span>中國</div>
+<div><span class="font-medium">主要產品：</span>鋁合金車體板材</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F13')">F13</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F13">
+<div class="font-semibold mb-1">F13 - IWMT Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>再生塑膠枕木</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F14')">F14</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F14">
+<div class="font-semibold mb-1">F14 - Sean Inc.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>焊接件、減振部件</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F15')">F15</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F15">
+<div class="font-semibold mb-1">F15 - KOREA RAILWAY INDUSTRY INFORMATION CENTER</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>鐵道產業資訊</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<div class="text-white text-sm font-bold px-3 py-1 rounded-t bg-gray-300 inline-block shadow">G 區</div>
+<div class="mt-1 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G01')">G01</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G01">
+<div class="font-semibold mb-1">G01 - 宇進產電(Woojin Industrial Systems)</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>地鐵與輕軌車輛</div>
+<div><span class="font-medium">公司規模：</span>中型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G02')">G02</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G02">
+<div class="font-semibold mb-1">G02 - BUSAN METROPOLITAN RAILWAY PROMOTION BOOTH</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>宣傳用展位</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G03')">G03</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G03">
+<div class="font-semibold mb-1">G03 - Korea Railroad Research Institute (KRRI)</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>鐵道技術研發</div>
+<div><span class="font-medium">公司規模：</span>大型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G04')">G04</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G04">
+<div class="font-semibold mb-1">G04 - Busan Transportation Corporation</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>城市地鐵營運與維修</div>
+<div><span class="font-medium">公司規模：</span>大型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G05')">G05</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G05">
+<div class="font-semibold mb-1">G05 - 韓國鐵道公社(KORAIL)</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>鐵路建設與維護</div>
+<div><span class="font-medium">公司規模：</span>大型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G06')">G06</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G06">
+<div class="font-semibold mb-1">G06 - 國家鐵道公團(Korea National Railway)</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>產業協會、國際推廣</div>
+<div><span class="font-medium">公司規模：</span>大型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G07')">G07</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G07">
+<div class="font-semibold mb-1">G07 - Korea Railway Industry Association</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>產業政策協調、國際推廣</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G08-1')">G08-1</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G08-1">
+<div class="font-semibold mb-1">G08-1 - Asiatech Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>車輪</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G08-2')">G08-2</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G08-2">
+<div class="font-semibold mb-1">G08-2 - Herostech Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>伸縮踏板</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G08-3')">G08-3</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G08-3">
+<div class="font-semibold mb-1">G08-3 - Shh Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>無資料</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G08-4')">G08-4</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G08-4">
+<div class="font-semibold mb-1">G08-4 - Vickham Engineering Pvt. Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>無資料</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G09')">G09</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G09">
+<div class="font-semibold mb-1">G09 - KORAIL Retail</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>鐵道相關商品販售</div>
+<div><span class="font-medium">公司規模：</span>無資料</div>
+</div>
+</div>
+<div class="relative">
+<button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G10')">G10</button>
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G10">
+<div class="font-semibold mb-1">G10 - SaeYoung Technologies Co., Ltd.</div>
+<div><span class="font-medium">國家/地區：</span>韓國</div>
+<div><span class="font-medium">主要產品：</span>鐵道車輛用監控、感測器、安全設備（與德國Deuta-Werke合作）</div>
+<div><span class="font-medium">公司規模：</span>小型</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </body>
 </html>
