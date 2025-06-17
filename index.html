@@ -35,10 +35,29 @@ function closeModal() {
 }
 </script>
 
+
+<script>
+function searchBooth() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const buttons = document.querySelectorAll("button[id^='btn-']");
+  buttons.forEach(btn => {
+    const id = btn.id.replace('btn-', '');
+    const info = BOOTH_DATA[id];
+    if (!info) return;
+
+    const name = info['公司名稱']?.toLowerCase() || '';
+    const country = info['國家/地區']?.toLowerCase() || '';
+
+    const match = id.toLowerCase().includes(input) || name.includes(input) || country.includes(input);
+    btn.parentElement.style.display = match ? '' : 'none';
+  });
+}
+</script>
+
 </head>
 <body class="bg-gray-100 font-sans p-4">
   <div class="w-full bg-blue-600 text-white text-center py-4 rounded-xl shadow mb-6">
-    <h1 class="text-3xl font-bold">RailLog Korea 2025 參展廠商</h1>
+    <h1 class="text-3xl font-bold">RailLog Korea 2025 展覽互動圖（彈窗內嵌修正版）</h1>
   </div>
 
   <div class="max-w-7xl mx-auto bg-white p-4 rounded shadow">
