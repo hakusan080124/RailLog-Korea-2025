@@ -8,6 +8,15 @@
 <title>RailLog Korea 2025</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
+    function toggleInfo(boothId) {
+      const popup = document.getElementById("popup-" + boothId);
+      if (!popup) return;
+      const allPopups = document.querySelectorAll('[id^="popup-"]');
+      allPopups.forEach(el => el.classList.add("hidden"));
+      popup.classList.toggle("hidden");
+    }
+  </script>
+<script>
 function searchBooths() {
   const input = document.getElementById('searchInput').value.toLowerCase();
   const buttons = document.querySelectorAll('[id^="popup-"]');
@@ -50,7 +59,7 @@ function searchBooths() {
 <div class="mt-1 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200 w-full" onclick="toggleInfo('A04')">A04</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-A04" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-A04">
 <div class="font-semibold mb-1">A04 - DEMCO CSI</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>戶外高亮度 TFT‑LCD 資訊顯示器</div>
@@ -59,7 +68,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200 w-full" onclick="toggleInfo('A05')">A05</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-A05" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-A05">
 <div class="font-semibold mb-1">A05 - YK Construction Equipment Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>工程與軌道施工機械租售</div>
@@ -68,7 +77,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200 w-full" onclick="toggleInfo('A06')">A06</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-A06" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-A06">
 <div class="font-semibold mb-1">A06 - SPACEPRO</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>碳纖維車體複材結構</div>
@@ -77,7 +86,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-amber-200 w-full" onclick="toggleInfo('A07')">A07</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-A07" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-A07">
 <div class="font-semibold mb-1">A07 - Hyundai Rotem Company</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>高速列車、電聯車、號誌系統</div>
@@ -91,7 +100,7 @@ function searchBooths() {
 <div class="mt-1 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B01')">B01</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-B01" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B01">
 <div class="font-semibold mb-1">B01 - Electronic &amp; Human Technology</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>電子開關、控制面板</div>
@@ -100,7 +109,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B02')">B02</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-B02" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B02">
 <div class="font-semibold mb-1">B02 - ENTEC Electric &amp; Electronic Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>中低壓供電設備、SCADA</div>
@@ -109,7 +118,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B03')">B03</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-B03" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B03">
 <div class="font-semibold mb-1">B03 - KUMSAN M&amp;E Co., LTD</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>鐵道繼電器、端子台</div>
@@ -118,7 +127,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B04')">B04</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-B04" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B04">
 <div class="font-semibold mb-1">B04 - MAPSCO Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>滾珠螺桿、致動器</div>
@@ -127,7 +136,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B05')">B05</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-B05" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B05">
 <div class="font-semibold mb-1">B05 - Mahani Electric Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>感測器、連接器</div>
@@ -136,7 +145,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B06')">B06</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-B06" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B06">
 <div class="font-semibold mb-1">B06 - EASTERN R&amp;E Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>輪對、轉向架、軌道貨車</div>
@@ -145,7 +154,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B07')">B07</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-B07" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B07">
 <div class="font-semibold mb-1">B07 - KOBA Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>液壓減震器</div>
@@ -154,7 +163,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B08')">B08</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-B08" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B08">
 <div class="font-semibold mb-1">B08 - CSIN Tech Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>列車控制、智慧物聯網、車載系統</div>
@@ -163,7 +172,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B09')">B09</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-B09" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B09">
 <div class="font-semibold mb-1">B09 - Dujin I&amp;T</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>車輛零部件、RAMS 諮詢</div>
@@ -172,7 +181,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B10')">B10</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-B10" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B10">
 <div class="font-semibold mb-1">B10 - VCTECH Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>逆變器</div>
@@ -181,7 +190,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B11')">B11</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-B11" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B11">
 <div class="font-semibold mb-1">B11 - TÜV Rheinland Korea Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>德國〈韓〉</div>
 <div><span class="font-medium">主要產品：</span>安全認證、EMC/功能安全測試</div>
@@ -190,7 +199,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-green-200 w-full" onclick="toggleInfo('B12')">B12</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-B12" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-B12">
 <div class="font-semibold mb-1">B12 - ILME Korea Co.</div>
 <div><span class="font-medium">國家/地區：</span>義大利〈韓〉</div>
 <div><span class="font-medium">主要產品：</span>工業矩形連接器</div>
@@ -204,7 +213,7 @@ function searchBooths() {
 <div class="mt-1 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C01')">C01</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C01" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C01">
 <div class="font-semibold mb-1">C01 - SAMSON TECH Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>無資料</div>
@@ -213,7 +222,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C02')">C02</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C02" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C02">
 <div class="font-semibold mb-1">C02 - KOSTECH</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>CAE測試</div>
@@ -222,7 +231,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C03')">C03</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C03" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C03">
 <div class="font-semibold mb-1">C03 - intech</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>無資料</div>
@@ -231,7 +240,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C04')">C04</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C04" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C04">
 <div class="font-semibold mb-1">C04 - Jinil 1'Stec Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>檢測儀器</div>
@@ -240,7 +249,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C05')">C05</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C05" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C05">
 <div class="font-semibold mb-1">C05 - YOUNG JOONG IND Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>無資料</div>
@@ -249,7 +258,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C06')">C06</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C06" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C06">
 <div class="font-semibold mb-1">C06 - T.I.CORPORATION</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>無資料</div>
@@ -258,7 +267,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C07')">C07</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C07" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C07">
 <div class="font-semibold mb-1">C07 - GLOS Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>顯示器、自動化零件</div>
@@ -267,7 +276,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C08')">C08</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C08" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C08">
 <div class="font-semibold mb-1">C08 - BEST ENGINEERING</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>岔心、軌道配件</div>
@@ -276,7 +285,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C09')">C09</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C09" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C09">
 <div class="font-semibold mb-1">C09 - WOOJAE</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>空間設計</div>
@@ -285,7 +294,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C10')">C10</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C10" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C10">
 <div class="font-semibold mb-1">C10 - Roxtec Korea</div>
 <div><span class="font-medium">國家/地區：</span>瑞典〈韓〉</div>
 <div><span class="font-medium">主要產品：</span>電纜/管線穿隔密封模組</div>
@@ -294,7 +303,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C11')">C11</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C11" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C11">
 <div class="font-semibold mb-1">C11 - GMTECH Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>鋼構設備</div>
@@ -303,7 +312,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C12')">C12</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C12" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C12">
 <div class="font-semibold mb-1">C12 - WAINKOREA</div>
 <div><span class="font-medium">國家/地區：</span>無資料</div>
 <div><span class="font-medium">主要產品：</span>無資料</div>
@@ -312,7 +321,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C13')">C13</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C13" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C13">
 <div class="font-semibold mb-1">C13 - Korea Petroleum</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>石油產品、化工品</div>
@@ -321,7 +330,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C14')">C14</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C14" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C14">
 <div class="font-semibold mb-1">C14 - Elthus T&amp;L</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>施工維修工具、車輛組裝工具</div>
@@ -330,7 +339,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C15')">C15</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C15" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C15">
 <div class="font-semibold mb-1">C15 - NAWOO Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>非破壞檢測NTD工具</div>
@@ -339,7 +348,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C16')">C16</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C16" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C16">
 <div class="font-semibold mb-1">C16 - ZEECOM</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>測量系統、開關、感測器</div>
@@ -348,7 +357,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C17')">C17</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C17" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C17">
 <div class="font-semibold mb-1">C17 - DNV Business Assurance Korea</div>
 <div><span class="font-medium">國家/地區：</span>挪威〈韓〉</div>
 <div><span class="font-medium">主要產品：</span>系統安全/功能安全認證</div>
@@ -357,7 +366,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C18')">C18</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C18" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C18">
 <div class="font-semibold mb-1">C18 - Schaltbau Korea Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>德國〈韓〉</div>
 <div><span class="font-medium">主要產品：</span>DC接觸器、UIC連接器</div>
@@ -366,7 +375,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C19')">C19</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C19" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C19">
 <div class="font-semibold mb-1">C19 - CEL‑BIO KUBE Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>環保潤滑油、生質清潔劑</div>
@@ -375,7 +384,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C20')">C20</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C20" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C20">
 <div class="font-semibold mb-1">C20 - BP Intelligent Mechanics</div>
 <div><span class="font-medium">國家/地區：</span>中國</div>
 <div><span class="font-medium">主要產品：</span>檢測機器人、AI缺陷判讀</div>
@@ -384,7 +393,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C21')">C21</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C21" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C21">
 <div class="font-semibold mb-1">C21 - TILC Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>技術諮詢與工程服務</div>
@@ -393,7 +402,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C22')">C22</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C22" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C22">
 <div class="font-semibold mb-1">C22 - Rehau &amp; Chunho Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>德國/韓國</div>
 <div><span class="font-medium">主要產品：</span>無資料</div>
@@ -402,7 +411,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-sky-200 w-full" onclick="toggleInfo('C23')">C23</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-C23" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-C23">
 <div class="font-semibold mb-1">C23 - RM</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>地板材料</div>
@@ -416,7 +425,7 @@ function searchBooths() {
 <div class="mt-1 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D01')">D01</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D01" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D01">
 <div class="font-semibold mb-1">D01 - NEOPIS CO.,LTD.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>車載顯示器、工業顯示解決方案</div>
@@ -425,7 +434,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D02')">D02</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D02" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D02">
 <div class="font-semibold mb-1">D02 - NATIONALGEOGRAPHIC</div>
 <div><span class="font-medium">國家/地區：</span>無</div>
 <div><span class="font-medium">主要產品：</span>無資料</div>
@@ -434,7 +443,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D03')">D03</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D03" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D03">
 <div class="font-semibold mb-1">D03 - TJT PLUS CO., LTD.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>非導電強化型液體滅火器</div>
@@ -443,7 +452,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D04')">D04</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D04" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D04">
 <div class="font-semibold mb-1">D04 - PRIMET&amp;R Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>轉向架零件、盤形煞車</div>
@@ -452,7 +461,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D05')">D05</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D05" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D05">
 <div class="font-semibold mb-1">D05 - GLOSYS</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>TFT LCD 顯示器</div>
@@ -461,7 +470,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D06')">D06</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D06" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D06">
 <div class="font-semibold mb-1">D06 - Thomas Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>工業用電纜、線束系統</div>
@@ -470,7 +479,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D08')">D08</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D08" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D08">
 <div class="font-semibold mb-1">D08 - Belden</div>
 <div><span class="font-medium">國家/地區：</span>美國〈星〉</div>
 <div><span class="font-medium">主要產品：</span>工業通訊線纜、網路解決方案</div>
@@ -479,7 +488,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D09')">D09</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D09" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D09">
 <div class="font-semibold mb-1">D09 - Kyoungseong Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>重軌系統、救援工具</div>
@@ -488,7 +497,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D10')">D10</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D10" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D10">
 <div class="font-semibold mb-1">D10 - Innovation &amp; Created Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>通訊半導體、電弧偵測模組</div>
@@ -497,7 +506,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D11')">D11</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D11" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D11">
 <div class="font-semibold mb-1">D11 - NST</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>網路交換器</div>
@@ -506,7 +515,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D12')">D12</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D12" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D12">
 <div class="font-semibold mb-1">D12 - O‑Sung Electric Machinery Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>ATS/ACB斷路器、微電機</div>
@@ -515,7 +524,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D13')">D13</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D13" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D13">
 <div class="font-semibold mb-1">D13 - DO IT Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>安全監控、重工業現場自動化</div>
@@ -524,7 +533,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D14')">D14</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D14" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D14">
 <div class="font-semibold mb-1">D14 - KATEM Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>KTX列車傳動軸、煞車盤</div>
@@ -533,7 +542,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D15')">D15</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D15" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D15">
 <div class="font-semibold mb-1">D15 - Consilium Korea</div>
 <div><span class="font-medium">國家/地區：</span>瑞典</div>
 <div><span class="font-medium">主要產品：</span>火警/氣體偵測系統</div>
@@ -542,7 +551,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D16')">D16</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D16" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D16">
 <div class="font-semibold mb-1">D16 - Gaius Industrial Systems Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>HSCB、變壓器</div>
@@ -551,7 +560,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D17')">D17</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D17" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D17">
 <div class="font-semibold mb-1">D17 - JKTECH GLOBAL</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>電源模組與轉換器</div>
@@ -560,7 +569,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D18')">D18</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D18" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D18">
 <div class="font-semibold mb-1">D18 - MBST Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>鐵路公路兩用車、車輛零件</div>
@@ -569,7 +578,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D19')">D19</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D19" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D19">
 <div class="font-semibold mb-1">D19 - EVLUBE</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>工業潤滑油、機械用油</div>
@@ -578,7 +587,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D20')">D20</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D20" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D20">
 <div class="font-semibold mb-1">D20 - Sécheron SA</div>
 <div><span class="font-medium">國家/地區：</span>瑞士</div>
 <div><span class="font-medium">主要產品：</span>電氣開關、電力設備</div>
@@ -587,7 +596,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D21')">D21</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D21" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D21">
 <div class="font-semibold mb-1">D21 - Sampyo Railway</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>軌道材料、轉轍器</div>
@@ -596,7 +605,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D22')">D22</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D22" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D22">
 <div class="font-semibold mb-1">D22 - WISKA Korea Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>德國〈韓〉</div>
 <div><span class="font-medium">主要產品：</span>工業連接器、照明</div>
@@ -605,7 +614,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D23')">D23</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D23" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D23">
 <div class="font-semibold mb-1">D23 - PROTECH</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>馬達控制系統</div>
@@ -614,7 +623,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D24')">D24</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D24" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D24">
 <div class="font-semibold mb-1">D24 - Cincon Electronics Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>台灣</div>
 <div><span class="font-medium">主要產品：</span>EN 50155 DC/DC轉換器</div>
@@ -623,7 +632,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D25')">D25</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D25" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D25">
 <div class="font-semibold mb-1">D25 - Daeyang Electric Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>控制盤、配電盤、照明 </div>
@@ -632,7 +641,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D26')">D26</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D26" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D26">
 <div class="font-semibold mb-1">D26 - Gaepoong Electronics Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>HMI</div>
@@ -641,7 +650,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D27')">D27</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D27" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D27">
 <div class="font-semibold mb-1">D27 - Joowon Industrial Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>環境與設施監控系統、工業測試儀</div>
@@ -650,7 +659,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D28')">D28</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D28" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D28">
 <div class="font-semibold mb-1">D28 - ANTS Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>PA/PIS、CCTV</div>
@@ -659,7 +668,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D29')">D29</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D29" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D29">
 <div class="font-semibold mb-1">D29 - EoneTNC</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>無資料</div>
@@ -668,7 +677,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-red-200 w-full" onclick="toggleInfo('D30')">D30</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-D30" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-D30">
 <div class="font-semibold mb-1">D30 - Rail Economy News</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>鐵道專業媒體</div>
@@ -682,7 +691,7 @@ function searchBooths() {
 <div class="mt-1 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E01')">E01</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-E01" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E01">
 <div class="font-semibold mb-1">E01 - HS ENGINEERING</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>乙太交換器、無線通訊設備</div>
@@ -691,7 +700,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E03')">E03</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-E03" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E03">
 <div class="font-semibold mb-1">E03 - ONESERVICE</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>無資料</div>
@@ -700,7 +709,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E05')">E05</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-E05" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E05">
 <div class="font-semibold mb-1">E05 - Korea Rolling Stock Industries Association (KORSIA)</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>產業協會推廣</div>
@@ -709,7 +718,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E08')">E08</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-E08" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E08">
 <div class="font-semibold mb-1">E08 - P-DUKE POWER</div>
 <div><span class="font-medium">國家/地區：</span>台灣</div>
 <div><span class="font-medium">主要產品：</span>AC/DC、DC/DC電源轉換器</div>
@@ -718,7 +727,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E09')">E09</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-E09" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E09">
 <div class="font-semibold mb-1">E09 - ICK</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>無資料</div>
@@ -727,7 +736,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E10')">E10</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-E10" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E10">
 <div class="font-semibold mb-1">E10 - Yooksong Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>消防栓、滅火器、閥件</div>
@@ -736,7 +745,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E11')">E11</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-E11" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E11">
 <div class="font-semibold mb-1">E11 - Yujin Machinery Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>煞車、聯結器、車門控制</div>
@@ -745,7 +754,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E12')">E12</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-E12" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E12">
 <div class="font-semibold mb-1">E12 - WeZON</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>IoT Gateways、車載數據平台</div>
@@ -754,7 +763,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E13')">E13</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-E13" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E13">
 <div class="font-semibold mb-1">E13 - FOGTEC Brandschutz GmbH</div>
 <div><span class="font-medium">國家/地區：</span>德國</div>
 <div><span class="font-medium">主要產品：</span>火災偵測、滅火系統</div>
@@ -763,7 +772,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E14')">E14</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-E14" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E14">
 <div class="font-semibold mb-1">E14 - Linsinger Maschinenbau GmbH</div>
 <div><span class="font-medium">國家/地區：</span>奧地利</div>
 <div><span class="font-medium">主要產品：</span>鋼軌銑削車</div>
@@ -772,7 +781,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E15')">E15</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-E15" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E15">
 <div class="font-semibold mb-1">E15 - Suzhou DONEKA</div>
 <div><span class="font-medium">國家/地區：</span>中國</div>
 <div><span class="font-medium">主要產品：</span>集電弓碳刷</div>
@@ -781,7 +790,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E16')">E16</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-E16" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E16">
 <div class="font-semibold mb-1">E16 - CRRC</div>
 <div><span class="font-medium">國家/地區：</span>中國</div>
 <div><span class="font-medium">主要產品：</span>高速列車、地鐵車輛</div>
@@ -790,7 +799,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E17')">E17</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-E17" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E17">
 <div class="font-semibold mb-1">E17 - Henan QiangLi Machinery</div>
 <div><span class="font-medium">國家/地區：</span>中國</div>
 <div><span class="font-medium">主要產品：</span>軌道維修機具</div>
@@ -799,7 +808,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E18')">E18</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-E18" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E18">
 <div class="font-semibold mb-1">E18 - KR Trading</div>
 <div><span class="font-medium">國家/地區：</span>無資料</div>
 <div><span class="font-medium">主要產品：</span>無資料</div>
@@ -808,7 +817,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E19')">E19</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-E19" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E19">
 <div class="font-semibold mb-1">E19 - DEWALT</div>
 <div><span class="font-medium">國家/地區：</span>美國</div>
 <div><span class="font-medium">主要產品：</span>電動工具</div>
@@ -817,7 +826,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E20')">E20</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-E20" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E20">
 <div class="font-semibold mb-1">E20 - GERB Korea</div>
 <div><span class="font-medium">國家/地區：</span>德國〈韓〉</div>
 <div><span class="font-medium">主要產品：</span>減振彈簧座、FST</div>
@@ -826,7 +835,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E21')">E21</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-E21" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E21">
 <div class="font-semibold mb-1">E21 - UNIVIS Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>緊急照明、感光控制燈</div>
@@ -835,7 +844,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E22')">E22</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-E22" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E22">
 <div class="font-semibold mb-1">E22 - Korea Institute of Machinery &amp; Materials (KIMM)</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>軌道技術研發、車輛與軌道相關檢測</div>
@@ -844,7 +853,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-yellow-200 w-full" onclick="toggleInfo('E23')">E23</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-E23" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-E23">
 <div class="font-semibold mb-1">E23 - KAPST/SAFE-NET FORUM</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>鐵道通訊標準FRMCS推廣</div>
@@ -858,7 +867,7 @@ function searchBooths() {
 <div class="mt-1 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F01')">F01</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-F01" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F01">
 <div class="font-semibold mb-1">F01 - TÜV SÜD Korea Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>德國〈韓〉</div>
 <div><span class="font-medium">主要產品：</span>系統安全與功能安全認證</div>
@@ -867,7 +876,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F02')">F02</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-F02" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F02">
 <div class="font-semibold mb-1">F02 - SIB Korea</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>LBS、隔離開關</div>
@@ -876,7 +885,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F03')">F03</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-F03" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F03">
 <div class="font-semibold mb-1">F03 - VIB‑LOCK Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>振動隔離墊</div>
@@ -885,7 +894,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F04')">F04</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-F04" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F04">
 <div class="font-semibold mb-1">F04 - Railroad Industry Inc.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>研究機構</div>
@@ -894,7 +903,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F05')">F05</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-F05" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F05">
 <div class="font-semibold mb-1">F05 - Kefei(Quantum)</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>無資料</div>
@@ -903,7 +912,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F06')">F06</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-F06" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F06">
 <div class="font-semibold mb-1">F06 - Romansys Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>客貨車車體製造與翻修</div>
@@ -912,7 +921,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F07')">F07</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-F07" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F07">
 <div class="font-semibold mb-1">F07 - JST Transformateurs</div>
 <div><span class="font-medium">國家/地區：</span>法國</div>
 <div><span class="font-medium">主要產品：</span>變壓器、電源設備</div>
@@ -921,7 +930,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F08')">F08</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-F08" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F08">
 <div class="font-semibold mb-1">F08 - Longhua Technology Group</div>
 <div><span class="font-medium">國家/地區：</span>中國</div>
 <div><span class="font-medium">主要產品：</span>車輛用電氣設備、電源系統</div>
@@ -930,7 +939,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F09')">F09</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-F09" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F09">
 <div class="font-semibold mb-1">F09 - Jiangsu Tie Mao Technology</div>
 <div><span class="font-medium">國家/地區：</span>中國</div>
 <div><span class="font-medium">主要產品：</span>車窗安全玻璃</div>
@@ -939,7 +948,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F10')">F10</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-F10" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F10">
 <div class="font-semibold mb-1">F10 - InnoTrans 2026</div>
 <div><span class="font-medium">國家/地區：</span>德國</div>
 <div><span class="font-medium">主要產品：</span>國際鐵道展宣傳</div>
@@ -948,7 +957,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F11')">F11</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-F11" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F11">
 <div class="font-semibold mb-1">F11 - Railway Gazette International</div>
 <div><span class="font-medium">國家/地區：</span>英國</div>
 <div><span class="font-medium">主要產品：</span>專業媒體、數據服務</div>
@@ -957,7 +966,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F12')">F12</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-F12" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F12">
 <div class="font-semibold mb-1">F12 - Zhengzhou Mingtai Transportation New Material</div>
 <div><span class="font-medium">國家/地區：</span>中國</div>
 <div><span class="font-medium">主要產品：</span>鋁合金車體板材</div>
@@ -966,7 +975,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F13')">F13</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-F13" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F13">
 <div class="font-semibold mb-1">F13 - IWMT Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>再生塑膠枕木</div>
@@ -975,7 +984,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F14')">F14</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-F14" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F14">
 <div class="font-semibold mb-1">F14 - Sean Inc.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>焊接件、減振部件</div>
@@ -984,7 +993,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-purple-200 w-full" onclick="toggleInfo('F15')">F15</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-F15" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-F15">
 <div class="font-semibold mb-1">F15 - KOREA RAILWAY INDUSTRY INFORMATION CENTER</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>鐵道產業資訊</div>
@@ -998,7 +1007,7 @@ function searchBooths() {
 <div class="mt-1 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-1">
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G01')">G01</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-G01" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G01">
 <div class="font-semibold mb-1">G01 - 宇進產電(Woojin Industrial Systems)</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>地鐵與輕軌車輛</div>
@@ -1007,7 +1016,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G02')">G02</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-G02" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G02">
 <div class="font-semibold mb-1">G02 - BUSAN METROPOLITAN RAILWAY PROMOTION BOOTH</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>宣傳用展位</div>
@@ -1016,7 +1025,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G03')">G03</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-G03" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G03">
 <div class="font-semibold mb-1">G03 - Korea Railroad Research Institute (KRRI)</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>鐵道技術研發</div>
@@ -1025,7 +1034,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G04')">G04</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-G04" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G04">
 <div class="font-semibold mb-1">G04 - Busan Transportation Corporation</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>城市地鐵營運與維修</div>
@@ -1034,7 +1043,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G05')">G05</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-G05" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G05">
 <div class="font-semibold mb-1">G05 - 韓國鐵道公社(KORAIL)</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>鐵路建設與維護</div>
@@ -1043,7 +1052,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G06')">G06</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-G06" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G06">
 <div class="font-semibold mb-1">G06 - 國家鐵道公團(Korea National Railway)</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>產業協會、國際推廣</div>
@@ -1052,7 +1061,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G07')">G07</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-G07" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G07">
 <div class="font-semibold mb-1">G07 - Korea Railway Industry Association</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>產業政策協調、國際推廣</div>
@@ -1061,7 +1070,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G08-1')">G08-1</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-G08-1" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G08-1">
 <div class="font-semibold mb-1">G08-1 - Asiatech Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>車輪</div>
@@ -1070,7 +1079,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G08-2')">G08-2</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-G08-2" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G08-2">
 <div class="font-semibold mb-1">G08-2 - Herostech Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>伸縮踏板</div>
@@ -1079,7 +1088,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G08-3')">G08-3</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-G08-3" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G08-3">
 <div class="font-semibold mb-1">G08-3 - Shh Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>無資料</div>
@@ -1088,7 +1097,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G08-4')">G08-4</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-G08-4" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G08-4">
 <div class="font-semibold mb-1">G08-4 - Vickham Engineering Pvt. Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>無資料</div>
@@ -1097,7 +1106,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G09')">G09</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-G09" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G09">
 <div class="font-semibold mb-1">G09 - KORAIL Retail</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>鐵道相關商品販售</div>
@@ -1106,7 +1115,7 @@ function searchBooths() {
 </div>
 <div class="relative">
 <button class="p-2 text-xs border border-blue-500 rounded hover:brightness-110 bg-gray-200 w-full" onclick="toggleInfo('G10')">G10</button>
-<div class="absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full transition-all duration-300 ease-in-out rounded shadow text-sm text-gray-700 mt-2 hidden" id="popup-G10" style="max-height: 400px; overflow-y: auto; padding: 1rem; background-color: #f9fafb; border: 1px solid #ccc;">
+<div class="hidden absolute z-10 mt-1 bg-white border border-blue-300 rounded shadow-md text-xs text-gray-800 p-3 w-full" id="popup-G10">
 <div class="font-semibold mb-1">G10 - SaeYoung Technologies Co., Ltd.</div>
 <div><span class="font-medium">國家/地區：</span>韓國</div>
 <div><span class="font-medium">主要產品：</span>鐵道車輛用監控、感測器、安全設備（與德國Deuta-Werke合作）</div>
@@ -1116,36 +1125,5 @@ function searchBooths() {
 </div>
 </div>
 </div>
-<script>
-function showInfo(id) {
-  const allPopups = document.querySelectorAll('[id^="popup-"]');
-  allPopups.forEach(p => p.classList.add("hidden"));
-
-  const target = document.getElementById("popup-" + id);
-  if (target) {
-    target.classList.remove("hidden");
-    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
-}
-</script><script>
-function toggleInfo(boothId) {
-  const popup = document.getElementById("popup-" + boothId);
-  if (!popup) return;
-
-  const allPopups = document.querySelectorAll('[id^="popup-"]');
-  allPopups.forEach(el => {
-    el.classList.add("hidden");
-    el.style.display = "none";
-  });
-
-  if (popup.classList.contains("hidden")) {
-    popup.classList.remove("hidden");
-    popup.style.display = "block";
-    popup.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  } else {
-    popup.classList.add("hidden");
-    popup.style.display = "none";
-  }
-}
-</script></body>
+</body>
 </html>
